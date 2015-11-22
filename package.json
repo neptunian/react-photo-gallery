@@ -1,0 +1,41 @@
+{
+  "name": "react-photo-gallery",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Response React Photo Gallery Component",
+  "main": "lib/Gallery.js",
+  "author": "Sandy Gonzales",
+  "license": "MIT",
+  "homepage": "https://github.com/neptunian/react-photo-gallery",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neptunian/react-photo-gallery.git"
+  },
+  "bugs": {
+    "url": "https://github.com/neptunian/react-photo-gallery/issues"
+  },
+  "dependencies": {
+    "react": "^0.12.2",
+    "reactify": "^0.17.1"
+  },
+  "devDependencies": {
+    "react-component-gulp-tasks": "^0.1.1",
+    "gulp": "^3.8.10"
+  },
+  "browser": "src/AutosizeInput.js",
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
+  },
+  "browserify-shim": {
+    "react": "global:React"
+  },
+  "scripts": {
+    "test": "echo \"no tests yet\" && exit 0"
+  },
+  "keywords": [
+    "react",
+    "react-component"
+  ]
+}
