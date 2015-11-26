@@ -15,15 +15,18 @@
     "url": "https://github.com/neptunian/react-photo-gallery/issues"
   },
   "dependencies": {
-    "react-dom": "^0.14.2"
+    "react-dom": "^0.14.2",
+    "react-images": "^0.1.0"
   },
   "devDependencies": {
-    "react": ">=0.14",
     "babel": "^5.8.21",
     "babel-eslint": "^4.0.10",
     "eslint": "^1.2.1",
     "eslint-plugin-react": "^3.2.3",
     "gulp": "^3.9.0",
+    "jquery": "^2.1.4",
+    "lodash": "^3.10.1",
+    "react": ">=0.14",
     "react-component-gulp-tasks": "^0.7.0"
   },
   "peerDependencies": {
