@@ -7,7 +7,7 @@ import _ from 'lodash';
 
 var App = React.createClass({
     getInitialState: function(){
-        return {photos:null, pageNum:1, photosPerPage:21, containerWidth:0};
+        return {photos:null, pageNum:1, containerWidth:0};
     },
     componentDidMount: function() {
         this.loadMorePhotos();
@@ -25,10 +25,12 @@ var App = React.createClass({
         }
 
         $.ajax({
+          url: 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=&user_id=57933175@N08&format=json&per_page=21&page='+this.state.pageNum+'&extras=url_o, url_m',
           dataType: 'jsonp',
           jsonpCallback: 'jsonFlickrApi',
           cache: false,
           success: function(data) {
+	    console.log(data.photos.photo);
             if (this.state.photos){ // if not null (not first load)
                 this.setState({
                     photos: this.state.photos.concat(data.photos.photo),
@@ -54,7 +56,7 @@ var App = React.createClass({
             return(
 		<div className="App">
 		    <div id="GalleryView" ref="galleryCont">
-			<Gallery data={this.state.photos} pageNum={this.state.pageNum} photosPerPage={this.state.photosPerPage} containerWidth={this.state.containerWidth}/>
+			<Gallery data={this.state.photos} pageNum={this.state.pageNum} containerWidth={this.state.containerWidth}/>
 			<div className="loading-msg" id="msg-loading-more">Loading</div>
 		    </div>
 		</div>
