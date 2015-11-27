@@ -12379,7 +12379,6 @@ var Gallery = _react2['default'].createClass({
     displayName: 'Gallery',
     getInitialState: function getInitialState() {
         return {
-            photos: null,
             containerWidth: this.props.containerWidth
         };
     },
@@ -12407,8 +12406,7 @@ var Gallery = _react2['default'].createClass({
         var rowLimit = 1,
             contWidth = this.state.containerWidth - rowLimit * 4,
             /* 4px for margin around each image*/
-        photoPreviewNodes = [],
-            photosBig = [];
+        photoPreviewNodes = [];
         // calculate the right photo index to start looping thru based on the page
         // i dont think i need photoNum because its only looping thru NEW images?  im not sure.
         // but might need to change i so it doesnt loop thru the entire list again
@@ -12433,7 +12431,7 @@ var Gallery = _react2['default'].createClass({
                 if (j == this.props.data.length) {
                     break;
                 }
-                ar = parseFloat(this.props.data[j].width_o / this.props.data[j].height_o);
+                ar = parseFloat(this.props.data[j].width / this.props.data[j].height);
                 totalAr += ar;
                 this.props.data[j].ar = ar;
             }
@@ -12444,14 +12442,10 @@ var Gallery = _react2['default'].createClass({
                     break;
                 }
                 // gallery image
-                var src = 'https://farm4.staticflickr.com/' + this.props.data[k].server + '/' + this.props.data[k].id + '_' + this.props.data[k].secret + '.jpg';
-                // lightbox urls for react-images array
-                var src_b = 'https://farm4.staticflickr.com/' + this.props.data[k].server + '/' + this.props.data[k].id + '_' + this.props.data[k].secret + '_b.jpg';
-                console.log(this.props.data[k].url_m);
-                photosBig.push(src_b);
+                var src = this.props.data[k].gallery_src;
                 photoPreviewNodes.push(_react2['default'].createElement(
                     'div',
-                    { className: 'PhotoPreview' },
+                    { key: k, className: 'PhotoPreview' },
                     _react2['default'].createElement(
                         'a',
                         { href: '#', className: k, onClick: this.openLightbox.bind(this, k) },
@@ -12465,7 +12459,7 @@ var Gallery = _react2['default'].createClass({
             { id: 'Gallery', className: 'clearfix' },
             photoPreviewNodes,
             _react2['default'].createElement(_reactImages2['default'], {
-                images: photosBig,
+                images: this.props.data,
                 initialImage: this.state.lightboxInitialImage,
                 isOpen: this.state.lightboxIsOpen,
                 onClose: this.closeLightbox,
