@@ -7,7 +7,7 @@ import _ from 'lodash';
 
 var App = React.createClass({
     getInitialState: function(){
-        return {photos:null, pageNum:1, containerWidth:0};
+        return {photos:null, pageNum:1};
     },
     componentDidMount: function() {
         this.loadMorePhotos();
@@ -34,7 +34,6 @@ var App = React.createClass({
 	    this.setState({
 		photos: this.state.photos ? this.state.photos.concat(photos) : photos,
 		pageNum: this.state.pageNum + 1,
-		containerWidth: ReactDOM.findDOMNode(this).clientWidth
 	    });
           }.bind(this),
           error: function(xhr, status, err) {
@@ -47,7 +46,7 @@ var App = React.createClass({
             return(
 		<div className="App">
 		    <div id="GalleryView" ref="galleryCont">
-			<Gallery data={this.state.photos} containerWidth={this.state.containerWidth}/>
+			<Gallery data={this.state.photos} />
 			<div className="loading-msg" id="msg-loading-more">Loading</div>
 		    </div>
 		</div>

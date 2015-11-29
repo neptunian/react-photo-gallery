@@ -8,10 +8,11 @@ var Gallery = React.createClass({
     getInitialState: function(){
         return {
 	    currentImage: 0,
-	    containerWidth: this.props.containerWidth
+	    containerWidth: 0
 	}
     },
     componentDidMount: function(){
+        this.setState({containerWidth: ReactDOM.findDOMNode(this).clientWidth});
         this.handleResize = _.debounce(this.handleResize, 400);
         window.addEventListener('resize', this.handleResize);
     },
