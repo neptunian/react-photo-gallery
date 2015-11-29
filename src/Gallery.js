@@ -77,6 +77,7 @@ var Gallery = React.createClass({
                 );
             }
         }
+	console.log(this.props.data);
 	return(
             <div id="Gallery" className="clearfix">
                 {photoPreviewNodes}
@@ -95,8 +96,12 @@ var Gallery = React.createClass({
     }
 
 });
-
-const styles={
-
-}
+const styles = Lightbox.extendStyles({
+    backdrop: {
+        backgroundColor: 'rgba(0,0,0,1)',
+    },
+    dialog:{
+        maxHeight: '90%'
+    }
+});
 module.exports = Gallery;
