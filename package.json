@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "react-dom": "^0.14.2",
-    "react-images": "^0.1.0"
+    "react-images": "^0.2.1"
   },
   "devDependencies": {
     "babel": "^5.8.21",

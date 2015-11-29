@@ -7,6 +7,7 @@ var Gallery = React.createClass({
     displayName: 'Gallery',
     getInitialState: function(){
         return {
+	    currentImage: 0,
 	    containerWidth: this.props.containerWidth
 	}
     },
@@ -20,17 +21,28 @@ var Gallery = React.createClass({
     openLightbox (index, event) {
         event.preventDefault();
         this.setState({
-            lightboxIsOpen: true,
-            lightboxInitialImage: index,
+	    currentImage: index,
+            lightboxIsOpen: true
         });
     },
     closeLightbox () {
         this.setState({
+	    currentImage: 0,
             lightboxIsOpen: false,
         });
     },
+    gotoPrevious () {
+	this.setState({
+	    currentImage: this.state.currentImage - 1,
+	});
+    },
+    gotoNext () {
+	this.setState({
+	    currentImage: this.state.currentImage + 1,
+	});
+    },
     render: function(){
-	        // manipulate height and width data before creating PhotoPreview nodes
+	// manipulate height and width data before creating PhotoPreview nodes
         var rowLimit = 1,
             contWidth = this.state.containerWidth - (rowLimit * 4) /* 4px for margin around each image*/,
             photoPreviewNodes = [];
@@ -77,15 +89,16 @@ var Gallery = React.createClass({
                 );
             }
         }
-	console.log(this.props.data);
 	return(
             <div id="Gallery" className="clearfix">
                 {photoPreviewNodes}
                 <Lightbox
+		    currentImage={this.state.currentImage}
                     images={this.props.data}
-                    initialImage={this.state.lightboxInitialImage}
                     isOpen={this.state.lightboxIsOpen}
                     onClose={this.closeLightbox}
+		    onClickPrev={this.gotoPrevious}
+		    onClickNext={this.gotoNext}
                     width={1600}
                     height={1600}
                     styles={styles}
