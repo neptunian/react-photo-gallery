@@ -71,9 +71,7 @@ var Gallery = React.createClass({
                 if (j == this.props.data.length){
                     break;
                 }
-                ar=parseFloat(this.props.data[j].width / this.props.data[j].height);
-                totalAr += ar;
-                this.props.data[j].ar=ar;
+		totalAr += this.props.data[j].ar;
             }
             commonHeight = contWidth / totalAr;
             // run thru the same set of items again to give the common height

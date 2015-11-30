@@ -30,7 +30,16 @@ var App = React.createClass({
           jsonpCallback: 'jsonFlickrApi',
           cache: false,
           success: function(data) {
-	    let photos = data.photos.photo.map( (obj, i) => ({gallery_src: obj.url_m, src: obj.url_l, width: obj.width_o, height: obj.height_o}));
+            let photos = data.photos.photo.map(function(obj,i){
+                let ar = parseFloat(obj.width_o / obj.height_o);
+                return {
+                    gallery_src: obj.url_m,
+                    src: obj.url_l,
+                    width: obj.width_o,
+                    height: obj.height_o,
+                    ar: ar
+                };
+            });
 	    this.setState({
 		photos: this.state.photos ? this.state.photos.concat(photos) : photos,
 		pageNum: this.state.pageNum + 1,
