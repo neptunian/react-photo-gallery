@@ -25,12 +25,12 @@ var App = React.createClass({
         }
 
         $.ajax({
-          url: 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=372ef3a005d9b9df062b8240c326254d&user_id=57933175@N08&format=json&per_page=21&page='+this.state.pageNum+'&extras=url_o,url_m,url_l',
+          url: 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=372ef3a005d9b9df062b8240c326254d&photoset_id=72157631971715898&user_id=57933175@N08&format=json&per_page=21&page='+this.state.pageNum+'&extras=url_o,url_m,url_l',
           dataType: 'jsonp',
           jsonpCallback: 'jsonFlickrApi',
           cache: false,
           success: function(data) {
-            let photos = data.photos.photo.map(function(obj,i){
+            let photos = data.photoset.photo.map(function(obj,i){
                 let ar = parseFloat(obj.width_o / obj.height_o);
                 return {
                     gallery_src: obj.url_m,
