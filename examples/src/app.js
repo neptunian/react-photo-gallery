@@ -55,7 +55,7 @@ var App = React.createClass({
             return(
 		<div className="App">
 		    <div id="GalleryView" ref="galleryCont">
-			<Gallery data={this.state.photos} />
+			<Gallery photos={this.state.photos} />
 			<div className="loading-msg" id="msg-loading-more">Loading</div>
 		    </div>
 		</div>

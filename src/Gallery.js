@@ -60,7 +60,7 @@ var Gallery = React.createClass({
             contWidth = this.state.containerWidth - (rowLimit * 4); /* 4px for margin around each image*/
         }
         contWidth = Math.ceil(contWidth - 2); // subtract a couple pixels for unknown issue where line breaks in certain breakpoints.  this gives container some "padding"
-        for (var i=0;i<this.props.data.length;i+=rowLimit){
+        for (var i=0;i<this.props.photos.length;i+=rowLimit){
             var rowItems = [];
             // loop thru each set of rowLimit num
             // eg. if rowLimit is 3 it will  loop thru 0,1,2, then 3,4,5 to perform calculations for the particular set
@@ -68,22 +68,22 @@ var Gallery = React.createClass({
                 totalAr=0,
                 commonHeight = 0;
             for (var j=i; j<i+rowLimit; j++){
-                if (j == this.props.data.length){
+                if (j == this.props.photos.length){
                     break;
                 }
-		totalAr += this.props.data[j].ar;
+		totalAr += this.props.photos[j].ar;
             }
             commonHeight = contWidth / totalAr;
             // run thru the same set of items again to give the common height
             for (var k=i; k<i+rowLimit; k++){
-                if (k == this.props.data.length){
+                if (k == this.props.photos.length){
                     break;
                 }
                 // gallery image
-		var src = this.props.data[k].gallery_src;
+		var src = this.props.photos[k].gallery_src;
                 photoPreviewNodes.push(
                      <div key={k} className='PhotoPreview'>
-                        <a href="#" className={k} onClick={this.openLightbox.bind(this, k)}><img src={src} height={commonHeight} width={commonHeight * this.props.data[k].ar} alt="" /></a>
+                        <a href="#" className={k} onClick={this.openLightbox.bind(this, k)}><img src={src} height={commonHeight} width={commonHeight * this.props.photos[k].ar} alt="" /></a>
                      </div>
                 );
             }
@@ -93,7 +93,7 @@ var Gallery = React.createClass({
                 {photoPreviewNodes}
                 <Lightbox
 		    currentImage={this.state.currentImage}
-                    images={this.props.data}
+                    images={this.props.photos}
                     isOpen={this.state.lightboxIsOpen}
                     onClose={this.closeLightbox}
 		    onClickPrev={this.gotoPrevious}
