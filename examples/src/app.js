@@ -35,8 +35,8 @@ var App = React.createClass({
                 return {
                     gallery_src: obj.url_m,
                     src: obj.url_l,
-                    width: obj.width_o,
-                    height: obj.height_o,
+                    width: parseInt(obj.width_o),
+                    height: parseInt(obj.height_o),
                     ar: ar
                 };
             });

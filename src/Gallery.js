@@ -5,6 +5,18 @@ import _ from 'lodash';
 
 var Gallery = React.createClass({
     displayName: 'Gallery',
+    propTypes:{
+        photos: React.PropTypes.arrayOf(
+            React.PropTypes.shape({
+                gallery_src: React.PropTypes.string.isRequired,
+                src: React.PropTypes.string.isRequired,
+                srcset: React.PropTypes.array,
+                width: React.PropTypes.number.isRequired,
+                height: React.PropTypes.number.isRequired,
+                ar: React.PropTypes.number.isRequired
+            })
+        ).isRequired,
+    },
     getInitialState: function(){
         return {
 	    currentImage: 0,
