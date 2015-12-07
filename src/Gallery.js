@@ -55,19 +55,14 @@ var Gallery = React.createClass({
 	});
     },
     render: function(){
-	// manipulate height and width data before creating PhotoPreview nodes
         var rowLimit = 1,
             contWidth = this.state.containerWidth - (rowLimit * 4) /* 4px for margin around each image*/,
             photoPreviewNodes = [];
-            // calculate the right photo index to start looping thru based on the page
-            // i dont think i need photoNum because its only looping thru NEW images?  im not sure.
-            // but might need to change i so it doesnt loop thru the entire list again
-        // loop through each rowLimit (nth) node
-        if (window.matchMedia('(min-width: 480px)').matches){
+        if (this.state.containerWidth >= 480){
             rowLimit = 2;
             contWidth = this.state.containerWidth - (rowLimit * 4); /* 4px for margin around each image*/
         }
-        if (window.matchMedia('(min-width: 1024px)').matches){
+        if (this.state.containerWidth >= 1024){{
             rowLimit = 3;
             contWidth = this.state.containerWidth - (rowLimit * 4); /* 4px for margin around each image*/
         }
@@ -91,7 +86,6 @@ var Gallery = React.createClass({
                 if (k == this.props.photos.length){
                     break;
                 }
-                // gallery image
 		var src = this.props.photos[k].gallery_src;
                 photoPreviewNodes.push(
                      <div key={k} className='PhotoPreview'>
@@ -116,9 +110,7 @@ var Gallery = React.createClass({
                 />
             </div>
         );
-
     }
-
 });
 const styles = Lightbox.extendStyles({
     backdrop: {
