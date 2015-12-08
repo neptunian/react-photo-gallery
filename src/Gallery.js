@@ -62,7 +62,7 @@ var Gallery = React.createClass({
             rowLimit = 2;
             contWidth = this.state.containerWidth - (rowLimit * 4); /* 4px for margin around each image*/
         }
-        if (this.state.containerWidth >= 1024){{
+        if (this.state.containerWidth >= 1024){
             rowLimit = 3;
             contWidth = this.state.containerWidth - (rowLimit * 4); /* 4px for margin around each image*/
         }
