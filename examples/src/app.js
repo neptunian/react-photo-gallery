@@ -5,6 +5,15 @@ import Gallery from 'react-photo-gallery';
 import $ from 'jquery';
 import _ from 'lodash';
 
+const lightboxStyles  = Lightbox.extendStyles({
+    backdrop: {
+        backgroundColor: 'rgba(0,0,0,1)',
+    },  
+    dialog:{
+        maxHeight: '90%'
+    }   
+}); 
+
 var App = React.createClass({
     getInitialState: function(){
         return {photos:null, pageNum:1};
@@ -54,19 +63,15 @@ var App = React.createClass({
         if (this.state.photos){
             return(
 		<div className="App">
-		    <div id="GalleryView" ref="galleryCont">
-			<Gallery photos={this.state.photos} />
+			<Gallery photos={this.state.photos} lightboxStyles={lightboxStyles} />
 			<div className="loading-msg" id="msg-loading-more">Loading</div>
-		    </div>
 		</div>
             );
         }
         else{
             return(
 		<div className="App">
-		    <div id="GalleryView" ref="galleryCont">
 			<div id="msg-app-loading" className="loading-msg">Loading</div>
-		    </div>
 		</div>
             );
         }

@@ -1,5 +1,5 @@
 /* 
-// Examples Stylesheet
+// Demo Stylesheet
 // -------------------
 */
 
@@ -20,111 +20,36 @@ a:hover {
 	text-decoration: underline;
 }
 
-.container {
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 720px;
-	padding: 1em;
-}
-
-.footer {
-	margin-top: 50px;
-	border-top: 1px solid #eee;
-	padding: 20px 0;
-	font-size: 12px;
-	color: #999;
-}
-
-h1, h2, h3, h4, h5, h6 {
-	color: #222;
-	font-weight: 100;
-	margin: 0.5em 0;
-}
-
-label {
-	color: #999;
-	display: inline-block;
-	font-size: 0.85em;
-	font-weight: bold;
-	margin: 1em 0;
-	text-transform: uppercase;
-}
-
-.hint {
-	margin: 15px 0;
-	font-style: italic;
-	color: #999;
-}
-
-
 a:link {
     text-decoration: none;
 }
 a:hover {
     color: #ccc;
 }
-img{
-    display: block;
-    border: 0;
+.container {
+	margin: 0 auto;
 }
+
+h1, h2 {
+	color: #222;
+	font-weight: 100;
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
 .App{
     padding-top: 28px;
-}
-#nav{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 30px;
-    background-color: #fff;
-    box-shadow: 0px 4px 12px -6px rgba(0,0,0,0.75);
-}
-#copyright{
-    float: right;
-    font-size: 11px;
-    padding: 8px;
-}
-#copyright a:link {
-    color: #000;
-}
-#copyright a:hover {
-    color: #000;
-    text-decoration: underline;
 }
 #Gallery {
     width: 100%;
     margin: 0 auto;
 }
-#GalleryView{
-    width: 100%;
-}
-.PhotoPreview{
-   display: block; 
-   margin: 2px;
-   background-color:#e3e3e3;
-}
-.clearfix:after {
-     visibility: hidden;
-     display: block;
-     font-size: 0;
-     content: " ";
-     clear: both;
-     height: 0;
-     }
-.clearfix { display: inline-block; }
-/* start commented backslash hack \*/
-* html .clearfix { height: 1%; }
-.clearfix { display: block; }
-/* close commented backslash hack */
-.clearLeft{
-    clear: left;
-}
 .loading-msg{
-    font-family: 'Pompiere', arial, sans-serif;
-    font-size: 40px;
+    font-size: 20px;
     color: #666;
     width: 130px;
     margin: 0 auto;
-    font-size: 30px;
 }
 
 .loading-msg:after {
@@ -153,43 +78,12 @@ img{
     margin-top: 60px;
 }
 #msg-loading-more{
-    padding-top: 10px;
+    padding-top: 15px;
     text-decoration: none;
     display: block;
 }
-.btn {
-    background: #3498db;
-    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-    background-image: -o-linear-gradient(top, #3498db, #2980b9);
-    background-image: linear-gradient(to bottom, #3498db, #2980b9);
-    -webkit-border-radius: 6;
-    -moz-border-radius: 6;
-    border-radius: 6px;
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 20px;
-    padding: 10px 20px 10px 20px;
-    text-decoration: none;
-}
-
-.btn:hover {
-  background: #3cb0fd;
-  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-  text-decoration: none;
-}
-@media only screen and (min-width: 480px) {
-    .PhotoPreview{
-       float: left;
-    }
-}
 @media only screen and (min-width: 1024px) {
-    #GalleryView{
+    #Gallery{
 	width: 90%;
 	margin: 0 auto;
     }

@@ -24,7 +24,8 @@ var Gallery = React.createClass({
 	}
     },
     componentDidMount: function(){
-        this.setState({containerWidth: ReactDOM.findDOMNode(this).clientWidth});
+	// add 15 pixels bc for unknown reason the clientWidth here is larger than what it really is
+	this.setState({containerWidth: ReactDOM.findDOMNode(this).clientWidth - 15})
         this.handleResize = _.debounce(this.handleResize, 400);
         window.addEventListener('resize', this.handleResize);
     },
@@ -88,8 +89,8 @@ var Gallery = React.createClass({
                 }
 		var src = this.props.photos[k].gallery_src;
                 photoPreviewNodes.push(
-                     <div key={k} className='PhotoPreview'>
-                        <a href="#" className={k} onClick={this.openLightbox.bind(this, k)}><img src={src} height={commonHeight} width={commonHeight * this.props.photos[k].ar} alt="" /></a>
+                     <div key={k} style={style}>
+                        <a href="#" className={k} onClick={this.openLightbox.bind(this, k)}><img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].ar} alt="" /></a>
                      </div>
                 );
             }
@@ -106,18 +107,18 @@ var Gallery = React.createClass({
 		    onClickNext={this.gotoNext}
                     width={1600}
                     height={1600}
-                    styles={styles}
+                    styles={this.props.lightboxStyles}
                 />
             </div>
         );
     }
 });
-const styles = Lightbox.extendStyles({
-    backdrop: {
-        backgroundColor: 'rgba(0,0,0,1)',
-    },
-    dialog:{
-        maxHeight: '90%'
-    }
-});
+// Gallery image style
+const style = {
+   display: 'block',
+   margin: 2,
+   backgroundColor:'#e3e3e3',
+   float: 'left'
+}
+
 module.exports = Gallery;
