@@ -16,7 +16,7 @@ const lightboxStyles  = Lightbox.extendStyles({
 
 var App = React.createClass({
     getInitialState: function(){
-        return {photos:null, pageNum:1};
+        return {photos:null, pageNum:1, totalPages:1, loadedAll: false};
     },
     componentDidMount: function() {
         this.loadMorePhotos();
@@ -24,7 +24,7 @@ var App = React.createClass({
         window.addEventListener('scroll', this.handleScroll);
     },
     handleScroll: function(e){
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 50)) {
             this.loadMorePhotos();
         }
     },
@@ -32,7 +32,10 @@ var App = React.createClass({
         if (e){
             e.preventDefault();
         }
-
+	if (this.state.pageNum > this.state.totalPages){
+	    this.setState({loadedAll: true});
+	    return;
+	}
         $.ajax({
           url: 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=372ef3a005d9b9df062b8240c326254d&photoset_id=72157631971715898&user_id=57933175@N08&format=json&per_page=21&page='+this.state.pageNum+'&extras=url_o,url_m,url_l',
           dataType: 'jsonp',
@@ -52,6 +55,7 @@ var App = React.createClass({
 	    this.setState({
 		photos: this.state.photos ? this.state.photos.concat(photos) : photos,
 		pageNum: this.state.pageNum + 1,
+		totalPages: data.photoset.pages
 	    });
           }.bind(this),
           error: function(xhr, status, err) {
@@ -60,14 +64,22 @@ var App = React.createClass({
         });
     },
     render: function(){
-        if (this.state.photos){
+	// no loading sign if its all loaded
+        if (this.state.photos && this.state.loadedAll){
             return(
+		<div className="App">
+			<Gallery photos={this.state.photos} lightboxStyles={lightboxStyles} />
+		</div>
+            );
+        }
+	else if (this.state.photos){
+	    return(
 		<div className="App">
 			<Gallery photos={this.state.photos} lightboxStyles={lightboxStyles} />
 			<div className="loading-msg" id="msg-loading-more">Loading</div>
 		</div>
-            );
-        }
+	    );
+	}
         else{
             return(
 		<div className="App">
