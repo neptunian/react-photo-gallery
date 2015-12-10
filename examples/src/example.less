@@ -10,7 +10,22 @@ body {
 	margin: 0 auto;
 	padding: 0;
 }
-
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+.clearLeft{
+    clear: left;
+}
 a {
 	color: #08c;
 	text-decoration: none;
@@ -44,9 +59,11 @@ h1, h2 {
 #Gallery {
     width: 100%;
     margin: 0 auto;
+    margin-bottom: 20px;
 }
 .loading-msg{
     font-size: 20px;
+    font-weight: 200;
     color: #666;
     width: 130px;
     margin: 0 auto;
@@ -78,9 +95,9 @@ h1, h2 {
     margin-top: 60px;
 }
 #msg-loading-more{
-    padding-top: 15px;
     text-decoration: none;
     display: block;
+    margin-top: 10px;
 }
 @media only screen and (min-width: 1024px) {
     #Gallery{
