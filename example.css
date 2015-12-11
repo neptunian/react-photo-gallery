@@ -1,0 +1,107 @@
+/* 
+// Demo Stylesheet
+// -------------------
+*/
+body {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  margin: 0 auto;
+  padding: 0;
+}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.clearfix {
+  display: inline-block;
+}
+/* start commented backslash hack \*/
+* html .clearfix {
+  height: 1%;
+}
+.clearfix {
+  display: block;
+}
+/* close commented backslash hack */
+.clearLeft {
+  clear: left;
+}
+a {
+  color: #08c;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:link {
+  text-decoration: none;
+}
+a:hover {
+  color: #ccc;
+}
+.container {
+  margin: 0 auto;
+}
+h1,
+h2 {
+  color: #222;
+  font-weight: 100;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+.App {
+  padding-top: 28px;
+}
+#Gallery {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.loading-msg {
+  font-size: 20px;
+  font-weight: 200;
+  color: #666;
+  width: 130px;
+  margin: 0 auto;
+}
+.loading-msg:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  padding-bottom: 10px;
+  -webkit-animation: ellipsis steps(4, end) 900ms infinite;
+  animation: ellipsis steps(4, end) 900ms infinite;
+  content: "\2026";
+  /* ascii code for the ellipsis character */
+  width: 0px;
+}
+@keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
+@-webkit-keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
+#msg-app-loading {
+  margin-top: 60px;
+}
+#msg-loading-more {
+  text-decoration: none;
+  display: block;
+  margin-top: 10px;
+}
+@media only screen and (min-width: 1024px) {
+  #Gallery {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
