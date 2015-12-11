@@ -52,6 +52,6 @@ It is possible to serve up different images to the lightbox using srcset which i
 
 ## Demo
 
-[sandygonzales.com/photography](http://sandygonzales.com/photography)
+[http://neptunian.github.io/react-photo-gallery/](http://neptunian.github.io/react-photo-gallery/)
 
 
