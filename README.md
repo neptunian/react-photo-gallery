@@ -54,4 +54,11 @@ It is possible to serve up different images to the lightbox using srcset which i
 
 [http://neptunian.github.io/react-photo-gallery/](http://neptunian.github.io/react-photo-gallery/)
 
+To build the examples locally, run:
 
+```
+npm install
+npm start
+```
+
+Then open [`localhost:8000`](http://localhost:8000) in a browser.
