@@ -48,7 +48,7 @@ ar | number | undefined | Required. Aspect ratio of the gallery image
 
 ## srcset
 
-It is possible to serve up different images to the lightbox using srcset which is supported by [React Images](https://github.com/jossmac/react-images).  The same srcset property can be passed into the photos property.  See react-images documentation for more information on the properties.  More lightbox properties to be supported soon.
+It is possible to serve up different images to the lightbox using srcset which is supported by [React Images](https://github.com/jossmac/react-images).  The same srcset property can be passed into the photos property.  See react-images documentation for more information on the properties.
 
 ## Demo
 
