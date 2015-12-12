@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Lightbox from 'react-images';
-import _ from 'lodash';
 
 var Gallery = React.createClass({
     displayName: 'Gallery',
@@ -26,7 +25,6 @@ var Gallery = React.createClass({
     componentDidMount: function(){
 	// add 15 pixels bc for unknown reason the clientWidth here is larger than what it really is
 	this.setState({containerWidth: ReactDOM.findDOMNode(this).clientWidth - 15})
-        this.handleResize = _.debounce(this.handleResize, 0);
         window.addEventListener('resize', this.handleResize);
     },
     handleResize: function(e){
