@@ -13,7 +13,7 @@ var Gallery = React.createClass({
                 srcset: React.PropTypes.array,
                 width: React.PropTypes.number.isRequired,
                 height: React.PropTypes.number.isRequired,
-                ar: React.PropTypes.number.isRequired
+                aspect_ratio: React.PropTypes.number.isRequired
             })
         ).isRequired,
     },
@@ -26,7 +26,7 @@ var Gallery = React.createClass({
     componentDidMount: function(){
 	// add 15 pixels bc for unknown reason the clientWidth here is larger than what it really is
 	this.setState({containerWidth: ReactDOM.findDOMNode(this).clientWidth - 15})
-        this.handleResize = _.debounce(this.handleResize, 400);
+        this.handleResize = _.debounce(this.handleResize, 0);
         window.addEventListener('resize', this.handleResize);
     },
     handleResize: function(e){
@@ -72,14 +72,14 @@ var Gallery = React.createClass({
             var rowItems = [];
             // loop thru each set of rowLimit num
             // eg. if rowLimit is 3 it will  loop thru 0,1,2, then 3,4,5 to perform calculations for the particular set
-            var ar=0,
+            var aspect_ratio=0,
                 totalAr=0,
                 commonHeight = 0;
             for (var j=i; j<i+rowLimit; j++){
                 if (j == this.props.photos.length){
                     break;
                 }
-		totalAr += this.props.photos[j].ar;
+		totalAr += this.props.photos[j].aspect_ratio;
             }
             commonHeight = contWidth / totalAr;
             // run thru the same set of items again to give the common height
@@ -90,7 +90,7 @@ var Gallery = React.createClass({
 		var src = this.props.photos[k].gallery_src;
                 photoPreviewNodes.push(
                      <div key={k} style={style}>
-                        <a href="#" className={k} onClick={this.openLightbox.bind(this, k)}><img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].ar} alt="" /></a>
+                        <a href="#" className={k} onClick={this.openLightbox.bind(this, k)}><img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspect_ratio} alt="" /></a>
                      </div>
                 );
             }

@@ -43,13 +43,13 @@ var App = React.createClass({
           cache: false,
           success: function(data) {
             let photos = data.photoset.photo.map(function(obj,i){
-                let ar = parseFloat(obj.width_o / obj.height_o);
+                let aspect_ratio = parseFloat(obj.width_o / obj.height_o);
                 return {
                     gallery_src: obj.url_m,
                     src: obj.url_l,
                     width: parseInt(obj.width_o),
                     height: parseInt(obj.height_o),
-                    ar: ar
+                    aspect_ratio: aspect_ratio
                 };
             });
 	    this.setState({
