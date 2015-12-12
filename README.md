@@ -23,14 +23,14 @@ const PHOTO_SET = [
     src: 'http://example.com/example/img1_large.jpg',
     width: 681,
     height: 1024,
-    ar: 1.5
+    aspect_ratio: 1.5
   },
   {
     gallery_src: 'http://example.com/example/img2_small.jpg',
     src: 'http://example.com/example/img2_large.jpg',
     width: 600,
     height: 600,
-    ar: 1
+    aspect_ratio: 1
   }
 ];
 
@@ -44,7 +44,7 @@ gallery_src     |       string    |       undefined    |       Required. Image u
 src     |       string    |       undefined    |       Required. Image used for the lightbox
 width | number  | undefined  | Required. Width of the gallery image
 height  | number  | undefined | Required. Height of the gallery image
-ar | number | undefined | Required. Aspect ratio of the gallery image
+aspect_ratio | number | undefined | Required. Aspect ratio of the gallery image
 
 ## srcset
 
