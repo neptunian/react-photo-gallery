@@ -63,19 +63,24 @@ var App = React.createClass({
           }.bind(this)
         });
     },
+    renderGallery(){
+	return(
+	    <Gallery photos={this.state.photos} lightboxStyles={lightboxStyles} />
+	);
+    },
     render: function(){
 	// no loading sign if its all loaded
         if (this.state.photos && this.state.loadedAll){
             return(
 		<div className="App">
-			<Gallery photos={this.state.photos} lightboxStyles={lightboxStyles} />
+		    {this.renderGallery()}
 		</div>
             );
         }
 	else if (this.state.photos){
 	    return(
 		<div className="App">
-			<Gallery photos={this.state.photos} lightboxStyles={lightboxStyles} />
+		    {this.renderGallery()}
 			<div className="loading-msg" id="msg-loading-more">Loading</div>
 		</div>
 	    );
