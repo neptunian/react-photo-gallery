@@ -37,7 +37,7 @@ var App = React.createClass({
 	    return;
 	}
         $.ajax({
-          url: 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=372ef3a005d9b9df062b8240c326254d&photoset_id=72157631971715898&user_id=57933175@N08&format=json&per_page=21&page='+this.state.pageNum+'&extras=url_o,url_m,url_l',
+          url: 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=372ef3a005d9b9df062b8240c326254d&photoset_id=72157631971715898&user_id=57933175@N08&format=json&per_page=21&page='+this.state.pageNum+'&extras=url_o,url_m,url_l,url_c',
           dataType: 'jsonp',
           jsonpCallback: 'jsonFlickrApi',
           cache: false,
@@ -45,7 +45,7 @@ var App = React.createClass({
             let photos = data.photoset.photo.map(function(obj,i){
                 let aspect_ratio = parseFloat(obj.width_o / obj.height_o);
                 return {
-                    gallery_src: obj.url_m,
+                    gallery_src: (aspect_ratio >= 3) ? obj.url_c : obj.url_m,
                     src: obj.url_l,
                     width: parseInt(obj.width_o),
                     height: parseInt(obj.height_o),
