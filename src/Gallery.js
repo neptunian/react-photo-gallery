@@ -55,16 +55,14 @@ var Gallery = React.createClass({
     },
     render: function(){
         var rowLimit = 1,
-            contWidth = this.state.containerWidth - (rowLimit * 4) /* 4px for margin around each image*/,
             photoPreviewNodes = [];
         if (this.state.containerWidth >= 480){
             rowLimit = 2;
-            contWidth = this.state.containerWidth - (rowLimit * 4); /* 4px for margin around each image*/
         }
         if (this.state.containerWidth >= 1024){
             rowLimit = 3;
-            contWidth = this.state.containerWidth - (rowLimit * 4); /* 4px for margin around each image*/
         }
+        var contWidth = this.state.containerWidth - (rowLimit * 4); /* 4px for margin around each image*/
         contWidth = Math.ceil(contWidth - 2); // subtract a couple pixels for unknown issue where line breaks in certain breakpoints.  this gives container some "padding"
         for (var i=0;i<this.props.photos.length;i+=rowLimit){
             var rowItems = [];
