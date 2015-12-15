@@ -1,6 +1,6 @@
 {
   "name": "react-photo-gallery",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Responsive React Photo Gallery Component",
   "main": "lib/Gallery.js",
   "author": "Sandy Gonzales",
@@ -49,8 +49,10 @@
   "keywords": [
     "react",
     "react component",
+    "react-component",
     "photo gallery",
     "responsive",
     "image gallery"
+    "images"
   ]
 }
