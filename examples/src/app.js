@@ -43,13 +43,13 @@ var App = React.createClass({
           cache: false,
           success: function(data) {
             let photos = data.photoset.photo.map(function(obj,i){
-                let aspect_ratio = parseFloat(obj.width_o / obj.height_o);
+                let aspectRatio = parseFloat(obj.width_o / obj.height_o);
                 return {
-                    gallery_src: (aspect_ratio >= 3) ? obj.url_c : obj.url_m,
-                    src: obj.url_l,
+                    src: (aspectRatio >= 3) ? obj.url_c : obj.url_m,
                     width: parseInt(obj.width_o),
                     height: parseInt(obj.height_o),
-                    aspect_ratio: aspect_ratio
+                    aspectRatio: aspectRatio,
+                    lightboxImage:{src: obj.url_l}
                 };
             });
 	    this.setState({

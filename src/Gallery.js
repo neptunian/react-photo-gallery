@@ -7,12 +7,11 @@ var Gallery = React.createClass({
     propTypes:{
         photos: React.PropTypes.arrayOf(
             React.PropTypes.shape({
-                gallery_src: React.PropTypes.string.isRequired,
                 src: React.PropTypes.string.isRequired,
-                srcset: React.PropTypes.array,
                 width: React.PropTypes.number.isRequired,
                 height: React.PropTypes.number.isRequired,
-                aspect_ratio: React.PropTypes.number.isRequired
+                aspectRatio: React.PropTypes.number.isRequired,
+                lightboxImage: React.PropTypes.object.isRequired
             })
         ).isRequired,
     },
@@ -64,18 +63,19 @@ var Gallery = React.createClass({
         }
         var contWidth = this.state.containerWidth - (rowLimit * 4); /* 4px for margin around each image*/
         contWidth = Math.ceil(contWidth - 2); // subtract a couple pixels for unknown issue where line breaks in certain breakpoints.  this gives container some "padding"
+	var lightboxImages = [];
         for (var i=0;i<this.props.photos.length;i+=rowLimit){
             var rowItems = [];
             // loop thru each set of rowLimit num
             // eg. if rowLimit is 3 it will  loop thru 0,1,2, then 3,4,5 to perform calculations for the particular set
-            var aspect_ratio=0,
+            var aspectRatio=0,
                 totalAr=0,
                 commonHeight = 0;
             for (var j=i; j<i+rowLimit; j++){
                 if (j == this.props.photos.length){
                     break;
                 }
-		totalAr += this.props.photos[j].aspect_ratio;
+		totalAr += this.props.photos[j].aspectRatio;
             }
             commonHeight = contWidth / totalAr;
             // run thru the same set of items again to give the common height
@@ -83,10 +83,11 @@ var Gallery = React.createClass({
                 if (k == this.props.photos.length){
                     break;
                 }
-		var src = this.props.photos[k].gallery_src;
+		lightboxImages.push(this.props.photos[k].lightboxImage);
+		var src = this.props.photos[k].src;
                 photoPreviewNodes.push(
                      <div key={k} style={style}>
-                        <a href="#" className={k} onClick={this.openLightbox.bind(this, k)}><img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspect_ratio} alt="" /></a>
+                        <a href="#" className={k} onClick={this.openLightbox.bind(this, k)}><img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt="" /></a>
                      </div>
                 );
             }
@@ -96,7 +97,7 @@ var Gallery = React.createClass({
                 {photoPreviewNodes}
                 <Lightbox
 		    currentImage={this.state.currentImage}
-                    images={this.props.photos}
+                    images={lightboxImages}
                     isOpen={this.state.lightboxIsOpen}
                     onClose={this.closeLightbox}
 		    onClickPrev={this.gotoPrevious}
