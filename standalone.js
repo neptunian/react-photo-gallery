@@ -34,12 +34,11 @@ var Gallery = _react2['default'].createClass({
         };
     },
     componentDidMount: function componentDidMount() {
-        // add 15 pixels bc for unknown reason the clientWidth here is larger than what it really is
-        this.setState({ containerWidth: Math.ceil(_reactDom2['default'].findDOMNode(this).clientWidth) });
+        this.setState({ containerWidth: Math.floor(_reactDom2['default'].findDOMNode(this).clientWidth) });
         window.addEventListener('resize', this.handleResize);
     },
     handleResize: function handleResize(e) {
-        this.setState({ containerWidth: _reactDom2['default'].findDOMNode(this).clientWidth });
+        this.setState({ containerWidth: Math.floor(_reactDom2['default'].findDOMNode(this).clientWidth) });
     },
     openLightbox: function openLightbox(index, event) {
         event.preventDefault();
@@ -65,10 +64,6 @@ var Gallery = _react2['default'].createClass({
         });
     },
     render: function render() {
-        console.log('client');
-        console.log(Math.ceil(_reactDom2['default'].findDOMNode(this).clientWidth));
-        console.log('offset');
-        console.log(Math.ceil(_reactDom2['default'].findDOMNode(this).offsetWidth));
         var rowLimit = 1,
             photoPreviewNodes = [];
         if (this.state.containerWidth >= 480) {
@@ -77,11 +72,8 @@ var Gallery = _react2['default'].createClass({
         if (this.state.containerWidth >= 1024) {
             rowLimit = 3;
         }
-        console.log('state');
-        console.log(this.state.containerWidth);
         var contWidth = this.state.containerWidth - rowLimit * 4; /* 4px for margin around each image*/
-        console.log(contWidth);
-        contWidth = Math.ceil(contWidth - 20); // subtract a couple pixels for unknown issue where line breaks in certain breakpoints.  this gives container some "padding"
+        contWidth = Math.floor(contWidth - 2); // add some padding to prevent layout prob
         var lightboxImages = [];
         for (var i = 0; i < this.props.photos.length; i += rowLimit) {
             var rowItems = [];
@@ -110,7 +102,7 @@ var Gallery = _react2['default'].createClass({
                     _react2['default'].createElement(
                         'a',
                         { href: '#', className: k, onClick: this.openLightbox.bind(this, k) },
-                        _react2['default'].createElement('img', { src: src, style: { display: 'block', border: 0 }, height: commonHeight, width: Math.floor(commonHeight * this.props.photos[k].aspectRatio), alt: '' })
+                        _react2['default'].createElement('img', { src: src, style: { display: 'block', border: 0 }, height: commonHeight, width: commonHeight * this.props.photos[k].aspectRatio, alt: '' })
                     )
                 ));
             }
