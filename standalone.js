@@ -65,6 +65,8 @@ var Gallery = _react2['default'].createClass({
         });
     },
     render: function render() {
+        console.log('clientwidth in render');
+        console.log(Math.ceil(_reactDom2['default'].findDOMNode(this).clientWidth));
         var rowLimit = 1,
             photoPreviewNodes = [];
         if (this.state.containerWidth >= 480) {
