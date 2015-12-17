@@ -35,7 +35,7 @@ var Gallery = _react2['default'].createClass({
     },
     componentDidMount: function componentDidMount() {
         // add 15 pixels bc for unknown reason the clientWidth here is larger than what it really is
-        this.setState({ containerWidth: _reactDom2['default'].findDOMNode(this).clientWidth - 15 });
+        this.setState({ containerWidth: Math.ceil(_reactDom2['default'].findDOMNode(this).clientWidth) });
         window.addEventListener('resize', this.handleResize);
     },
     handleResize: function handleResize(e) {
@@ -73,8 +73,10 @@ var Gallery = _react2['default'].createClass({
         if (this.state.containerWidth >= 1024) {
             rowLimit = 3;
         }
+        console.log(this.state.containerWidth);
         var contWidth = this.state.containerWidth - rowLimit * 4; /* 4px for margin around each image*/
-        contWidth = Math.ceil(contWidth - 2); // subtract a couple pixels for unknown issue where line breaks in certain breakpoints.  this gives container some "padding"
+        console.log(contWidth);
+        //contWidth = Math.ceil(contWidth - 4); // subtract a couple pixels for unknown issue where line breaks in certain breakpoints.  this gives container some "padding"
         var lightboxImages = [];
         for (var i = 0; i < this.props.photos.length; i += rowLimit) {
             var rowItems = [];
@@ -103,7 +105,7 @@ var Gallery = _react2['default'].createClass({
                     _react2['default'].createElement(
                         'a',
                         { href: '#', className: k, onClick: this.openLightbox.bind(this, k) },
-                        _react2['default'].createElement('img', { src: src, style: { display: 'block', border: 0 }, height: commonHeight, width: commonHeight * this.props.photos[k].aspectRatio, alt: '' })
+                        _react2['default'].createElement('img', { src: src, style: { display: 'block', border: 0 }, height: commonHeight, width: Math.floor(commonHeight * this.props.photos[k].aspectRatio), alt: '' })
                     )
                 ));
             }
