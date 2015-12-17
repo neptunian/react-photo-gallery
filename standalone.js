@@ -77,7 +77,7 @@ var Gallery = _react2['default'].createClass({
         if (this.state.containerWidth >= 1024) {
             rowLimit = 3;
         }
-        console.log(state);
+        console.log('state');
         console.log(this.state.containerWidth);
         var contWidth = this.state.containerWidth - rowLimit * 4; /* 4px for margin around each image*/
         console.log(contWidth);
