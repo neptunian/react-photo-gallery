@@ -8,6 +8,7 @@ body {
   color: #333;
   margin: 0 auto;
   padding: 0;
+  overflow-y: scroll;
 }
 .clearfix:after {
   visibility: hidden;
