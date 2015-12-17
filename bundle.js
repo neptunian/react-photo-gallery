@@ -36,6 +36,11 @@ var Gallery = _react2['default'].createClass({
         this.setState({ containerWidth: Math.floor(_reactDom2['default'].findDOMNode(this).clientWidth) });
         window.addEventListener('resize', this.handleResize);
     },
+    componentDidUpdate: function componentDidUpdate() {
+        if (_reactDom2['default'].findDOMNode(this).clientWidth !== this.state.containerWidth) {
+            this.setState({ containerWidth: Math.floor(_reactDom2['default'].findDOMNode(this).clientWidth) });
+        }
+    },
     handleResize: function handleResize(e) {
         this.setState({ containerWidth: Math.floor(_reactDom2['default'].findDOMNode(this).clientWidth) });
     },
