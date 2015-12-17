@@ -35,7 +35,7 @@ var Gallery = _react2['default'].createClass({
     },
     componentDidMount: function componentDidMount() {
         // add 15 pixels bc for unknown reason the clientWidth here is larger than what it really is
-        this.setState({ containerWidth: _reactDom2['default'].findDOMNode(this).clientWidth });
+        this.setState({ containerWidth: _reactDom2['default'].findDOMNode(this).clientWidth - 15 });
         window.addEventListener('resize', this.handleResize);
     },
     handleResize: function handleResize(e) {
