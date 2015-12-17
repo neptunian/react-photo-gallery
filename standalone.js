@@ -73,10 +73,10 @@ var Gallery = _react2['default'].createClass({
         if (this.state.containerWidth >= 1024) {
             rowLimit = 3;
         }
-        //console.log(this.state.containerWidth);
+        console.log(this.state.containerWidth);
         var contWidth = this.state.containerWidth - rowLimit * 4; /* 4px for margin around each image*/
-        //console.log(contWidth);
-        contWidth = Math.ceil(contWidth - 2); // subtract a couple pixels for unknown issue where line breaks in certain breakpoints.  this gives container some "padding"
+        console.log(contWidth);
+        contWidth = Math.ceil(contWidth - 4); // subtract a couple pixels for unknown issue where line breaks in certain breakpoints.  this gives container some "padding"
         var lightboxImages = [];
         for (var i = 0; i < this.props.photos.length; i += rowLimit) {
             var rowItems = [];
