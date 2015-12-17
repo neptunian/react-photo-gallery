@@ -34,12 +34,16 @@ var Gallery = _react2['default'].createClass({
         };
     },
     componentDidMount: function componentDidMount() {
-        // add 15 pixels bc for unknown reason the clientWidth here is larger than what it really is
-        this.setState({ containerWidth: _reactDom2['default'].findDOMNode(this).clientWidth });
+        this.setState({ containerWidth: Math.floor(_reactDom2['default'].findDOMNode(this).clientWidth) });
         window.addEventListener('resize', this.handleResize);
     },
+    componentDidUpdate: function componentDidUpdate() {
+        if (_reactDom2['default'].findDOMNode(this).clientWidth !== this.state.containerWidth) {
+            this.setState({ containerWidth: Math.floor(_reactDom2['default'].findDOMNode(this).clientWidth) });
+        }
+    },
     handleResize: function handleResize(e) {
-        this.setState({ containerWidth: _reactDom2['default'].findDOMNode(this).clientWidth });
+        this.setState({ containerWidth: Math.floor(_reactDom2['default'].findDOMNode(this).clientWidth) });
     },
     openLightbox: function openLightbox(index, event) {
         event.preventDefault();
@@ -74,7 +78,7 @@ var Gallery = _react2['default'].createClass({
             rowLimit = 3;
         }
         var contWidth = this.state.containerWidth - rowLimit * 4; /* 4px for margin around each image*/
-        contWidth = Math.ceil(contWidth - 2); // subtract a couple pixels for unknown issue where line breaks in certain breakpoints.  this gives container some "padding"
+        contWidth = Math.floor(contWidth - 2); // add some padding to prevent layout prob
         var lightboxImages = [];
         for (var i = 0; i < this.props.photos.length; i += rowLimit) {
             var rowItems = [];

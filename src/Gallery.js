@@ -22,12 +22,16 @@ var Gallery = React.createClass({
 	}
     },
     componentDidMount: function(){
-	// add 15 pixels bc for unknown reason the clientWidth here is larger than what it really is
-	this.setState({containerWidth: ReactDOM.findDOMNode(this).clientWidth})
+	this.setState({containerWidth: Math.floor(ReactDOM.findDOMNode(this).clientWidth)})
         window.addEventListener('resize', this.handleResize);
     },
+    componentDidUpdate: function(){
+	if (ReactDOM.findDOMNode(this).clientWidth !== this.state.containerWidth){
+	    this.setState({containerWidth: Math.floor(ReactDOM.findDOMNode(this).clientWidth)});
+	}
+    },
     handleResize: function(e){
-        this.setState({containerWidth: ReactDOM.findDOMNode(this).clientWidth});
+        this.setState({containerWidth: Math.floor(ReactDOM.findDOMNode(this).clientWidth)});
     },
     openLightbox (index, event) {
         event.preventDefault();
@@ -62,7 +66,7 @@ var Gallery = React.createClass({
             rowLimit = 3;
         }
         var contWidth = this.state.containerWidth - (rowLimit * 4); /* 4px for margin around each image*/
-        contWidth = Math.ceil(contWidth - 2); // subtract a couple pixels for unknown issue where line breaks in certain breakpoints.  this gives container some "padding"
+        contWidth = Math.floor(contWidth - 2); // add some padding to prevent layout prob
 	var lightboxImages = [];
         for (var i=0;i<this.props.photos.length;i+=rowLimit){
             var rowItems = [];
