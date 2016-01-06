@@ -14,21 +14,25 @@ const lightboxStyles  = Lightbox.extendStyles({
     }   
 }); 
 
-var App = React.createClass({
-    getInitialState: function(){
-        return {photos:null, pageNum:1, totalPages:1, loadedAll: false};
-    },
-    componentDidMount: function() {
+class App extends React.Component{
+    constructor(){
+	super();
+        this.state = {photos:null, pageNum:1, totalPages:1, loadedAll: false};
+
+	this.handleScroll = this.handleScroll.bind(this);
+	this.loadMorePhotos = this.loadMorePhotos.bind(this);
+    }
+    componentDidMount() {
         this.loadMorePhotos();
         this.loadMorePhotos = _.debounce(this.loadMorePhotos, 200);
         window.addEventListener('scroll', this.handleScroll);
-    },
-    handleScroll: function(e){
+    }
+    handleScroll(){
         if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 50)) {
             this.loadMorePhotos();
         }
-    },
-    loadMorePhotos: function(e){
+    }
+    loadMorePhotos(e){
         if (e){
             e.preventDefault();
         }
@@ -62,13 +66,13 @@ var App = React.createClass({
             console.error(status, err.toString());
           }.bind(this)
         });
-    },
+    }
     renderGallery(){
 	return(
 	    <Gallery photos={this.state.photos} lightboxStyles={lightboxStyles} />
 	);
-    },
-    render: function(){
+    }
+    render(){
 	// no loading sign if its all loaded
         if (this.state.photos && this.state.loadedAll){
             return(
@@ -93,6 +97,6 @@ var App = React.createClass({
             );
         }
     }
-});
+};
 
 ReactDOM.render(<App />, document.getElementById('app'));

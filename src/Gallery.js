@@ -2,61 +2,55 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Lightbox from 'react-images';
 
-var Gallery = React.createClass({
-    displayName: 'Gallery',
-    propTypes:{
-        photos: React.PropTypes.arrayOf(
-            React.PropTypes.shape({
-                src: React.PropTypes.string.isRequired,
-                width: React.PropTypes.number.isRequired,
-                height: React.PropTypes.number.isRequired,
-                aspectRatio: React.PropTypes.number.isRequired,
-                lightboxImage: React.PropTypes.object.isRequired
-            })
-        ).isRequired,
-    },
-    getInitialState: function(){
-        return {
+class Gallery extends React.Component{
+    constructor(){
+	super();
+	this.state = {
 	    currentImage: 0,
 	    containerWidth: 0
-	}
-    },
-    componentDidMount: function(){
+	};
+	this.handleResize = this.handleResize.bind(this);
+	this.closeLightbox = this.closeLightbox.bind(this);
+	this.gotoNext = this.gotoNext.bind(this);
+	this.gotoPrevious = this.gotoPrevious.bind(this);
+	this.openLightbox = this.openLightbox.bind(this);
+    }
+    componentDidMount(){
 	this.setState({containerWidth: Math.floor(ReactDOM.findDOMNode(this).clientWidth)})
         window.addEventListener('resize', this.handleResize);
-    },
-    componentDidUpdate: function(){
+    }
+    componentDidUpdate(){
 	if (ReactDOM.findDOMNode(this).clientWidth !== this.state.containerWidth){
 	    this.setState({containerWidth: Math.floor(ReactDOM.findDOMNode(this).clientWidth)});
 	}
-    },
-    handleResize: function(e){
+    }
+    handleResize(e){
         this.setState({containerWidth: Math.floor(ReactDOM.findDOMNode(this).clientWidth)});
-    },
-    openLightbox (index, event) {
+    }
+    openLightbox(index, event){
         event.preventDefault();
         this.setState({
 	    currentImage: index,
             lightboxIsOpen: true
         });
-    },
-    closeLightbox () {
+    }
+    closeLightbox(){
         this.setState({
 	    currentImage: 0,
             lightboxIsOpen: false,
         });
-    },
-    gotoPrevious () {
+    }
+    gotoPrevious(){
 	this.setState({
 	    currentImage: this.state.currentImage - 1,
 	});
-    },
-    gotoNext () {
+    }
+    gotoNext(){
 	this.setState({
 	    currentImage: this.state.currentImage + 1,
 	});
-    },
-    render: function(){
+    }
+    render(){
         var rowLimit = 1,
             photoPreviewNodes = [];
         if (this.state.containerWidth >= 480){
@@ -113,7 +107,19 @@ var Gallery = React.createClass({
             </div>
         );
     }
-});
+};
+Gallery.displayName = 'Gallery';
+Gallery.propTypes = {
+    photos: React.PropTypes.arrayOf(
+	React.PropTypes.shape({
+	    src: React.PropTypes.string.isRequired,
+	    width: React.PropTypes.number.isRequired,
+	    height: React.PropTypes.number.isRequired,
+	    aspectRatio: React.PropTypes.number.isRequired,
+	    lightboxImage: React.PropTypes.object.isRequired
+	})
+    ).isRequired,
+};
 // Gallery image style
 const style = {
    display: 'block',
@@ -122,4 +128,4 @@ const style = {
    float: 'left'
 }
 
-module.exports = Gallery;
+export default Gallery;
