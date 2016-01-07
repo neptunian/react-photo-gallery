@@ -14,6 +14,7 @@
     "url": "https://github.com/neptunian/react-photo-gallery/issues"
   },
   "dependencies": {
+    "react": ">=0.14",
     "react-dom": "^0.14.2",
     "react-images": "^0.2.1"
   },
@@ -25,7 +26,6 @@
     "gulp": "^3.9.0",
     "jquery": "^2.1.4",
     "lodash": "^3.10.1",
-    "react": ">=0.14",
     "react-component-gulp-tasks": "^0.7.0"
   },
   "peerDependencies": {
