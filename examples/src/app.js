@@ -5,15 +5,6 @@ import Gallery from 'react-photo-gallery';
 import $ from 'jquery';
 import _ from 'lodash';
 
-const lightboxStyles  = Lightbox.extendStyles({
-    backdrop: {
-        backgroundColor: 'rgba(0,0,0,1)',
-    },  
-    dialog:{
-        maxHeight: '90%'
-    }   
-}); 
-
 class App extends React.Component{
     constructor(){
 	super();
@@ -69,7 +60,7 @@ class App extends React.Component{
     }
     renderGallery(){
 	return(
-	    <Gallery photos={this.state.photos} lightboxStyles={lightboxStyles} />
+	    <Gallery photos={this.state.photos} />
 	);
     }
     render(){

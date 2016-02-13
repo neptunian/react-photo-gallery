@@ -101,8 +101,6 @@ class Gallery extends React.Component{
 		    onClickPrev={this.gotoPrevious}
 		    onClickNext={this.gotoNext}
                     width={1600}
-                    height={1600}
-                    styles={this.props.lightboxStyles}
                 />
             </div>
         );
