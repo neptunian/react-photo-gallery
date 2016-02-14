@@ -104,6 +104,7 @@ class Gallery extends React.Component{
 		    onClickPrev={this.gotoPrevious}
 		    onClickNext={this.gotoNext}
                     width={1600}
+		    showImageCount={this.props.lightboxShowImageCount}
                 />
             </div>
         );
@@ -121,6 +122,9 @@ Gallery.propTypes = {
 	})
     ).isRequired,
 };
+Gallery.defaultProps = {
+    lightboxShowImageCount: false
+}
 // Gallery image style
 const style = {
    display: 'block',

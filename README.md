@@ -1,5 +1,5 @@
 # React Responsive Photo Gallery
-A responsive React photo gallery component that uses [React Images](https://github.com/jossmac/react-images) as a lightbox.
+A responsive React photo gallery component.
 
 ## Demo
 
@@ -72,11 +72,13 @@ width | number  | undefined  | Required. Width of the gallery image
 height  | number  | undefined | Required. Height of the gallery image
 aspectRatio | number | undefined | Required. Aspect ratio of the gallery image (width / height)
 lightboxImage | object | undefined | Required.  Accepts 'src' and 'srcset' values of the lightbox image. See below
+lightboxShowImageCount | boolean | false | Optional.  Displays at the bottom of the photo index of total images. Eg. "5 of 20"
 
-### lightboxImage property properties
+### lightboxImage prop properties
 Property        |       Type            |       Default         |       Description
 :-----------------------|:--------------|:--------------|:--------------------------------
 src     |       string    |       undefined    |       Required. Image used for the lightbox
 srcset     |       array    |       undefined    |       Optional.  Array of images for the lightbox
 
-See [React Images](https://github.com/jossmac/react-images) for details on lightbox 'images' prop.
+## Lightbox
+This component uses [React Images](https://github.com/jossmac/react-images) for Lightbox functionality.  I've incorporated what I think to be useful Lightbox properties in context of a gallery into this component.
