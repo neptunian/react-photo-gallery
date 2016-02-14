@@ -24,6 +24,9 @@ class Gallery extends React.Component{
 	    this.setState({containerWidth: Math.floor(ReactDOM.findDOMNode(this).clientWidth)});
 	}
     }
+    componentWillUnmount(){
+	 window.removeEventListener('resize', this.handleResize, false);
+    }
     handleResize(e){
         this.setState({containerWidth: Math.floor(ReactDOM.findDOMNode(this).clientWidth)});
     }
