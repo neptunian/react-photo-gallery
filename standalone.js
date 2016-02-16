@@ -60,6 +60,11 @@ var Gallery = (function (_React$Component) {
             }
         }
     }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            window.removeEventListener('resize', this.handleResize, false);
+        }
+    }, {
         key: 'handleResize',
         value: function handleResize(e) {
             this.setState({ containerWidth: Math.floor(_reactDom2['default'].findDOMNode(this).clientWidth) });
@@ -152,7 +157,8 @@ var Gallery = (function (_React$Component) {
                     onClose: this.closeLightbox,
                     onClickPrev: this.gotoPrevious,
                     onClickNext: this.gotoNext,
-                    width: 1600
+                    width: 1600,
+                    showImageCount: this.props.lightboxShowImageCount
                 })
             );
         }
@@ -171,6 +177,9 @@ Gallery.propTypes = {
         aspectRatio: _react2['default'].PropTypes.number.isRequired,
         lightboxImage: _react2['default'].PropTypes.object.isRequired
     })).isRequired
+};
+Gallery.defaultProps = {
+    lightboxShowImageCount: false
 };
 // Gallery image style
 var style = {
