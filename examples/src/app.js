@@ -44,7 +44,7 @@ class App extends React.Component{
                     width: parseInt(obj.width_o),
                     height: parseInt(obj.height_o),
                     aspectRatio: aspectRatio,
-                    lightboxImage:{src: obj.url_l}
+                    lightboxImage:{src: obj.url_l, caption: obj.title}
                 };
             });
 	    this.setState({

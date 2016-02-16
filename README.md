@@ -78,7 +78,8 @@ lightboxShowImageCount | boolean | false | Optional.  Displays at the bottom of 
 Property        |       Type            |       Default         |       Description
 :-----------------------|:--------------|:--------------|:--------------------------------
 src     |       string    |       undefined    |       Required. Image used for the lightbox
-srcset     |       array    |       undefined    |       Optional.  Array of images for the lightbox
+srcset     |       array    |       undefined    |       Optional.  Array of srcsets for the lightbox
+caption     |       string    |       undefined    |       Optional.  Caption for the lightbox image
 
 ## Lightbox
 This component uses [React Images](https://github.com/jossmac/react-images) for Lightbox functionality.  I've incorporated what I think to be useful Lightbox properties in context of a gallery into this component.
