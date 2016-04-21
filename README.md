@@ -69,8 +69,9 @@ Property        |       Type            |       Default         |       Descript
 :-----------------------|:--------------|:--------------|:--------------------------------
 photos | array  | undefined  | Required. Array of objects (photos)
 disableLightbox | boolean  | false  | Optional
+lightboxShowImageCount | boolean | false | Optional.  Displays at the bottom of the photo index of total images. Eg. "5 of 20"
 
-### Photo properties
+### Photos properties
 
 Property        |       Type            |       Default         |       Description
 :-----------------------|:--------------|:--------------|:--------------------------------
@@ -79,9 +80,9 @@ width | number  | undefined  | Required. Width of the gallery image
 height  | number  | undefined | Required. Height of the gallery image
 aspectRatio | number | undefined | Required. Aspect ratio of the gallery image (width / height)
 lightboxImage | object | undefined | Required by default.  If disableLightbox is true, Optional. See below for prop details.
-lightboxShowImageCount | boolean | false | Optional.  Displays at the bottom of the photo index of total images. Eg. "5 of 20"
 
 ### lightboxImage prop properties
+
 Property        |       Type            |       Default         |       Description
 :-----------------------|:--------------|:--------------|:--------------------------------
 src     |       string    |       undefined    |       Required. Image used for the lightbox
