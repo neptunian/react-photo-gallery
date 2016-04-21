@@ -84,46 +84,78 @@ class Gallery extends React.Component{
                 if (k == this.props.photos.length){
                     break;
                 }
-		lightboxImages.push(this.props.photos[k].lightboxImage);
 		var src = this.props.photos[k].src;
-                photoPreviewNodes.push(
-                     <div key={k} style={style}>
-                        <a href="#" className={k} onClick={this.openLightbox.bind(this, k)}><img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt="" /></a>
-                     </div>
-                );
+
+		if (this.props.disableLightbox){
+		    photoPreviewNodes.push(
+			 <div key={k} style={style}>
+			    <img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt="" />
+			 </div>
+		    );
+		}
+		else{
+		    lightboxImages.push(this.props.photos[k].lightboxImage);
+		    photoPreviewNodes.push(
+			 <div key={k} style={style}>
+			    <a href="#" className={k} onClick={this.openLightbox.bind(this, k)}><img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt="" /></a>
+			 </div>
+		    );
+		}
             }
         }
 	return(
-            <div id="Gallery" className="clearfix">
-                {photoPreviewNodes}
-                <Lightbox
-		    currentImage={this.state.currentImage}
-                    images={lightboxImages}
-                    isOpen={this.state.lightboxIsOpen}
-                    onClose={this.closeLightbox}
-		    onClickPrev={this.gotoPrevious}
-		    onClickNext={this.gotoNext}
-                    width={1600}
-		    showImageCount={this.props.lightboxShowImageCount}
-                />
-            </div>
+	    this.renderGallery(photoPreviewNodes, lightboxImages)
         );
+    }
+    renderGallery(photoPreviewNodes, lightboxImages){
+	if (this.props.disableLightbox){
+	    return(
+		<div id="Gallery" className="clearfix">
+		    {photoPreviewNodes}
+		</div>
+	    );
+	}
+	else{
+	    return(
+		<div id="Gallery" className="clearfix">
+		    {photoPreviewNodes}
+		    <Lightbox
+			currentImage={this.state.currentImage}
+			images={lightboxImages}
+			isOpen={this.state.lightboxIsOpen}
+			onClose={this.closeLightbox}
+			onClickPrev={this.gotoPrevious}
+			onClickNext={this.gotoNext}
+			width={1600}
+			showImageCount={this.props.lightboxShowImageCount}
+		    />
+		</div>
+	    );
+	}
     }
 };
 Gallery.displayName = 'Gallery';
 Gallery.propTypes = {
-    photos: React.PropTypes.arrayOf(
-	React.PropTypes.shape({
-	    src: React.PropTypes.string.isRequired,
-	    width: React.PropTypes.number.isRequired,
-	    height: React.PropTypes.number.isRequired,
-	    aspectRatio: React.PropTypes.number.isRequired,
-	    lightboxImage: React.PropTypes.object.isRequired
-	})
-    ).isRequired,
+    photos: function(props, propName, componentName){
+	var lightboxImageValidator = React.PropTypes.object;
+	if (!props.disableLightbox){
+	    lightboxImageValidator = React.PropTypes.object.isRequired;
+	}
+	return React.PropTypes.arrayOf(
+	    React.PropTypes.shape({
+		src: React.PropTypes.string.isRequired,
+		width: React.PropTypes.number.isRequired,
+		height: React.PropTypes.number.isRequired,
+		aspectRatio: React.PropTypes.number.isRequired,
+		lightboxImage: lightboxImageValidator
+	    })
+	).isRequired.apply(this,arguments);
+    },
+    disableLightbox: React.PropTypes.bool
 };
 Gallery.defaultProps = {
-    lightboxShowImageCount: false
+    lightboxShowImageCount: false,
+    disableLightbox: false
 }
 // Gallery image style
 const style = {

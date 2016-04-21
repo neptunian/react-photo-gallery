@@ -63,6 +63,13 @@ const PHOTO_SET = [
 
 ```
 
+### Gallery properties
+
+Property        |       Type            |       Default         |       Description
+:-----------------------|:--------------|:--------------|:--------------------------------
+photos | array  | undefined  | Required. Array of objects (photos)
+disableLightbox | boolean  | false  | Optional
+
 ### Photo properties
 
 Property        |       Type            |       Default         |       Description
@@ -71,7 +78,7 @@ src     |       string    |       undefined    |       Required. The src value o
 width | number  | undefined  | Required. Width of the gallery image
 height  | number  | undefined | Required. Height of the gallery image
 aspectRatio | number | undefined | Required. Aspect ratio of the gallery image (width / height)
-lightboxImage | object | undefined | Required.  Accepts 'src' and 'srcset' values of the lightbox image. See below
+lightboxImage | object | undefined | Required by default.  If disableLightbox is true, Optional. See below for prop details.
 lightboxShowImageCount | boolean | false | Optional.  Displays at the bottom of the photo index of total images. Eg. "5 of 20"
 
 ### lightboxImage prop properties
