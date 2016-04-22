@@ -179,7 +179,8 @@ var Gallery = (function (_React$Component) {
 																								onClickPrev: this.gotoPrevious,
 																								onClickNext: this.gotoNext,
 																								width: 1600,
-																								showImageCount: this.props.lightboxShowImageCount
+																								showImageCount: this.props.lightboxShowImageCount,
+																								backdropClosesModal: this.props.backdropClosesModal
 																				})
 																);
 												}
@@ -209,6 +210,7 @@ Gallery.propTypes = {
 };
 Gallery.defaultProps = {
 				lightboxShowImageCount: false,
+				backdropClosesModal: true,
 				disableLightbox: false
 };
 // Gallery image style
