@@ -70,6 +70,7 @@ Property        |       Type            |       Default         |       Descript
 photos | array  | undefined  | Required. Array of objects (photos)
 disableLightbox | boolean  | false  | Optional
 lightboxShowImageCount | boolean | false | Optional.  Displays at the bottom of the photo index of total images. Eg. "5 of 20"
+backdropClosesModal | boolean | true | Optional. Clicking on backdrop closes the modal
 
 ### Photos properties
 

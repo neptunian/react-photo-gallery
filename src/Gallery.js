@@ -128,6 +128,7 @@ class Gallery extends React.Component{
 			onClickNext={this.gotoNext}
 			width={1600}
 			showImageCount={this.props.lightboxShowImageCount}
+			backdropClosesModal={this.props.backdropClosesModal}
 		    />
 		</div>
 	    );
@@ -155,6 +156,7 @@ Gallery.propTypes = {
 };
 Gallery.defaultProps = {
     lightboxShowImageCount: false,
+    backdropClosesModal: true,
     disableLightbox: false
 }
 // Gallery image style
