@@ -86,10 +86,16 @@ class Gallery extends React.Component{
                 }
 		var src = this.props.photos[k].src;
 
+    try {
+      var srcset = this.props.photos[k].srcset.join(', ');
+    } catch (e) {
+      var srcset = [];
+    }
+
 		if (this.props.disableLightbox){
 		    photoPreviewNodes.push(
 			 <div key={k} style={style}>
-			    <img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt="" />
+			    <img src={src} srcSet={srcset} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt="" />
 			 </div>
 		    );
 		}
@@ -97,7 +103,7 @@ class Gallery extends React.Component{
 		    lightboxImages.push(this.props.photos[k].lightboxImage);
 		    photoPreviewNodes.push(
 			 <div key={k} style={style}>
-			    <a href="#" className={k} onClick={this.openLightbox.bind(this, k)}><img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt="" /></a>
+			    <a href="#" className={k} onClick={this.openLightbox.bind(this, k)}><img src={src} srcSet={srcset} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt="" /></a>
 			 </div>
 		    );
 		}
@@ -145,6 +151,7 @@ Gallery.propTypes = {
 	return React.PropTypes.arrayOf(
 	    React.PropTypes.shape({
 		src: React.PropTypes.string.isRequired,
+    srcset: React.PropTypes.arrayOf(React.PropTypes.string),
 		width: React.PropTypes.number.isRequired,
 		height: React.PropTypes.number.isRequired,
 		aspectRatio: React.PropTypes.number.isRequired,

@@ -41,6 +41,11 @@ class App extends React.Component{
                 let aspectRatio = parseFloat(obj.width_o / obj.height_o);
                 return {
                     src: (aspectRatio >= 3) ? obj.url_c : obj.url_m,
+                    srcset: [
+                      obj.url_m + ' ' + obj.width_m + 'w',
+                      obj.url_c + ' ' + obj.width_c + 'w',
+                      obj.url_l + ' ' + obj.width_l + 'w'
+                    ],
                     width: parseInt(obj.width_o),
                     height: parseInt(obj.height_o),
                     aspectRatio: aspectRatio,
