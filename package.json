@@ -1,6 +1,6 @@
 {
   "name": "react-photo-gallery",
-  "version": "4.2.5",
+  "version": "4.2.6",
   "description": "Responsive React Photo Gallery Component",
   "main": "lib/Gallery.js",
   "author": "Sandy Gonzales",
@@ -16,7 +16,7 @@
   "dependencies": {
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
-    "react-images": "^0.3.2"
+    "react-images": "0.3.2"
   },
   "devDependencies": {
     "babel": "^5.8.21",
