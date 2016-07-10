@@ -64,7 +64,7 @@ class Gallery extends React.Component{
         }
         var contWidth = this.state.containerWidth - (rowLimit * 4); /* 4px for margin around each image*/
         contWidth = Math.floor(contWidth - 2); // add some padding to prevent layout prob
-	var lightboxImages = [];
+	    var lightboxImages = [];
         for (var i=0;i<this.props.photos.length;i+=rowLimit){
             var rowItems = [];
             // loop thru each set of rowLimit num
@@ -76,7 +76,7 @@ class Gallery extends React.Component{
                 if (j == this.props.photos.length){
                     break;
                 }
-		totalAr += this.props.photos[j].aspectRatio;
+		        totalAr += this.props.photos[j].aspectRatio;
             }
             commonHeight = contWidth / totalAr;
             // run thru the same set of items again to give the common height
@@ -84,57 +84,57 @@ class Gallery extends React.Component{
                 if (k == this.props.photos.length){
                     break;
                 }
-		var src = this.props.photos[k].src;
+                var src = this.props.photos[k].src;
 
-		if (this.props.disableLightbox){
-		    photoPreviewNodes.push(
-			 <div key={k} style={style}>
-			    <img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt="" />
-			 </div>
-		    );
-		}
-		else{
-		    lightboxImages.push(this.props.photos[k].lightboxImage);
-		    photoPreviewNodes.push(
-			 <div key={k} style={style}>
-			    <a href="#" className={k} onClick={this.openLightbox.bind(this, k)}><img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt="" /></a>
-			 </div>
-		    );
-		}
+                if (this.props.disableLightbox){
+                    photoPreviewNodes.push(
+                     <div key={k} style={style} onClick={this.props.handlePhotoClick.bind(this, k)}>
+                        <img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt="" />
+                     </div>
+                    );
+                }
+                else{
+                    lightboxImages.push(this.props.photos[k].lightboxImage);
+                    photoPreviewNodes.push(
+                     <div key={k} style={style}>
+                        <a href="#" className={k} onClick={this.openLightbox.bind(this, k)}><img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt="" /></a>
+                     </div>
+                    );
+                }
             }
         }
-	return(
-	    this.renderGallery(photoPreviewNodes, lightboxImages)
-        );
-    }
-    renderGallery(photoPreviewNodes, lightboxImages){
-	if (this.props.disableLightbox){
-	    return(
-		<div id="Gallery" className="clearfix">
-		    {photoPreviewNodes}
-		</div>
-	    );
-	}
-	else{
-	    return(
-		<div id="Gallery" className="clearfix">
-		    {photoPreviewNodes}
-		    <Lightbox
-			currentImage={this.state.currentImage}
-			images={lightboxImages}
-			isOpen={this.state.lightboxIsOpen}
-			onClose={this.closeLightbox}
-			onClickPrev={this.gotoPrevious}
-			onClickNext={this.gotoNext}
-			width={1600}
-			showImageCount={this.props.lightboxShowImageCount}
-			backdropClosesModal={this.props.backdropClosesModal}
-		    />
-		</div>
-	    );
-	}
-    }
-};
+        return(
+            this.renderGallery(photoPreviewNodes, lightboxImages)
+            );
+        }
+        renderGallery(photoPreviewNodes, lightboxImages){
+            if (this.props.disableLightbox){
+                return(
+                <div id="Gallery" className="clearfix">
+                    {photoPreviewNodes}
+                </div>
+                );
+            }
+            else{
+                return(
+                <div id="Gallery" className="clearfix">
+                    {photoPreviewNodes}
+                    <Lightbox
+                    currentImage={this.state.currentImage}
+                    images={lightboxImages}
+                    isOpen={this.state.lightboxIsOpen}
+                    onClose={this.closeLightbox}
+                    onClickPrev={this.gotoPrevious}
+                    onClickNext={this.gotoNext}
+                    width={1600}
+                    showImageCount={this.props.lightboxShowImageCount}
+                    backdropClosesModal={this.props.backdropClosesModal}
+                    />
+                </div>
+                );
+            }
+        }
+    };
 Gallery.displayName = 'Gallery';
 Gallery.propTypes = {
     photos: function(props, propName, componentName){
@@ -152,7 +152,8 @@ Gallery.propTypes = {
 	    })
 	).isRequired.apply(this,arguments);
     },
-    disableLightbox: React.PropTypes.bool
+    disableLightbox: React.PropTypes.bool,
+    handlePhotoClick: React.PropTypes.func
 };
 Gallery.defaultProps = {
     lightboxShowImageCount: false,
