@@ -1,6 +1,6 @@
 {
   "name": "react-photo-gallery",
-  "version": "4.2.11",
+  "version": "4.2.12",
   "description": "Responsive React Photo Gallery Component",
   "main": "lib/Gallery.js",
   "author": "Sandy Gonzales",
@@ -25,12 +25,12 @@
     "jquery": "^2.1.4",
     "lodash": "^3.10.1",
     "react-component-gulp-tasks": "^0.7.0",
-    "react": "~15.0.1",
-    "react-dom": "~15.0.1"
+    "react": "~15.3.0",
+    "react-dom": "~15.3.0"
   },
   "peerDependencies": {
-    "react": "~15.0.1",
-    "react-dom": "~15.0.1"
+    "react": "~15.3.0",
+    "react-dom": "~15.3.0"
   },
   "browserify-shim": {
     "react": "global:React"
