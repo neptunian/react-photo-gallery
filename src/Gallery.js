@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Lightbox from 'react-images';
 
 class Gallery extends React.Component{
@@ -16,19 +15,19 @@ class Gallery extends React.Component{
 	this.openLightbox = this.openLightbox.bind(this);
     }
     componentDidMount(){
-	this.setState({containerWidth: Math.floor(ReactDOM.findDOMNode(this).clientWidth)})
+	this.setState({containerWidth: Math.floor(this._gallery.clientWidth)})
         window.addEventListener('resize', this.handleResize);
     }
     componentDidUpdate(){
-	if (ReactDOM.findDOMNode(this).clientWidth !== this.state.containerWidth){
-	    this.setState({containerWidth: Math.floor(ReactDOM.findDOMNode(this).clientWidth)});
+	if (this._gallery.clientWidth !== this.state.containerWidth){
+	    this.setState({containerWidth: Math.floor(this._gallery.clientWidth)});
 	}
     }
     componentWillUnmount(){
 	 window.removeEventListener('resize', this.handleResize, false);
     }
     handleResize(e){
-        this.setState({containerWidth: Math.floor(ReactDOM.findDOMNode(this).clientWidth)});
+        this.setState({containerWidth: Math.floor(this._gallery.clientWidth)});
     }
     openLightbox(index, event){
         event.preventDefault();
@@ -110,14 +109,14 @@ class Gallery extends React.Component{
     renderGallery(photoPreviewNodes, lightboxImages){
 	if (this.props.disableLightbox){
 	    return(
-		<div id="Gallery" className="clearfix">
+		<div id="Gallery" className="clearfix" ref={(c) => this._gallery = c}>
 		    {photoPreviewNodes}
 		</div>
 	    );
 	}
 	else{
 	    return(
-		<div id="Gallery" className="clearfix">
+		<div id="Gallery" className="clearfix" ref={(c) => this._gallery = c}>
 		    {photoPreviewNodes}
 		    <Lightbox
 			currentImage={this.state.currentImage}
