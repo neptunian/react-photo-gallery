@@ -65,6 +65,8 @@ class Gallery extends React.Component{
         var contWidth = this.state.containerWidth - (rowLimit * 4); /* 4px for margin around each image*/
         contWidth = Math.floor(contWidth - 2); // add some padding to prevent layout prob
 	var lightboxImages = [];
+  var numHidden = 0; // # of images hidden in preview
+
         for (var i=0;i<this.props.photos.length;i+=rowLimit){
             var rowItems = [];
             // loop thru each set of rowLimit num
@@ -86,6 +88,9 @@ class Gallery extends React.Component{
                 }
 		var src = this.props.photos[k].src;
 
+    // Check if image shows in preview
+    var hiddenInPreview = this.props.photos[k].hiddenInPreview;
+
 		if (this.props.disableLightbox){
 		    photoPreviewNodes.push(
 			 <div key={k} style={style}>
@@ -95,15 +100,71 @@ class Gallery extends React.Component{
 		}
 		else{
 		    lightboxImages.push(this.props.photos[k].lightboxImage);
-		    photoPreviewNodes.push(
-			 <div key={k} style={style}>
-			    <a href="#" className={k} onClick={this.openLightbox.bind(this, k)}><img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt="" /></a>
-			 </div>
-		    );
+        if (!hiddenInPreview && (this.props.limitPhotosInPreview == 0 || this.props.limitPhotosInPreview > photoPreviewNodes.length)){
+  		    photoPreviewNodes.push(
+  			 <div key={k} style={style}>
+  			    <a href="#" className={k} onClick={this.openLightbox.bind(this, k)}><img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt="" /></a>
+  			 </div>
+  		    );
+        } else {
+          numHidden = numHidden + 1;
+        }
 		}
             }
         }
-	return(
+        if ( numHidden > 0 ) {
+          const moreImagesStyle = [
+            {
+              backgroundColor: 'rgba(0, 0, 0, .4)',
+              bottom: 0,
+              color: '#fff',
+              fontSize: '35px',
+              fontWeight: 'normal',
+              left: 0,
+              position: 'absolute',
+              right: 0,
+              top: 0,
+              border: 0,
+              margin: 0,
+              padding: 0,
+            },
+            {
+              display: 'table',
+              height: '100%',
+              width: '100%',
+              border: 0,
+              margin: 0,
+              padding: 0,
+            },
+            {
+              display: 'table-cell',
+              textAlign: 'center',
+              verticalAlign: 'middle',
+              border: 0,
+              margin: 0,
+              padding: 0,
+            },
+          ];
+
+          var lastItem = photoPreviewNodes.pop();
+          var lastStyle = {...style};
+          lastStyle.position = 'relative';
+          lastStyle.cursor = 'pointer';
+          lastStyle.margin = 0;
+          photoPreviewNodes.push(
+            <div key={this.props.photos.length-1} onClick={this.openLightbox.bind(this, photoPreviewNodes.length+1)} style={lastStyle}>
+              {lastItem}
+              <div style={moreImagesStyle[0]}>
+                <div style={moreImagesStyle[1]}>
+                  <div style={moreImagesStyle[2]}>
+                    +{numHidden}
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        }
+  return(
 	    this.renderGallery(photoPreviewNodes, lightboxImages)
         );
     }
@@ -152,12 +213,14 @@ Gallery.propTypes = {
 	    })
 	).isRequired.apply(this,arguments);
     },
-    disableLightbox: React.PropTypes.bool
+    disableLightbox: React.PropTypes.bool,
+    limitPhotosInPreview: React.PropTypes.number,
 };
 Gallery.defaultProps = {
     lightboxShowImageCount: false,
     backdropClosesModal: true,
-    disableLightbox: false
+    disableLightbox: false,
+    limitPhotosInPreview: 0,
 }
 // Gallery image style
 const style = {
