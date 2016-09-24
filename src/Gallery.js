@@ -64,6 +64,11 @@ class Gallery extends React.Component{
         }
         var contWidth = this.state.containerWidth - (rowLimit * 4); /* 4px for margin around each image*/
         contWidth = Math.floor(contWidth - 2); // add some padding to prevent layout prob
+        var remainder = this.props.photos.length % rowLimit;
+        if (remainder) { // there are fewer than rowLimit photos in last row
+          var lastRowWidth = Math.floor(this.state.containerWidth - (remainder * 4) - 2);
+          var lastRowIndex = this.props.photos.length - remainder;
+        }
 	var lightboxImages = [];
         for (var i=0;i<this.props.photos.length;i+=rowLimit){
             var rowItems = [];
@@ -78,7 +83,11 @@ class Gallery extends React.Component{
                 }
 		totalAr += this.props.photos[j].aspectRatio;
             }
-            commonHeight = contWidth / totalAr;
+            if (i === lastRowIndex) {
+              commonHeight = lastRowWidth / totalAr;
+            } else {
+              commonHeight = contWidth / totalAr;
+            }
             // run thru the same set of items again to give the common height
             for (var k=i; k<i+rowLimit; k++){
                 if (k == this.props.photos.length){
