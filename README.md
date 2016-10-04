@@ -1,4 +1,6 @@
 # React Responsive Photo Gallery
+
+[![Join the chat at https://gitter.im/react-photo-gallery/Lobby](https://badges.gitter.im/react-photo-gallery/Lobby.svg)](https://gitter.im/react-photo-gallery/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 A responsive React photo gallery component.
 
 ## Demo
