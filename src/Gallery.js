@@ -137,7 +137,7 @@ class Gallery extends React.Component{
 			width={1600}
 			showImageCount={this.props.lightboxShowImageCount}
 			backdropClosesModal={this.props.backdropClosesModal}
-      preloadNextImage={this.props.preloadNextImage}
+			preloadNextImage={this.props.preloadNextImage}
 		    />
 		</div>
 	    );
