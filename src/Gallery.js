@@ -53,15 +53,19 @@ class Gallery extends React.Component{
 	    currentImage: this.state.currentImage + 1,
 	});
     }
+	getRowLimit(){
+		var rowLimit = 1;
+		if(this.state.containerWidth >= 480){
+			rowLimit = this.props.custom.mobile ? this.props.custom.mobile : 2;
+		}
+		if (this.state.containerWidth >= 1024){
+			rowLimit = this.props.custom.desktop ? this.props.custom.desktop : 3;
+		}
+		return rowLimit;
+	}
     render(){
-        var rowLimit = 1,
-            photoPreviewNodes = [];
-        if (this.state.containerWidth >= 480){
-            rowLimit = 2;
-        }
-        if (this.state.containerWidth >= 1024){
-            rowLimit = 3;
-        }
+		var rowLimit = this.getRowLimit();
+		var  photoPreviewNodes = [];
         var contWidth = this.state.containerWidth - (rowLimit * 4); /* 4px for margin around each image*/
         contWidth = Math.floor(contWidth - 2); // add some padding to prevent layout prob
 	var lightboxImages = [];
@@ -152,12 +156,17 @@ Gallery.propTypes = {
 	    })
 	).isRequired.apply(this,arguments);
     },
-    disableLightbox: React.PropTypes.bool
+    disableLightbox: React.PropTypes.bool,
+	custom: React.PropTypes.shape({
+		mobile: React.PropTypes.number.isRequired,
+		desktop: React.PropTypes.number.isRequired
+	})
 };
 Gallery.defaultProps = {
     lightboxShowImageCount: false,
     backdropClosesModal: true,
-    disableLightbox: false
+    disableLightbox: false,
+	custom: {mobile:1, desktop:1}
 }
 // Gallery image style
 const style = {
