@@ -73,6 +73,7 @@ photos | array  | undefined  | Required. Array of objects (photos)
 disableLightbox | boolean  | false  | Optional
 lightboxShowImageCount | boolean | false | Optional.  Displays at the bottom of the photo index of total images. Eg. "5 of 20"
 backdropClosesModal | boolean | true | Optional. Clicking on backdrop closes the modal
+limitPhotosInPreview | number | false | Optional. Number of images showing on preview
 
 ### Photos properties
 
@@ -83,6 +84,7 @@ width | number  | undefined  | Required. Width of the gallery image
 height  | number  | undefined | Required. Height of the gallery image
 aspectRatio | number | undefined | Required. Aspect ratio of the gallery image (width / height)
 lightboxImage | object | undefined | Required by default.  If disableLightbox is true, Optional. See below for prop details.
+hiddenInPreview | boolean | undefined | Optional. Set to false in order to hide in preview
 
 ### lightboxImage prop properties
 
