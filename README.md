@@ -81,6 +81,7 @@ photos | array  | undefined  | Required. Array of objects (photos)
 disableLightbox | boolean  | false  | Optional
 lightboxShowImageCount | boolean | false | Optional.  Displays at the bottom of the photo index of total images. Eg. "5 of 20"
 backdropClosesModal | boolean | true | Optional. Clicking on backdrop closes the modal
+preloadNextImage | boolean | true | Optional. Based on the direction the user is navigating, preload the next available image.
 
 ### Photos properties
 
