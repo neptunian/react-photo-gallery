@@ -1,5 +1,15 @@
 # React Responsive Photo Gallery
+
+[![Join the chat at https://gitter.im/react-photo-gallery/Lobby](https://badges.gitter.im/react-photo-gallery/Lobby.svg)](https://gitter.im/react-photo-gallery/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 A responsive React photo gallery component.
+
+## Installation
+
+To install:
+
+```
+npm install --save react-photo-gallery
+```
 
 ## Demo
 
@@ -71,6 +81,7 @@ photos | array  | undefined  | Required. Array of objects (photos)
 disableLightbox | boolean  | false  | Optional
 lightboxShowImageCount | boolean | false | Optional.  Displays at the bottom of the photo index of total images. Eg. "5 of 20"
 backdropClosesModal | boolean | true | Optional. Clicking on backdrop closes the modal
+preloadNextImage | boolean | true | Optional. Based on the direction the user is navigating, preload the next available image.
 
 ### Photos properties
 

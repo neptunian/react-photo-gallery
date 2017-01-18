@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Lightbox from 'react-images';
 
 class Gallery extends React.Component{
@@ -16,19 +15,19 @@ class Gallery extends React.Component{
 	this.openLightbox = this.openLightbox.bind(this);
     }
     componentDidMount(){
-	this.setState({containerWidth: Math.floor(ReactDOM.findDOMNode(this).clientWidth)})
+	this.setState({containerWidth: Math.floor(this._gallery.clientWidth)})
         window.addEventListener('resize', this.handleResize);
     }
     componentDidUpdate(){
-	if (ReactDOM.findDOMNode(this).clientWidth !== this.state.containerWidth){
-	    this.setState({containerWidth: Math.floor(ReactDOM.findDOMNode(this).clientWidth)});
+	if (this._gallery.clientWidth !== this.state.containerWidth){
+	    this.setState({containerWidth: Math.floor(this._gallery.clientWidth)});
 	}
     }
     componentWillUnmount(){
 	 window.removeEventListener('resize', this.handleResize, false);
     }
     handleResize(e){
-        this.setState({containerWidth: Math.floor(ReactDOM.findDOMNode(this).clientWidth)});
+        this.setState({containerWidth: Math.floor(this._gallery.clientWidth)});
     }
     openLightbox(index, event){
         event.preventDefault();
@@ -68,6 +67,11 @@ class Gallery extends React.Component{
 		var  photoPreviewNodes = [];
         var contWidth = this.state.containerWidth - (rowLimit * 4); /* 4px for margin around each image*/
         contWidth = Math.floor(contWidth - 2); // add some padding to prevent layout prob
+        var remainder = this.props.photos.length % rowLimit;
+        if (remainder) { // there are fewer than rowLimit photos in last row
+          var lastRowWidth = Math.floor(this.state.containerWidth - (remainder * 4) - 2);
+          var lastRowIndex = this.props.photos.length - remainder;
+        }
 	var lightboxImages = [];
         for (var i=0;i<this.props.photos.length;i+=rowLimit){
             var rowItems = [];
@@ -82,7 +86,11 @@ class Gallery extends React.Component{
                 }
 		totalAr += this.props.photos[j].aspectRatio;
             }
-            commonHeight = contWidth / totalAr;
+            if (i === lastRowIndex) {
+              commonHeight = lastRowWidth / totalAr;
+            } else {
+              commonHeight = contWidth / totalAr;
+            }
             // run thru the same set of items again to give the common height
             for (var k=i; k<i+rowLimit; k++){
                 if (k == this.props.photos.length){
@@ -114,14 +122,14 @@ class Gallery extends React.Component{
     renderGallery(photoPreviewNodes, lightboxImages){
 	if (this.props.disableLightbox){
 	    return(
-		<div id="Gallery" className="clearfix">
+		<div id="Gallery" className="clearfix" ref={(c) => this._gallery = c}>
 		    {photoPreviewNodes}
 		</div>
 	    );
 	}
 	else{
 	    return(
-		<div id="Gallery" className="clearfix">
+		<div id="Gallery" className="clearfix" ref={(c) => this._gallery = c}>
 		    {photoPreviewNodes}
 		    <Lightbox
 			currentImage={this.state.currentImage}
@@ -133,6 +141,7 @@ class Gallery extends React.Component{
 			width={1600}
 			showImageCount={this.props.lightboxShowImageCount}
 			backdropClosesModal={this.props.backdropClosesModal}
+			preloadNextImage={this.props.preloadNextImage}
 		    />
 		</div>
 	    );
@@ -166,7 +175,8 @@ Gallery.defaultProps = {
     lightboxShowImageCount: false,
     backdropClosesModal: true,
     disableLightbox: false,
-	custom: {mobile:1, desktop:1}
+	custom: {mobile:1, desktop:1},
+  preloadNextImage: true
 }
 // Gallery image style
 const style = {
