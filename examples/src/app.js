@@ -9,7 +9,6 @@ class App extends React.Component{
     constructor(){
 	super();
         this.state = {photos:null, pageNum:1, totalPages:1, loadedAll: false};
-
 	this.handleScroll = this.handleScroll.bind(this);
 	this.loadMorePhotos = this.loadMorePhotos.bind(this);
     }
@@ -19,9 +18,10 @@ class App extends React.Component{
         window.addEventListener('scroll', this.handleScroll);
     }
     handleScroll(){
-        if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 50)) {
-            this.loadMorePhotos();
-        }
+	let scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+	if ((window.innerHeight + scrollY) >= (document.body.offsetHeight - 50)) {
+	    this.loadMorePhotos();
+	}
     }
     loadMorePhotos(e){
         if (e){
