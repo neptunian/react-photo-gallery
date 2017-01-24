@@ -19,7 +19,8 @@ class App extends React.Component{
         window.addEventListener('scroll', this.handleScroll);
     }
     handleScroll(){
-        if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 50)) {
+	let scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+	if ((window.innerHeight + scrollY) >= (document.body.offsetHeight - 50)) {
             this.loadMorePhotos();
         }
     }
