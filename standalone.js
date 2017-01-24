@@ -192,8 +192,7 @@ var Gallery = (function (_React$Component) {
                         onClickNext: this.gotoNext,
                         width: 1600,
                         showImageCount: this.props.lightboxShowImageCount,
-                        backdropClosesModal: this.props.backdropClosesModal,
-                        preloadNextImage: this.props.preloadNextImage
+                        backdropClosesModal: this.props.backdropClosesModal
                     })
                 );
             }
@@ -224,8 +223,7 @@ Gallery.propTypes = {
 Gallery.defaultProps = {
     lightboxShowImageCount: false,
     backdropClosesModal: true,
-    disableLightbox: false,
-    preloadNextImage: true
+    disableLightbox: false
 };
 // Gallery image style
 var style = {
