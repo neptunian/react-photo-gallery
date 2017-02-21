@@ -43,7 +43,6 @@ const PHOTO_SET = [
     src: 'http://example.com/example/img1_small.jpg',
     width: 681,
     height: 1024,
-    aspectRatio: 1.5,
     lightboxImage:{
 	src: 'http://example.com/example/img1_large.jpg',
 	srcset: [
@@ -58,7 +57,6 @@ const PHOTO_SET = [
     src: 'http://example.com/example/img2_small.jpg',
     width: 600,
     height: 600,
-    aspectRatio: 1,
     lightboxImage:{
 	src: 'http://example.com/example/img2_large.jpg',
 	srcset: [
@@ -90,7 +88,6 @@ Property        |       Type            |       Default         |       Descript
 src     |       string    |       undefined    |       Required. The src value of the gallery image
 width | number  | undefined  | Required. Width of the gallery image
 height  | number  | undefined | Required. Height of the gallery image
-aspectRatio | number | undefined | Required. Aspect ratio of the gallery image (width / height)
 lightboxImage | object | undefined | Required by default.  If disableLightbox is true, Optional. See below for prop details.
 
 ### lightboxImage prop properties

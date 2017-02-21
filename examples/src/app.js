@@ -43,7 +43,6 @@ class App extends React.Component{
                     src: (aspectRatio >= 3) ? obj.url_c : obj.url_m,
                     width: parseInt(obj.width_o),
                     height: parseInt(obj.height_o),
-                    aspectRatio: aspectRatio,
                     lightboxImage:{src: obj.url_l, caption: obj.title}
                 };
             });

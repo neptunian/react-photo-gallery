@@ -69,17 +69,18 @@ class Gallery extends React.Component{
           var lastRowIndex = this.props.photos.length - remainder;
         }
 	var lightboxImages = [];
+        // loop thru each set of rowLimit num
+        // eg. if rowLimit is 3 it will  loop thru 0,1,2, then 3,4,5 to perform calculations for the particular set
         for (var i=0;i<this.props.photos.length;i+=rowLimit){
-            var rowItems = [];
-            // loop thru each set of rowLimit num
-            // eg. if rowLimit is 3 it will  loop thru 0,1,2, then 3,4,5 to perform calculations for the particular set
-            var aspectRatio=0,
-                totalAr=0,
-                commonHeight = 0;
+            var totalAr=0,
+            commonHeight = 0;
+
+	    // get the total aspect ratio of the row
             for (var j=i; j<i+rowLimit; j++){
                 if (j == this.props.photos.length){
                     break;
                 }
+		this.props.photos[j].aspectRatio = this.props.photos[j].width / this.props.photos[j].height;	
 		totalAr += this.props.photos[j].aspectRatio;
             }
             if (i === lastRowIndex) {
@@ -87,7 +88,7 @@ class Gallery extends React.Component{
             } else {
               commonHeight = contWidth / totalAr;
             }
-            // run thru the same set of items again to give the common height
+            // run thru the same set of items again to give the width and common height
             for (var k=i; k<i+rowLimit; k++){
                 if (k == this.props.photos.length){
                     break;
@@ -156,7 +157,6 @@ Gallery.propTypes = {
 		src: React.PropTypes.string.isRequired,
 		width: React.PropTypes.number.isRequired,
 		height: React.PropTypes.number.isRequired,
-		aspectRatio: React.PropTypes.number.isRequired,
 		lightboxImage: lightboxImageValidator
 	    })
 	).isRequired.apply(this,arguments);
