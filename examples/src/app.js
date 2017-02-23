@@ -32,7 +32,7 @@ class App extends React.Component{
 	    return;
 	}
         $.ajax({
-          url: 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=372ef3a005d9b9df062b8240c326254d&photoset_id=72157631971715898&user_id=57933175@N08&format=json&per_page=21&page='+this.state.pageNum+'&extras=url_o,url_m,url_l,url_c',
+          url: 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=372ef3a005d9b9df062b8240c326254d&photoset_id=72157657666677241&user_id=57933175@N08&format=json&per_page=21&page='+this.state.pageNum+'&extras=url_m,url_c,url_l,url_h,url_o',
           dataType: 'jsonp',
           jsonpCallback: 'jsonFlickrApi',
           cache: false,
@@ -43,7 +43,16 @@ class App extends React.Component{
                     src: (aspectRatio >= 3) ? obj.url_c : obj.url_m,
                     width: parseInt(obj.width_o),
                     height: parseInt(obj.height_o),
-                    lightboxImage:{src: obj.url_l, caption: obj.title}
+                    lightboxImage:{
+			src: obj.url_l, 
+			caption: obj.title, 
+			srcset:[
+			   obj.url_m+' '+obj.width_m+'w', 
+			   obj.url_c+' '+obj.width_c+'w', 
+			   obj.url_l+' '+obj.width_l+'w', 
+			   obj.url_h+' '+obj.width_h+'w' 
+			]
+		    }
                 };
             });
 	    this.setState({
