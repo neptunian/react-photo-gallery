@@ -117,7 +117,6 @@ class Gallery extends React.Component{
         );
     }
     renderGallery(photoPreviewNodes, lightboxImages){
-console.log(lightboxImages)
 	if (this.props.disableLightbox){
 	    return(
 		<div id="Gallery" className="clearfix" ref={(c) => this._gallery = c}>
