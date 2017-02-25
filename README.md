@@ -76,6 +76,7 @@ const PHOTO_SET = [
 Property        |       Type            |       Default         |       Description
 :-----------------------|:--------------|:--------------|:--------------------------------
 photos | array  | undefined  | Required. Array of objects (photos)
+cols | number  | 3  | optional.  Number of photos per row
 disableLightbox | boolean  | false  | Optional
 lightboxShowImageCount | boolean | false | Optional.  Displays at the bottom of the photo index of total images. Eg. "5 of 20"
 backdropClosesModal | boolean | true | Optional. Clicking on backdrop closes the modal

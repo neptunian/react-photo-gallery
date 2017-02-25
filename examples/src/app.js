@@ -4,6 +4,7 @@ import Lightbox from 'react-images';
 import Gallery from 'react-photo-gallery';
 import $ from 'jquery';
 import _ from 'lodash';
+import Measure from 'react-measure';
 
 class App extends React.Component{
     constructor(){
@@ -68,7 +69,20 @@ class App extends React.Component{
     }
     renderGallery(){
 	return(
-	    <Gallery photos={this.state.photos} />
+	    <Measure whitelist={['width']}>
+	    {
+		({ width }) => {
+		    var cols = 1;
+		    if (width >= 480){
+			cols = 2;
+		    }
+		    if (width >= 1024){
+			cols = 3;
+		    }
+		    return <Gallery photos={this.state.photos} cols={cols}></Gallery>
+		}
+	    }
+	    </Measure>
 	);
     }
     render(){

@@ -24,9 +24,10 @@
     "gulp": "^3.9.0",
     "jquery": "^2.1.4",
     "lodash": "^3.10.1",
-    "react-component-gulp-tasks": "^0.7.0",
     "react": "~15.4.0",
-    "react-dom": "~15.4.0"
+    "react-component-gulp-tasks": "^0.7.0",
+    "react-dom": "~15.4.0",
+    "react-measure": "^1.4.5"
   },
   "peerDependencies": {
     "react": "~15.4.0",
