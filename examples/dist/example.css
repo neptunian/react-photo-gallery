@@ -59,7 +59,6 @@ h2 {
   padding-top: 28px;
 }
 #Gallery {
-  width: 100%;
   margin: 0 auto;
   margin-bottom: 20px;
 }
@@ -104,7 +103,6 @@ h2 {
 }
 @media only screen and (min-width: 1024px) {
   #Gallery {
-    width: 90%;
-    margin: 0 auto;
+    margin: 0 15px;
   }
 }
