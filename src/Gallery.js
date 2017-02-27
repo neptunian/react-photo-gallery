@@ -62,10 +62,10 @@ class Gallery extends React.Component{
                     break;
                 }
 		var src = this.props.photos[k].src;
-		if (!this.props.disableLightbox){
+		if (this.props.onClickPhoto){
 		    photoPreviewNodes.push(
 			 <div key={k} style={style}>
-			    <a href="#" className={k} onClick={(e) => this.props.openLightbox(k, e)}><img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt="" /></a>
+			    <a href="#" className={k} onClick={(e) => this.props.onClickPhoto(k, e)}><img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt="" /></a>
 			 </div>
 		    );
 		}
@@ -110,7 +110,7 @@ Gallery.propTypes = {
 	    })
 	).isRequired.apply(this,arguments);
     },
-    disableLightbox: React.PropTypes.bool,
+    onClickPhoto: React.PropTypes.func,
     cols: React.PropTypes.number
 };
 Gallery.defaultProps = {

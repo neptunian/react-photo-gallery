@@ -9,7 +9,7 @@ import Lightbox from 'react-images';
 class App extends React.Component{
     constructor(){
 	super();
-        this.state = {photos:null, lightboxImages: null, pageNum:1, totalPages:1, loadedAll: false, currentImage:0};
+        this.state = {photos:null, pageNum:1, totalPages:1, loadedAll: false, currentImage:0};
 	this.handleScroll = this.handleScroll.bind(this);
 	this.loadMorePhotos = this.loadMorePhotos.bind(this);
 	this.closeLightbox = this.closeLightbox.bind(this);
@@ -42,16 +42,13 @@ class App extends React.Component{
           jsonpCallback: 'jsonFlickrApi',
           cache: false,
           success: function(data) {
-	    let photos = [], lightboxImages = [];
+	    let photos = [];
 	    data.photoset.photo.forEach(function(obj,i,array){
                 let aspectRatio = parseFloat(obj.width_o / obj.height_o);
 		photos.push({
                     src: (aspectRatio >= 3) ? obj.url_c : obj.url_m,
                     width: parseInt(obj.width_o),
                     height: parseInt(obj.height_o),
-		});
-		lightboxImages.push({
-		    src: obj.url_l,
                     caption: obj.title,
                     srcset:[ 
 			obj.url_m+' '+obj.width_m+'w',
@@ -63,7 +60,6 @@ class App extends React.Component{
 	    })
 	    this.setState({
 		photos: this.state.photos ? this.state.photos.concat(photos) : photos,
-		lightboxImages: this.state.lightboxImages ? this.state.lightboxImages.concat(lightboxImages) : lightboxImages,
 		pageNum: this.state.pageNum + 1,
 		totalPages: data.photoset.pages
 	    });
@@ -74,7 +70,6 @@ class App extends React.Component{
         });
     }
     openLightbox(index, event){
-console.log('hello');
         event.preventDefault();
         this.setState({
             currentImage: index,
@@ -109,8 +104,7 @@ console.log('hello');
 		    if (width >= 1024){
 			cols = 3;
 		    }
-		    return <Gallery photos={this.state.photos} cols={cols} openLightbox={this.openLightbox}>
-			</Gallery>
+		    return <Gallery photos={this.state.photos} cols={cols} onClickPhoto={this.openLightbox} />
 		}
 	    }
 	    </Measure>
@@ -118,43 +112,24 @@ console.log('hello');
     }
     render(){
 	// no loading sign if its all loaded
-        if (this.state.photos && this.state.loadedAll){
+        if (this.state.photos){
             return(
 		<div className="App">
 		    {this.renderGallery()}
-			    <Lightbox 
-                                images={this.state.lightboxImages}
-                                backdropClosesModal={true}
-                                onClose={this.closeLightbox}
-                                onClickPrev={this.gotoPrevious}
-                                onClickNext={this.gotoNext}
-                                currentImage={this.state.currentImage}
-                                isOpen={this.state.lightboxIsOpen}
-                                width={1600}
-                              />
-
+		    <Lightbox 
+			images={this.state.photos}
+                        backdropClosesModal={true}
+                        onClose={this.closeLightbox}
+                        onClickPrev={this.gotoPrevious}
+                        onClickNext={this.gotoNext}
+                        currentImage={this.state.currentImage}
+                        isOpen={this.state.lightboxIsOpen}
+                        width={1600}
+                    />
+		    {!this.state.loadedAll && <div className="loading-msg" id="msg-loading-more">Loading</div>}
 		</div>
             );
         }
-	else if (this.state.photos){
-	    return(
-		<div className="App">
-		    {this.renderGallery()}
-			    <Lightbox 
-                                images={this.state.lightboxImages}
-                                backdropClosesModal={true}
-                                onClose={this.closeLightbox}
-                                onClickPrev={this.gotoPrevious}
-                                onClickNext={this.gotoNext}
-                                currentImage={this.state.currentImage}
-                                isOpen={this.state.lightboxIsOpen}
-                                width={1600}
-                              />
-
-			<div className="loading-msg" id="msg-loading-more">Loading</div>
-		</div>
-	    );
-	}
         else{
             return(
 		<div className="App">

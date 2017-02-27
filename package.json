@@ -13,9 +13,6 @@
   "bugs": {
     "url": "https://github.com/neptunian/react-photo-gallery/issues"
   },
-  "dependencies": {
-    "react-images": "~0.5.2"
-  },
   "devDependencies": {
     "babel": "^5.8.21",
     "babel-eslint": "^4.0.10",
@@ -27,7 +24,8 @@
     "react": "~15.4.0",
     "react-component-gulp-tasks": "^0.7.0",
     "react-dom": "~15.4.0",
-    "react-measure": "^1.4.5"
+    "react-measure": "^1.4.5",
+    "react-images": "~0.5.2"
   },
   "peerDependencies": {
     "react": "~15.4.0",

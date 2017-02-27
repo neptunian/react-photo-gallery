@@ -1,7 +1,7 @@
 # React Responsive Photo Gallery
 
 [![Join the chat at https://gitter.im/react-photo-gallery/Lobby](https://badges.gitter.im/react-photo-gallery/Lobby.svg)](https://gitter.im/react-photo-gallery/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-A stateless responsive React photo gallery component. Add your own routing, Lightbox methods, and manage your own state. 
+A stateless responsive React photo gallery component. Add your own routing, lightbox, and manage your own state. 
 
 ## Installation
 
@@ -33,53 +33,34 @@ import Gallery from 'react-photo-gallery';
 export default class Sample extends React.Component {
     render() {
 	return (
-	    <Gallery photos={PHOTO_SET} cols={5} lightboxOptions=
-		{{
-		    images: LIGHTBOX_IMAGE_SET,
-                    backdropClosesModal: true,
-                    onClose: this.closeLightbox,
-                    onClickPrev: this.gotoPrevious,
-                    onClickNext: this.gotoNext,
-                    currentImage: this.state.currentImage,
-                    isOpen: this.state.lightboxIsOpen,
-                    width: 1600
-                }}
-	    />
+	    <Gallery photos={PHOTO_SET} cols={5} onClickPhoto={this.openLightbox}/>
 	);
     }
 }
-const LIGHTBOX_IMAGE_SET = [
+const PHOTO_SET = [
   {
-    caption: 'image 1',
-    src: 'http://example.com/example/img1.jpg',
+    src: 'http://example.com/example/img1_small.jpg',
     srcset: [
       'http://example.com/example/img1_1024.jpg 1024w',
       'http://example.com/example/img1_800.jpg 800w',
       'http://example.com/example/img1_500.jpg 500w',
       'http://example.com/example/img1_320.jpg 320w',
     ],
+    width: 681,
+    height: 1024,
+    caption: 'image 1',
   },
   {
-    caption: 'image 2',
-    src: 'http://example.com/example/img2.jpg',
+    src: 'http://example.com/example/img2_small.jpg',
     srcset: [
       'http://example.com/example/img2_1024.jpg 1024w',
       'http://example.com/example/img2_800.jpg 800w',
       'http://example.com/example/img2_500.jpg 500w',
       'http://example.com/example/img2_320.jpg 320w',
     ],
-  }
-];
-const PHOTO_SET = [
-  {
-    src: 'http://example.com/example/img1_small.jpg',
-    width: 681,
-    height: 1024,
-  },
-  {
-    src: 'http://example.com/example/img2_small.jpg',
     width: 600,
     height: 600,
+    caption: 'image 2',
   }
 ];
 
@@ -91,16 +72,16 @@ Property        |       Type            |       Default         |       Descript
 :-----------------------|:--------------|:--------------|:--------------------------------
 photos | array  | undefined  | Required. Array of objects (photos)
 cols | number  | 3  | optional.  Number of photos per row
-disableLightbox | boolean  | false  | Optional
-lightboxOptions | object | undefined | Required UNLESS disabledLightbox prop is true.  See below for details
+onClickPhoto | function  | undefined  | Optional. Do something when the user clicks a photo
 
-### Photos properties
+### Gallery.photos properties
 
 Property        |       Type            |       Default         |       Description
 :-----------------------|:--------------|:--------------|:--------------------------------
 src     |       string    |       undefined    |       Required. The src value of the gallery image
-width | number  | undefined  | Required. Width of the gallery image
-height  | number  | undefined | Required. Height of the gallery image
+width | number  | undefined  | Required. Original width of the gallery image (only used for calculating aspect ratio)
+height  | number  | undefined | Required. Original height of the gallery image (only used for calculating aspect ratio)
 
-## lightboxOptions
-This component uses [React Images](https://github.com/jossmac/react-images) for Lightbox functionality.  Please view the documentation there for how to populate the lightboxOptions prop.
+## Demo explanation
+This component uses [React Images](https://github.com/jossmac/react-images) for Lightbox functionality in the example demo. 
+PHOTO_SET obj in the example above is also being passed to lightbox which uses src, srcset, and caption props.
