@@ -1,5 +1,4 @@
 import React from 'react';
-import Lightbox from 'react-images';
 
 class Gallery extends React.Component{
     constructor(){
@@ -95,7 +94,6 @@ class Gallery extends React.Component{
 	    return(
 		<div id="Gallery" className="clearfix" ref={(c) => this._gallery = c}>
 		    {photoPreviewNodes}
-		    <Lightbox {...this.props.lightboxOptions} />
 		</div>
 	    );
 	}
@@ -111,13 +109,6 @@ Gallery.propTypes = {
 		height: React.PropTypes.number.isRequired,
 	    })
 	).isRequired.apply(this,arguments);
-    },
-    lightboxOptions: function(props, propName, componentName){
-	var lightboxOptionsValidator = React.PropTypes.object;
-	if (!props.disableLightbox){
-	    lightboxOptionsValidator = React.PropTypes.object.isRequired;
-	}
-	return lightboxOptionsValidator.apply(this, arguments);
     },
     disableLightbox: React.PropTypes.bool,
     cols: React.PropTypes.number

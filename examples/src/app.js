@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Lightbox from 'react-images';
 import Gallery from 'react-photo-gallery';
 import $ from 'jquery';
 import _ from 'lodash';
 import Measure from 'react-measure';
+import Lightbox from 'react-images';
 
 class App extends React.Component{
     constructor(){
@@ -74,6 +74,7 @@ class App extends React.Component{
         });
     }
     openLightbox(index, event){
+console.log('hello');
         event.preventDefault();
         this.setState({
             currentImage: index,
@@ -108,17 +109,7 @@ class App extends React.Component{
 		    if (width >= 1024){
 			cols = 3;
 		    }
-		    return <Gallery photos={this.state.photos} cols={cols} openLightbox={this.openLightbox} lightboxOptions=
-			    {{
-				images: this.state.lightboxImages,
-				backdropClosesModal: true,
-				onClose: this.closeLightbox,
-				onClickPrev: this.gotoPrevious,
-				onClickNext: this.gotoNext,
-				currentImage: this.state.currentImage,
-				isOpen: this.state.lightboxIsOpen,
-				width: 1600
-			    }}>
+		    return <Gallery photos={this.state.photos} cols={cols} openLightbox={this.openLightbox}>
 			</Gallery>
 		}
 	    }
@@ -131,6 +122,17 @@ class App extends React.Component{
             return(
 		<div className="App">
 		    {this.renderGallery()}
+			    <Lightbox 
+                                images={this.state.lightboxImages}
+                                backdropClosesModal={true}
+                                onClose={this.closeLightbox}
+                                onClickPrev={this.gotoPrevious}
+                                onClickNext={this.gotoNext}
+                                currentImage={this.state.currentImage}
+                                isOpen={this.state.lightboxIsOpen}
+                                width={1600}
+                              />
+
 		</div>
             );
         }
@@ -138,6 +140,17 @@ class App extends React.Component{
 	    return(
 		<div className="App">
 		    {this.renderGallery()}
+			    <Lightbox 
+                                images={this.state.lightboxImages}
+                                backdropClosesModal={true}
+                                onClose={this.closeLightbox}
+                                onClickPrev={this.gotoPrevious}
+                                onClickNext={this.gotoNext}
+                                currentImage={this.state.currentImage}
+                                isOpen={this.state.lightboxIsOpen}
+                                width={1600}
+                              />
+
 			<div className="loading-msg" id="msg-loading-more">Loading</div>
 		</div>
 	    );
