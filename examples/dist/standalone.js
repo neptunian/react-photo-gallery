@@ -99,31 +99,28 @@ var Gallery = (function (_React$Component) {
 				}, {
 								key: 'render',
 								value: function render() {
-												var rowLimit = 1,
+												var cols = this.props.cols,
 												    photoPreviewNodes = [];
-												if (this.state.containerWidth >= 480) {
-																rowLimit = 2;
+												if (!this.props.cols) {
+																cols = 3;
 												}
-												if (this.state.containerWidth >= 1024) {
-																rowLimit = 3;
-												}
-												var contWidth = this.state.containerWidth - rowLimit * 4; /* 4px for margin around each image*/
+												var contWidth = this.state.containerWidth - cols * 4; /* 4px for margin around each image*/
 												contWidth = Math.floor(contWidth - 2); // add some padding to prevent layout prob
-												var remainder = this.props.photos.length % rowLimit;
+												var remainder = this.props.photos.length % cols;
 												if (remainder) {
-																// there are fewer than rowLimit photos in last row
+																// there are fewer than photos in last row
 																var lastRowWidth = Math.floor(this.state.containerWidth - remainder * 4 - 2);
 																var lastRowIndex = this.props.photos.length - remainder;
 												}
 												var lightboxImages = [];
-												// loop thru each set of rowLimit num
-												// eg. if rowLimit is 3 it will  loop thru 0,1,2, then 3,4,5 to perform calculations for the particular set
-												for (var i = 0; i < this.props.photos.length; i += rowLimit) {
+												// loop thru each set of  cols num
+												// eg. if cols is 3 it will  loop thru 0,1,2, then 3,4,5 to perform calculations for the particular set
+												for (var i = 0; i < this.props.photos.length; i += cols) {
 																var totalAr = 0,
 																    commonHeight = 0;
 
 																// get the total aspect ratio of the row
-																for (var j = i; j < i + rowLimit; j++) {
+																for (var j = i; j < i + cols; j++) {
 																				if (j == this.props.photos.length) {
 																								break;
 																				}
@@ -136,7 +133,7 @@ var Gallery = (function (_React$Component) {
 																				commonHeight = contWidth / totalAr;
 																}
 																// run thru the same set of items again to give the width and common height
-																for (var k = i; k < i + rowLimit; k++) {
+																for (var k = i; k < i + cols; k++) {
 																				if (k == this.props.photos.length) {
 																								break;
 																				}
@@ -169,7 +166,6 @@ var Gallery = (function (_React$Component) {
 								value: function renderGallery(photoPreviewNodes, lightboxImages) {
 												var _this = this;
 
-												console.log(lightboxImages);
 												if (this.props.disableLightbox) {
 																return _react2['default'].createElement(
 																				'div',
@@ -220,13 +216,15 @@ Gallery.propTypes = {
 												lightboxImage: lightboxImageValidator
 								})).isRequired.apply(this, arguments);
 				},
-				disableLightbox: _react2['default'].PropTypes.bool
+				disableLightbox: _react2['default'].PropTypes.bool,
+				cols: _react2['default'].PropTypes.number
 };
 Gallery.defaultProps = {
 				lightboxShowImageCount: false,
 				backdropClosesModal: true,
 				disableLightbox: false,
-				preloadNextImage: true
+				preloadNextImage: true,
+				cols: 3
 };
 // Gallery image style
 var style = {

@@ -1,7 +1,7 @@
 # React Responsive Photo Gallery
 
 [![Join the chat at https://gitter.im/react-photo-gallery/Lobby](https://badges.gitter.im/react-photo-gallery/Lobby.svg)](https://gitter.im/react-photo-gallery/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-A responsive React photo gallery component.
+A stateless responsive React photo gallery component. Add your own routing, lightbox, and manage your own state. 
 
 ## Installation
 
@@ -33,39 +33,34 @@ import Gallery from 'react-photo-gallery';
 export default class Sample extends React.Component {
     render() {
 	return (
-	    <Gallery photos={PHOTO_SET} />
+	    <Gallery photos={PHOTO_SET} onClickPhoto={this.openLightbox}/>
 	);
     }
 }
-
 const PHOTO_SET = [
   {
-    src: 'http://example.com/example/img1_small.jpg',
+    src: 'http://example.com/example/img1.jpg',
+    srcset: [
+      'http://example.com/example/img1_1024.jpg 1024w',
+      'http://example.com/example/img1_800.jpg 800w',
+      'http://example.com/example/img1_500.jpg 500w',
+      'http://example.com/example/img1_320.jpg 320w',
+    ],
     width: 681,
     height: 1024,
-    lightboxImage:{
-	src: 'http://example.com/example/img1_large.jpg',
-	srcset: [
-	  'http://example.com/example/img1_1024.jpg 1024w',
-	  'http://example.com/example/img1_800.jpg 800w',
-	  'http://example.com/example/img1_500.jpg 500w',
-	  'http://example.com/example/img1_320.jpg 320w',
-	]
-    }
+    caption: 'image 1',
   },
   {
-    src: 'http://example.com/example/img2_small.jpg',
+    src: 'http://example.com/example/img2.jpg',
+    srcset: [
+      'http://example.com/example/img2_1024.jpg 1024w',
+      'http://example.com/example/img2_800.jpg 800w',
+      'http://example.com/example/img2_500.jpg 500w',
+      'http://example.com/example/img2_320.jpg 320w',
+    ],
     width: 600,
     height: 600,
-    lightboxImage:{
-	src: 'http://example.com/example/img2_large.jpg',
-	srcset: [
-	  'http://example.com/example/img2_1024.jpg 1024w',
-	  'http://example.com/example/img2_800.jpg 800w',
-	  'http://example.com/example/img2_500.jpg 500w',
-	  'http://example.com/example/img2_320.jpg 320w',
-	]
-    }
+    caption: 'image 2',
   }
 ];
 
@@ -75,29 +70,18 @@ const PHOTO_SET = [
 
 Property        |       Type            |       Default         |       Description
 :-----------------------|:--------------|:--------------|:--------------------------------
-photos | array  | undefined  | Required. Array of objects (photos)
-cols | number  | 3  | optional.  Number of photos per row
-disableLightbox | boolean  | false  | Optional
-lightboxShowImageCount | boolean | false | Optional.  Displays at the bottom of the photo index of total images. Eg. "5 of 20"
-backdropClosesModal | boolean | true | Optional. Clicking on backdrop closes the modal
-preloadNextImage | boolean | true | Optional. Based on the direction the user is navigating, preload the next available image.
+photos | array  | undefined  | required; array of objects
+cols | number  | 3  | optional; number of photos per row
+onClickPhoto | function  | undefined  | optional; do something when the user clicks a photo
 
-### Photos properties
+### Gallery.photos properties
 
 Property        |       Type            |       Default         |       Description
 :-----------------------|:--------------|:--------------|:--------------------------------
-src     |       string    |       undefined    |       Required. The src value of the gallery image
-width | number  | undefined  | Required. Width of the gallery image
-height  | number  | undefined | Required. Height of the gallery image
-lightboxImage | object | undefined | Required by default.  If disableLightbox is true, Optional. See below for prop details.
+src     |       string    |       undefined    |       required; the src value of the gallery image
+width | number  | undefined  | required; original width of the gallery image (only used for calculating aspect ratio)
+height  | number  | undefined | required; original height of the gallery image (only used for calculating aspect ratio)
 
-### lightboxImage prop properties
-
-Property        |       Type            |       Default         |       Description
-:-----------------------|:--------------|:--------------|:--------------------------------
-src     |       string    |       undefined    |       Required. Image used for the lightbox
-srcset     |       array    |       undefined    |       Optional.  Array of srcsets for the lightbox
-caption     |       string    |       undefined    |       Optional.  Caption for the lightbox image
-
-## Lightbox
-This component uses [React Images](https://github.com/jossmac/react-images) for Lightbox functionality.  I've incorporated what I think to be useful Lightbox properties in context of a gallery into this component.
+## Demo explanation
+This component uses [React Images](https://github.com/jossmac/react-images) for lightbox functionality in the example demo. 
+PHOTO_SET obj in the example above is also being passed to lightbox which uses src, srcset, and caption props.
