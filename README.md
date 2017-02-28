@@ -85,5 +85,5 @@ width | number  | undefined  | required; original width of the gallery image (on
 height  | number  | undefined | required; original height of the gallery image (only used for calculating aspect ratio)
 
 ## Demo explanation
-This component uses [React Images](https://github.com/jossmac/react-images) for lightbox functionality in the example demo. 
+This component uses [React Images](https://github.com/jossmac/react-images) for lightbox functionality in the example demo, but the component itself does not depend on it. 
 PHOTO_SET obj in the example above is also being passed to lightbox which uses src, srcset, and caption props.
