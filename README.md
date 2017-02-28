@@ -1,7 +1,9 @@
 # React Responsive Photo Gallery
 
 [![Join the chat at https://gitter.im/react-photo-gallery/Lobby](https://badges.gitter.im/react-photo-gallery/Lobby.svg)](https://gitter.im/react-photo-gallery/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-A stateless responsive React photo gallery component. Add your own routing, lightbox, and manage your own state. 
+
+A stateless responsive React photo gallery component that maintains the original aspect ratio of your photos and scales them responsively.
+Add your own routing, lightbox, and manage your own state. 
 
 ## Installation
 
