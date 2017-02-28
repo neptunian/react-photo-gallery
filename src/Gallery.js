@@ -114,7 +114,6 @@ Gallery.propTypes = {
     cols: React.PropTypes.number
 };
 Gallery.defaultProps = {
-    disableLightbox: false,
     cols: 3
 }
 // Gallery image style
