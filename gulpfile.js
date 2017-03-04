@@ -4,7 +4,8 @@ var gulp = require('gulp'),
 var taskConfig = {
 
 	component: {
-		name: 'Gallery'
+		name: 'Gallery',
+		dependencies:['react', 'react-dom', 'react-images', 'react-measure', 'jquery', 'lodash']
 	},
 
 	example: {

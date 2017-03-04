@@ -32,11 +32,10 @@ class Gallery extends React.Component{
         var contWidth = this.state.containerWidth - (cols * 4); /* 4px for margin around each image*/
         contWidth = Math.floor(contWidth - 2); // add some padding to prevent layout prob
         var remainder = this.props.photos.length % cols;
-        if (remainder) { // there are fewer than photos in last row
+        if (remainder) { // there are fewer than photos than cols num in last row
           var lastRowWidth = Math.floor(this.state.containerWidth - (remainder * 4) - 2);
           var lastRowIndex = this.props.photos.length - remainder;
         }
-	//var lightboxImages = [];
         // loop thru each set of  cols num
         // eg. if cols is 3 it will  loop thru 0,1,2, then 3,4,5 to perform calculations for the particular set
         for (var i=0;i<this.props.photos.length;i+=cols){
