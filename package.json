@@ -1,6 +1,6 @@
 {
   "name": "react-photo-gallery",
-  "version": "5.0.3",
+  "version": "5.0.4",
   "description": "Responsive React Photo Gallery Component",
   "main": "lib/Gallery.js",
   "author": "Sandy Gonzales",
@@ -19,9 +19,13 @@
     "eslint": "^1.2.1",
     "eslint-plugin-react": "^3.2.3",
     "gulp": "^3.9.0",
+    "jquery": "^2.1.4",
+    "lodash": "^3.10.1",
     "react": "~15.4.0",
+    "react-component-gulp-tasks": "^0.7.7",
     "react-dom": "~15.4.0",
-    "react-component-gulp-tasks": "~0.7.7"
+    "react-measure": "^1.4.5",
+    "react-images": "~0.5.2"
   },
   "peerDependencies": {
     "react": "~15.4.0",
