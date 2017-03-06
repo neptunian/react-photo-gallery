@@ -61,14 +61,16 @@ class Gallery extends React.Component{
 		if (this.props.onClickPhoto){
 		    photoPreviewNodes.push(
 			 <div key={k} style={style}>
-			    <a href="#" className={k} onClick={(e) => this.props.onClickPhoto(k, e)}><img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt="" /></a>
+			    <a href="#" className={k} onClick={(e) => this.props.onClickPhoto(k, e)}>
+				<img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt={this.props.photos[k].alt} />
+			    </a>
 			 </div>
 		    );
 		}
 		else{
 		    photoPreviewNodes.push(
 			 <div key={k} style={style}>
-			    <img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt="" />
+			    <img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt={this.props.photos[k].alt} />
 			 </div>
 		    );
 		}
@@ -103,6 +105,7 @@ Gallery.propTypes = {
 		src: React.PropTypes.string.isRequired,
 		width: React.PropTypes.number.isRequired,
 		height: React.PropTypes.number.isRequired,
+		alt: React.PropTypes.string
 	    })
 	).isRequired.apply(this,arguments);
     },

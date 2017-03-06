@@ -50,6 +50,7 @@ class App extends React.Component{
                     width: parseInt(obj.width_o),
                     height: parseInt(obj.height_o),
                     caption: obj.title,
+                    alt: obj.title,
                     srcset:[ 
 			obj.url_m+' '+obj.width_m+'w',
                         obj.url_c+' '+obj.width_c+'w',

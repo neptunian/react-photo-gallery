@@ -83,6 +83,7 @@ Property        |       Type            |       Default         |       Descript
 src     |       string    |       undefined    |       required; the src value of the gallery image
 width | number  | undefined  | required; original width of the gallery image (only used for calculating aspect ratio)
 height  | number  | undefined | required; original height of the gallery image (only used for calculating aspect ratio)
+alt  | string  | undefined | optional; alt text of the gallery image
 
 ## Demo explanation
 This component uses [React Images](https://github.com/jossmac/react-images) for lightbox functionality in the example demo, but the component itself does not depend on it. 
