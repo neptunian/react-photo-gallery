@@ -57,12 +57,20 @@ class Gallery extends React.Component{
                 if (k == this.props.photos.length){
                     break;
                 }
-		var src = this.props.photos[k].src;
+
+		let src = this.props.photos[k].src, srcset, sizes;
+		if (this.props.photos[k].srcset){
+		    srcset = this.props.photos[k].srcset.join();
+		}
+		if (this.props.photos[k].sizes){
+		    sizes = this.props.photos[k].sizes.join();
+		}
+
 		if (this.props.onClickPhoto){
 		    photoPreviewNodes.push(
 			 <div key={k} style={style}>
 			    <a href="#" className={k} onClick={(e) => this.props.onClickPhoto(k, e)}>
-				<img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt={this.props.photos[k].alt} />
+				<img src={src} srcSet={srcset} sizes={sizes} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt={this.props.photos[k].alt} />
 			    </a>
 			 </div>
 		    );
@@ -70,7 +78,7 @@ class Gallery extends React.Component{
 		else{
 		    photoPreviewNodes.push(
 			 <div key={k} style={style}>
-			    <img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt={this.props.photos[k].alt} />
+			    <img src={src} srcSet={srcset} sizes={sizes} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt={this.props.photos[k].alt} />
 			 </div>
 		    );
 		}
@@ -105,7 +113,9 @@ Gallery.propTypes = {
 		src: React.PropTypes.string.isRequired,
 		width: React.PropTypes.number.isRequired,
 		height: React.PropTypes.number.isRequired,
-		alt: React.PropTypes.string
+		alt: React.PropTypes.string,
+		srcset: React.PropTypes.array,
+		sizes: React.PropTypes.array
 	    })
 	).isRequired.apply(this,arguments);
     },

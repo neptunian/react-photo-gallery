@@ -56,7 +56,12 @@ class App extends React.Component{
                         obj.url_c+' '+obj.width_c+'w',
                         obj.url_l+' '+obj.width_l+'w',
                         obj.url_h+' '+obj.width_h+'w' 
-                    ]  
+                    ],
+		    sizes:[
+			'(min-width: 480px) 50vw',
+			'(min-width: 1024px) 33.3vw',
+			'100vw'
+		    ]  
 		});
 	    })
 	    this.setState({
