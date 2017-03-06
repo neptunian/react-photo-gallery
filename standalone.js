@@ -63,18 +63,14 @@ var Gallery = (function (_React$Component) {
 
             var cols = this.props.cols,
                 photoPreviewNodes = [];
-            if (!this.props.cols) {
-                cols = 3;
-            }
             var contWidth = this.state.containerWidth - cols * 4; /* 4px for margin around each image*/
-            contWidth = Math.floor(contWidth - 2); // add some padding to prevent layout prob
+            contWidth = Math.floor(contWidth); // add some padding to prevent layout prob
             var remainder = this.props.photos.length % cols;
             if (remainder) {
-                // there are fewer than photos in last row
-                var lastRowWidth = Math.floor(this.state.containerWidth - remainder * 4 - 2);
+                // there are fewer photos than cols num in last row
+                var lastRowWidth = Math.floor(this.state.containerWidth / cols * remainder - remainder * 4);
                 var lastRowIndex = this.props.photos.length - remainder;
             }
-            //var lightboxImages = [];
             // loop thru each set of  cols num
             // eg. if cols is 3 it will  loop thru 0,1,2, then 3,4,5 to perform calculations for the particular set
             for (var i = 0; i < this.props.photos.length; i += cols) {
