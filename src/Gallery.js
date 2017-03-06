@@ -26,14 +26,11 @@ class Gallery extends React.Component{
     render(){
         var cols = this.props.cols,
             photoPreviewNodes = [];
-	if (!this.props.cols){
-	   cols = 3;    
-	}
         var contWidth = this.state.containerWidth - (cols * 4); /* 4px for margin around each image*/
-        contWidth = Math.floor(contWidth - 2); // add some padding to prevent layout prob
+        contWidth = Math.floor(contWidth); // add some padding to prevent layout prob
         var remainder = this.props.photos.length % cols;
-        if (remainder) { // there are fewer than photos than cols num in last row
-          var lastRowWidth = Math.floor(this.state.containerWidth - (remainder * 4) - 2);
+        if (remainder) { // there are fewer photos than cols num in last row
+          var lastRowWidth = Math.floor( ((this.state.containerWidth / cols) * remainder) - (remainder * 4) );
           var lastRowIndex = this.props.photos.length - remainder;
         }
         // loop thru each set of  cols num
