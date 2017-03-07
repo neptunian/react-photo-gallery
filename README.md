@@ -49,9 +49,9 @@ const PHOTO_SET = [
       'http://example.com/example/img1_320.jpg 320w',
     ],
     sizes:[
-	'(min-width: 480px) 50vw',
-        '(min-width: 1024px) 33.3vw',
-	'100vw'
+      '(min-width: 480px) 50vw',
+      '(min-width: 1024px) 33.3vw',
+      '100vw'
     ],
     width: 681,
     height: 1024,
@@ -66,9 +66,9 @@ const PHOTO_SET = [
       'http://example.com/example/img2_320.jpg 320w',
     ],
     sizes:[
-	'(min-width: 480px) 50vw',
-        '(min-width: 1024px) 33.3vw',
-	'100vw'
+      '(min-width: 480px) 50vw',
+      '(min-width: 1024px) 33.3vw',
+      '100vw'
     ],
     width: 600,
     height: 600,
