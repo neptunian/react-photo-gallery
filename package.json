@@ -1,6 +1,6 @@
 {
   "name": "react-photo-gallery",
-  "version": "5.2.0",
+  "version": "5.3.0",
   "description": "Responsive React Photo Gallery Component",
   "main": "lib/Gallery.js",
   "author": "Sandy Gonzales",
