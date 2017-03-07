@@ -66,22 +66,13 @@ class Gallery extends React.Component{
 		    sizes = this.props.photos[k].sizes.join();
 		}
 
-		if (this.props.onClickPhoto){
-		    photoPreviewNodes.push(
-			 <div key={k} style={style}>
-			    <a href="#" className={k} onClick={(e) => this.props.onClickPhoto(k, e)}>
-				<img src={src} srcSet={srcset} sizes={sizes} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt={this.props.photos[k].alt} />
-			    </a>
-			 </div>
-		    );
-		}
-		else{
-		    photoPreviewNodes.push(
-			 <div key={k} style={style}>
+		photoPreviewNodes.push(
+		    <div key={k} style={style}>
+			<a href="#" className={k} onClick={(e) => this.props.onClickPhoto(k, e)}>
 			    <img src={src} srcSet={srcset} sizes={sizes} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt={this.props.photos[k].alt} />
-			 </div>
-		    );
-		}
+			</a>
+		    </div>
+		);
             }
         }
 	return(
@@ -89,20 +80,11 @@ class Gallery extends React.Component{
         );
     }
     renderGallery(photoPreviewNodes){
-	if (this.props.disableLightbox){
-	    return(
-		<div id="Gallery" className="clearfix" ref={(c) => this._gallery = c}>
-		    {photoPreviewNodes}
-		</div>
-	    );
-	}
-	else{
-	    return(
-		<div id="Gallery" className="clearfix" ref={(c) => this._gallery = c}>
-		    {photoPreviewNodes}
-		</div>
-	    );
-	}
+	return(
+	    <div id="Gallery" className="clearfix" ref={(c) => this._gallery = c}>
+		{photoPreviewNodes}
+	    </div>
+	);
     }
 };
 Gallery.displayName = 'Gallery';
@@ -123,7 +105,10 @@ Gallery.propTypes = {
     cols: React.PropTypes.number
 };
 Gallery.defaultProps = {
-    cols: 3
+    cols: 3, 
+    onClickPhoto: function(k,e){
+	e.preventDefault();
+    }
 }
 // Gallery image style
 const style = {

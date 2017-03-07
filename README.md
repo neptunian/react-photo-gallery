@@ -48,9 +48,14 @@ const PHOTO_SET = [
       'http://example.com/example/img1_500.jpg 500w',
       'http://example.com/example/img1_320.jpg 320w',
     ],
+    sizes:[
+	'(min-width: 480px) 50vw',
+        '(min-width: 1024px) 33.3vw',
+	'100vw'
+    ],
     width: 681,
     height: 1024,
-    caption: 'image 1',
+    alt: 'image 1',
   },
   {
     src: 'http://example.com/example/img2.jpg',
@@ -60,9 +65,14 @@ const PHOTO_SET = [
       'http://example.com/example/img2_500.jpg 500w',
       'http://example.com/example/img2_320.jpg 320w',
     ],
+    sizes:[
+	'(min-width: 480px) 50vw',
+        '(min-width: 1024px) 33.3vw',
+	'100vw'
+    ],
     width: 600,
     height: 600,
-    caption: 'image 2',
+    alt: 'image 2',
   }
 ];
 
@@ -74,7 +84,7 @@ Property        |       Type            |       Default         |       Descript
 :-----------------------|:--------------|:--------------|:--------------------------------
 photos | array  | undefined  | required; array of objects
 cols | number  | 3  | optional; number of photos per row
-onClickPhoto | function  | undefined  | optional; do something when the user clicks a photo
+onClickPhoto | function  | function  | optional; do something when the user clicks a photo
 
 ### Gallery.photos properties
 
