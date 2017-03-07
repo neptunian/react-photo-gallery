@@ -85,6 +85,7 @@ Property        |       Type            |       Default         |       Descript
 photos | array  | undefined  | required; array of objects
 cols | number  | 3  | optional; number of photos per row
 onClickPhoto | function  | function  | optional; do something when the user clicks a photo
+margin | number  | 2  | optional; number of margin pixels around each entire image 
 
 ### Gallery.photos properties
 

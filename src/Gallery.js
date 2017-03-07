@@ -24,13 +24,14 @@ class Gallery extends React.Component{
         this.setState({containerWidth: Math.floor(this._gallery.clientWidth)});
     }
     render(){
-        var cols = this.props.cols,
-            photoPreviewNodes = [];
-        var contWidth = this.state.containerWidth - (cols * 4); /* 4px for margin around each image*/
+        let cols = this.props.cols,
+            photoPreviewNodes = [],
+	    contWidth = this.state.containerWidth - (cols * (this.props.margin * 2)); 
+
         contWidth = Math.floor(contWidth); // add some padding to prevent layout prob
         var remainder = this.props.photos.length % cols;
         if (remainder) { // there are fewer photos than cols num in last row
-          var lastRowWidth = Math.floor( ((this.state.containerWidth / cols) * remainder) - (remainder * 4) );
+          var lastRowWidth = Math.floor( ((this.state.containerWidth / cols) * remainder) - (remainder * (this.props.margin * 2)) );
           var lastRowIndex = this.props.photos.length - remainder;
         }
         // loop thru each set of  cols num
@@ -66,6 +67,7 @@ class Gallery extends React.Component{
 		    sizes = this.props.photos[k].sizes.join();
 		}
 
+		style.margin = this.props.margin;
 		photoPreviewNodes.push(
 		    <div key={k} style={style}>
 			<a href="#" className={k} onClick={(e) => this.props.onClickPhoto(k, e)}>
@@ -102,18 +104,19 @@ Gallery.propTypes = {
 	).isRequired.apply(this,arguments);
     },
     onClickPhoto: React.PropTypes.func,
-    cols: React.PropTypes.number
+    cols: React.PropTypes.number,
+    margin: React.PropTypes.number
 };
 Gallery.defaultProps = {
     cols: 3, 
     onClickPhoto: function(k,e){
 	e.preventDefault();
-    }
+    },
+    margin: 2
 }
 // Gallery image style
 const style = {
    display: 'block',
-   margin: 2,
    backgroundColor:'#e3e3e3',
    float: 'left'
 }
