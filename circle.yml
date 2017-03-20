@@ -1,0 +1,9 @@
+machine:
+  node:
+    version: 6.9.4
+dependencies:
+  override:
+    - yarn
+test:
+  override:
+    - yarn test
