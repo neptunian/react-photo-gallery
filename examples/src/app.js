@@ -123,6 +123,7 @@ class App extends React.Component{
 		<div className="App">
 		    {this.renderGallery()}
 		    <Lightbox 
+			theme={{container: { background: 'rgba(0, 0, 0, 0.85)' }}}
 			images={this.state.photos}
                         backdropClosesModal={true}
                         onClose={this.closeLightbox}
