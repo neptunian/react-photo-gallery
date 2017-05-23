@@ -51,17 +51,17 @@ class App extends React.Component{
                     height: parseInt(obj.height_o),
                     caption: obj.title,
                     alt: obj.title,
-                    srcset:[ 
+                    srcset:[
 			obj.url_m+' '+obj.width_m+'w',
                         obj.url_c+' '+obj.width_c+'w',
                         obj.url_l+' '+obj.width_l+'w',
-                        obj.url_h+' '+obj.width_h+'w' 
+                        obj.url_h+' '+obj.width_h+'w'
                     ],
 		    sizes:[
 			'(min-width: 480px) 50vw',
 			'(min-width: 1024px) 33.3vw',
 			'100vw'
-		    ]  
+		    ]
 		});
 	    })
 	    this.setState({
@@ -81,7 +81,7 @@ class App extends React.Component{
             currentImage: index,
             lightboxIsOpen: true
         });
-    }     
+    }
     closeLightbox(){
         this.setState({
             currentImage: 0,
@@ -94,6 +94,9 @@ class App extends React.Component{
         });
     }
     gotoNext(){
+        if(this.state.photos.length - 2 === this.state.currentImage){
+            this.loadMorePhotos();
+        }
         this.setState({
             currentImage: this.state.currentImage + 1,
         });
@@ -122,7 +125,7 @@ class App extends React.Component{
             return(
 		<div className="App">
 		    {this.renderGallery()}
-		    <Lightbox 
+		    <Lightbox
 			images={this.state.photos}
                         backdropClosesModal={true}
                         onClose={this.closeLightbox}
