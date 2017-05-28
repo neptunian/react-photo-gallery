@@ -125,7 +125,8 @@ class App extends React.Component{
             return(
 		<div className="App">
 		    {this.renderGallery()}
-		    <Lightbox
+		    <Lightbox 
+			theme={{container: { background: 'rgba(0, 0, 0, 0.85)' }}}
 			images={this.state.photos}
                         backdropClosesModal={true}
                         onClose={this.closeLightbox}
