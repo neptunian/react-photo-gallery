@@ -16,24 +16,16 @@
   "devDependencies": {
     "babel": "^5.8.21",
     "babel-eslint": "^4.0.10",
-    "babel-preset-airbnb": "^1.0.1",
-    "babel-register": "^6.24.0",
-    "chai": "^3.5.0",
-    "enzyme": "^2.7.1",
     "eslint": "^1.2.1",
     "eslint-plugin-react": "^3.2.3",
     "gulp": "^3.9.0",
     "jquery": "^2.1.4",
-    "jsdom": "^8.0.1",
     "lodash": "^3.10.1",
-    "mocha": "^3.2.0",
     "react": "~15.4.0",
-    "react-addons-test-utils": "^15.2.0",
     "react-component-gulp-tasks": "^0.7.7",
-    "react-dom": "^15.4.2",
-    "react-images": "~0.5.2",
+    "react-dom": "~15.4.0",
     "react-measure": "^1.4.5",
-    "sinon": "^1.17.7"
+    "react-images": "~0.5.2"
   },
   "peerDependencies": {
     "react": "~15.4.0",
@@ -52,8 +44,7 @@
     "publish:examples": "gulp publish:examples",
     "release": "gulp release",
     "start": "gulp dev",
-    "watch": "gulp watch:lib",
-    "test": "mocha tests/lib/.setup.js tests/spec/GallerySpec.js"
+    "watch": "gulp watch:lib"
   },
   "keywords": [
     "react",
