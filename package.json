@@ -63,5 +63,9 @@
     "responsive",
     "image gallery",
     "images"
+  ],
+  "files": [
+    "dist",
+    "lib"
   ]
 }
