@@ -2,6 +2,8 @@
 
 [![Join the chat at https://gitter.im/react-photo-gallery/Lobby](https://badges.gitter.im/react-photo-gallery/Lobby.svg)](https://gitter.im/react-photo-gallery/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+[![CircleCI branch](https://img.shields.io/circleci/project/github/iMerica/react-photo-gallery/master.svg)]()
+
 A stateless responsive React photo gallery component that maintains the original aspect ratio of your photos and scales them responsively.
 Add your own routing, lightbox, and manage your own state. 
 
@@ -103,3 +105,25 @@ This component uses [React Images](https://github.com/jossmac/react-images) for 
 PHOTO_SET obj in the example above is also being passed to lightbox which uses src, srcset, and caption props.
 
 To gain a good understanding of 'srcset' and 'sizes' attributes, I found this site very helpful: [https://ericportis.com/posts/2014/srcset-sizes/](https://ericportis.com/posts/2014/srcset-sizes/).
+
+
+## User Guide / Best Practice
+
+### Dynamic column count
+
+The parameter `cols` allows the adjustment of the displayed colums. In combination with `react-measure` this allows the demo page to adjust colums (https://github.com/neptunian/react-photo-gallery/blob/master/examples/src/app.js#L103). Code snippet:
+
+```
+import { Measure } from 'react-measure';
+function ResponseiveGallery (props) {
+  const { maxImageWidth = 300 } = props;
+  return (
+    <Measure whitelist={['width']}>
+      {({ width }) => (
+        <Gallery cols={Math.ceil(width / maxImageWidth)}>....</Gallery>
+      )}
+    </Measure>
+  );
+}
+```
+This idea was discussed in #32 and proposed by @smeijer.
