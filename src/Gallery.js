@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Gallery extends React.Component{
     constructor(){
@@ -92,20 +93,20 @@ class Gallery extends React.Component{
 Gallery.displayName = 'Gallery';
 Gallery.propTypes = {
     photos: function(props, propName, componentName){
-	return React.PropTypes.arrayOf(
-	    React.PropTypes.shape({
-		src: React.PropTypes.string.isRequired,
-		width: React.PropTypes.number.isRequired,
-		height: React.PropTypes.number.isRequired,
-		alt: React.PropTypes.string,
-		srcset: React.PropTypes.array,
-		sizes: React.PropTypes.array
+	return PropTypes.arrayOf(
+	    PropTypes.shape({
+		src: PropTypes.string.isRequired,
+		width: PropTypes.number.isRequired,
+		height: PropTypes.number.isRequired,
+		alt: PropTypes.string,
+		srcset: PropTypes.array,
+		sizes: PropTypes.array
 	    })
 	).isRequired.apply(this,arguments);
     },
-    onClickPhoto: React.PropTypes.func,
-    cols: React.PropTypes.number,
-    margin: React.PropTypes.number
+    onClickPhoto: PropTypes.func,
+    cols: PropTypes.number,
+    margin: PropTypes.number
 };
 Gallery.defaultProps = {
     cols: 3, 
