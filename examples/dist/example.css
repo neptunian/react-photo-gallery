@@ -48,12 +48,24 @@ a:hover {
   margin: 0 auto;
 }
 h1,
-h2 {
+h2,
+h3 {
   color: #222;
-  font-weight: 100;
+  font-weight: 200;
   width: 90%;
   margin: 0 auto;
   margin-top: 10px;
+  text-align: center;
+}
+h1 {
+  font-size: 35px;
+  margin-top: 10px;
+}
+iframe {
+  margin: 0 auto;
+  margin-top: 10px;
+  display: block;
+  width: 85px;
 }
 .App {
   padding-top: 28px;
