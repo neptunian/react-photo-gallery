@@ -98,22 +98,16 @@ width | number  | undefined  | required; original width of the gallery image (on
 height  | number  | undefined | required; original height of the gallery image (only used for calculating aspect ratio)
 alt  | string  | undefined | optional; alt text of the gallery image
 
-## Demo explanation
-This component uses [React Images](https://github.com/jossmac/react-images) for lightbox functionality in the example demo, but the component itself does not depend on it. 
-PHOTO_SET obj in the example above is also being passed to lightbox which uses src, srcset, and caption props.
-
-To gain a good understanding of 'srcset' and 'sizes' attributes, I found this site very helpful: [https://ericportis.com/posts/2014/srcset-sizes/](https://ericportis.com/posts/2014/srcset-sizes/).
-
 
 ## User Guide / Best Practice
 
 ### Dynamic column count
 
-The parameter `cols` allows the adjustment of the displayed colums. In combination with `react-measure` this allows the demo page to adjust colums (https://github.com/neptunian/react-photo-gallery/blob/master/examples/src/app.js#L103). Code snippet:
+The number of columns and when they change is something the user has control over in their app. The parameter `cols` allows the adjustment of the displayed colums. In combination with `react-measure` this allows the demo page to adjust colums (https://github.com/neptunian/react-photo-gallery/blob/master/examples/src/app.js#L103). Code snippet:
 
 ```
 import { Measure } from 'react-measure';
-function ResponseiveGallery (props) {
+function ResponsiveGallery (props) {
   const { maxImageWidth = 300 } = props;
   return (
     <Measure whitelist={['width']}>
@@ -125,3 +119,13 @@ function ResponseiveGallery (props) {
 }
 ```
 This idea was discussed in #32 and proposed by @smeijer.
+
+### Passing in photos
+
+In the demo I chose to have one object of photos that I pass in to both the Gallery component and the Lightbox component to keep the code cleaner and stateless.  Stateless because I can keep the Lightbox outide of the Gallery component and the user can decide whether to use any Lightbox of their choosing or none at all. I added all the properties into this object that either component might need or that I wanted to use for customization.
+
+## Other notes
+This component uses [React Images](https://github.com/jossmac/react-images) for lightbox functionality in the example demo, but the component itself does not depend on it. 
+
+To gain a good understanding of 'srcset' and 'sizes' attributes, I found this site very helpful: [https://ericportis.com/posts/2014/srcset-sizes/](https://ericportis.com/posts/2014/srcset-sizes/).
+
