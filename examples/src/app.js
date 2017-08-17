@@ -41,28 +41,27 @@ class App extends React.Component{
           dataType: 'jsonp',
           jsonpCallback: 'jsonFlickrApi',
           cache: false,
-          success: function(data) {
-		  	let photos = [];
-	    	data.photoset.photo.forEach(function(obj,i,array){
-                let aspectRatio = parseFloat(obj.width_o / obj.height_o);
-				photos.push({
-                    src: (aspectRatio >= 3) ? obj.url_c : obj.url_m,
-                    width: parseInt(obj.width_o),
-                    height: parseInt(obj.height_o),
-                    caption: obj.title,
-                    alt: obj.title,
+          success: (data) => {
+	    	let photos = data.photoset.photo.map((item) => {
+                let aspectRatio = parseFloat(item.width_o / item.height_o);
+				return {
+                    src: (aspectRatio >= 3) ? item.url_c : item.url_m,
+                    width: parseInt(item.width_o),
+                    height: parseInt(item.height_o),
+                    caption: item.title,
+                    alt: item.title,
                     srcset:[
-						obj.url_m+' '+obj.width_m+'w',
-                        obj.url_c+' '+obj.width_c+'w',
-                        obj.url_l+' '+obj.width_l+'w',
-                        obj.url_h+' '+obj.width_h+'w'
+						item.url_m+' '+item.width_m+'w',
+                        item.url_c+' '+item.width_c+'w',
+                        item.url_l+' '+item.width_l+'w',
+                        item.url_h+' '+item.width_h+'w'
                     ],
 		    		sizes:[
 						'(min-width: 480px) 50vw',
 						'(min-width: 1024px) 33.3vw',
 						'100vw'
 		    		]
-				});
+				};
 	    	});
 	    	this.setState({
 				photos: this.state.photos ? this.state.photos.concat(photos) : photos,
@@ -70,7 +69,7 @@ class App extends React.Component{
 				totalPages: data.photoset.pages
 	    	});
           }.bind(this),
-          error: function(xhr, status, err) {
+          error: (xhr, status, err) => {
             console.error(status, err.toString());
           }.bind(this)
         });

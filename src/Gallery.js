@@ -37,24 +37,24 @@ class Gallery extends React.Component{
           lastRowIndex = this.props.photos.length - remainder;
         }
 
-        // loop thru each set of  cols num
-        // eg. if cols is 3 it will  loop thru 0,1,2, then 3,4,5 to perform calculations for the particular set
+        // loop thru each set of cols num
+        // eg. if cols is 3 it will loop thru 0,1,2, then 3,4,5 to perform calculations for the particular set
         for (let i = 0; i<this.props.photos.length; i+= cols){
-            let totalAr = 0;
+            let totalAspectRatio = 0;
             let commonHeight = 0;
 
 	    	// get the total aspect ratio of the row
-            for (var j=i; j<i+cols; j++){
+            for (let j = i; j < i+cols; j++){
                 if (j == this.props.photos.length){
                     break;
                 }
 				this.props.photos[j].aspectRatio = this.props.photos[j].width / this.props.photos[j].height;	
-				totalAr += this.props.photos[j].aspectRatio;
+				totalAspectRatio += this.props.photos[j].aspectRatio;
             }
             if (i === lastRowIndex) {
-              commonHeight = lastRowWidth / totalAr;
+              commonHeight = lastRowWidth / totalAspectRatio;
             } else {
-              commonHeight = contWidth / totalAr;
+              commonHeight = contWidth / totalAspectRatio;
             }
             // run thru the same set of items again to give the width and common height
             for (let k=i; k<i+cols; k++){
@@ -62,7 +62,10 @@ class Gallery extends React.Component{
                     break;
                 }
 
-				let src = this.props.photos[k].src, srcset, sizes;
+				let src = this.props.photos[k].src;
+				let srcset;
+				let sizes;
+
 				if (this.props.photos[k].srcset){
 		    		srcset = this.props.photos[k].srcset.join();
 				}
@@ -85,24 +88,24 @@ class Gallery extends React.Component{
         );
     }
     renderGallery(photoPreviewNodes){
-	return(
-	    <div id="Gallery" className="clearfix" ref={(c) => this._gallery = c}>
-		{photoPreviewNodes}
-	    </div>
-	);
+		return(
+	    	<div id="Gallery" className="clearfix" ref={(c) => this._gallery = c}>
+				{photoPreviewNodes}
+	    	</div>
+		);
     }
 };
 Gallery.displayName = 'Gallery';
 Gallery.propTypes = {
     photos: function(props, propName, componentName){
-	return PropTypes.arrayOf(
-	    PropTypes.shape({
-		src: PropTypes.string.isRequired,
-		width: PropTypes.number.isRequired,
-		height: PropTypes.number.isRequired,
-		alt: PropTypes.string,
-		srcset: PropTypes.array,
-		sizes: PropTypes.array
+		return PropTypes.arrayOf(
+	    	PropTypes.shape({
+				src: PropTypes.string.isRequired,
+				width: PropTypes.number.isRequired,
+				height: PropTypes.number.isRequired,
+				alt: PropTypes.string,
+				srcset: PropTypes.array,
+				sizes: PropTypes.array
 	    })
 	).isRequired.apply(this,arguments);
     },
@@ -112,8 +115,8 @@ Gallery.propTypes = {
 };
 Gallery.defaultProps = {
     cols: 3, 
-    onClickPhoto: function(k,e){
-	e.preventDefault();
+    onClickPhoto: (k,e) => {
+		e.preventDefault();
     },
     margin: 2
 }
