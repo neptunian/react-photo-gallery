@@ -122,7 +122,7 @@ This idea was discussed in #32 and proposed by @smeijer.
 
 ### Passing in photos
 
-In the demo I chose to have one object of photos that I pass in to both the Gallery component and the Lightbox component to keep the code cleaner and stateless.  Stateless because I can keep the Lightbox outide of the Gallery component and the user can decide whether to use any Lightbox of their choosing or none at all. I added all the properties into this object that either component might need or that I wanted to use for customization.
+In the demo I chose to have one object of photos that I pass in to both the Gallery component and the Lightbox component to keep the code cleaner and stateless.  Stateless because I can keep the Lightbox outside of the Gallery component and the user can decide whether to use any Lightbox of their choosing or none at all. I added all the properties into this object that either component might need or that I wanted to use for customization.
 
 ## Other notes
 This component uses [React Images](https://github.com/jossmac/react-images) for lightbox functionality in the example demo, but the component itself does not depend on it. 
