@@ -25,66 +25,88 @@ class Gallery extends React.Component{
         this.setState({containerWidth: Math.floor(this._gallery.clientWidth)});
     }
     render(){
-        const cols = this.props.cols;
-        const remainder = this.props.photos.length % cols;
-		const contWidth = Math.floor(this.state.containerWidth - (cols * (this.props.margin * 2))); 
-		let photoPreviewNodes = [];
+		const {
+			cols,
+			margin,
+			photos,
+			onClickPhoto
+		} = this.props;
+
+		const containerWidth = this.state.containerWidth;
+
+        const remainder = photos.length % cols;
+
+		// calculate the available space for the images by subtracting the margin space from the actual parent container width
+		// the 2 is for each side of the image
+		const containerSpace = Math.floor(containerWidth - (cols * (margin * 2))); 
+		let imgNodes = [];
 		let lastRowWidth;
 		let lastRowIndex;
 
         if (remainder) { // there are fewer photos than cols num in last row
-          lastRowWidth = Math.floor( ((this.state.containerWidth / cols) * remainder) - (remainder * (this.props.margin * 2)) );
-          lastRowIndex = this.props.photos.length - remainder;
+          lastRowWidth = Math.floor( ((containerWidth / cols) * remainder) - (remainder * (margin * 2)) );
+          lastRowIndex = photos.length - remainder;
         }
 
         // loop thru each set of cols num
         // eg. if cols is 3 it will loop thru 0,1,2, then 3,4,5 to perform calculations for the particular set
-        for (let i = 0; i<this.props.photos.length; i+= cols){
+        for (let i = 0; i < photos.length; i+= cols){
             let totalAspectRatio = 0;
             let commonHeight = 0;
 
 	    	// get the total aspect ratio of the row
             for (let j = i; j < i+cols; j++){
-                if (j == this.props.photos.length){
+				const {
+					width,
+					height
+				} = photos[j];
+
+                if (j == photos.length){
                     break;
                 }
-				this.props.photos[j].aspectRatio = this.props.photos[j].width / this.props.photos[j].height;	
-				totalAspectRatio += this.props.photos[j].aspectRatio;
+				photos[j].aspectRatio = width / height;	
+				totalAspectRatio += photos[j].aspectRatio;
             }
             if (i === lastRowIndex) {
               commonHeight = lastRowWidth / totalAspectRatio;
             } else {
-              commonHeight = contWidth / totalAspectRatio;
+              commonHeight = containerSpace / totalAspectRatio;
             }
             // run thru the same set of items again to give the width and common height
             for (let k=i; k<i+cols; k++){
-                if (k == this.props.photos.length){
+                if (k == photos.length){
                     break;
                 }
 
-				let src = this.props.photos[k].src;
+				// explicity set the exact width of the image instead of letting the browser calculate it based on the height of the image
+				// because the browser may round up or down and cause the image to break to the next row if its even 1 pixel off
+				const width = commonHeight * photos[k].aspectRatio; 
+
+				const src = photos[k].src;
+				const alt = photos[k].alt;
 				let srcset;
 				let sizes;
 
-				if (this.props.photos[k].srcset){
-		    		srcset = this.props.photos[k].srcset.join();
+				if (photos[k].srcset){
+		    		srcset = photos[k].srcset.join();
 				}
-				if (this.props.photos[k].sizes){
-		    		sizes = this.props.photos[k].sizes.join();
+				if (photos[k].sizes){
+		    		sizes = photos[k].sizes.join();
 				}
+	
+				style.margin = margin;
 
-				style.margin = this.props.margin;
-				photoPreviewNodes.push(
+				imgNodes.push(
 		    		<div key={k} style={style}>
-						<a href="#" className={k} onClick={(e) => this.props.onClickPhoto(k, e)}>
-			    			<img src={src} srcSet={srcset} sizes={sizes} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * this.props.photos[k].aspectRatio} alt={this.props.photos[k].alt} />
+						<a href="#" className={k} onClick={(e) => onClickPhoto(k, e)}>
+			    			<img src={src} srcSet={srcset} sizes={sizes} style={{display:'block', border:0}} height={commonHeight} width={width} alt={alt} />
 						</a>
 		    		</div>
 				);
             }
         }
 		return(
-	    	this.renderGallery(photoPreviewNodes)
+	    	this.renderGallery(imgNodes)
         );
     }
     renderGallery(photoPreviewNodes){
