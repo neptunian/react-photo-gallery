@@ -2,38 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Gallery extends React.Component{
-    constructor(){
+	constructor(){
 		super();
 		this.state = {
-	    	containerWidth: 0
+			containerWidth: 0
 		};
 		this.handleResize = this.handleResize.bind(this);
-    }
-    componentDidMount(){
+	}
+	componentDidMount(){
 		this.setState({containerWidth: Math.floor(this._gallery.clientWidth)})
-        window.addEventListener('resize', this.handleResize);
-    }
+		window.addEventListener('resize', this.handleResize);
+	}
 	componentDidUpdate(){
 		if (this._gallery.clientWidth !== this.state.containerWidth){
-	    	this.setState({containerWidth: Math.floor(this._gallery.clientWidth)});
+			this.setState({containerWidth: Math.floor(this._gallery.clientWidth)});
 		}
-    }
-    componentWillUnmount(){
+	}
+	componentWillUnmount(){
 		window.removeEventListener('resize', this.handleResize, false);
-    }
-    handleResize(e){
-        this.setState({containerWidth: Math.floor(this._gallery.clientWidth)});
-    }
+	}
+	handleResize(e){
+		this.setState({containerWidth: Math.floor(this._gallery.clientWidth)});
+	}
 	aspectRatio({width, height}){
 		return width / height;
 	}
 	scalePhotoDimensions(){
-		const {
-			cols,
-			margin,
-			photos,
-			onClickPhoto
-		} = this.props;
+		const { cols, margin, photos} = this.props;
 		const containerWidth = this.state.containerWidth;
 
 		// divide photos in rows based on cols per row [[1,2,3],[4,5,6],[7,8]]]
@@ -60,11 +55,11 @@ class Gallery extends React.Component{
 		// flatten back the photos array
 		return rows.reduce((acc,row) => [...acc, ...row], []);
 	}
-    render(){
+	render(){
 		const resizedPhotos = this.scalePhotoDimensions();
 		style.margin = this.props.margin;
 		return(
-	    	<div id="Gallery" className="clearfix" ref={(c) => this._gallery = c}>
+			<div id="Gallery" className="clearfix" ref={(c) => this._gallery = c}>
 				{resizedPhotos.map((photo,idx) => 
 		    		<div style={style} key={idx}>
 						<a href="#" onClick={(e) => this.props.onClickPhoto(idx, e)}>
@@ -73,40 +68,39 @@ class Gallery extends React.Component{
 		    		</div>
 				)}
 	    	</div>
-        );
-
-    }
+		);
+	}
 };
 Gallery.displayName = 'Gallery';
 Gallery.propTypes = {
-    photos: function(props, propName, componentName){
+	photos: function(props, propName, componentName){
 		return PropTypes.arrayOf(
-	    	PropTypes.shape({
+			PropTypes.shape({
 				src: PropTypes.string.isRequired,
 				width: PropTypes.number.isRequired,
 				height: PropTypes.number.isRequired,
 				alt: PropTypes.string,
 				srcset: PropTypes.array,
 				sizes: PropTypes.array
-	    })
-	).isRequired.apply(this,arguments);
-    },
-    onClickPhoto: PropTypes.func,
-    cols: PropTypes.number,
-    margin: PropTypes.number
+			})
+		).isRequired.apply(this,arguments);
+	},
+	onClickPhoto: PropTypes.func,
+	cols: PropTypes.number,
+	margin: PropTypes.number
 };
 Gallery.defaultProps = {
-    cols: 3, 
-    onClickPhoto: (k,e) => {
+	cols: 3, 
+	onClickPhoto: (k,e) => {
 		e.preventDefault();
-    },
-    margin: 2
+	},
+	margin: 2
 }
 // Gallery image style
 const style = {
-   display: 'block',
-   backgroundColor:'#e3e3e3',
-   float: 'left'
+	display: 'block',
+	backgroundColor:'#e3e3e3',
+	float: 'left'
 }
 
 export default Gallery;
