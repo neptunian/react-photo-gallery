@@ -5,6 +5,7 @@ import $ from 'jquery';
 import _ from 'lodash';
 import Measure from 'react-measure';
 import Lightbox from 'react-images';
+import jsonp from 'jsonp';
 
 class App extends React.Component{
 	constructor(){
@@ -36,51 +37,49 @@ class App extends React.Component{
 			this.setState({loadedAll: true});
 			return;
 		}
-		$.ajax({
-			url: 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos',
-			data: {
-				api_key: '372ef3a005d9b9df062b8240c326254d',
-				photoset_id: '72157680705961676',
-				user_id: '57933175@N08',
-				format: 'json',
-				per_page: '21',
-				page: this.state.pageNum,
-				extras: 'url_m,url_c,url_l,url_h,url_o'
-			},
-			dataType: 'jsonp',
-			jsonpCallback: 'jsonFlickrApi',
-			cache: false,
-			success: (data) => {
-				let photos = data.photoset.photo.map((item) => {
-					let aspectRatio = parseFloat(item.width_o / item.height_o);
-					return {
-						src: (aspectRatio >= 3) ? item.url_c : item.url_m,
-						width: parseInt(item.width_o),
-						height: parseInt(item.height_o),
-						caption: item.title,
-						alt: item.title,
-						srcset:[
-							`${item.url_m} ${item.width_m}w`,
-							`${item.url_c} ${item.width_c}w`,
-							`${item.url_l} ${item.width_l}w`,
-							`${item.url_h} ${item.width_h}w`,
-						],
-						sizes:[
-							'(min-width: 480px) 50vw',
-							'(min-width: 1024px) 33.3vw',
-							'100vw'
-						]
-					};
-				});
-				this.setState({
-					photos: this.state.photos ? this.state.photos.concat(photos) : photos,
-					pageNum: this.state.pageNum + 1,
-					totalPages: data.photoset.pages
-				});
-			}.bind(this),
-			error: (xhr, status, err) => {
-				console.error(status, err.toString());
-			}.bind(this)
+
+		const urlParams = {
+			api_key: '372ef3a005d9b9df062b8240c326254d',
+			photoset_id: '72157680705961676',
+			user_id: '57933175@N08',
+			format: 'json',
+			per_page: '21',
+			page: this.state.pageNum,
+			extras: 'url_m,url_c,url_l,url_h,url_o'
+		};
+
+		let url = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos';
+		url = Object.keys(urlParams).reduce((acc,item,) => {
+			return acc+'&'+item+'='+urlParams[item];			
+		},url);
+
+		jsonp(url,{name: 'jsonFlickrApi'},(err,data) => {
+			let photos = data.photoset.photo.map((item) => {
+				let aspectRatio = parseFloat(item.width_o / item.height_o);
+				return {
+					src: (aspectRatio >= 3) ? item.url_c : item.url_m,
+					width: parseInt(item.width_o),
+					height: parseInt(item.height_o),
+					caption: item.title,
+					alt: item.title,
+					srcset:[
+						`${item.url_m} ${item.width_m}w`,
+						`${item.url_c} ${item.width_c}w`,
+						`${item.url_l} ${item.width_l}w`,
+						`${item.url_h} ${item.width_h}w`,
+					],
+					sizes:[
+						'(min-width: 480px) 50vw',
+						'(min-width: 1024px) 33.3vw',
+						'100vw'
+					]
+				};
+			});
+			this.setState({
+				photos: this.state.photos ? this.state.photos.concat(photos) : photos,
+				pageNum: this.state.pageNum + 1,
+				totalPages: data.photoset.pages
+			});
 		});
 	}
 	openLightbox(index, event){
