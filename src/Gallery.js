@@ -29,7 +29,8 @@ class Gallery extends React.Component{
 	}
 	scalePhotoDimensions(){
 		const { cols, margin, photos} = this.props;
-		const containerWidth = this.state.containerWidth;
+		// subtract 1 pixel because the browser may round up a pixel
+		const containerWidth = this.state.containerWidth - 1;
 
 		// divide photos in rows based on cols per row [[1,2,3],[4,5,6],[7,8]]]
 		let rows = photos.reduce((acc,item,idx) => {
@@ -44,7 +45,7 @@ class Gallery extends React.Component{
 			// calculate the width differently if its the last row and there are fewer photos left than col num
 			const rowWidth = (row.length < cols) ?  Math.floor((containerWidth / cols) * row.length - (row.length * (margin * 2))) : 
 													Math.floor(containerWidth - (row.length * (margin * 2))); 
-			const rowHeight = rowWidth / totalAspectRatio; 
+			const rowHeight = rowWidth / totalAspectRatio;
 			return row.map(photo => ({
 				...photo, 
 				width: rowHeight * (this.aspectRatio(photo)),
@@ -63,7 +64,7 @@ class Gallery extends React.Component{
 				{resizedPhotos.map((photo,idx) => 
 		    		<div style={style} key={idx}>
 						<a href="#" onClick={(e) => this.props.onClickPhoto(idx, e)}>
-			    			<img src={photo.src} srcSet={photo.srcset.join()} sizes={photo.sizes.join()} style={{display:'block', border:0}} height={photo.height} width={photo.width} alt={photo.alt} />
+							<img src={photo.src} srcSet={photo.srcset.join()} sizes={photo.sizes.join()} style={{display:'block', border:0}} height={photo.height} width={photo.width} alt={photo.alt} />
 						</a>
 		    		</div>
 				)}
