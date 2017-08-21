@@ -23,7 +23,6 @@
     "eslint-plugin-react": "^3.2.3",
     "gulp": "^3.9.0",
     "jsonp": "^0.2.1",
-    "lodash": "^3.10.1",
     "react": "~15.5.0",
     "react-component-gulp-tasks": "^0.7.7",
     "react-dom": "~15.5.0",

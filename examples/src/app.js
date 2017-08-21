@@ -1,11 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Gallery from 'react-photo-gallery';
-import $ from 'jquery';
-import _ from 'lodash';
 import Measure from 'react-measure';
 import Lightbox from 'react-images';
 import jsonp from 'jsonp';
+
+function debounce(func, wait, immediate) {
+	let timeout;
+	return function() {
+		const context = this, args = arguments;
+		let later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		const callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
 
 class App extends React.Component{
 	constructor(){
@@ -20,7 +33,7 @@ class App extends React.Component{
 	}
 	componentDidMount() {
 		this.loadMorePhotos();
-		this.loadMorePhotos = _.debounce(this.loadMorePhotos, 200);
+		this.loadMorePhotos = debounce(this.loadMorePhotos, 200);
 		window.addEventListener('scroll', this.handleScroll);
 	}
 	handleScroll(){
