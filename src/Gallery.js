@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Image from './components/Image';
 
 class Gallery extends React.Component{
 	constructor(){
@@ -58,15 +59,21 @@ class Gallery extends React.Component{
 	}
 	render(){
 		const resizedPhotos = this.scalePhotoDimensions();
-		style.margin = this.props.margin;
 		return(
 			<div id="Gallery" className="clearfix" ref={(c) => this._gallery = c}>
 				{resizedPhotos.map((photo,idx) => 
-		    		<div style={style} key={idx}>
-						<a href="#" onClick={(e) => this.props.onClickPhoto(idx, e)}>
-							<img src={photo.src} srcSet={photo.srcset.join()} sizes={photo.sizes.join()} style={{display:'block', border:0}} height={photo.height} width={photo.width} alt={photo.alt} />
-						</a>
-		    		</div>
+					<Image 
+						key={idx}
+						idx={idx}
+						onClick={this.props.onClickPhoto}
+						src={photo.src}
+						srcSet={photo.srcset.join()}
+						sizes={photo.sizes.join()}
+						height={photo.height}
+						width={photo.width}
+						alt={photo.alt}
+						margin={this.props.margin}
+					/>
 				)}
 	    	</div>
 		);
@@ -88,7 +95,7 @@ Gallery.propTypes = {
 	},
 	onClickPhoto: PropTypes.func,
 	cols: PropTypes.number,
-	margin: PropTypes.number
+	margin: PropTypes.number,
 };
 Gallery.defaultProps = {
 	cols: 3, 
@@ -96,12 +103,6 @@ Gallery.defaultProps = {
 		e.preventDefault();
 	},
 	margin: 2
-}
-// Gallery image style
-const style = {
-	display: 'block',
-	backgroundColor:'#e3e3e3',
-	float: 'left'
 }
 
 export default Gallery;
