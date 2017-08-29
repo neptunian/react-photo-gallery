@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Image from './components/Image';
+import DefaultImage from './components/DefaultImage';
 
 class Gallery extends React.Component{
 	constructor(){
@@ -61,20 +61,23 @@ class Gallery extends React.Component{
 		const resizedPhotos = this.scalePhotoDimensions();
 		return(
 			<div id="Gallery" className="clearfix" ref={(c) => this._gallery = c}>
-				{resizedPhotos.map((photo,idx) => 
-					<Image 
-						key={idx}
-						idx={idx}
-						onClick={this.props.onClickPhoto}
-						src={photo.src}
-						srcSet={photo.srcset.join()}
-						sizes={photo.sizes.join()}
-						height={photo.height}
-						width={photo.width}
-						alt={photo.alt}
-						margin={this.props.margin}
-					/>
-				)}
+				{resizedPhotos.map((photo,idx) => { 
+					let Image = (photo.component) ? photo.component : DefaultImage; 
+					return (
+						<Image
+							key={idx}
+							idx={idx}
+							onClick={photo.onClickPhoto ? photo.onClickPhoto : this.props.onClickPhoto}
+							src={photo.src}
+							srcSet={photo.srcset.join()}
+							sizes={photo.sizes.join()}
+							height={photo.height}
+							width={photo.width}
+							alt={photo.alt}
+							margin={this.props.margin}
+						/>
+					);
+				})}
 	    	</div>
 		);
 	}
@@ -89,7 +92,9 @@ Gallery.propTypes = {
 				height: PropTypes.number.isRequired,
 				alt: PropTypes.string,
 				srcset: PropTypes.array,
-				sizes: PropTypes.array
+				sizes: PropTypes.array,
+				component: PropTypes.func,
+				onClickPhoto: PropTypes.func
 			})
 		).isRequired.apply(this,arguments);
 	},

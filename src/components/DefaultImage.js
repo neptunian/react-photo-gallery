@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Image({idx, onClick, src, srcSet, sizes, height, width, alt, margin}){
+function DefaultImage({idx, onClick, src, srcSet, sizes, height, width, alt, margin}){
 	style.margin = margin;
 	return (
 		<div style={style}> 
@@ -18,4 +18,4 @@ const style = {
 }
 
 
-export default Image;
+export default DefaultImage;

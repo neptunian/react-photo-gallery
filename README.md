@@ -84,7 +84,7 @@ Property        |       Type            |       Default         |       Descript
 :-----------------------|:--------------|:--------------|:--------------------------------
 photos | array  | undefined  | required; array of objects
 cols | number  | 3  | optional; number of photos per row
-onClickPhoto | function  | function  | optional; do something when the user clicks a photo
+onClickPhoto | function  | e.preventDefault()  | optional; do something when the user clicks a photo
 margin | number  | 2  | optional; number of margin pixels around each entire image 
 
 ### Gallery.photos properties
@@ -97,7 +97,8 @@ sizes     |       string    |       undefined    |       optional; the img sizes
 width | number  | undefined  | required; original width of the gallery image (only used for calculating aspect ratio)
 height  | number  | undefined | required; original height of the gallery image (only used for calculating aspect ratio)
 alt  | string  | undefined | optional; alt text of the gallery image
-
+component | function | default image component | optional; use a different image component than the default provided
+onClickPhoto | function | default to Gallery onClickPhoto prop if exists | optional; specific callback for a photo that overrides Gallery's onClickPhoto
 
 ## User Guide / Best Practice
 
@@ -124,6 +125,27 @@ This idea was discussed in #32 and proposed by @smeijer.
 
 In the demo I chose to have one object of photos that I pass in to both the Gallery component and the Lightbox component to keep the code cleaner and stateless.  Stateless because I can keep the Lightbox outside of the Gallery component and the user can decide whether to use any Lightbox of their choosing or none at all. I added all the properties into this object that either component might need or that I wanted to use for customization.
 
+### Passing in a custom image component
+
+Instead of using the default image component provided, you can pass in a custom one.  This would be useful if you want to change how the image looks and functions in more ways than the API can provide.  Or if you want to use different image components depending on the state of a particular image. For example, having selection functionality where clicking on an image highlights it or adds a checkmark icon over it. The component will be passed back the following properties as seen from code in the Gallery.js:
+
+```
+let Image = (photo.component) ? photo.component : DefaultImage; 
+return (
+	<Image
+		key={idx}
+		idx={idx}
+		onClick={this.props.onClickPhoto}
+		src={photo.src}
+		srcSet={photo.srcset.join()}
+		sizes={photo.sizes.join()}
+		height={photo.height}
+		width={photo.width}
+		alt={photo.alt}
+		margin={this.props.margin}
+	/>
+);
+```
 ## Other notes
 This component uses [React Images](https://github.com/jossmac/react-images) for lightbox functionality in the example demo, but the component itself does not depend on it. 
 
