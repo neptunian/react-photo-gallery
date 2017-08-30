@@ -22,13 +22,13 @@ export function computeSizes({ photos, columns, width, padding }) {
     const totalRatio = row.reduce((result, photo) => result + ratio(photo), 0);
     const rowWidth = Math.floor(width - row.length * padding);
     const height = (rowIndex !== lastRowIndex || row.length > 1) // eslint-disable-line
-        ? rowWidth / totalRatio
-        : rowWidth / columns / totalRatio;
+        ? Math.floor(rowWidth / totalRatio)
+        : Math.floor(rowWidth / columns / totalRatio);
 
     return row.map(photo => ({
       ...photo,
       height,
-      width: height * ratio(photo),
+      width: Math.floor(height * ratio(photo)),
     }));
   });
 
