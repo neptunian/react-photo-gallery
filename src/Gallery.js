@@ -57,7 +57,6 @@ Gallery.propTypes = {
   onClick: PropTypes.func,
   columns: PropTypes.number,
   padding: PropTypes.number,
-  children: PropTypes.func,
   ImageComponent: PropTypes.any,
 };
 

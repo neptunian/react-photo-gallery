@@ -30,10 +30,9 @@ export const photoPropType = PropTypes.shape({
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
   alt: PropTypes.string,
+  title: PropTypes.string,
   srcSet: PropTypes.array,
   sizes: PropTypes.array,
-  component: PropTypes.func,
-  onClickPhoto: PropTypes.func,
 });
 
 Photo.propTypes = {
