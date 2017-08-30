@@ -7,7 +7,7 @@ import { computeSizes } from './utils';
 
 const styles = {
   gallery: { width: '100%' },
-  cell: { display: 'inline-block' },
+  cell: { display: 'block', float: 'left' },
 };
 
 class Gallery extends React.Component {
@@ -38,7 +38,7 @@ class Gallery extends React.Component {
 
     return (
       <div style={styles.gallery} ref={measureRef}>
-        {thumbs.map((photo, index) => {
+	  	{width && thumbs.map((photo, index) => {
           const { width, height } = photo;
 
           return (
@@ -62,7 +62,7 @@ Gallery.propTypes = {
 
 Gallery.defaultProps = {
   columns: 3,
-  padding: 10,
+  padding: 4,
 };
 
 const EnhancedGallery = withContentRect('bounds')(Gallery);

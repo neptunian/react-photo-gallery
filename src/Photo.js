@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 const styles = {
-  img: { display: 'block', border: 0 },
+  img: { display: 'block', border: 0, cursor: 'pointer' },
 };
 
 class Photo extends Component {
