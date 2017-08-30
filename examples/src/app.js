@@ -5,6 +5,8 @@ import { withContentRect } from 'react-measure';
 import Lightbox from 'react-images';
 import jsonp from 'jsonp';
 
+import CustomImage from './CustomImage';
+
 function debounce(func, wait, immediate) {
   let timeout;
   return function() {
@@ -146,6 +148,7 @@ class App extends React.Component {
             photos={this.state.photos}
             columns={this.getColumnCount()}
             onClick={this.openLightbox}
+            //  ImageComponent={CustomImage}
           />
 
           <Lightbox
