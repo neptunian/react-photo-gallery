@@ -14,20 +14,22 @@
     "url": "https://github.com/neptunian/react-photo-gallery/issues"
   },
   "dependencies": {
-    "prop-types": "~15.5.4"
+    "prop-types": "~15.5.4",
+    "react-measure": "^2.0.2"
   },
   "devDependencies": {
-    "babel": "^5.8.21",
-    "babel-eslint": "^4.0.10",
-    "eslint": "^1.2.1",
-    "eslint-plugin-react": "^3.2.3",
+    "babel": "^6.23.0",
+    "eslint": "^4.5.0",
+    "eslint-config-prettier": "^2.3.0",
+    "eslint-plugin-prettier": "^2.2.0",
+    "eslint-plugin-react": "^7.3.0",
     "gulp": "^3.9.0",
     "jsonp": "^0.2.1",
-    "react": "~15.5.0",
+    "prettier": "^1.6.1",
+    "react": "^15.6.1",
     "react-component-gulp-tasks": "^0.7.7",
-    "react-dom": "~15.5.0",
-    "react-images": "~0.5.2",
-    "react-measure": "~1.4.7"
+    "react-dom": "^15.6.1",
+    "react-images": "~0.5.2"
   },
   "peerDependencies": {
     "react": "~15.5.0",
@@ -42,11 +44,12 @@
     "bump:major": "gulp bump:major",
     "bump:minor": "gulp bump:minor",
     "examples": "gulp dev:server",
-    "lint": "eslint .",
+    "lint": "eslint -c ./.eslintrc.js ./src",
     "publish:examples": "gulp publish:examples",
     "release": "gulp release",
     "start": "gulp dev",
-    "watch": "gulp watch:lib"
+    "watch": "gulp watch:lib",
+    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
   },
   "keywords": [
     "react",

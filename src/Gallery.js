@@ -1,108 +1,69 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DefaultImage from './components/DefaultImage';
+import { withContentRect } from 'react-measure';
 
-class Gallery extends React.Component{
-	constructor(){
-		super();
-		this.state = {
-			containerWidth: 0
-		};
-		this.handleResize = this.handleResize.bind(this);
-	}
-	componentDidMount(){
-		this.setState({containerWidth: Math.floor(this._gallery.clientWidth)})
-		window.addEventListener('resize', this.handleResize);
-	}
-	componentDidUpdate(){
-		if (this._gallery.clientWidth !== this.state.containerWidth){
-			this.setState({containerWidth: Math.floor(this._gallery.clientWidth)});
-		}
-	}
-	componentWillUnmount(){
-		window.removeEventListener('resize', this.handleResize, false);
-	}
-	handleResize(e){
-		this.setState({containerWidth: Math.floor(this._gallery.clientWidth)});
-	}
-	aspectRatio({width, height}){
-		return width / height;
-	}
-	scalePhotoDimensions(){
-		const { cols, margin, photos} = this.props;
-		// subtract 1 pixel because the browser may round up a pixel
-		const containerWidth = this.state.containerWidth - 1;
+import Photo, { photoPropType } from './Photo';
+import { computeSizes } from './utils';
 
-		// divide photos in rows based on cols per row [[1,2,3],[4,5,6],[7,8]]]
-		let rows = photos.reduce((acc,item,idx) => {
-			const rowNum = Math.floor(idx / cols);
-			acc[rowNum] = acc[rowNum] ? [...acc[rowNum], item] : [item];
-			return acc;
-		},[]);
-
-		// scale the image dimensions
-		rows = rows.map((row) => {
-			const totalAspectRatio = row.reduce((acc, photo, idx) => acc + this.aspectRatio(photo), 0);
-			// calculate the width differently if its the last row and there are fewer photos left than col num
-			const rowWidth = (row.length < cols) ?  Math.floor((containerWidth / cols) * row.length - (row.length * (margin * 2))) : 
-													Math.floor(containerWidth - (row.length * (margin * 2))); 
-			const rowHeight = rowWidth / totalAspectRatio;
-			return row.map(photo => ({
-				...photo, 
-				width: rowHeight * (this.aspectRatio(photo)),
-				height: rowHeight
-			}));
-		});
-
-		// flatten back the photos array
-		return rows.reduce((acc,row) => [...acc, ...row], []);
-	}
-	render(){
-		const resizedPhotos = this.scalePhotoDimensions();
-		return(
-			<div id="Gallery" className="clearfix" ref={(c) => this._gallery = c}>
-				{resizedPhotos.map((photo,idx) => { 
-					let Image = (photo.component) ? photo.component : DefaultImage; 
-					return (
-						<Image
-							photo={photo}
-							key={photo.src} 
-							idx={idx} 
-							margin={this.props.margin} 
-							onClick={photo.onClickPhoto ? photo.onClickPhoto : this.props.onClickPhoto} 
-						/>
-					);
-				})}
-	    	</div>
-		);
-	}
+const styles = {
+  gallery: { width: '100%' },
+  cell: { display: 'inline-block' },
 };
-Gallery.displayName = 'Gallery';
-Gallery.propTypes = {
-	photos: function(props, propName, componentName){
-		return PropTypes.arrayOf(
-			PropTypes.shape({
-				src: PropTypes.string.isRequired,
-				width: PropTypes.number.isRequired,
-				height: PropTypes.number.isRequired,
-				alt: PropTypes.string,
-				srcset: PropTypes.array,
-				sizes: PropTypes.array,
-				component: PropTypes.func,
-				onClickPhoto: PropTypes.func
-			})
-		).isRequired.apply(this,arguments);
-	},
-	onClickPhoto: PropTypes.func,
-	cols: PropTypes.number,
-	margin: PropTypes.number,
-};
-Gallery.defaultProps = {
-	cols: 3, 
-	onClickPhoto: (k,e) => {
-		e.preventDefault();
-	},
-	margin: 2
+
+class Gallery extends React.Component {
+  constructor() {
+    super();
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick({ index }) {
+    const { photos, onClick } = this.props;
+    if (typeof onClick !== 'function') {
+      return;
+    }
+
+    onClick({
+      index,
+      photo: photos[index],
+      previous: photos[index - 1] || null,
+      next: photos[index + 1] || null,
+    });
+  }
+
+  render() {
+    const { ImageComponent = Photo, measureRef } = this.props;
+    const { photos, columns, padding, contentRect: { bounds: { width } } } = this.props;
+    const thumbs = computeSizes({ width, columns, padding, photos });
+
+    return (
+      <div style={styles.gallery} ref={measureRef}>
+        {thumbs.map((photo, index) => {
+          const { width, height } = photo;
+
+          return (
+            <div key={photo.key || photo.src} style={{ ...styles.cell, width, height, margin: padding / 2 }}>
+              <ImageComponent index={index} photo={photo} onClick={this.handleClick} />
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
 }
 
-export default Gallery;
+Gallery.propTypes = {
+  photos: PropTypes.arrayOf(photoPropType).isRequired,
+  onClick: PropTypes.func,
+  columns: PropTypes.number,
+  padding: PropTypes.number,
+  ImageComponent: PropTypes.any,
+};
+
+Gallery.defaultProps = {
+  columns: 3,
+  padding: 10,
+};
+
+const EnhancedGallery = withContentRect('bounds')(Gallery);
+export default EnhancedGallery;
