@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function DefaultImage({idx, onClick, src, srcSet, sizes, height, width, alt, margin}){
+function DefaultImage({idx, onClick, margin, photo}){
+	const {src, srcset, sizes, height, width, alt} = photo;
 	style.margin = margin;
 	return (
 		<div style={style}> 
-			<a href="#" onClick={(e) => onClick(idx, e)}>
-				<img src={src} srcSet={srcSet} sizes={sizes} style={{display:'block', border:0}} height={height} width={width} alt={alt} />
+			<a href="#" onClick={(e) => onClick(e, idx, photo)}>
+				<img src={src} srcSet={srcset} sizes={sizes} style={imgStyle} height={height} width={width} alt={alt} />
 			</a>
 		</div>
 	);
@@ -16,6 +17,9 @@ const style = {
 	backgroundColor:'#e3e3e3',
 	float: 'left',
 }
-
+const imgStyle = {
+	display: 'block',
+	border: '0'
+}
 
 export default DefaultImage;

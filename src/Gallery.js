@@ -65,16 +65,11 @@ class Gallery extends React.Component{
 					let Image = (photo.component) ? photo.component : DefaultImage; 
 					return (
 						<Image
-							key={idx}
-							idx={idx}
-							onClick={photo.onClickPhoto ? photo.onClickPhoto : this.props.onClickPhoto}
-							src={photo.src}
-							srcSet={photo.srcset.join()}
-							sizes={photo.sizes.join()}
-							height={photo.height}
-							width={photo.width}
-							alt={photo.alt}
-							margin={this.props.margin}
+							photo={photo}
+							key={photo.src} 
+							idx={idx} 
+							margin={this.props.margin} 
+							onClick={photo.onClickPhoto ? photo.onClickPhoto : this.props.onClickPhoto} 
 						/>
 					);
 				})}
