@@ -38,15 +38,15 @@ class Gallery extends React.Component {
 
     return (
       <div style={styles.gallery} ref={measureRef}>
-	  	{width && thumbs.map((photo, index) => {
-          const { width, height } = photo;
-
-          return (
-            <div key={photo.key || photo.src} style={{ ...styles.cell, width, height, margin: padding / 2 }}>
-              <ImageComponent index={index} photo={photo} onClick={this.handleClick} />
-            </div>
-          );
-        })}
+        {width &&
+          thumbs.map((photo, index) => {
+            const { width, height } = photo;
+            return (
+              <div key={photo.key || photo.src} style={{ ...styles.cell, width, height, margin: padding / 2 }}>
+                <ImageComponent index={index} photo={photo} onClick={this.handleClick} />
+              </div>
+            );
+          })}
       </div>
     );
   }
