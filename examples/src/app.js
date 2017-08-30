@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Gallery from 'react-photo-gallery';
-import Measure from 'react-measure';
+import { withContentRect } from 'react-measure';
 import Lightbox from 'react-images';
 import jsonp from 'jsonp';
 
@@ -63,7 +63,7 @@ class App extends React.Component{
 
 		let url = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos';
 		url = Object.keys(urlParams).reduce((acc,item,) => {
-			return acc+'&'+item+'='+urlParams[item];			
+			return acc+'&'+item+'='+urlParams[item];
 		},url);
 
 		jsonp(url,{name: 'jsonFlickrApi'},(err,data) => {
@@ -121,33 +121,35 @@ class App extends React.Component{
 			currentImage: this.state.currentImage + 1,
 		});
 	}
-	renderGallery(){
-		return(
-			<Measure whitelist={['width']}>
-			{
-				({ width }) => {
-					let cols = 1;
-					if (width >= 480){
-						cols = 2;
-					}
-					if (width >= 1024){
-						cols = 3;
-					}
-					if (width >= 1824){
-						cols = 4;
-					}
-					return <Gallery photos={this.state.photos} cols={cols} onClickPhoto={this.openLightbox} />
-				}
-			}
-			</Measure>
-		);
+
+	getColumnCount() {
+		const { width } = this.props.contentRect.bounds;
+
+		if (width >= 1824) {
+			return 4;
+		}
+
+		if (width >= 1024) {
+			return 3;
+		}
+
+		if (width >= 480) {
+			return 2;
+		}
+
+		return 1;
 	}
+
 	render(){
+		const { measureRef, measure, contentRect } = this.props;
+		console.log('content', this.props);
+
 		if (this.state.photos){
 			return(
-				<div className="App">
-					{this.renderGallery()}
-					<Lightbox 
+				<div className="App" ref={measureRef}>
+					<Gallery photos={this.state.photos} cols={this.getColumnCount()} onClickPhoto={this.openLightbox} />
+
+					<Lightbox
 						theme={{container: { background: 'rgba(0, 0, 0, 0.85)' }}}
 						images={this.state.photos}
 						backdropClosesModal={true}
@@ -172,4 +174,6 @@ class App extends React.Component{
 	}
 };
 
-ReactDOM.render(<App />, document.getElementById('app'));
+const EnhancedApp = withContentRect('bounds')(App);
+
+ReactDOM.render(<EnhancedApp />, document.getElementById('app'));
