@@ -6,7 +6,6 @@ export function computeSizes({ photos, columns, width, padding }) {
   if (!width) {
     return [];
   }
-
   // divide photos over rows, max cells based on `columns`
   // effectively resulting in [[0, 1, 2], [3, 4, 5], [6, 7]]
   const rows = photos.reduce((acc, cell, idx) => {
@@ -28,7 +27,7 @@ export function computeSizes({ photos, columns, width, padding }) {
     return row.map(photo => ({
       ...photo,
       height,
-      width: Math.floor(height * ratio(photo)),
+      width: height * ratio(photo),
     }));
   });
 
