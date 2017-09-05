@@ -52,8 +52,8 @@ class Gallery extends React.Component {
     const { ImageComponent = Photo } = this.props;
     // subtract 1 pixel because the browser may round up a pixel
     const width = this.state.containerWidth - 1;
-    const { photos, columns, padding } = this.props;
-    const thumbs = computeSizes({ width, columns, padding, photos });
+    const { photos, cols, padding } = this.props;
+    const thumbs = computeSizes({ width, cols, padding, photos });
 
     return (
       <div style={styles.gallery} ref={c => (this._gallery = c)}>
@@ -74,13 +74,13 @@ class Gallery extends React.Component {
 Gallery.propTypes = {
   photos: PropTypes.arrayOf(photoPropType).isRequired,
   onClick: PropTypes.func,
-  columns: PropTypes.number,
+  cols: PropTypes.number,
   padding: PropTypes.number,
   ImageComponent: PropTypes.any,
 };
 
 Gallery.defaultProps = {
-  columns: 3,
+  cols: 3,
   padding: 4,
 };
 

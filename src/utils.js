@@ -2,14 +2,14 @@ export function ratio({ width, height }) {
   return width / height;
 }
 
-export function computeSizes({ photos, columns, width, padding }) {
+export function computeSizes({ photos, cols, width, padding }) {
   if (!width) {
     return [];
   }
   // divide photos over rows, max cells based on `columns`
   // effectively resulting in [[0, 1, 2], [3, 4, 5], [6, 7]]
   const rows = photos.reduce((acc, cell, idx) => {
-    const row = Math.floor(idx / columns);
+    const row = Math.floor(idx / cols);
     acc[row] = acc[row] ? [...acc[row], cell] : [cell]; // eslint-disable-line no-param-reassign
     return acc;
   }, []);
@@ -22,7 +22,7 @@ export function computeSizes({ photos, columns, width, padding }) {
     const rowWidth = Math.floor(width - row.length * padding);
     const height = (rowIndex !== lastRowIndex || row.length > 1) // eslint-disable-line
         ? Math.floor(rowWidth / totalRatio)
-        : Math.floor(rowWidth / columns / totalRatio);
+        : Math.floor(rowWidth / cols / totalRatio);
 
     return row.map(photo => ({
       ...photo,

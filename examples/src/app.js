@@ -26,7 +26,7 @@ function debounce(func, wait, immediate) {
 class App extends React.Component {
   constructor() {
     super();
-    this.state = { photos: null, pageNum: 1, totalPages: 1, loadedAll: false, currentImage: 0 };
+    this.state = { photos: null, pageNum: 1, totalPages: 1, loadedAll: false, currentImage: 0, width: -1 };
     this.handleScroll = this.handleScroll.bind(this);
     this.loadMorePhotos = this.loadMorePhotos.bind(this);
     this.closeLightbox = this.closeLightbox.bind(this);
@@ -120,10 +120,16 @@ class App extends React.Component {
     });
   }
   renderGallery(){
+    const width = this.state.width;
     return(
-		<Measure whitelist={['width']}>
+		<Measure bounds onResize={(contentRect) => this.setState({ width: contentRect.bounds.width })}>
 			{
-				({ width }) => {
+				({ measureRef }) => {
+          // fix flash of one col and large image
+          // don't try to load gallery until width is bigger
+          if (width < 1 ){
+            return <div ref={measureRef}></div>;
+          }
 					let cols = 1;
 					if (width >= 480){
 						cols = 2;
@@ -134,12 +140,14 @@ class App extends React.Component {
 					if (width >= 1824){
 						cols = 4;
 					}
-					return <Gallery
-								photos={this.state.photos}
-								cols={cols}
-								onClick={this.openLightbox}
-								//  ImageComponent={CustomImage}
-							/>
+					return <div ref={measureRef}>
+                  <Gallery 
+								    photos={this.state.photos}
+								    cols={cols}
+								    onClick={this.openLightbox}
+								    //  ImageComponent={CustomImage}
+							    />
+                </div>
 				}
 			}
 		</Measure>
