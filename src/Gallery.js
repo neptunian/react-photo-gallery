@@ -13,26 +13,26 @@ const styles = {
 class Gallery extends React.Component {
   constructor() {
     super();
-	this.state = {
-		containerWidth: 0,
-	};
-	this.handleResize = this.handleResize.bind(this);
+    this.state = {
+      containerWidth: 0,
+    };
+    this.handleResize = this.handleResize.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
   componentDidMount() {
-	this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
-	window.addEventListener('resize', this.handleResize);
+    this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
+    window.addEventListener('resize', this.handleResize);
   }
   componentDidUpdate() {
-	if (this._gallery.clientWidth !== this.state.containerWidth) {
-		this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
-  	}
+    if (this._gallery.clientWidth !== this.state.containerWidth) {
+      this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
+    }
   }
   componentWillUnmount() {
-  	window.removeEventListener('resize', this.handleResize, false);
+    window.removeEventListener('resize', this.handleResize, false);
   }
   handleResize(e) {
-  	this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
+    this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
   }
   handleClick({ index }) {
     const { photos, onClick } = this.props;
@@ -50,8 +50,8 @@ class Gallery extends React.Component {
 
   render() {
     const { ImageComponent = Photo } = this.props;
-	// subtract 1 pixel because the browser may round up a pixel
-	const width = this.state.containerWidth - 1;
+    // subtract 1 pixel because the browser may round up a pixel
+    const width = this.state.containerWidth - 1;
     const { photos, columns, padding } = this.props;
     const thumbs = computeSizes({ width, columns, padding, photos });
 
