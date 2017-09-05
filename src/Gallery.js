@@ -13,10 +13,27 @@ const styles = {
 class Gallery extends React.Component {
   constructor() {
     super();
-
+	this.state = {
+		containerWidth: 0,
+	};
+	this.handleResize = this.handleResize.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
-
+  componentDidMount() {
+	this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
+	window.addEventListener('resize', this.handleResize);
+  }
+  componentDidUpdate() {
+	if (this._gallery.clientWidth !== this.state.containerWidth) {
+		this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
+  	}
+  }
+  componentWillUnmount() {
+  	window.removeEventListener('resize', this.handleResize, false);
+  }
+  handleResize(e) {
+  	this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
+  }
   handleClick({ index }) {
     const { photos, onClick } = this.props;
     if (typeof onClick !== 'function') {
@@ -32,12 +49,14 @@ class Gallery extends React.Component {
   }
 
   render() {
-    const { ImageComponent = Photo, measureRef } = this.props;
-    const { photos, columns, padding, contentRect: { bounds: { width } } } = this.props;
+    const { ImageComponent = Photo } = this.props;
+	// subtract 1 pixel because the browser may round up a pixel
+	const width = this.state.containerWidth - 1;
+    const { photos, columns, padding } = this.props;
     const thumbs = computeSizes({ width, columns, padding, photos });
 
     return (
-      <div style={styles.gallery} ref={measureRef}>
+      <div style={styles.gallery} ref={c => (this._gallery = c)}>
         {width &&
           thumbs.map((photo, index) => {
             const { width, height } = photo;
@@ -65,5 +84,4 @@ Gallery.defaultProps = {
   padding: 4,
 };
 
-const EnhancedGallery = withContentRect('bounds')(Gallery);
-export default EnhancedGallery;
+export default Gallery;

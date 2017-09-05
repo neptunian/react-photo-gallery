@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Gallery from 'react-photo-gallery';
-import { withContentRect } from 'react-measure';
 import Lightbox from 'react-images';
 import jsonp from 'jsonp';
+import Measure from 'react-measure';
 
 import CustomImage from './CustomImage';
 
@@ -119,38 +119,38 @@ class App extends React.Component {
       currentImage: this.state.currentImage + 1,
     });
   }
-
-  getColumnCount() {
-    const { width } = this.props.contentRect.bounds;
-
-    if (width >= 1824) {
-      return 4;
-    }
-
-    if (width >= 1024) {
-      return 3;
-    }
-
-    if (width >= 480) {
-      return 2;
-    }
-
-    return 1;
+  renderGallery(){
+    return(
+		<Measure whitelist={['width']}>
+			{
+				({ width }) => {
+					let cols = 1;
+					if (width >= 480){
+						cols = 2;
+					}
+					if (width >= 1024){
+						cols = 3;
+					}
+					if (width >= 1824){
+						cols = 4;
+					}
+					return <Gallery
+								photos={this.state.photos}
+								cols={cols}
+								onClick={this.openLightbox}
+								//  ImageComponent={CustomImage}
+							/>
+				}
+			}
+		</Measure>
+	);
   }
 
   render() {
-    const { measureRef } = this.props;
-
     if (this.state.photos) {
       return (
-        <div className="App" ref={measureRef}>
-          <Gallery
-            photos={this.state.photos}
-            columns={this.getColumnCount()}
-            onClick={this.openLightbox}
-            //  ImageComponent={CustomImage}
-          />
-
+        <div className="App">
+			{this.renderGallery()}
           <Lightbox
             theme={{ container: { background: 'rgba(0, 0, 0, 0.85)' } }}
             images={this.state.photos.map(x => ({ ...x, srcset: x.srcSet, caption: x.title }))}
@@ -181,7 +181,4 @@ class App extends React.Component {
     }
   }
 }
-
-const EnhancedApp = withContentRect('bounds')(App);
-
-ReactDOM.render(<EnhancedApp />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
