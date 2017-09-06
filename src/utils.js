@@ -2,7 +2,7 @@ export function ratio({ width, height }) {
   return width / height;
 }
 
-export function computeSizes({ photos, cols, width, padding }) {
+export function computeSizes({ photos, cols, width, margin }) {
   if (!width) {
     return [];
   }
@@ -19,7 +19,7 @@ export function computeSizes({ photos, cols, width, padding }) {
   const lastRowIndex = rows.length - 1;
   const rowsWithSizes = rows.map((row, rowIndex) => {
     const totalRatio = row.reduce((result, photo) => result + ratio(photo), 0);
-    const rowWidth = Math.floor(width - row.length * padding);
+    const rowWidth = Math.floor(width - row.length * (margin * 2));
     const height = (rowIndex !== lastRowIndex || row.length > 1) // eslint-disable-line
         ? Math.floor(rowWidth / totalRatio)
         : Math.floor(rowWidth / cols / totalRatio);

@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-const clickStyle = {
-  img: { cursor: 'pointer' },
-};
+const imgStyle = { display: 'block' };
+const imgWithClick = {...imgStyle, cursor: 'pointer'};
 
 class Photo extends PureComponent {
   constructor() {
@@ -18,7 +17,7 @@ class Photo extends PureComponent {
 
   render() {
     const { photo, onClick } = this.props;
-    return <img style={onClick ? clickStyle.img : {}} {...photo} onClick={onClick ? this.handleClick : null} />;
+    return <img style={onClick ? imgWithClick : imgStyle} {...photo} onClick={onClick ? this.handleClick : null} />;
   }
 }
 

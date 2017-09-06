@@ -48,15 +48,15 @@ class Gallery extends PureComponent {
     const { ImageComponent = Photo } = this.props;
     // subtract 1 pixel because the browser may round up a pixel
     const width = this.state.containerWidth - 1;
-    const { photos, cols, padding, onClick } = this.props;
-    const thumbs = computeSizes({ width, cols, padding, photos });
+    const { photos, cols, margin, onClick } = this.props;
+    const thumbs = computeSizes({ width, cols, margin, photos });
 
     return (
       <div style={styles.gallery} ref={c => (this._gallery = c)}>
         {thumbs.map((photo, index) => {
             const { width, height } = photo;
             return (
-              <div key={photo.key || photo.src} style={{ ...styles.cell, width, height, margin: padding / 2 }}>
+              <div key={photo.key || photo.src} style={{ ...styles.cell, margin: margin }}>
                 <ImageComponent index={index} photo={photo} onClick={onClick ? this.handleClick : null} />
               </div>
             );
@@ -70,13 +70,13 @@ Gallery.propTypes = {
   photos: PropTypes.arrayOf(photoPropType).isRequired,
   onClick: PropTypes.func,
   cols: PropTypes.number,
-  padding: PropTypes.number,
+  margin: PropTypes.number,
   ImageComponent: PropTypes.any,
 };
 
 Gallery.defaultProps = {
   cols: 3,
-  padding: 4,
+  margin: 2,
 };
 
 export default Gallery;
