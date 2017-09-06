@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 const clickStyle = {
   img: { cursor: 'pointer' },
 };
 
-class Photo extends Component {
+class Photo extends PureComponent {
   constructor() {
     super();
     this.handleClick = this.handleClick.bind(this);

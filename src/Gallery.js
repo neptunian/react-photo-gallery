@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { withContentRect } from 'react-measure';
 
@@ -10,7 +10,7 @@ const styles = {
   cell: { display: 'block', float: 'left' },
 };
 
-class Gallery extends React.Component {
+class Gallery extends PureComponent {
   constructor() {
     super();
     this.state = {
