@@ -94,9 +94,9 @@ class App extends React.Component {
       });
     });
   }
-  openLightbox(d, event) {
+  openLightbox(event, obj) {
     this.setState({
-      currentImage: d.index,
+      currentImage: obj.index,
       lightboxIsOpen: true,
     });
   }

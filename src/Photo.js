@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const styles = {
-  img: { display: 'block', border: 0, cursor: 'pointer' },
+const clickStyle = {
+  img: { cursor: 'pointer' },
 };
 
 class Photo extends Component {
@@ -11,17 +11,14 @@ class Photo extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
+  handleClick(event) {
     const { onClick, index, photo } = this.props;
-
-    if (typeof onClick === 'function') {
-      onClick({ photo, index });
-    }
+    onClick(event,{ photo, index });
   }
 
   render() {
-    const { photo } = this.props;
-    return <img style={styles.img} {...photo} onClick={this.handleClick} />;
+    const { photo, onClick } = this.props;
+    return <img style={onClick ? clickStyle.img : {}} {...photo} onClick={onClick ? this.handleClick : null} />;
   }
 }
 

@@ -34,13 +34,9 @@ class Gallery extends React.Component {
   handleResize(e) {
     this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
   }
-  handleClick({ index }) {
+  handleClick(event, { index }) {
     const { photos, onClick } = this.props;
-    if (typeof onClick !== 'function') {
-      return;
-    }
-
-    onClick({
+    onClick(event, {
       index,
       photo: photos[index],
       previous: photos[index - 1] || null,
@@ -52,7 +48,7 @@ class Gallery extends React.Component {
     const { ImageComponent = Photo } = this.props;
     // subtract 1 pixel because the browser may round up a pixel
     const width = this.state.containerWidth - 1;
-    const { photos, cols, padding } = this.props;
+    const { photos, cols, padding, onClick } = this.props;
     const thumbs = computeSizes({ width, cols, padding, photos });
 
     return (
@@ -62,7 +58,7 @@ class Gallery extends React.Component {
             const { width, height } = photo;
             return (
               <div key={photo.key || photo.src} style={{ ...styles.cell, width, height, margin: padding / 2 }}>
-                <ImageComponent index={index} photo={photo} onClick={this.handleClick} />
+                <ImageComponent index={index} photo={photo} onClick={onClick ? this.handleClick : null} />
               </div>
             );
           })}
