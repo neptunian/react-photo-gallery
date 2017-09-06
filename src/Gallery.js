@@ -53,8 +53,7 @@ class Gallery extends React.Component {
 
     return (
       <div style={styles.gallery} ref={c => (this._gallery = c)}>
-        {width &&
-          thumbs.map((photo, index) => {
+        {thumbs.map((photo, index) => {
             const { width, height } = photo;
             return (
               <div key={photo.key || photo.src} style={{ ...styles.cell, width, height, margin: padding / 2 }}>
