@@ -19,10 +19,10 @@ export function computeSizes({ photos, cols, width, margin }) {
   const lastRowIndex = rows.length - 1;
   const rowsWithSizes = rows.map((row, rowIndex) => {
     const totalRatio = row.reduce((result, photo) => result + ratio(photo), 0);
-    const rowWidth = Math.floor(width - row.length * (margin * 2));
+    const rowWidth = width - row.length * (margin * 2);
     const height = (rowIndex !== lastRowIndex || row.length > 1) // eslint-disable-line
-        ? Math.floor(rowWidth / totalRatio)
-        : Math.floor(rowWidth / cols / totalRatio);
+        ? rowWidth / totalRatio
+        : rowWidth / cols / totalRatio;
 
     return row.map(photo => ({
       ...photo,
