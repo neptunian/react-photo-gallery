@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "babel": "^6.23.0",
+    "cross-env": "^5.0.5",
     "eslint": "^4.5.0",
     "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-prettier": "^2.2.0",
@@ -39,7 +40,7 @@
     "react": "global:React"
   },
   "scripts": {
-    "build": "gulp clean && NODE_ENV=production gulp build",
+    "build": "gulp clean && cross-env NODE_ENV=production gulp build",
     "bump": "gulp bump",
     "bump:major": "gulp bump:major",
     "bump:minor": "gulp bump:minor",
