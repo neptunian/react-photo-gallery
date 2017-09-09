@@ -4,24 +4,9 @@ import Gallery from 'react-photo-gallery';
 import Lightbox from 'react-images';
 import jsonp from 'jsonp';
 import Measure from 'react-measure';
+import { debounce } from './utils';
 
 import CustomImage from './CustomImage';
-
-function debounce(func, wait, immediate) {
-  let timeout;
-  return function() {
-    const context = this,
-      args = arguments;
-    let later = function() {
-      timeout = null;
-      if (!immediate) func.apply(context, args);
-    };
-    const callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
-  };
-}
 
 class App extends React.Component {
   constructor() {
@@ -112,6 +97,7 @@ class App extends React.Component {
     });
   }
   gotoNext() {
+    // load more photos if scrolling into the lightbox
     if (this.state.photos.length - 2 === this.state.currentImage) {
       this.loadMorePhotos();
     }
@@ -158,7 +144,7 @@ class App extends React.Component {
     if (this.state.photos) {
       return (
         <div className="App">
-			{this.renderGallery()}
+          {this.renderGallery()}
           <Lightbox
             theme={{ container: { background: 'rgba(0, 0, 0, 0.85)' } }}
             images={this.state.photos.map(x => ({ ...x, srcset: x.srcSet, caption: x.title }))}
