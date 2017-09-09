@@ -103,40 +103,8 @@ component | function | default image component | optional; use a different image
 
 ### Dynamic column count
 
-The number of columns and when they change is something the user has control over in their app. The parameter `columns` allows the adjustment of the displayed colums. In combination with `react-measure` this allows the demo page to adjust colums.
+The number of columns to display and when they change is something the user has control over in their app. The parameter `columns` allows the adjustment of the displayed colums. In combination with `react-measure` this allows the demo page to adjust colums. See the example app where [react-measure](https://github.com/souporserious/react-measure) is being used in combination with media queries to decide on the columns (https://github.com/neptunian/react-photo-gallery/blob/872c22fbdb9a656340297358416c74de4d27e96c/examples/src/app.js#L111).
 
-```
-const width = this.state.width;
-return(
-  <Measure bounds onResize={(contentRect) => this.setState({ width: contentRect.bounds.width })}>
-    { 
-      ({ measureRef }) => {
-          // fix flash of one col and large image
-          // don't try to load gallery until width is bigger
-          if (width < 1 ){
-            return <div ref={measureRef}></div>;
-          }
-          let columns = 1;
-          if (width >= 480){
-            columns = 2;
-          }
-          if (width >= 1024){
-            columns = 3;
-          }
-          if (width >= 1824){
-            columns = 4;
-          }
-          return <div ref={measureRef}>
-                  <Gallery 
-                    photos={this.state.photos}
-                    columns={columns}
-                    onClick={this.openLightbox}
-                  />
-                </div>
-        }
-    }
-  </Measure>
-```
 
 ### Passing in photos
 
