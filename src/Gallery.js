@@ -6,7 +6,7 @@ import Photo, { photoPropType } from './Photo';
 import { computeSizes } from './utils';
 
 const styles = {
-  gallery: { width: '100%' }
+  gallery: { width: '100%' },
 };
 
 class Gallery extends PureComponent {
@@ -53,11 +53,17 @@ class Gallery extends PureComponent {
     return (
       <div style={styles.gallery} ref={c => (this._gallery = c)}>
         {thumbs.map((photo, index) => {
-            const { width, height } = photo;
-            return (
-                <ImageComponent key={photo.key || photo.src} margin={margin} index={index} photo={photo} onClick={onClick ? this.handleClick : null} />
-            );
-          })}
+          const { width, height } = photo;
+          return (
+            <ImageComponent
+              key={photo.key || photo.src}
+              margin={margin}
+              index={index}
+              photo={photo}
+              onClick={onClick ? this.handleClick : null}
+            />
+          );
+        })}
       </div>
     );
   }

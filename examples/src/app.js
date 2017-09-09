@@ -108,9 +108,9 @@ class App extends React.Component {
   renderGallery(){
     const width = this.state.width;
     return(
-		<Measure bounds onResize={(contentRect) => this.setState({ width: contentRect.bounds.width })}>
-			{
-				({ measureRef }) => {
+        <Measure bounds onResize={(contentRect) => this.setState({ width: contentRect.bounds.width })}>
+        {
+          ({ measureRef }) => {
           // fix flash of one col and large image
           // don't try to load gallery until width is bigger
           if (width < 1 ){
@@ -126,14 +126,9 @@ class App extends React.Component {
 					if (width >= 1824){
 						columns = 4;
 					}
-					return <div ref={measureRef}>
-                  <Gallery 
-								    photos={this.state.photos}
-								    columns={columns}
-								    onClick={this.openLightbox}
-								    //  ImageComponent={CustomImage}
-							    />
-                </div>
+          return <div ref={measureRef}>
+            <Gallery photos={this.state.photos} columns={columns} onClick={this.openLightbox}/>
+            </div>
 				}
 			}
 		</Measure>

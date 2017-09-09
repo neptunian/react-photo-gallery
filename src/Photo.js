@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 const imgStyle = { display: 'block', float: 'left' };
-const imgWithClick = { cursor: 'pointer'};
+const imgWithClick = { cursor: 'pointer' };
 
 class Photo extends PureComponent {
   constructor() {
@@ -12,13 +12,19 @@ class Photo extends PureComponent {
 
   handleClick(event) {
     const { onClick, index, photo } = this.props;
-    onClick(event,{ photo, index });
+    onClick(event, { photo, index });
   }
 
   render() {
     const { photo, onClick, margin } = this.props;
     imgStyle.margin = margin;
-    return <img style={onClick ? {...imgStyle, ...imgWithClick} : imgStyle} {...photo} onClick={onClick ? this.handleClick : null} />;
+    return (
+      <img
+        style={onClick ? { ...imgStyle, ...imgWithClick } : imgStyle}
+        {...photo}
+        onClick={onClick ? this.handleClick : null}
+      />
+    );
   }
 }
 
