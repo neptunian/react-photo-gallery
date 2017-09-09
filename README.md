@@ -83,7 +83,7 @@ const PHOTO_SET = [
 Property        |       Type            |       Default         |       Description
 :-----------------------|:--------------|:--------------|:--------------------------------
 photos | array  | undefined  | required; array of objects
-cols | number  | 3  | optional; number of photos per row
+columns | number  | 3  | optional; number of photos per row
 onClickPhoto | function  | e.preventDefault()  | optional; do something when the user clicks a photo
 margin | number  | 2  | optional; number of margin pixels around each entire image 
 
@@ -104,7 +104,7 @@ onClickPhoto | function | default to Gallery onClickPhoto prop if exists | optio
 
 ### Dynamic column count
 
-The number of columns and when they change is something the user has control over in their app. The parameter `cols` allows the adjustment of the displayed colums. In combination with `react-measure` this allows the demo page to adjust colums (https://github.com/neptunian/react-photo-gallery/blob/master/examples/src/app.js#L103). Code snippet:
+The number of columns and when they change is something the user has control over in their app. The parameter `columns` allows the adjustment of the displayed colums. In combination with `react-measure` this allows the demo page to adjust colums (https://github.com/neptunian/react-photo-gallery/blob/master/examples/src/app.js#L103). Code snippet:
 
 ```
 import { Measure } from 'react-measure';
@@ -113,7 +113,7 @@ function ResponsiveGallery (props) {
   return (
     <Measure whitelist={['width']}>
       {({ width }) => (
-        <Gallery cols={Math.ceil(width / maxImageWidth)}>....</Gallery>
+        <Gallery columns={Math.ceil(width / maxImageWidth)}>....</Gallery>
       )}
     </Measure>
   );

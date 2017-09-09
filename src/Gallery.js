@@ -47,8 +47,8 @@ class Gallery extends PureComponent {
     const { ImageComponent = Photo } = this.props;
     // subtract 1 pixel because the browser may round up a pixel
     const width = this.state.containerWidth - 1;
-    const { photos, cols, margin, onClick } = this.props;
-    const thumbs = computeSizes({ width, cols, margin, photos });
+    const { photos, columns, margin, onClick } = this.props;
+    const thumbs = computeSizes({ width, columns, margin, photos });
 
     return (
       <div style={styles.gallery} ref={c => (this._gallery = c)}>
@@ -66,13 +66,13 @@ class Gallery extends PureComponent {
 Gallery.propTypes = {
   photos: PropTypes.arrayOf(photoPropType).isRequired,
   onClick: PropTypes.func,
-  cols: PropTypes.number,
+  columns: PropTypes.number,
   margin: PropTypes.number,
   ImageComponent: PropTypes.any,
 };
 
 Gallery.defaultProps = {
-  cols: 3,
+  columns: 3,
   margin: 2,
 };
 

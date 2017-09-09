@@ -116,20 +116,20 @@ class App extends React.Component {
           if (width < 1 ){
             return <div ref={measureRef}></div>;
           }
-					let cols = 1;
+					let columns = 1;
 					if (width >= 480){
-						cols = 2;
+						columns = 2;
 					}
 					if (width >= 1024){
-						cols = 3;
+						columns = 3;
 					}
 					if (width >= 1824){
-						cols = 4;
+						columns = 4;
 					}
 					return <div ref={measureRef}>
                   <Gallery 
 								    photos={this.state.photos}
-								    cols={cols}
+								    columns={columns}
 								    onClick={this.openLightbox}
 								    //  ImageComponent={CustomImage}
 							    />
