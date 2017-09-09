@@ -35,7 +35,7 @@ import Gallery from 'react-photo-gallery';
 export default class Sample extends React.Component {
     render() {
 	return (
-	    <Gallery photos={PHOTO_SET} onClickPhoto={this.openLightbox}/>
+	    <Gallery photos={PHOTO_SET} onClick={this.openLightbox}/>
 	);
     }
 }
@@ -84,7 +84,7 @@ Property        |       Type            |       Default         |       Descript
 :-----------------------|:--------------|:--------------|:--------------------------------
 photos | array  | undefined  | required; array of objects
 columns | number  | 3  | optional; number of photos per row
-onClickPhoto | function  | e.preventDefault()  | optional; do something when the user clicks a photo
+onClick | function  | undefined  | optional; do something when the user clicks a photo; receives arguments event and an object containing the index, photo obj originally sent and the next and previous photos in the gallery if they exist 
 margin | number  | 2  | optional; number of margin pixels around each entire image 
 
 ### Gallery.photos properties
@@ -98,7 +98,6 @@ width | number  | undefined  | required; original width of the gallery image (on
 height  | number  | undefined | required; original height of the gallery image (only used for calculating aspect ratio)
 alt  | string  | undefined | optional; alt text of the gallery image
 component | function | default image component | optional; use a different image component than the default provided
-onClickPhoto | function | default to Gallery onClickPhoto prop if exists | optional; specific callback for a photo that overrides Gallery's onClickPhoto
 
 ## User Guide / Best Practice
 
@@ -135,7 +134,6 @@ return (
 	<Image
 		key={idx}
 		idx={idx}
-		onClick={this.props.onClickPhoto}
 		src={photo.src}
 		srcSet={photo.srcset.join()}
 		sizes={photo.sizes.join()}
