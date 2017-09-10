@@ -49,9 +49,9 @@ class Gallery extends PureComponent {
     const width = this.state.containerWidth - 1;
     const { photos, columns, margin, onClick } = this.props;
     const thumbs = computeSizes({ width, columns, margin, photos });
-
     return (
-      <div style={styles.gallery} ref={c => (this._gallery = c)}>
+      <div>
+      <div className="react-photo-gallery--gallery" style={styles.gallery} ref={c => (this._gallery = c)}>
         {thumbs.map((photo, index) => {
           const { width, height } = photo;
           return (
@@ -64,6 +64,8 @@ class Gallery extends PureComponent {
             />
           );
         })}
+      </div>
+        <div style={{content:"", display: "table", clear: "both"}}></div>
       </div>
     );
   }
