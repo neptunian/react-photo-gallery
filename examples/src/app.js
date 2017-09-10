@@ -1,21 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Gallery from 'react-photo-gallery';
-import Lightbox from 'react-images';
 import jsonp from 'jsonp';
 import Measure from 'react-measure';
-
-import CustomImage from './CustomImage';
+import ExampleBasic from './ExampleBasic';
+import ExampleWithLightbox from './ExampleWithLightbox';
 
 class App extends React.Component {
   constructor() {
     super();
-    this.state = { currentImage: 0, width: -1 };
+    this.state = { width: -1 };
     this.loadPhotos = this.loadPhotos.bind(this);
-    this.closeLightbox = this.closeLightbox.bind(this);
-    this.openLightbox = this.openLightbox.bind(this);
-    this.gotoNext = this.gotoNext.bind(this);
-    this.gotoPrevious = this.gotoPrevious.bind(this);
   }
   componentDidMount() {
     this.loadPhotos();
@@ -58,76 +52,36 @@ class App extends React.Component {
         photos: this.state.photos ? this.state.photos.concat(photos) : photos,
       });
     });
-  }
-  openLightbox(event, obj) {
-    this.setState({
-      currentImage: obj.index,
-      lightboxIsOpen: true,
-    });
-  }
-  closeLightbox() {
-    this.setState({
-      currentImage: 0,
-      lightboxIsOpen: false,
-    });
-  }
-  gotoPrevious() {
-    this.setState({
-      currentImage: this.state.currentImage - 1,
-    });
-  }
-  gotoNext() {
-    this.setState({
-      currentImage: this.state.currentImage + 1,
-    });
-  }
-  renderGallery(){
-    const width = this.state.width;
-    return(
-        <Measure bounds onResize={(contentRect) => this.setState({ width: contentRect.bounds.width })}>
-        {
-          ({ measureRef }) => {
-          // fix flash of one col and large image
-          // don't try to load gallery until width is bigger
-          if (width < 1 ){
-            return <div ref={measureRef}></div>;
-          }
-					let columns = 1;
-					if (width >= 480){
-						columns = 2;
-					}
-					if (width >= 1024){
-						columns = 3;
-					}
-					if (width >= 1824){
-						columns = 4;
-					}
-          return <div ref={measureRef}>
-            <Gallery photos={this.state.photos} columns={columns} onClick={this.openLightbox}/>
-            </div>
-				}
-			}
-		</Measure>
-	);
+
   }
 
   render() {
     if (this.state.photos) {
+      const width = this.state.width;
       return (
-        <div className="App">
-          {this.renderGallery()}
-          <Lightbox
-            theme={{ container: { background: 'rgba(0, 0, 0, 0.85)' } }}
-            images={this.state.photos.map(x => ({ ...x, srcset: x.srcSet, caption: x.title }))}
-            backdropClosesModal={true}
-            onClose={this.closeLightbox}
-            onClickPrev={this.gotoPrevious}
-            onClickNext={this.gotoNext}
-            currentImage={this.state.currentImage}
-            isOpen={this.state.lightboxIsOpen}
-            width={1600}
-          />
-        </div>
+        <Measure bounds onResize={(contentRect) => this.setState({ width: contentRect.bounds.width })}>
+        {
+          ({ measureRef }) => {
+            if (width < 1 ){
+              return <div ref={measureRef}></div>;
+            }
+					  let columns = 1;
+					  if (width >= 480){
+						  columns = 2;
+					  }
+					  if (width >= 1024){
+						  columns = 3;
+					  }
+					  if (width >= 1824){
+						  columns = 4;
+					  }
+            return <div ref={measureRef} className="App">
+                <ExampleBasic columns={columns} photos={this.state.photos.slice(1,7)} />
+                <ExampleWithLightbox columns={columns} photos={this.state.photos.slice(7,13)} />
+              </div>
+          }
+        }
+		    </Measure>
       );
     } else {
       return (
