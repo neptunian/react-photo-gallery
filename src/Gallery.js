@@ -50,21 +50,21 @@ class Gallery extends PureComponent {
     const { photos, columns, margin, onClick } = this.props;
     const thumbs = computeSizes({ width, columns, margin, photos });
     return (
-      <div>
-      <div className="react-photo-gallery--gallery" style={styles.gallery} ref={c => (this._gallery = c)}>
-        {thumbs.map((photo, index) => {
-          const { width, height } = photo;
-          return (
-            <ImageComponent
-              key={photo.key || photo.src}
-              margin={margin}
-              index={index}
-              photo={photo}
-              onClick={onClick ? this.handleClick : null}
-            />
-          );
-        })}
-      </div>
+      <div className="react-photo-gallery--gallery">
+        <div style={styles.gallery} ref={c => (this._gallery = c)}>
+          {thumbs.map((photo, index) => {
+            const { width, height } = photo;
+            return (
+              <ImageComponent
+                key={photo.key || photo.src}
+                margin={margin}
+                index={index}
+                photo={photo}
+                onClick={onClick ? this.handleClick : null}
+              />
+            );
+          })}
+        </div>
         <div style={{content:"", display: "table", clear: "both"}}></div>
       </div>
     );

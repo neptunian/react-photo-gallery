@@ -76,8 +76,8 @@ class App extends React.Component {
 						  columns = 4;
 					  }
             return <div ref={measureRef} className="App">
-                <ExampleBasic columns={columns} photos={this.state.photos.slice(1,7)} />
-                <ExampleWithLightbox columns={columns} photos={this.state.photos.slice(7,13)} />
+                <ExampleBasic columns={columns} photos={this.state.photos.slice(0,6)} />
+                <ExampleWithLightbox columns={columns} photos={this.state.photos.slice(6,11)} />
               </div>
           }
         }
