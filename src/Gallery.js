@@ -27,6 +27,9 @@ class Gallery extends PureComponent {
       this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
     }
   }
+  shouldComponentUpdate(){
+    return true;
+  }
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize, false);
   }
@@ -76,7 +79,7 @@ Gallery.propTypes = {
   onClick: PropTypes.func,
   columns: PropTypes.number,
   margin: PropTypes.number,
-  ImageComponent: PropTypes.any,
+  ImageComponent: PropTypes.func,
 };
 
 Gallery.defaultProps = {

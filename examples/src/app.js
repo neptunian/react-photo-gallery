@@ -4,6 +4,7 @@ import jsonp from 'jsonp';
 import Measure from 'react-measure';
 import ExampleBasic from './ExampleBasic';
 import ExampleWithLightbox from './ExampleWithLightbox';
+import ExampleCustomComponentSelection from './ExampleCustomComponentSelection';
 
 class App extends React.Component {
   constructor() {
@@ -21,7 +22,7 @@ class App extends React.Component {
       photoset_id: '72157680705961676',
       user_id: '57933175@N08',
       format: 'json',
-      per_page: '12',
+      per_page: '17',
       extras: 'url_m,url_c,url_l,url_h,url_o',
     };
 
@@ -78,6 +79,7 @@ class App extends React.Component {
             return <div ref={measureRef} className="App">
                 <ExampleBasic columns={columns} photos={this.state.photos.slice(0,6)} />
                 <ExampleWithLightbox columns={columns} photos={this.state.photos.slice(6,11)} />
+                <ExampleCustomComponentSelection columns={columns} photos={this.state.photos.slice(11,17)} />
               </div>
           }
         }
