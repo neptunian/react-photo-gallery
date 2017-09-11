@@ -5,10 +5,6 @@ import { withContentRect } from 'react-measure';
 import Photo, { photoPropType } from './Photo';
 import { computeSizes } from './utils';
 
-const styles = {
-  gallery: { width: '100%' },
-};
-
 class Gallery extends PureComponent {
   constructor() {
     super();
@@ -54,7 +50,7 @@ class Gallery extends PureComponent {
     const thumbs = computeSizes({ width, columns, margin, photos });
     return (
       <div className="react-photo-gallery--gallery">
-        <div style={styles.gallery} ref={c => (this._gallery = c)}>
+        <div ref={c => (this._gallery = c)}>
           {thumbs.map((photo, index) => {
             const { width, height } = photo;
             return (
