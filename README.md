@@ -114,7 +114,7 @@ In the demo I chose to have one object of photos that I pass in to both the Gall
 
 ### Passing in a custom image component
 
-Instead of using the default image component provided, you can pass in a custom one.  This would be useful if you want to change how the image looks and functions.  For example, having selection functionality where clicking on an image highlights it or adds a checkmark icon over it. The component will be passed back the following properties as seen from code in the Gallery.js:
+Instead of using the default image component provided, you can pass in a custom one.  This would be useful if you want to change how the image looks and functions.  For example, having selection functionality where clicking on an image highlights it or adds a checkmark icon over it. The component will be passed back the following properties as seen from code in Gallery.js where `photo` is the original photo object passed in:
 
 ```
 return (
