@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Gallery from 'react-photo-gallery';
 import Lightbox from 'react-images';
-import CustomImage from './CustomImage';
 
 class ExampleWithLightbox extends React.Component {
   constructor() {
