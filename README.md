@@ -114,17 +114,29 @@ In the demo I chose to have one object of photos that I pass in to both the Gall
 
 ### Passing in a custom image component
 
-Instead of using the default image component provided, you can pass in a custom one.  This would be useful if you want to change how the image looks and functions.  For example, having selection functionality where clicking on an image highlights it or adds a checkmark icon over it. The component will be passed back the following properties as seen from code in Gallery.js where `photo` is the original photo object passed in:
+Instead of using the default image component provided, you can pass in a custom one.  This would be useful if you want to change how the image looks and functions.  For example, having selection functionality where clicking on an image highlights it or adds a checkmark icon over it. 
+
+app.js
 
 ```
-return (
-  <ImageComponent
-    key={photo.key || photo.src}
-    margin={margin}
-    index={index}
-    photo={photo}
-    onClick={onClick ? this.handleClick : null}
-  />
+<Gallery photos={this.state.photos} columns={this.props.columns} onClick={this.selectPhoto} ImageComponent={SelectedImage}/>
+```
+
+The custom component will be receive the following properties as seen from SelectedImage.js in the examples directory where `photo` is the original photo object passed in:
+
+```
+const SelectedImage = ({ index, onClick, photo, margin}) => {
+  //calculate x,y scale
+  const sx = (100 - ((30 / photo.width) * 100)) / 100;
+  const sy = (100 - ((30 / photo.height) * 100)) / 100;
+  selectedImgStyle.transform = `translateZ(0px) scale3d(${sx}, ${sy}, 1)`;
+  return (<div style={{margin, width:photo.width, ...cont}}>
+    <img style={photo.selected ? {...imgStyle, ...selectedImgStyle} : {...imgStyle}} {...photo} onClick={(e) => onClick(e, {index, photo})} />
+    </div>
+  )
+};
+
+export default SelectedImage; 
 );
 ```
 You can see this in action on the demo page.
