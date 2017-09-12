@@ -23,7 +23,7 @@ class Gallery extends PureComponent {
       this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
     }
   }
-  shouldComponentUpdate(){
+  shouldComponentUpdate() {
     return true;
   }
   componentWillUnmount() {
@@ -64,7 +64,7 @@ class Gallery extends PureComponent {
             );
           })}
         </div>
-        <div style={{content:"", display: "table", clear: "both"}}></div>
+        <div style={{ content: '', display: 'table', clear: 'both' }} />
       </div>
     );
   }
