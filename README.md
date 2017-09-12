@@ -5,7 +5,7 @@
 * Stateless, responsive, and highly customizable
 * Maintains the original aspect ratio of your photos
 * Supports srcset and sizes
-* Supports passing in your own image component to customize visualization
+* Supports passing in a custom image component for implementation of things like image selection, favorites, captions, etc.
 
 ## Installation
 
