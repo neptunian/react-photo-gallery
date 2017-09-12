@@ -1,6 +1,140 @@
 require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactPhotoGallery = require('react-photo-gallery');
+
+var _reactPhotoGallery2 = _interopRequireDefault(_reactPhotoGallery);
+
+var ExampleBasic = function ExampleBasic(_ref) {
+  var photos = _ref.photos;
+  var columns = _ref.columns;
+
+  return _react2['default'].createElement(
+    'div',
+    null,
+    _react2['default'].createElement(
+      'h2',
+      null,
+      'Basic:'
+    ),
+    _react2['default'].createElement(_reactPhotoGallery2['default'], { photos: photos, columns: columns })
+  );
+};
+
+exports['default'] = ExampleBasic;
+module.exports = exports['default'];
+
+},{"react":undefined,"react-photo-gallery":undefined}],2:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactPhotoGallery = require('react-photo-gallery');
+
+var _reactPhotoGallery2 = _interopRequireDefault(_reactPhotoGallery);
+
+var _SelectedImage = require('./SelectedImage');
+
+var _SelectedImage2 = _interopRequireDefault(_SelectedImage);
+
+var ExampleCustomComponentSelection = (function (_React$Component) {
+  _inherits(ExampleCustomComponentSelection, _React$Component);
+
+  function ExampleCustomComponentSelection(props) {
+    _classCallCheck(this, ExampleCustomComponentSelection);
+
+    _get(Object.getPrototypeOf(ExampleCustomComponentSelection.prototype), 'constructor', this).call(this, props);
+    this.state = { photos: this.props.photos, selectAll: false };
+    this.selectPhoto = this.selectPhoto.bind(this);
+    this.toggleSelect = this.toggleSelect.bind(this);
+  }
+
+  _createClass(ExampleCustomComponentSelection, [{
+    key: 'selectPhoto',
+    value: function selectPhoto(event, obj) {
+      var photos = this.state.photos;
+      photos[obj.index].selected = !photos[obj.index].selected;
+      this.setState({ photos: photos });
+    }
+  }, {
+    key: 'toggleSelect',
+    value: function toggleSelect() {
+      var _this = this;
+
+      var photos = this.state.photos.map(function (photo, index) {
+        return _extends({}, photo, { selected: !_this.state.selectAll });
+      });
+      this.setState({ photos: photos, selectAll: !this.state.selectAll });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2['default'].createElement(
+        'div',
+        null,
+        _react2['default'].createElement(
+          'h2',
+          null,
+          'Using the Custom Image Component:'
+        ),
+        _react2['default'].createElement(
+          'h3',
+          null,
+          'Pass in a custom image component to create any visual representation such as selection'
+        ),
+        _react2['default'].createElement(
+          'button',
+          { className: 'toggle-select', onClick: this.toggleSelect },
+          'toggle select'
+        ),
+        _react2['default'].createElement(_reactPhotoGallery2['default'], { photos: this.state.photos, columns: this.props.columns, onClick: this.selectPhoto, ImageComponent: _SelectedImage2['default'] })
+      );
+    }
+  }]);
+
+  return ExampleCustomComponentSelection;
+})(_react2['default'].Component);
+
+exports['default'] = ExampleCustomComponentSelection;
+module.exports = exports['default'];
+
+},{"./SelectedImage":4,"react":undefined,"react-photo-gallery":undefined}],3:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -23,219 +157,550 @@ var _reactPhotoGallery = require('react-photo-gallery');
 
 var _reactPhotoGallery2 = _interopRequireDefault(_reactPhotoGallery);
 
-var _reactMeasure = require('react-measure');
-
-var _reactMeasure2 = _interopRequireDefault(_reactMeasure);
-
 var _reactImages = require('react-images');
 
 var _reactImages2 = _interopRequireDefault(_reactImages);
+
+var ExampleWithLightbox = (function (_React$Component) {
+  _inherits(ExampleWithLightbox, _React$Component);
+
+  function ExampleWithLightbox() {
+    _classCallCheck(this, ExampleWithLightbox);
+
+    _get(Object.getPrototypeOf(ExampleWithLightbox.prototype), 'constructor', this).call(this);
+    this.state = { currentImage: 0 };
+    this.closeLightbox = this.closeLightbox.bind(this);
+    this.openLightbox = this.openLightbox.bind(this);
+    this.gotoNext = this.gotoNext.bind(this);
+    this.gotoPrevious = this.gotoPrevious.bind(this);
+  }
+
+  _createClass(ExampleWithLightbox, [{
+    key: 'openLightbox',
+    value: function openLightbox(event, obj) {
+      this.setState({
+        currentImage: obj.index,
+        lightboxIsOpen: true
+      });
+    }
+  }, {
+    key: 'closeLightbox',
+    value: function closeLightbox() {
+      this.setState({
+        currentImage: 0,
+        lightboxIsOpen: false
+      });
+    }
+  }, {
+    key: 'gotoPrevious',
+    value: function gotoPrevious() {
+      this.setState({
+        currentImage: this.state.currentImage - 1
+      });
+    }
+  }, {
+    key: 'gotoNext',
+    value: function gotoNext() {
+      this.setState({
+        currentImage: this.state.currentImage + 1
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2['default'].createElement(
+        'div',
+        null,
+        _react2['default'].createElement(
+          'h2',
+          null,
+          'Using a Lightbox:'
+        ),
+        _react2['default'].createElement(_reactPhotoGallery2['default'], { photos: this.props.photos, columns: this.props.columns, onClick: this.openLightbox }),
+        _react2['default'].createElement(_reactImages2['default'], {
+          theme: { container: { background: 'rgba(0, 0, 0, 0.85)' } },
+          images: this.props.photos.map(function (x) {
+            return _extends({}, x, { srcset: x.srcSet, caption: x.title });
+          }),
+          backdropClosesModal: true,
+          onClose: this.closeLightbox,
+          onClickPrev: this.gotoPrevious,
+          onClickNext: this.gotoNext,
+          currentImage: this.state.currentImage,
+          isOpen: this.state.lightboxIsOpen,
+          width: 1600
+        })
+      );
+    }
+  }]);
+
+  return ExampleWithLightbox;
+})(_react2['default'].Component);
+
+exports['default'] = ExampleWithLightbox;
+module.exports = exports['default'];
+
+},{"react":undefined,"react-dom":undefined,"react-images":undefined,"react-photo-gallery":undefined}],4:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var imgStyle = { display: 'block', transition: 'transform .135s cubic-bezier(0.0,0.0,0.2,1),opacity linear .15s' };
+var selectedImgStyle = { transform: 'translateZ(0px) scale3d(0.9, 0.9, 1)', transition: 'transform .135s cubic-bezier(0.0,0.0,0.2,1),opacity linear .15s' };
+var cont = { backgroundColor: '#eee', cursor: 'pointer', overflow: 'hidden', float: 'left' };
+
+var SelectedImage = function SelectedImage(_ref) {
+  var index = _ref.index;
+  var onClick = _ref.onClick;
+  var photo = _ref.photo;
+  var margin = _ref.margin;
+
+  //calculate x,y scale
+  var sx = (100 - 30 / photo.width * 100) / 100;
+  var sy = (100 - 30 / photo.height * 100) / 100;
+  selectedImgStyle.transform = 'translateZ(0px) scale3d(' + sx + ', ' + sy + ', 1)';
+  return _react2['default'].createElement(
+    'div',
+    { style: _extends({ margin: margin, width: photo.width }, cont) },
+    _react2['default'].createElement('img', _extends({ style: photo.selected ? _extends({}, imgStyle, selectedImgStyle) : _extends({}, imgStyle) }, photo, { onClick: function (e) {
+        return onClick(e, { index: index, photo: photo });
+      } }))
+  );
+};
+
+exports['default'] = SelectedImage;
+module.exports = exports['default'];
+
+},{"react":undefined}],5:[function(require,module,exports){
+'use strict';
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _jsonp = require('jsonp');
 
 var _jsonp2 = _interopRequireDefault(_jsonp);
 
-function debounce(func, wait, immediate) {
-	var timeout = undefined;
-	return function () {
-		var context = this,
-		    args = arguments;
-		var later = function later() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
-};
+var _reactMeasure = require('react-measure');
+
+var _reactMeasure2 = _interopRequireDefault(_reactMeasure);
+
+var _ExampleBasic = require('./ExampleBasic');
+
+var _ExampleBasic2 = _interopRequireDefault(_ExampleBasic);
+
+var _ExampleWithLightbox = require('./ExampleWithLightbox');
+
+var _ExampleWithLightbox2 = _interopRequireDefault(_ExampleWithLightbox);
+
+var _ExampleCustomComponentSelection = require('./ExampleCustomComponentSelection');
+
+var _ExampleCustomComponentSelection2 = _interopRequireDefault(_ExampleCustomComponentSelection);
 
 var App = (function (_React$Component) {
-	_inherits(App, _React$Component);
+  _inherits(App, _React$Component);
 
-	function App() {
-		_classCallCheck(this, App);
+  function App() {
+    _classCallCheck(this, App);
 
-		_get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this);
-		this.state = { photos: null, pageNum: 1, totalPages: 1, loadedAll: false, currentImage: 0 };
-		this.handleScroll = this.handleScroll.bind(this);
-		this.loadMorePhotos = this.loadMorePhotos.bind(this);
-		this.closeLightbox = this.closeLightbox.bind(this);
-		this.openLightbox = this.openLightbox.bind(this);
-		this.gotoNext = this.gotoNext.bind(this);
-		this.gotoPrevious = this.gotoPrevious.bind(this);
-	}
+    _get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this);
+    this.state = { width: -1 };
+    this.loadPhotos = this.loadPhotos.bind(this);
+  }
 
-	_createClass(App, [{
-		key: 'componentDidMount',
-		value: function componentDidMount() {
-			this.loadMorePhotos();
-			this.loadMorePhotos = debounce(this.loadMorePhotos, 200);
-			window.addEventListener('scroll', this.handleScroll);
-		}
-	}, {
-		key: 'handleScroll',
-		value: function handleScroll() {
-			var scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-			if (window.innerHeight + scrollY >= document.body.offsetHeight - 50) {
-				this.loadMorePhotos();
-			}
-		}
-	}, {
-		key: 'loadMorePhotos',
-		value: function loadMorePhotos(e) {
-			var _this = this;
+  _createClass(App, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.loadPhotos();
+    }
+  }, {
+    key: 'loadPhotos',
+    value: function loadPhotos() {
+      var _this = this;
 
-			if (e) {
-				e.preventDefault();
-			}
-			if (this.state.pageNum > this.state.totalPages) {
-				this.setState({ loadedAll: true });
-				return;
-			}
+      var urlParams = {
+        api_key: '372ef3a005d9b9df062b8240c326254d',
+        photoset_id: '72157680705961676',
+        user_id: '57933175@N08',
+        format: 'json',
+        per_page: '17',
+        extras: 'url_m,url_c,url_l,url_h,url_o'
+      };
 
-			var urlParams = {
-				api_key: '372ef3a005d9b9df062b8240c326254d',
-				photoset_id: '72157680705961676',
-				user_id: '57933175@N08',
-				format: 'json',
-				per_page: '21',
-				page: this.state.pageNum,
-				extras: 'url_m,url_c,url_l,url_h,url_o'
-			};
+      var url = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos';
+      url = Object.keys(urlParams).reduce(function (acc, item) {
+        return acc + '&' + item + '=' + urlParams[item];
+      }, url);
 
-			var url = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos';
-			url = Object.keys(urlParams).reduce(function (acc, item) {
-				return acc + '&' + item + '=' + urlParams[item];
-			}, url);
+      (0, _jsonp2['default'])(url, { name: 'jsonFlickrApi' }, function (err, data) {
+        var photos = data.photoset.photo.map(function (item) {
+          var aspectRatio = parseFloat(item.width_o / item.height_o);
+          return {
+            src: aspectRatio >= 3 ? item.url_c : item.url_m,
+            width: parseInt(item.width_o),
+            height: parseInt(item.height_o),
+            title: item.title,
+            alt: item.title,
+            srcSet: [item.url_m + ' ' + item.width_m + 'w', item.url_c + ' ' + item.width_c + 'w', item.url_l + ' ' + item.width_l + 'w', item.url_h + ' ' + item.width_h + 'w'],
+            sizes: ['(min-width: 480px) 50vw', '(min-width: 1024px) 33.3vw', '100vw']
+          };
+        });
+        _this.setState({
+          photos: _this.state.photos ? _this.state.photos.concat(photos) : photos
+        });
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
 
-			(0, _jsonp2['default'])(url, { name: 'jsonFlickrApi' }, function (err, data) {
-				var photos = data.photoset.photo.map(function (item) {
-					var aspectRatio = parseFloat(item.width_o / item.height_o);
-					return {
-						src: aspectRatio >= 3 ? item.url_c : item.url_m,
-						width: parseInt(item.width_o),
-						height: parseInt(item.height_o),
-						caption: item.title,
-						alt: item.title,
-						srcset: [item.url_m + ' ' + item.width_m + 'w', item.url_c + ' ' + item.width_c + 'w', item.url_l + ' ' + item.width_l + 'w', item.url_h + ' ' + item.width_h + 'w'],
-						sizes: ['(min-width: 480px) 50vw', '(min-width: 1024px) 33.3vw', '100vw']
-					};
-				});
-				_this.setState({
-					photos: _this.state.photos ? _this.state.photos.concat(photos) : photos,
-					pageNum: _this.state.pageNum + 1,
-					totalPages: data.photoset.pages
-				});
-			});
-		}
-	}, {
-		key: 'openLightbox',
-		value: function openLightbox(index, event) {
-			event.preventDefault();
-			this.setState({
-				currentImage: index,
-				lightboxIsOpen: true
-			});
-		}
-	}, {
-		key: 'closeLightbox',
-		value: function closeLightbox() {
-			this.setState({
-				currentImage: 0,
-				lightboxIsOpen: false
-			});
-		}
-	}, {
-		key: 'gotoPrevious',
-		value: function gotoPrevious() {
-			this.setState({
-				currentImage: this.state.currentImage - 1
-			});
-		}
-	}, {
-		key: 'gotoNext',
-		value: function gotoNext() {
-			if (this.state.photos.length - 2 === this.state.currentImage) {
-				this.loadMorePhotos();
-			}
-			this.setState({
-				currentImage: this.state.currentImage + 1
-			});
-		}
-	}, {
-		key: 'renderGallery',
-		value: function renderGallery() {
-			var _this2 = this;
+      if (this.state.photos) {
+        var _ret = (function () {
+          var width = _this2.state.width;
+          return {
+            v: _react2['default'].createElement(
+              _reactMeasure2['default'],
+              { bounds: true, onResize: function (contentRect) {
+                  return _this2.setState({ width: contentRect.bounds.width });
+                } },
+              function (_ref) {
+                var measureRef = _ref.measureRef;
 
-			return _react2['default'].createElement(
-				_reactMeasure2['default'],
-				{ whitelist: ['width'] },
-				function (_ref) {
-					var width = _ref.width;
+                if (width < 1) {
+                  return _react2['default'].createElement('div', { ref: measureRef });
+                }
+                var columns = 1;
+                if (width >= 480) {
+                  columns = 2;
+                }
+                if (width >= 1024) {
+                  columns = 3;
+                }
+                if (width >= 1824) {
+                  columns = 4;
+                }
+                return _react2['default'].createElement(
+                  'div',
+                  { ref: measureRef, className: 'App' },
+                  _react2['default'].createElement(_ExampleBasic2['default'], { columns: columns, photos: _this2.state.photos.slice(0, 6) }),
+                  _react2['default'].createElement(_ExampleWithLightbox2['default'], { columns: columns, photos: _this2.state.photos.slice(6, 11) }),
+                  _react2['default'].createElement(_ExampleCustomComponentSelection2['default'], { columns: columns, photos: _this2.state.photos.slice(11, 17) })
+                );
+              }
+            )
+          };
+        })();
 
-					var cols = 1;
-					if (width >= 480) {
-						cols = 2;
-					}
-					if (width >= 1024) {
-						cols = 3;
-					}
-					if (width >= 1824) {
-						cols = 4;
-					}
-					return _react2['default'].createElement(_reactPhotoGallery2['default'], { photos: _this2.state.photos, cols: cols, onClickPhoto: _this2.openLightbox });
-				}
-			);
-		}
-	}, {
-		key: 'render',
-		value: function render() {
-			if (this.state.photos) {
-				return _react2['default'].createElement(
-					'div',
-					{ className: 'App' },
-					this.renderGallery(),
-					_react2['default'].createElement(_reactImages2['default'], {
-						theme: { container: { background: 'rgba(0, 0, 0, 0.85)' } },
-						images: this.state.photos,
-						backdropClosesModal: true,
-						onClose: this.closeLightbox,
-						onClickPrev: this.gotoPrevious,
-						onClickNext: this.gotoNext,
-						currentImage: this.state.currentImage,
-						isOpen: this.state.lightboxIsOpen,
-						width: 1600
-					}),
-					!this.state.loadedAll && _react2['default'].createElement(
-						'div',
-						{ className: 'loading-msg', id: 'msg-loading-more' },
-						'Loading'
-					)
-				);
-			} else {
-				return _react2['default'].createElement(
-					'div',
-					{ className: 'App' },
-					_react2['default'].createElement(
-						'div',
-						{ id: 'msg-app-loading', className: 'loading-msg' },
-						'Loading'
-					)
-				);
-			}
-		}
-	}]);
+        if (typeof _ret === 'object') return _ret.v;
+      } else {
+        return _react2['default'].createElement(
+          'div',
+          { className: 'App' },
+          _react2['default'].createElement(
+            'div',
+            { id: 'msg-app-loading', className: 'loading-msg' },
+            'Loading'
+          )
+        );
+      }
+    }
+  }]);
 
-	return App;
+  return App;
 })(_react2['default'].Component);
-
-;
 
 _reactDom2['default'].render(_react2['default'].createElement(App, null), document.getElementById('app'));
 
-},{"jsonp":10,"react":undefined,"react-dom":undefined,"react-images":undefined,"react-measure":19,"react-photo-gallery":undefined}],2:[function(require,module,exports){
+},{"./ExampleBasic":1,"./ExampleCustomComponentSelection":2,"./ExampleWithLightbox":3,"jsonp":9,"react":undefined,"react-dom":undefined,"react-measure":22}],6:[function(require,module,exports){
+"use strict";
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * 
+ */
+
+function makeEmptyFunction(arg) {
+  return function () {
+    return arg;
+  };
+}
+
+/**
+ * This function accepts and discards inputs; it has no side effects. This is
+ * primarily useful idiomatically for overridable function endpoints which
+ * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
+ */
+var emptyFunction = function emptyFunction() {};
+
+emptyFunction.thatReturns = makeEmptyFunction;
+emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
+emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
+emptyFunction.thatReturnsNull = makeEmptyFunction(null);
+emptyFunction.thatReturnsThis = function () {
+  return this;
+};
+emptyFunction.thatReturnsArgument = function (arg) {
+  return arg;
+};
+
+module.exports = emptyFunction;
+},{}],7:[function(require,module,exports){
+(function (process){
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+'use strict';
+
+/**
+ * Use invariant() to assert state which your program assumes to be true.
+ *
+ * Provide sprintf-style format (only %s is supported) and arguments
+ * to provide information about what broke and what you were
+ * expecting.
+ *
+ * The invariant message will be stripped in production, but the invariant
+ * will remain to ensure logic does not differ in production.
+ */
+
+var validateFormat = function validateFormat(format) {};
+
+if (process.env.NODE_ENV !== 'production') {
+  validateFormat = function validateFormat(format) {
+    if (format === undefined) {
+      throw new Error('invariant requires an error message argument');
+    }
+  };
+}
+
+function invariant(condition, format, a, b, c, d, e, f) {
+  validateFormat(format);
+
+  if (!condition) {
+    var error;
+    if (format === undefined) {
+      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
+    } else {
+      var args = [a, b, c, d, e, f];
+      var argIndex = 0;
+      error = new Error(format.replace(/%s/g, function () {
+        return args[argIndex++];
+      }));
+      error.name = 'Invariant Violation';
+    }
+
+    error.framesToPop = 1; // we don't care about invariant's own frame
+    throw error;
+  }
+}
+
+module.exports = invariant;
+}).call(this,require('_process'))
+},{"_process":13}],8:[function(require,module,exports){
+(function (process){
+/**
+ * Copyright 2014-2015, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+'use strict';
+
+var emptyFunction = require('./emptyFunction');
+
+/**
+ * Similar to invariant but only logs a warning if the condition is not met.
+ * This can be used to log issues in development environments in critical
+ * paths. Removing the logging code for production environments will keep the
+ * same logic and follow the same code paths.
+ */
+
+var warning = emptyFunction;
+
+if (process.env.NODE_ENV !== 'production') {
+  var printWarning = function printWarning(format) {
+    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+
+    var argIndex = 0;
+    var message = 'Warning: ' + format.replace(/%s/g, function () {
+      return args[argIndex++];
+    });
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+
+  warning = function warning(condition, format) {
+    if (format === undefined) {
+      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
+    }
+
+    if (format.indexOf('Failed Composite propType: ') === 0) {
+      return; // Ignore CompositeComponent proptype check.
+    }
+
+    if (!condition) {
+      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+        args[_key2 - 2] = arguments[_key2];
+      }
+
+      printWarning.apply(undefined, [format].concat(args));
+    }
+  };
+}
+
+module.exports = warning;
+}).call(this,require('_process'))
+},{"./emptyFunction":6,"_process":13}],9:[function(require,module,exports){
+/**
+ * Module dependencies
+ */
+
+var debug = require('debug')('jsonp');
+
+/**
+ * Module exports.
+ */
+
+module.exports = jsonp;
+
+/**
+ * Callback index.
+ */
+
+var count = 0;
+
+/**
+ * Noop function.
+ */
+
+function noop(){}
+
+/**
+ * JSONP handler
+ *
+ * Options:
+ *  - param {String} qs parameter (`callback`)
+ *  - prefix {String} qs parameter (`__jp`)
+ *  - name {String} qs parameter (`prefix` + incr)
+ *  - timeout {Number} how long after a timeout error is emitted (`60000`)
+ *
+ * @param {String} url
+ * @param {Object|Function} optional options / callback
+ * @param {Function} optional callback
+ */
+
+function jsonp(url, opts, fn){
+  if ('function' == typeof opts) {
+    fn = opts;
+    opts = {};
+  }
+  if (!opts) opts = {};
+
+  var prefix = opts.prefix || '__jp';
+
+  // use the callback name that was passed if one was provided.
+  // otherwise generate a unique name by incrementing our counter.
+  var id = opts.name || (prefix + (count++));
+
+  var param = opts.param || 'callback';
+  var timeout = null != opts.timeout ? opts.timeout : 60000;
+  var enc = encodeURIComponent;
+  var target = document.getElementsByTagName('script')[0] || document.head;
+  var script;
+  var timer;
+
+
+  if (timeout) {
+    timer = setTimeout(function(){
+      cleanup();
+      if (fn) fn(new Error('Timeout'));
+    }, timeout);
+  }
+
+  function cleanup(){
+    if (script.parentNode) script.parentNode.removeChild(script);
+    window[id] = noop;
+    if (timer) clearTimeout(timer);
+  }
+
+  function cancel(){
+    if (window[id]) {
+      cleanup();
+    }
+  }
+
+  window[id] = function(data){
+    debug('jsonp got', data);
+    cleanup();
+    if (fn) fn(null, data);
+  };
+
+  // add qs component
+  url += (~url.indexOf('?') ? '&' : '?') + param + '=' + enc(id);
+  url = url.replace('?&', '?');
+
+  debug('jsonp req "%s"', url);
+
+  // create script
+  script = document.createElement('script');
+  script.src = url;
+  target.parentNode.insertBefore(script, target);
+
+  return cancel;
+}
+
+},{"debug":10}],10:[function(require,module,exports){
 (function (process){
 /**
  * This is the web browser implementation of `debug()`.
@@ -424,7 +889,7 @@ function localstorage() {
 }
 
 }).call(this,require('_process'))
-},{"./debug":3,"_process":12}],3:[function(require,module,exports){
+},{"./debug":11,"_process":13}],11:[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -628,422 +1093,7 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":11}],4:[function(require,module,exports){
-"use strict";
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * 
- */
-
-function makeEmptyFunction(arg) {
-  return function () {
-    return arg;
-  };
-}
-
-/**
- * This function accepts and discards inputs; it has no side effects. This is
- * primarily useful idiomatically for overridable function endpoints which
- * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
- */
-var emptyFunction = function emptyFunction() {};
-
-emptyFunction.thatReturns = makeEmptyFunction;
-emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
-emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
-emptyFunction.thatReturnsNull = makeEmptyFunction(null);
-emptyFunction.thatReturnsThis = function () {
-  return this;
-};
-emptyFunction.thatReturnsArgument = function (arg) {
-  return arg;
-};
-
-module.exports = emptyFunction;
-},{}],5:[function(require,module,exports){
-(function (process){
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-'use strict';
-
-/**
- * Use invariant() to assert state which your program assumes to be true.
- *
- * Provide sprintf-style format (only %s is supported) and arguments
- * to provide information about what broke and what you were
- * expecting.
- *
- * The invariant message will be stripped in production, but the invariant
- * will remain to ensure logic does not differ in production.
- */
-
-var validateFormat = function validateFormat(format) {};
-
-if (process.env.NODE_ENV !== 'production') {
-  validateFormat = function validateFormat(format) {
-    if (format === undefined) {
-      throw new Error('invariant requires an error message argument');
-    }
-  };
-}
-
-function invariant(condition, format, a, b, c, d, e, f) {
-  validateFormat(format);
-
-  if (!condition) {
-    var error;
-    if (format === undefined) {
-      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
-    } else {
-      var args = [a, b, c, d, e, f];
-      var argIndex = 0;
-      error = new Error(format.replace(/%s/g, function () {
-        return args[argIndex++];
-      }));
-      error.name = 'Invariant Violation';
-    }
-
-    error.framesToPop = 1; // we don't care about invariant's own frame
-    throw error;
-  }
-}
-
-module.exports = invariant;
-}).call(this,require('_process'))
-},{"_process":12}],6:[function(require,module,exports){
-(function (process){
-/**
- * Copyright 2014-2015, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-'use strict';
-
-var emptyFunction = require('./emptyFunction');
-
-/**
- * Similar to invariant but only logs a warning if the condition is not met.
- * This can be used to log issues in development environments in critical
- * paths. Removing the logging code for production environments will keep the
- * same logic and follow the same code paths.
- */
-
-var warning = emptyFunction;
-
-if (process.env.NODE_ENV !== 'production') {
-  var printWarning = function printWarning(format) {
-    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      args[_key - 1] = arguments[_key];
-    }
-
-    var argIndex = 0;
-    var message = 'Warning: ' + format.replace(/%s/g, function () {
-      return args[argIndex++];
-    });
-    if (typeof console !== 'undefined') {
-      console.error(message);
-    }
-    try {
-      // --- Welcome to debugging React ---
-      // This error was thrown as a convenience so that you can use this stack
-      // to find the callsite that caused this warning to fire.
-      throw new Error(message);
-    } catch (x) {}
-  };
-
-  warning = function warning(condition, format) {
-    if (format === undefined) {
-      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
-    }
-
-    if (format.indexOf('Failed Composite propType: ') === 0) {
-      return; // Ignore CompositeComponent proptype check.
-    }
-
-    if (!condition) {
-      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-        args[_key2 - 2] = arguments[_key2];
-      }
-
-      printWarning.apply(undefined, [format].concat(args));
-    }
-  };
-}
-
-module.exports = warning;
-}).call(this,require('_process'))
-},{"./emptyFunction":4,"_process":12}],7:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-exports['default'] = getCloneDimensions;
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _getMargin = require('./get-margin');
-
-var _getMargin2 = _interopRequireDefault(_getMargin);
-
-function getCloneDimensions(node, options) {
-  var parentNode = node.parentNode;
-
-  var context = document.createElement('div');
-  var clone = node.cloneNode(true);
-  var style = getComputedStyle(node);
-  var rect = undefined,
-      width = undefined,
-      height = undefined,
-      margin = undefined;
-
-  // give the node some context to measure off of
-  // no height and hidden overflow hide node copy
-  context.style.height = 0;
-  context.style.overflow = 'hidden';
-
-  // clean up any attributes that might cause a conflict with the original node
-  // i.e. inputs that should focus or submit data
-  clone.setAttribute('id', '');
-  clone.setAttribute('name', '');
-
-  // set props to get a true dimension calculation
-  if (options.display || style.getPropertyValue('display') === 'none') {
-    clone.style.display = options.display || 'block';
-  }
-  if (options.width || !parseInt(style.getPropertyValue('width'))) {
-    clone.style.width = options.width || 'auto';
-  }
-  if (options.height || !parseInt(style.getPropertyValue('height'))) {
-    clone.style.height = options.height || 'auto';
-  }
-
-  // append copy to context
-  context.appendChild(clone);
-
-  // append context to DOM so we can measure
-  parentNode.appendChild(context);
-
-  // get accurate dimensions
-  rect = clone.getBoundingClientRect();
-  width = clone.offsetWidth;
-  height = clone.offsetHeight;
-
-  // destroy clone
-  parentNode.removeChild(context);
-
-  return {
-    rect: {
-      width: width,
-      height: height,
-      top: rect.top,
-      right: rect.right,
-      bottom: rect.bottom,
-      left: rect.left
-    },
-    margin: (0, _getMargin2['default'])(style)
-  };
-}
-
-module.exports = exports['default'];
-},{"./get-margin":8}],8:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = getMargin;
-var toNumber = function toNumber(n) {
-  return parseInt(n) || 0;
-};
-
-function getMargin(style) {
-  return {
-    top: toNumber(style.marginTop),
-    right: toNumber(style.marginRight),
-    bottom: toNumber(style.marginBottom),
-    left: toNumber(style.marginLeft)
-  };
-}
-
-module.exports = exports["default"];
-},{}],9:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-exports['default'] = getNodeDimensions;
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _getCloneDimensions = require('./get-clone-dimensions');
-
-var _getCloneDimensions2 = _interopRequireDefault(_getCloneDimensions);
-
-var _getMargin = require('./get-margin');
-
-var _getMargin2 = _interopRequireDefault(_getMargin);
-
-function getNodeDimensions(node) {
-  var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
-  var rect = node.getBoundingClientRect();
-  var width = undefined,
-      height = undefined,
-      margin = undefined;
-
-  // determine if we need to clone the element to get proper dimensions or not
-  if (!rect.width || !rect.height || options.clone) {
-    var cloneDimensions = (0, _getCloneDimensions2['default'])(node, options);
-    rect = cloneDimensions.rect;
-    margin = cloneDimensions.margin;
-  }
-  // if no cloning needed, we need to determine if margin should be accounted for
-  else if (options.margin) {
-      margin = (0, _getMargin2['default'])(getComputedStyle(node));
-    }
-
-  // include margin in width/height calculation if desired
-  if (options.margin) {
-    width = margin.left + rect.width + margin.right;
-    height = margin.top + rect.height + margin.bottom;
-  } else {
-    width = rect.width;
-    height = rect.height;
-  }
-
-  return {
-    width: width,
-    height: height,
-    top: rect.top,
-    right: rect.right,
-    bottom: rect.bottom,
-    left: rect.left
-  };
-}
-
-module.exports = exports['default'];
-},{"./get-clone-dimensions":7,"./get-margin":8}],10:[function(require,module,exports){
-/**
- * Module dependencies
- */
-
-var debug = require('debug')('jsonp');
-
-/**
- * Module exports.
- */
-
-module.exports = jsonp;
-
-/**
- * Callback index.
- */
-
-var count = 0;
-
-/**
- * Noop function.
- */
-
-function noop(){}
-
-/**
- * JSONP handler
- *
- * Options:
- *  - param {String} qs parameter (`callback`)
- *  - prefix {String} qs parameter (`__jp`)
- *  - name {String} qs parameter (`prefix` + incr)
- *  - timeout {Number} how long after a timeout error is emitted (`60000`)
- *
- * @param {String} url
- * @param {Object|Function} optional options / callback
- * @param {Function} optional callback
- */
-
-function jsonp(url, opts, fn){
-  if ('function' == typeof opts) {
-    fn = opts;
-    opts = {};
-  }
-  if (!opts) opts = {};
-
-  var prefix = opts.prefix || '__jp';
-
-  // use the callback name that was passed if one was provided.
-  // otherwise generate a unique name by incrementing our counter.
-  var id = opts.name || (prefix + (count++));
-
-  var param = opts.param || 'callback';
-  var timeout = null != opts.timeout ? opts.timeout : 60000;
-  var enc = encodeURIComponent;
-  var target = document.getElementsByTagName('script')[0] || document.head;
-  var script;
-  var timer;
-
-
-  if (timeout) {
-    timer = setTimeout(function(){
-      cleanup();
-      if (fn) fn(new Error('Timeout'));
-    }, timeout);
-  }
-
-  function cleanup(){
-    if (script.parentNode) script.parentNode.removeChild(script);
-    window[id] = noop;
-    if (timer) clearTimeout(timer);
-  }
-
-  function cancel(){
-    if (window[id]) {
-      cleanup();
-    }
-  }
-
-  window[id] = function(data){
-    debug('jsonp got', data);
-    cleanup();
-    if (fn) fn(null, data);
-  };
-
-  // add qs component
-  url += (~url.indexOf('?') ? '&' : '?') + param + '=' + enc(id);
-  url = url.replace('?&', '?');
-
-  debug('jsonp req "%s"', url);
-
-  // create script
-  script = document.createElement('script');
-  script.src = url;
-  target.parentNode.insertBefore(script, target);
-
-  return cancel;
-}
-
-},{"debug":2}],11:[function(require,module,exports){
+},{"ms":12}],12:[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -1197,7 +1247,7 @@ function plural(ms, n, name) {
   return Math.ceil(ms / n) + ' ' + name + 's';
 }
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -1383,7 +1433,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -1448,7 +1498,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 module.exports = checkPropTypes;
 
 }).call(this,require('_process'))
-},{"./lib/ReactPropTypesSecret":17,"_process":12,"fbjs/lib/invariant":5,"fbjs/lib/warning":6}],14:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":18,"_process":13,"fbjs/lib/invariant":7,"fbjs/lib/warning":8}],15:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -1509,7 +1559,7 @@ module.exports = function() {
   return ReactPropTypes;
 };
 
-},{"./lib/ReactPropTypesSecret":17,"fbjs/lib/emptyFunction":4,"fbjs/lib/invariant":5}],15:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":18,"fbjs/lib/emptyFunction":6,"fbjs/lib/invariant":7}],16:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -2025,7 +2075,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 };
 
 }).call(this,require('_process'))
-},{"./checkPropTypes":13,"./lib/ReactPropTypesSecret":17,"_process":12,"fbjs/lib/emptyFunction":4,"fbjs/lib/invariant":5,"fbjs/lib/warning":6}],16:[function(require,module,exports){
+},{"./checkPropTypes":14,"./lib/ReactPropTypesSecret":18,"_process":13,"fbjs/lib/emptyFunction":6,"fbjs/lib/invariant":7,"fbjs/lib/warning":8}],17:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -2059,7 +2109,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./factoryWithThrowingShims":14,"./factoryWithTypeCheckers":15,"_process":12}],17:[function(require,module,exports){
+},{"./factoryWithThrowingShims":15,"./factoryWithTypeCheckers":16,"_process":13}],18:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -2075,7 +2125,137 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _withContentRect = require('./with-content-rect');
+
+var _withContentRect2 = _interopRequireDefault(_withContentRect);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Measure(_ref) {
+  var measure = _ref.measure,
+      measureRef = _ref.measureRef,
+      contentRect = _ref.contentRect,
+      children = _ref.children;
+
+  return children({ measure: measure, measureRef: measureRef, contentRect: contentRect });
+}
+
+exports.default = (0, _withContentRect2.default)()(Measure);
+module.exports = exports['default'];
+},{"./with-content-rect":23,"react":undefined}],20:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function getContentRect(node, types) {
+  var calculations = {};
+
+  if (types.indexOf('client') > -1) {
+    calculations.client = {
+      top: node.clientTop,
+      left: node.clientLeft,
+      width: node.clientWidth,
+      height: node.clientHeight
+    };
+  }
+
+  if (types.indexOf('offset') > -1) {
+    calculations.offset = {
+      top: node.offsetTop,
+      left: node.offsetLeft,
+      width: node.offsetWidth,
+      height: node.offsetHeight
+    };
+  }
+
+  if (types.indexOf('scroll') > -1) {
+    calculations.scroll = {
+      top: node.scrollTop,
+      left: node.scrollLeft,
+      width: node.scrollWidth,
+      height: node.scrollHeight
+    };
+  }
+
+  if (types.indexOf('bounds') > -1) {
+    var rect = node.getBoundingClientRect();
+    calculations.bounds = {
+      top: rect.top,
+      right: rect.right,
+      bottom: rect.bottom,
+      left: rect.left,
+      width: rect.width,
+      height: rect.height
+    };
+  }
+
+  if (types.indexOf('margin') > -1) {
+    var styles = getComputedStyle(node);
+    calculations.margin = {
+      top: parseInt(styles.marginTop),
+      right: parseInt(styles.marginRight),
+      bottom: parseInt(styles.marginBottom),
+      left: parseInt(styles.marginLeft)
+    };
+  }
+
+  return calculations;
+}
+
+exports.default = getContentRect;
+module.exports = exports['default'];
+},{}],21:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = getTypes;
+var types = ['client', 'offset', 'scroll', 'bounds', 'margin'];
+
+function getTypes(props) {
+  var allowedTypes = [];
+  types.forEach(function (type) {
+    if (props[type]) {
+      allowedTypes.push(type);
+    }
+  });
+  return allowedTypes;
+}
+module.exports = exports['default'];
+},{}],22:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.withContentRect = exports.default = undefined;
+
+var _Measure = require('./Measure');
+
+var _Measure2 = _interopRequireDefault(_Measure);
+
+var _withContentRect = require('./with-content-rect');
+
+var _withContentRect2 = _interopRequireDefault(_withContentRect);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _Measure2.default;
+exports.withContentRect = _withContentRect2.default;
+},{"./Measure":19,"./with-content-rect":23}],23:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2094,19 +2274,21 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = require('react-dom');
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 var _resizeObserverPolyfill = require('resize-observer-polyfill');
 
 var _resizeObserverPolyfill2 = _interopRequireDefault(_resizeObserverPolyfill);
 
-var _getNodeDimensions = require('get-node-dimensions');
+var _getTypes = require('./get-types');
 
-var _getNodeDimensions2 = _interopRequireDefault(_getNodeDimensions);
+var _getTypes2 = _interopRequireDefault(_getTypes);
+
+var _getContentRect = require('./get-content-rect');
+
+var _getContentRect2 = _interopRequireDefault(_getContentRect);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -2114,179 +2296,99 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Measure = function (_Component) {
-  _inherits(Measure, _Component);
+function withContentRect(types) {
+  return function (WrappedComponent) {
+    var _class, _temp2;
 
-  function Measure(props) {
-    _classCallCheck(this, Measure);
+    return _temp2 = _class = function (_Component) {
+      _inherits(_class, _Component);
 
-    var _this = _possibleConstructorReturn(this, (Measure.__proto__ || Object.getPrototypeOf(Measure)).call(this, props));
+      function _class() {
+        var _ref;
 
-    _this.measure = function () {
-      var includeMargin = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _this.props.includeMargin;
-      var useClone = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _this.props.useClone;
+        var _temp, _this, _ret;
 
-      // bail out if we shouldn't measure
-      if (!_this.props.shouldMeasure) return;
+        _classCallCheck(this, _class);
 
-      // if no parent available we need to requery the DOM node
-      if (!_this._node.parentNode) {
-        _this._setDOMNode();
-      }
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+          args[_key] = arguments[_key];
+        }
 
-      var dimensions = _this.getDimensions(_this._node, includeMargin, useClone);
-      var isChildFunction = typeof _this.props.children === 'function';
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = _class.__proto__ || Object.getPrototypeOf(_class)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+          contentRect: {
+            entry: {},
+            client: {},
+            offset: {},
+            scroll: {},
+            bounds: {},
+            margin: {}
+          }
+        }, _this.measure = function (entries) {
+          var contentRect = (0, _getContentRect2.default)(_this._node, types || (0, _getTypes2.default)(_this.props));
 
-      // determine if we need to update our callback with new dimensions or not
-      _this._propsToMeasure.some(function (prop) {
-        if (dimensions[prop] !== _this._lastDimensions[prop]) {
-          // update our callback if we've found a dimension that has changed
-          _this.props.onMeasure(dimensions);
-
-          // update state to send dimensions to child function
-          if (isChildFunction && typeof _this !== 'undefined') {
-            _this.setState({ dimensions: dimensions });
+          if (entries) {
+            contentRect.entry = entries[0].contentRect;
           }
 
-          // store last dimensions to compare changes
-          _this._lastDimensions = dimensions;
+          _this.setState({ contentRect: contentRect });
 
-          // we don't need to look any further, bail out
-          return true;
+          if (typeof _this.props.onResize === 'function') {
+            _this.props.onResize(contentRect);
+          }
+        }, _this._handleRef = function (node) {
+          if (_this._resizeObserver) {
+            if (node) {
+              _this._resizeObserver.observe(node);
+            } else {
+              _this._resizeObserver.disconnect(_this._node);
+            }
+          }
+          _this._node = node;
+
+          if (typeof _this.props.innerRef === 'function') {
+            _this.props.innerRef(node);
+          }
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+      }
+
+      _createClass(_class, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+          this._resizeObserver = new _resizeObserverPolyfill2.default(this.measure);
         }
-      });
-    };
+      }, {
+        key: 'render',
+        value: function render() {
+          var _props = this.props,
+              innerRef = _props.innerRef,
+              onResize = _props.onResize,
+              props = _objectWithoutProperties(_props, ['innerRef', 'onResize']);
 
-    _this.state = {
-      dimensions: {
-        width: 0,
-        height: 0,
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0
-      }
-    };
-    _this._node = null;
-    _this._propsToMeasure = _this._getPropsToMeasure(props);
-    _this._lastDimensions = {};
-    return _this;
-  }
+          return (0, _react.createElement)(WrappedComponent, _extends({}, props, {
+            measureRef: this._handleRef,
+            measure: this.measure,
+            contentRect: this.state.contentRect
+          }));
+        }
+      }]);
 
-  _createClass(Measure, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var _this2 = this;
+      return _class;
+    }(_react.Component), _class.propTypes = {
+      client: _propTypes2.default.bool,
+      offset: _propTypes2.default.bool,
+      scroll: _propTypes2.default.bool,
+      bounds: _propTypes2.default.bool,
+      margin: _propTypes2.default.bool,
+      innerRef: _propTypes2.default.func,
+      onResize: _propTypes2.default.func,
+      children: _propTypes2.default.func
+    }, _temp2;
+  };
+}
 
-      this._setDOMNode();
-
-      // measure on first render
-      this.measure();
-
-      // add component to resize observer to detect changes on resize
-      this.resizeObserver = new _resizeObserverPolyfill2.default(function () {
-        return _this2.measure();
-      });
-      this.resizeObserver.observe(this._node);
-    }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(_ref) {
-      var config = _ref.config,
-          whitelist = _ref.whitelist,
-          blacklist = _ref.blacklist;
-
-      // we store the properties ourselves so we need to update them if the
-      // whitelist or blacklist props have changed
-      if (this.props.whitelist !== whitelist || this.props.blacklist !== blacklist) {
-        this._propsToMeasure = this._getPropsToMeasure({ whitelist: whitelist, blacklist: blacklist });
-      }
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      this.resizeObserver.disconnect(this._node);
-      this._node = null;
-    }
-  }, {
-    key: '_setDOMNode',
-    value: function _setDOMNode() {
-      this._node = _reactDom2.default.findDOMNode(this);
-    }
-  }, {
-    key: 'getDimensions',
-    value: function getDimensions() {
-      var node = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this._node;
-      var includeMargin = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.props.includeMargin;
-      var useClone = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : this.props.useClone;
-      var cloneOptions = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : this.props.cloneOptions;
-
-      return (0, _getNodeDimensions2.default)(node, _extends({
-        margin: includeMargin,
-        clone: useClone
-      }, cloneOptions));
-    }
-  }, {
-    key: '_getPropsToMeasure',
-    value: function _getPropsToMeasure(_ref2) {
-      var whitelist = _ref2.whitelist,
-          blacklist = _ref2.blacklist;
-
-      return whitelist.filter(function (prop) {
-        return blacklist.indexOf(prop) < 0;
-      });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var children = this.props.children;
-
-      return _react.Children.only(typeof children === 'function' ? children(this.state.dimensions) : children);
-    }
-  }]);
-
-  return Measure;
-}(_react.Component);
-
-Measure.propTypes = {
-  whitelist: _propTypes2.default.array,
-  blacklist: _propTypes2.default.array,
-  includeMargin: _propTypes2.default.bool,
-  useClone: _propTypes2.default.bool,
-  cloneOptions: _propTypes2.default.object,
-  shouldMeasure: _propTypes2.default.bool,
-  onMeasure: _propTypes2.default.func
-};
-Measure.defaultProps = {
-  whitelist: ['width', 'height', 'top', 'right', 'bottom', 'left'],
-  blacklist: [],
-  includeMargin: true,
-  useClone: false,
-  cloneOptions: {},
-  shouldMeasure: true,
-  onMeasure: function onMeasure() {
-    return null;
-  }
-};
-exports.default = Measure;
+exports.default = withContentRect;
 module.exports = exports['default'];
-},{"get-node-dimensions":9,"prop-types":16,"react":undefined,"react-dom":undefined,"resize-observer-polyfill":20}],19:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = undefined;
-
-var _Measure = require('./Measure');
-
-var _Measure2 = _interopRequireDefault(_Measure);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _Measure2.default;
-module.exports = exports['default'];
-},{"./Measure":18}],20:[function(require,module,exports){
+},{"./get-content-rect":20,"./get-types":21,"prop-types":17,"react":undefined,"resize-observer-polyfill":24}],24:[function(require,module,exports){
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
     typeof define === 'function' && define.amd ? define(factory) :
@@ -3313,4 +3415,4 @@ var index = (function () {
 return index;
 })));
 
-},{}]},{},[1]);
+},{}]},{},[5]);
