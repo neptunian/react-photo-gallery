@@ -15,7 +15,7 @@ To install:
 npm install --save react-photo-gallery
 ```
 
-## Demo
+## Examples
 
 [http://neptunian.github.io/react-photo-gallery/](http://neptunian.github.io/react-photo-gallery/)
 
@@ -110,7 +110,7 @@ The number of columns to display and when they change is something the user has 
 
 ### Passing in photos
 
-In the demo I chose to have one object of photos that I pass in to both the Gallery component and the Lightbox component to keep the code cleaner and stateless.  Stateless because I can keep the Lightbox outside of the Gallery component and the user can decide whether to use any Lightbox of their choosing or none at all. I added all the properties into this object that either component might need or that I wanted to use for customization.
+Pass in an array of objects, each representing a photo,  with the necessary properties outlined in the table above.  Since the [Lightbox](https://github.com/jossmac/react-images) component being used in one of the demos needs a similar array, the same one is passed into it.
 
 ### Passing in a custom image component
 
