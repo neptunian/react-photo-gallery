@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { withContentRect } from 'react-measure';
 
 import Photo, { photoPropType } from './Photo';
 import { computeSizes } from './utils';
