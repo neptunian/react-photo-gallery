@@ -37,7 +37,7 @@ class ExampleWithLightbox extends React.Component {
   render() {
     return (
       <div>
-        <h2>Using a Lightbox:</h2>
+        <h2>Using with a Lightbox component</h2>
         <Gallery photos={this.props.photos} columns={this.props.columns} onClick={this.openLightbox}/>
         <Lightbox
           theme={{ container: { background: 'rgba(0, 0, 0, 0.85)' } }}
