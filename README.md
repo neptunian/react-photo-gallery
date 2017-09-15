@@ -1,8 +1,4 @@
-
-<table>
-<tr><td><h1>React Photo Gallery</h1></td><td><img style="vertical-align:bottom" src="https://sandygonzales.com/logo-camera-200.png" width="100" />
-</td></tr>
-</table>
+## React Photo Gallery
 
 [![Join the chat at https://gitter.im/react-photo-gallery/Lobby](https://badges.gitter.im/react-photo-gallery/Lobby.svg)](https://gitter.im/react-photo-gallery/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
