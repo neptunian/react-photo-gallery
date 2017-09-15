@@ -1,5 +1,5 @@
 <h1> 
-<div style="display:inline-block">React Photo Gallery</div><img style="" src="https://sandygonzales.com/logo-camera-200.png" width="100" />
+<div style="display:inline-block">React Photo Gallery</div><img style="vertical-align:bottom" src="https://sandygonzales.com/logo-camera-200.png" width="100" />
 </h1>
 
 [![Join the chat at https://gitter.im/react-photo-gallery/Lobby](https://badges.gitter.im/react-photo-gallery/Lobby.svg)](https://gitter.im/react-photo-gallery/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
