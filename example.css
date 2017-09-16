@@ -105,7 +105,7 @@ iframe {
   background-color: rgba(0, 0, 0, 0.9);
 }
 .toggle-select {
-  margin-top: 5px;
+  margin: 5px 0;
   background: #06befa;
   background-image: linear-gradient(to bottom, #06befa, #2980b9);
   border-radius: 3px;
