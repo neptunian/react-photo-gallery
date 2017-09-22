@@ -1,4 +1,4 @@
-<img src="https://sandygonzales.com/rpg-logo2.png" width="350" />
+<a href="http://neptunian.github.io/react-photo-gallery/"><img src="https://sandygonzales.com/rpg-logo2.png" width="350" /></a>
 
 [![Join the chat at https://gitter.im/react-photo-gallery/Lobby](https://badges.gitter.im/react-photo-gallery/Lobby.svg)](https://gitter.im/react-photo-gallery/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -7,13 +7,6 @@
 * Supports srcset and sizes
 * Supports passing in a custom image component for implementation of things like image selection, favorites, captions, etc.
 
-## Installation
-
-To install:
-
-```
-npm install --save react-photo-gallery
-```
 
 ## Examples
 
@@ -27,6 +20,14 @@ npm start
 ```
 
 Then open [`localhost:8000`](http://localhost:8000) in a browser.
+
+## Installation
+
+To install:
+
+```
+npm install --save react-photo-gallery
+```
 
 ## Use
 
