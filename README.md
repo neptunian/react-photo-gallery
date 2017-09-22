@@ -2,10 +2,12 @@
 
 [![Join the chat at https://gitter.im/react-photo-gallery/Lobby](https://badges.gitter.im/react-photo-gallery/Lobby.svg)](https://gitter.im/react-photo-gallery/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-* Stateless, responsive, and highly customizable
+## React Photo Gallery
+
+* Stateless, responsive, accessible, and highly customizable
 * Maintains the original aspect ratio of your photos
-* Supports srcset and sizes
-* Supports passing in a custom image component for implementation of things like image selection, favorites, captions, etc.
+* Uses actual image elements, optionally pass in srcset and sizes attributes
+* Supports passing in a custom image component for implementation of things like image selection, favorites, captions, or whatever your little heart desires!
 
 
 ## Examples
