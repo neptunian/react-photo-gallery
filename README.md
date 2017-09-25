@@ -47,7 +47,7 @@ export default class Sample extends React.Component {
 const PHOTO_SET = [
   {
     src: 'http://example.com/example/img1.jpg',
-    srcset: [
+    srcSet: [
       'http://example.com/example/img1_1024.jpg 1024w',
       'http://example.com/example/img1_800.jpg 800w',
       'http://example.com/example/img1_500.jpg 500w',
