@@ -6,7 +6,7 @@
 
 * Stateless, responsive, accessible, and highly customizable
 * Maintains the original aspect ratio of your photos
-* Uses actual image elements, optionally pass in srcset and sizes attributes
+* Uses actual image elements, optionally pass in srcSet and sizes attributes
 * Supports passing in a custom image component for implementation of things like image selection, favorites, captions, or whatever your little heart desires!
 
 
@@ -64,7 +64,7 @@ const PHOTO_SET = [
   },
   {
     src: 'http://example.com/example/img2.jpg',
-    srcset: [
+    srcSet: [
       'http://example.com/example/img2_1024.jpg 1024w',
       'http://example.com/example/img2_800.jpg 800w',
       'http://example.com/example/img2_500.jpg 500w',
@@ -97,7 +97,7 @@ margin | number  | 2  | optional; number of margin pixels around each entire ima
 Property        |       Type            |       Default         |       Description
 :-----------------------|:--------------|:--------------|:--------------------------------
 src     |       string    |       undefined    |       required; the img src attribute value of the gallery image
-srcset     |       string    |       undefined    |       optional; the img srcset attribute value of the gallery image
+srcSet     |       string    |       undefined    |       optional; the img srcSet attribute value of the gallery image
 sizes     |       string    |       undefined    |       optional; the img sizes attribute value of the gallery image
 width | number  | undefined  | required; original width of the gallery image (only used for calculating aspect ratio)
 height  | number  | undefined | required; original height of the gallery image (only used for calculating aspect ratio)
@@ -146,5 +146,5 @@ You can see this in action on the demo page.
 
 ## Other notes
 
-To gain a good understanding of 'srcset' and 'sizes' attributes, I found this site very helpful: [https://ericportis.com/posts/2014/srcset-sizes/](https://ericportis.com/posts/2014/srcset-sizes/).
+To gain a good understanding of 'srcSet' and 'sizes' attributes, I found this site very helpful: [https://ericportis.com/posts/2014/srcset-sizes/](https://ericportis.com/posts/2014/srcset-sizes/).
 
