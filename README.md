@@ -92,7 +92,7 @@ columns | number  | 3  | optional; number of photos per row
 onClick | function  | undefined  | optional; do something when the user clicks a photo; receives arguments event and an object containing the index, photo obj originally sent and the next and previous photos in the gallery if they exist 
 margin | number  | 2  | optional; number of margin pixels around each entire image 
 
-### Gallery.photos properties
+### Image properties (passed into Gallery's photos prop)
 
 Property        |       Type            |       Default         |       Description
 :-----------------------|:--------------|:--------------|:--------------------------------
@@ -115,9 +115,9 @@ The number of columns to display and when they change is something the user has 
 
 Pass in an array of objects, each representing a photo,  with the necessary properties outlined in the table above.  Since the [Lightbox](https://github.com/jossmac/react-images) component being used in one of the demos needs a similar array, the same one is passed into it.
 
-### Passing in a custom image component
+### Overriding Image component to use custom component
 
-Instead of using the default image component provided, you can pass in a custom one.  This would be useful if you want to change how the image looks and functions.  For example, having selection functionality where clicking on an image highlights it or adds a checkmark icon over it. 
+Instead of using the default Image component provided, you can pass in your own.  This would be useful if you want to change how the image looks and functions.  For example, having selection functionality where clicking on an image highlights it or adds a checkmark icon over it, favorites, captions, etc. 
 
 app.js
 
@@ -125,7 +125,7 @@ app.js
 <Gallery photos={this.state.photos} columns={this.props.columns} onClick={this.selectPhoto} ImageComponent={SelectedImage}/>
 ```
 
-The custom component will be receive the following properties as seen from SelectedImage.js in the examples directory where `photo` is the original photo object passed in:
+The custom Image component will receive the following properties as seen from SelectedImage.js in the examples directory where `photo` is the original photo object passed in:
 
 ```
 const SelectedImage = ({ index, onClick, photo, margin}) => {
