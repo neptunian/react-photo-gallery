@@ -1,6 +1,6 @@
 {
   "name": "react-photo-gallery",
-  "version": "6.0.5",
+  "version": "6.0.6",
   "description": "Responsive React Photo Gallery Component",
   "main": "lib/Gallery.js",
   "author": "Sandy Gonzales",
@@ -14,7 +14,7 @@
     "url": "https://github.com/neptunian/react-photo-gallery/issues"
   },
   "dependencies": {
-    "prop-types": "~15.5.4"
+    "prop-types": "~15.6.0"
   },
   "devDependencies": {
     "babel": "^6.23.0",
@@ -26,15 +26,15 @@
     "gulp": "^3.9.0",
     "jsonp": "^0.2.1",
     "prettier": "^1.6.1",
-    "react": "^15.6.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "react-component-gulp-tasks": "^0.7.7",
-    "react-dom": "^15.6.1",
-    "react-images": "~0.5.2",
+    "react-images": "~0.5.6",
     "react-measure": "^2.0.2"
   },
   "peerDependencies": {
-    "react": "~15.5.0",
-    "react-dom": "~15.5.0"
+    "react": "^15.5.0 || ^16.0.0",
+    "react-dom": "^15.5.0 || ^16.0.0"
   },
   "browserify-shim": {
     "react": "global:React"

@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-const imgStyle = { display: 'block', float: 'left' };
 const imgWithClick = { cursor: 'pointer' };
 
 class Photo extends PureComponent {
@@ -17,7 +16,7 @@ class Photo extends PureComponent {
 
   render() {
     const { photo, onClick, margin } = this.props;
-    imgStyle.margin = margin;
+    const imgStyle = { display: 'block', float: 'left', margin: margin };
     return (
       <img
         style={onClick ? { ...imgStyle, ...imgWithClick } : imgStyle}
