@@ -5,7 +5,7 @@ var taskConfig = {
 
 	component: {
 		name: 'Gallery',
-		dependencies:['react', 'react-dom', 'react-images']
+		dependencies:['react', 'react-dom']
 	},
 
 	example: {
