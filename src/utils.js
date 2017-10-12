@@ -34,6 +34,5 @@ export function computeSizes({ photos, columns, width, margin }) {
       width: round(height * ratio(photo), 1),
     }));
   });
-  console.log(rowsWithSizes);
   return rowsWithSizes.reduce((acc, row) => [...acc, ...row], []);
 }
