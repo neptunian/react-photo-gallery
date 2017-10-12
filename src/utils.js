@@ -1,3 +1,7 @@
+function round(value, decimals) {
+    return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+
+}
 export function ratio({ width, height }) {
   return width / height;
 }
@@ -26,10 +30,10 @@ export function computeSizes({ photos, columns, width, margin }) {
 
     return row.map(photo => ({
       ...photo,
-      height,
-      width: height * ratio(photo),
+      height: round(height, 1),
+      width: round(height * ratio(photo), 1),
     }));
   });
-
+  console.log(rowsWithSizes);
   return rowsWithSizes.reduce((acc, row) => [...acc, ...row], []);
 }
