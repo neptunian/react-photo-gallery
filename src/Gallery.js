@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Photo, { photoPropType } from './Photo';
 import { computeSizes } from './utils';
 
-class Gallery extends PureComponent {
+class Gallery extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -21,6 +21,9 @@ class Gallery extends PureComponent {
     if (this._gallery.clientWidth !== this.state.containerWidth) {
       this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
     }
+  }
+  shouldComponentUpdate(){
+    return true;
   }
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize, false);
