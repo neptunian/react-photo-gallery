@@ -1181,8 +1181,8 @@ var _Photo2 = _interopRequireDefault(_Photo);
 
 var _utils = require('./utils');
 
-var Gallery = (function (_PureComponent) {
-  _inherits(Gallery, _PureComponent);
+var Gallery = (function (_React$Component) {
+  _inherits(Gallery, _React$Component);
 
   function Gallery() {
     _classCallCheck(this, Gallery);
@@ -1207,6 +1207,11 @@ var Gallery = (function (_PureComponent) {
       if (this._gallery.clientWidth !== this.state.containerWidth) {
         this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
       }
+    }
+  }, {
+    key: 'shouldComponentUpdate',
+    value: function shouldComponentUpdate() {
+      return true;
     }
   }, {
     key: 'componentWillUnmount',
@@ -1277,7 +1282,7 @@ var Gallery = (function (_PureComponent) {
   }]);
 
   return Gallery;
-})(_react.PureComponent);
+})(_react2['default'].Component);
 
 Gallery.propTypes = {
   photos: _propTypes2['default'].arrayOf(_Photo.photoPropType).isRequired,
@@ -1387,9 +1392,9 @@ exports['default'] = Photo;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"prop-types":9}],13:[function(require,module,exports){
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
@@ -1399,6 +1404,10 @@ exports.ratio = ratio;
 exports.computeSizes = computeSizes;
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } }
+
+function round(value, decimals) {
+  return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
+}
 
 function ratio(_ref) {
   var width = _ref.width;
@@ -1437,12 +1446,11 @@ function computeSizes(_ref2) {
 
     return row.map(function (photo) {
       return _extends({}, photo, {
-        height: height,
-        width: height * ratio(photo)
+        height: round(height, 1),
+        width: round(height * ratio(photo), 1)
       });
     });
   });
-
   return rowsWithSizes.reduce(function (acc, row) {
     return [].concat(_toConsumableArray(acc), _toConsumableArray(row));
   }, []);
