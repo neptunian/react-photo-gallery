@@ -54,6 +54,9 @@ h2{
   margin: 15px 0 5px 0;
   font-weight: 400;
 }
+h2.header,.sub{
+  text-align: center;
+}
 h3{
   margin: 5px 0 5px 0;
 }

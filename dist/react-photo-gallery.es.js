@@ -1,11 +1,5 @@
-(function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('prop-types')) :
-	typeof define === 'function' && define.amd ? define(['react', 'prop-types'], factory) :
-	(global.Gallery = factory(global.React,global.PropTypes));
-}(this, (function (React,PropTypes) { 'use strict';
-
-var React__default = 'default' in React ? React['default'] : React;
-PropTypes = PropTypes && PropTypes.hasOwnProperty('default') ? PropTypes['default'] : PropTypes;
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 var asyncGenerator = function () {
   function AwaitValue(value) {
@@ -265,7 +259,7 @@ var Photo = function (_PureComponent) {
           margin = _props2.margin;
 
       var imgStyle = { display: 'block', float: 'left', margin: margin };
-      return React__default.createElement('img', _extends({
+      return React.createElement('img', _extends({
         style: onClick ? _extends({}, imgStyle, imgWithClick) : imgStyle
       }, photo, {
         onClick: onClick ? this.handleClick : null
@@ -273,7 +267,7 @@ var Photo = function (_PureComponent) {
     }
   }]);
   return Photo;
-}(React.PureComponent);
+}(PureComponent);
 
 var photoPropType = PropTypes.shape({
   src: PropTypes.string.isRequired,
@@ -417,16 +411,16 @@ var Gallery$1 = function (_React$Component) {
           onClick = _props2.onClick;
 
       var thumbs = computeSizes({ width: width, columns: columns, margin: margin, photos: photos });
-      return React__default.createElement(
+      return React.createElement(
         'div',
         { className: 'react-photo-gallery--gallery' },
-        React__default.createElement(
+        React.createElement(
           'div',
           { ref: function ref(c) {
               return _this2._gallery = c;
             } },
           thumbs.map(function (photo, index) {
-            return React__default.createElement(ImageComponent, {
+            return React.createElement(ImageComponent, {
               key: photo.key || photo.src,
               margin: margin,
               index: index,
@@ -435,12 +429,12 @@ var Gallery$1 = function (_React$Component) {
             });
           })
         ),
-        React__default.createElement('div', { style: { content: '', display: 'table', clear: 'both' } })
+        React.createElement('div', { style: { content: '', display: 'table', clear: 'both' } })
       );
     }
   }]);
   return Gallery;
-}(React__default.Component);
+}(React.Component);
 
 Gallery$1.propTypes = {
   photos: PropTypes.arrayOf(photoPropType).isRequired,
@@ -455,6 +449,4 @@ Gallery$1.defaultProps = {
   margin: 2
 };
 
-return Gallery$1;
-
-})));
+export default Gallery$1;

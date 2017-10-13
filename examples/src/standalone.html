@@ -1,0 +1,50 @@
+<!doctype html>
+<head>
+	<title>React Responsive Photo Gallery</title>
+        <meta charset="UTF-8" />
+	<meta name="description" content="A responsive photo gallery React component"  />
+	<meta name="keywords" content="react, responsive, image, photos, photo, gallery, photo gallery, image gallery"  />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="example.css" />
+</head>
+<body>
+	<div class="container">
+    <header>
+		<h1>
+		    React Photo Gallery
+		    <iframe src="https://ghbtns.com/github-btn.html?user=neptunian&repo=react-photo-gallery&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+		</h1>
+    <h2 class="header">Standalone UMD Build</h2>
+    <div class="sub">For usage without browserify / rollup / webpack</div>
+    </header>
+		<div id="app"></div>
+	</div>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.0/react.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.0/react-dom.min.js"></script>
+  <script src="https://unpkg.com/prop-types@15.5.10/prop-types.js"></script>
+  <script src="react-photo-gallery.js"></script>
+  <script type="text/babel">
+  const photos = [
+    {src: 'https://source.unsplash.com/2ShvY8Lf6l0/800x600', width:4, height:3},
+    {src: 'https://source.unsplash.com/Dm-qxdynoEc/800x800', width:1, height:1},
+    {src: 'https://source.unsplash.com/qDkso9nvCg0/600x800', width:3, height:4},
+    {src: 'https://source.unsplash.com/iecJiKe_RNg/600x800', width:3, height:4},
+    {src: 'https://source.unsplash.com/epcsn8Ed8kY/600x800', width:3, height:4},
+    {src: 'https://source.unsplash.com/NQSWvyVRIJk/800x600', width:4, height:3},
+    {src: 'https://source.unsplash.com/zh7GEuORbUw/600x800', width:3, height:4},
+    {src: 'https://source.unsplash.com/PpOHJezOalU/800x600', width:4, height:3},
+    {src: 'https://source.unsplash.com/I1ASdgphUH4/800x600', width:4, height:3}
+
+  ];
+
+  class App extends React.Component{
+    render(){
+      return(
+        <Gallery photos={photos} />
+      )
+    }
+  }
+  ReactDOM.render(<App />, document.getElementById('app'));
+  </script>
+</body>
