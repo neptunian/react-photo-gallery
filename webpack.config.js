@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, 'examples/src'),
@@ -26,14 +25,6 @@ module.exports = {
           options: { presets: ['react', 'es2015', 'stage-0'] },
         }],
       },
-      {
-        test: /\.html$/,
-        use: [
-          {
-            loader: 'html-loader',
-          }
-        ]
-      },
     ],
   },
   resolve: {
@@ -46,11 +37,6 @@ module.exports = {
       name: 'common',
       filename: 'common.js',
       minChunk: 2,
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      inject: false,
-      template: path.resolve(__dirname, 'examples/src/index.html')
     }),
   ]
 };

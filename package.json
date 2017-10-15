@@ -1,6 +1,6 @@
 {
   "name": "react-photo-gallery",
-  "version": "6.0.12",
+  "version": "6.0.13",
   "description": "Responsive React Photo Gallery Component",
   "main": "lib/index.js",
   "jsnext:main": "dist/react-photo-gallery.es.js",
@@ -31,8 +31,6 @@
     "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-prettier": "^2.2.0",
     "eslint-plugin-react": "^7.3.0",
-    "html-loader": "^0.5.1",
-    "html-webpack-plugin": "^2.30.1",
     "jsonp": "^0.2.1",
     "nps": "^5.7.1",
     "nps-utils": "^1.4.0",

@@ -17,7 +17,6 @@ module.exports = {
 			babel: 'babel src -d lib',
 			standalone: series(
 				'cp examples/src/standalone.html examples/dist/standalone.html',
-				'cp dist/react-photo-gallery.js examples/src/react-photo-gallery.js',
 				'cp examples/src/example.css examples/dist/example.css'
 			),
 		},
