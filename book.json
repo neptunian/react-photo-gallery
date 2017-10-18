@@ -1,0 +1,25 @@
+{
+  "gitbook": ">=3.2.2",
+  "title": "react-photo-gallery",
+  "root": "./docs",
+  "plugins": [ "theme-api", "codepen" ],
+  "pluginsConfig": {
+    "theme-api": {
+      "languages": [
+        {
+          "lang": "js",
+          "name": "JavaScript",
+          "default": true
+
+        }
+      ]
+    },
+    "codepen":{
+      "height": 1000,
+      "theme": "light"
+    }
+
+  }
+
+}
+

@@ -28,3 +28,6 @@ example/dist
 *.sublime-*
 .idea/
 *.DS_Store
+
+#gitbook
+_book
