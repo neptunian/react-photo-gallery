@@ -10,7 +10,7 @@
 ## Preview
 <img src="https://c1.staticflickr.com/5/4512/36861861853_4fcabda911_b.jpg" />
 
-## Examples
+## Documentation and Examples
 
 [http://neptunian.github.io/react-photo-gallery/](http://neptunian.github.io/react-photo-gallery/)
 
@@ -34,50 +34,26 @@ npm install --save react-photo-gallery
 ## Use
 
 ```jsx
-import React from 'react';
+
 import Gallery from 'react-photo-gallery';
 
 export default class Sample extends React.Component {
     render() {
 	return (
-	    <Gallery photos={PHOTO_SET} onClick={this.openLightbox}/>
+	    <Gallery photos={PHOTO_SET} />
 	);
     }
 }
 const PHOTO_SET = [
   {
     src: 'http://example.com/example/img1.jpg',
-    srcSet: [
-      'http://example.com/example/img1_1024.jpg 1024w',
-      'http://example.com/example/img1_800.jpg 800w',
-      'http://example.com/example/img1_500.jpg 500w',
-      'http://example.com/example/img1_320.jpg 320w',
-    ],
-    sizes:[
-      '(min-width: 480px) 50vw',
-      '(min-width: 1024px) 33.3vw',
-      '100vw'
-    ],
-    width: 681,
-    height: 1024,
-    alt: 'image 1',
+    width: 4,
+    height: 3
   },
   {
     src: 'http://example.com/example/img2.jpg',
-    srcSet: [
-      'http://example.com/example/img2_1024.jpg 1024w',
-      'http://example.com/example/img2_800.jpg 800w',
-      'http://example.com/example/img2_500.jpg 500w',
-      'http://example.com/example/img2_320.jpg 320w',
-    ],
-    sizes:[
-      '(min-width: 480px) 50vw',
-      '(min-width: 1024px) 33.3vw',
-      '100vw'
-    ],
-    width: 600,
-    height: 600,
-    alt: 'image 2',
+    width: 1 
+    height: 1
   }
 ];
 
@@ -103,48 +79,4 @@ width | number  | undefined  | required; original width of the gallery image (on
 height  | number  | undefined | required; original height of the gallery image (only used for calculating aspect ratio)
 alt  | string  | undefined | optional; alt text of the gallery image
 ImageComponent | function | default component | optional; use a different image component than the default provided
-
-## User Guide / Best Practice
-
-### Dynamic column count
-
-The number of columns to display and when they change is something the user has control over in their app. The parameter `columns` allows the adjustment of the displayed colums. In combination with `react-measure` this allows the demo page to adjust colums. See the example app where [react-measure](https://github.com/souporserious/react-measure) is being used in combination with media queries to decide on the columns (https://github.com/neptunian/react-photo-gallery/blob/872c22fbdb9a656340297358416c74de4d27e96c/examples/src/app.js#L111).
-
-
-### Passing in photos
-
-Pass in an array of objects, each representing a photo,  with the necessary properties outlined in the table above.  Since the [Lightbox](https://github.com/jossmac/react-images) component being used in one of the demos needs a similar array, the same one is passed into it.
-
-### Overriding Image component to use custom component
-
-Instead of using the default Image component provided, you can pass in your own.  This would be useful if you want to change how the image looks and functions.  For example, having selection functionality where clicking on an image highlights it or adds a checkmark icon over it, favorites, captions, etc. 
-
-app.js
-
-```
-<Gallery photos={this.state.photos} columns={this.props.columns} onClick={this.selectPhoto} ImageComponent={SelectedImage}/>
-```
-
-The custom Image component will receive the following properties as seen from SelectedImage.js in the examples directory where `photo` is the original photo object passed in:
-
-```
-const SelectedImage = ({ index, onClick, photo, margin}) => {
-  //calculate x,y scale
-  const sx = (100 - ((30 / photo.width) * 100)) / 100;
-  const sy = (100 - ((30 / photo.height) * 100)) / 100;
-  selectedImgStyle.transform = `translateZ(0px) scale3d(${sx}, ${sy}, 1)`;
-  return (<div style={{margin, width:photo.width, ...cont}}>
-    <img style={photo.selected ? {...imgStyle, ...selectedImgStyle} : {...imgStyle}} {...photo} onClick={(e) => onClick(e, {index, photo})} />
-    </div>
-  )
-};
-
-export default SelectedImage; 
-);
-```
-You can see this in action on the demo page.
-
-## Other notes
-
-To gain a good understanding of 'srcSet' and 'sizes' attributes, I found this site very helpful: [https://ericportis.com/posts/2014/srcset-sizes/](https://ericportis.com/posts/2014/srcset-sizes/).
 
