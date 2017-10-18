@@ -15,10 +15,6 @@ module.exports = {
 			),
 			rollup: 'rollup --config',
 			babel: 'babel src -d lib',
-			standalone: series(
-				'cp examples/src/standalone.html examples/dist/standalone.html',
-				'cp examples/src/example.css examples/dist/example.css'
-			),
 		},
 		publish: {
 			default: series(

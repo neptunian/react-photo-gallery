@@ -25,7 +25,7 @@ const babelOptions = (production) => {
 
 export default [
 	{
-		input: 'src/index.js',
+		input: 'src/Gallery.js',
 		output: {
 			file: path + '.es.js',
 			format: 'es',
@@ -34,7 +34,7 @@ export default [
 		plugins: [babel(babelOptions(false))],
 	},
 	{
-		input: 'src/index.js',
+		input: 'src/Gallery.js',
 		output: {
 			name: name,
 			file: path + '.js',
@@ -45,7 +45,7 @@ export default [
 		plugins: [babel(babelOptions(false)), resolve()],
 	},
 	{
-		input: 'src/index.js',
+		input: 'src/Gallery.js',
 		output: {
 			name: name,
 			file: path + '.min.js',

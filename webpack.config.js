@@ -29,7 +29,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'react-photo-gallery': path.resolve(__dirname, 'src/index'),
+      'react-photo-gallery': path.resolve(__dirname, 'src/Gallery'),
     }
   },
   plugins: [
