@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>srcSet and sizes · GitBook</title>
+        <title>srcSet and sizes · react-photo-gallery</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -26,6 +26,10 @@
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
                 
             
         
@@ -102,9 +106,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../api.md">
+        <li class="chapter " data-level="1.2" data-path="../api/">
             
-                <span>
+                <a href="../api/">
             
                     
                     API
@@ -113,11 +117,12 @@
             
 
             
-        </li>
+            <ul class="articles">
+                
     
-        <li class="chapter " data-level="1.3" data-path="../api/srcset-and-sizes.md">
+        <li class="chapter " data-level="1.2.1" data-path="../api/srcset-and-sizes.html">
             
-                <span>
+                <a href="../api/srcset-and-sizes.html">
             
                     
                     srcSet and sizes
@@ -128,20 +133,26 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../examples.md">
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
             
                 <span>
             
                     
                     Examples
             
-                </a>
+                </span>
             
 
             
-        </li>
+            <ul class="articles">
+                
     
-        <li class="chapter " data-level="1.5" data-path="basic.html">
+        <li class="chapter " data-level="1.3.1" data-path="basic.html">
             
                 <a href="basic.html">
             
@@ -154,7 +165,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6" data-path="srcset-and-sizes.html">
+        <li class="chapter active" data-level="1.3.2" data-path="srcset-and-sizes.html">
             
                 <a href="srcset-and-sizes.html">
             
@@ -167,7 +178,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7" data-path="dynamic-columns.html">
+        <li class="chapter " data-level="1.3.3" data-path="dynamic-columns.html">
             
                 <a href="dynamic-columns.html">
             
@@ -180,7 +191,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8" data-path="lightbox.html">
+        <li class="chapter " data-level="1.3.4" data-path="lightbox.html">
             
                 <a href="lightbox.html">
             
@@ -193,12 +204,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9" data-path="selection.html">
+        <li class="chapter " data-level="1.3.5" data-path="selection.html">
             
                 <a href="selection.html">
             
                     
-                    Custom Image
+                    Selection with custom ImageComponent
             
                 </a>
             
@@ -206,7 +217,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10" data-path="local-app.html">
+        <li class="chapter " data-level="1.3.6" data-path="local-app.html">
             
                 <a href="local-app.html">
             
@@ -216,6 +227,11 @@
                 </a>
             
 
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -266,7 +282,7 @@
                                 
                                 <h1 id="srcset-and-sizes">srcSet and sizes</h1>
 <p>Open dev tools and network tab to see what kind of images the browser decides to call.</p>
-<p><a href="codepen://neptunian/gGoMBq?defaultTab=js" target="_blank"></a></p>
+<p></p><p data-height="1000" data-theme-id="light" data-slug-hash="gGoMBq" data-default-tab="js" data-user="neptunian" class="codepen">See the Pen <a href="http://codepen.io/neptunian/pen/gGoMBq/" target="_blank"></a> by neptunian (<a href="http://codepen.io/neptunian" target="_blank">@neptunian</a>) on <a href="http://codepen.io" target="_blank">CodePen</a>.</p><p></p>
 
                                 
                                 </section>
@@ -293,24 +309,14 @@
             </div>
 
             
-                
-                <a href="basic.html" class="navigation navigation-prev " aria-label="Previous page: Basic">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="dynamic-columns.html" class="navigation navigation-next " aria-label="Next page: Dynamic Columns">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
+
         
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"srcSet and sizes","level":"1.6","depth":1,"next":{"title":"Dynamic Columns","level":"1.7","depth":1,"path":"examples/dynamic-columns.md","ref":"examples/dynamic-columns.md","articles":[]},"previous":{"title":"Basic","level":"1.5","depth":1,"path":"examples/basic.md","ref":"examples/basic.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"examples/srcset-and-sizes.md","mtime":"2017-10-18T17:56:45.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-18T17:58:38.241Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"srcSet and sizes","level":"1.3.2","depth":2,"next":{"title":"Dynamic Columns","level":"1.3.3","depth":2,"path":"examples/dynamic-columns.md","ref":"examples/dynamic-columns.md","articles":[]},"previous":{"title":"Basic","level":"1.3.1","depth":2,"path":"examples/basic.md","ref":"examples/basic.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","codepen","livereload"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"codepen":{"height":1000,"theme":"light"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true}],"split":true,"theme":"light"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"react-photo-gallery","gitbook":">=3.2.2"},"file":{"path":"examples/srcset-and-sizes.md","mtime":"2017-10-18T17:56:45.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-18T18:00:43.992Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -318,6 +324,10 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-codepen/embed-codepen.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
@@ -345,6 +355,10 @@
     
         
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
         
     
 
