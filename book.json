@@ -16,10 +16,9 @@
     },
     "codepen":{
       "height": 1000,
-      "theme": "light"
+      "theme": "light",
+      "defaultTab": "js"
     }
-
   }
-
 }
 
