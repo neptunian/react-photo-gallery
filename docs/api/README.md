@@ -11,9 +11,9 @@ margin | number | 2 | optional; number of margin pixels around each entire image
 
 Property | Type | Default | Description
 :-----------------------|:--------------|:--------------|:--------------------------------
-src | string | undefined | required; the img src attribute value of the gallery image
-srcSet | string | undefined | optional; the img srcSet attribute value of the gallery image
-sizes | string | undefined | optional; the img sizes attribute value of the gallery image
+src     |       string    |       undefined    |       required; the img src attribute value of the image
+srcSet     |       array    |       undefined    |       optional; array of strings for the srcSet attribute of the image
+sizes     |       array    |       undefined    |       optional; array of strings for the sizes attribute of the image
 width | number | undefined | required; original width of the gallery image (only used for calculating aspect ratio)
 height | number | undefined | required; original height of the gallery image (only used for calculating aspect ratio)
 alt | string | undefined | optional; alt text of the gallery image
