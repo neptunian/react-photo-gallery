@@ -7,8 +7,7 @@ module.exports = {
     app: './app.js',
   },
   output: {
-    path: path.resolve(__dirname, 'examples/dist'),
-    filename: '[name].js',
+    filename: 'app.js',
     publicPath: '/',
   },
   devServer: {
