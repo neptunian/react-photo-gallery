@@ -16,11 +16,9 @@ module.exports = {
 			rollup: 'rollup --config',
 			babel: 'babel src -d lib',
 		},
-		publish: {
+    'build:docs': {
 			default: series(
-				rimraf('examples/dist'),
-				'webpack --progress -p',
-				'git subtree push --prefix examples/dist origin gh-pages'
+				'gitbook build'
 			),
 		},
 	},

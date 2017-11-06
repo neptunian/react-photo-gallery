@@ -1,6 +1,6 @@
 {
   "name": "react-photo-gallery",
-  "version": "6.0.15",
+  "version": "6.0.16",
   "description": "Responsive React Photo Gallery Component",
   "main": "lib/Gallery.js",
   "jsnext:main": "dist/react-photo-gallery.es.js",
@@ -54,7 +54,7 @@
   },
   "scripts": {
     "build": "nps build",
-    "publish:examples": "NODE_ENV=production nps publish",
+    "build:docs": "NODE_ENV=production nps build:docs",
     "start": "webpack-dev-server --progress",
     "lint": "eslint -c ./.eslintrc.js ./src",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
