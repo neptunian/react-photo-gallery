@@ -22,7 +22,7 @@ class Gallery extends React.Component {
       this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
     }
   }
-  shouldComponentUpdate(){
+  shouldComponentUpdate() {
     return true;
   }
   componentWillUnmount() {
