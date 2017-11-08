@@ -56,8 +56,7 @@
     "build": "nps build",
     "build:docs": "NODE_ENV=production nps build:docs",
     "start": "webpack-dev-server --progress",
-    "lint": "./node_modules/.bin/eslint -c ./.eslintrc.js ./src",
-    "test": "./node_modules/.bin/eslint -c ./.eslintrc.js ./src",
+    "lint": "eslint -c ./.eslintrc.js ./src",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
   },
   "keywords": [
