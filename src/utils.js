@@ -30,8 +30,8 @@ export function computeSizes({ photos, columns, width, margin }) {
     const totalRatio = row.reduce((result, photo) => result + ratio(photo), 0);
     const rowWidth = width - row.length * (margin * 2);
 
-		// assign height, but let height of a single photo in the last 
-		//row not expand across columns so divide by columns
+    // assign height, but let height of a single photo in the last
+    // row not expand across columns so divide by columns
     const height = (rowIndex !== lastRowIndex || row.length > 1) // eslint-disable-line
         ? rowWidth / totalRatio
         : rowWidth / columns / totalRatio;
