@@ -1,9 +1,16 @@
-function round(value, decimals) {
+export function round(value, decimals) {
+  if (!decimals) decimals = 0;
   return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
 }
+
+// return two decimal places rounded number
 export function ratio({ width, height }) {
-  return width / height;
+  return round(width / height, 2);
 }
+
+// takes the Gallery's photos prop object, width of the container,
+// margin between photos Gallery prop, and columns Gallery prop.
+// calculates, sizes based on columns and returns the photos object with new height/width props
 export function computeSizes({ photos, columns, width, margin }) {
   if (!width) {
     return [];
@@ -22,6 +29,9 @@ export function computeSizes({ photos, columns, width, margin }) {
   const rowsWithSizes = rows.map((row, rowIndex) => {
     const totalRatio = row.reduce((result, photo) => result + ratio(photo), 0);
     const rowWidth = width - row.length * (margin * 2);
+
+		// assign height, but let height of a single photo in the last 
+		//row not expand across columns so divide by columns
     const height = (rowIndex !== lastRowIndex || row.length > 1) // eslint-disable-line
         ? rowWidth / totalRatio
         : rowWidth / columns / totalRatio;
