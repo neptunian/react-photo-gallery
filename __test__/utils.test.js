@@ -1,6 +1,7 @@
 import { ratio } from '../src/utils';
 import { round } from '../src/utils';
 import { computeSizes } from '../src/utils';
+import photos from './test-photo-data';
 
 describe('the round function', () => {
   test('100.12345 to two places', () => expect(round(100.12345,2)).toBe(100.12));  
@@ -19,36 +20,6 @@ describe('the computeSizes function called with 7 images and 3 columns', () => {
 	const width = 1138;
 	const columns = 3;
 	const margin = 2;
-	const photos = [
-   {
-      "width":1600,
-      "height":1065
-   },
-   {
-      "width":1600,
-      "height":1065
-   },
-   {
-      "width":1600,
-      "height":1023
-   },
-   {
-      "width":1600,
-      "height":1065
-   },
-   {
-      "width":1600,
-      "height":513
-   },
-   {
-      "width":1600,
-      "height":1065
-   },
-   {
-      "width":1600,
-      "height":1083
-	}
-];
 	const newPhotos = computeSizes({width, margin, columns, photos});
 	const newPhotosNoWidth = computeSizes({width: 0, margin, columns, photos});
 
