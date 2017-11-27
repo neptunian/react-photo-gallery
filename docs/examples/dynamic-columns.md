@@ -1,37 +1,7 @@
 # Dynamic Columns
 
-Change the columns depending on the size of your container at breakpoints of your choosing. Here I am using [react-measure](https://github.com/souporserious/react-measure) to achieve this.  
+Change the columns depending on the size of your container at breakpoints of your choosing. Here I am using [react-measure](https://github.com/souporserious/react-measure) to achieve this. Resize the browser to see this in action. 
 
-```js
-render() {
-  const width = this.state.width;
-  return (
-    <Measure bounds onResize={(contentRect) => this.setState({ width: contentRect.bounds.width  })}>
-    {
-      ({ measureRef  }) => {
-        if (width < 1 ){
-          return <div ref={measureRef}></div>;
-        }
-        let columns = 1;
-        if (width >= 480){
-          columns = 2;
-        }
-        if (width >= 1024){
-          columns = 3;
-        }
-        if (width >= 1824){
-          columns = 4;
-        }
-        return <div ref={measureRef} className="App">
-          <Gallery photos={this.state.photos} columns={columns}
-        </div>
-      }
-    }
-    </Measure>
-  );
-}
+<iframe src="https://codesandbox.io/embed/ll7ym48027?hidenavigation=1&view=editor" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
-```
-
-You can run the [local app](../examples/local-app.md) to see this in action.
 
