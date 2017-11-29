@@ -286,15 +286,21 @@ Photo.propTypes = {
 };
 
 function round(value, decimals) {
+  if (!decimals) decimals = 0;
   return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
 }
+
+// return two decimal places rounded number
 function ratio(_ref) {
   var width = _ref.width,
       height = _ref.height;
 
-  return width / height;
+  return round(width / height, 2);
 }
 
+// takes the Gallery's photos prop object, width of the container,
+// margin between photos Gallery prop, and columns Gallery prop.
+// calculates, sizes based on columns and returns the photos object with new height/width props
 function computeSizes(_ref2) {
   var photos = _ref2.photos,
       columns = _ref2.columns,
@@ -320,6 +326,9 @@ function computeSizes(_ref2) {
       return result + ratio(photo);
     }, 0);
     var rowWidth = width - row.length * (margin * 2);
+
+    // assign height, but let height of a single photo in the last
+    // row not expand across columns so divide by columns
     var height = rowIndex !== lastRowIndex || row.length > 1 ? // eslint-disable-line
     rowWidth / totalRatio : rowWidth / columns / totalRatio;
 
@@ -335,7 +344,7 @@ function computeSizes(_ref2) {
   }, []);
 }
 
-var Gallery$1 = function (_React$Component) {
+var Gallery = function (_React$Component) {
   inherits(Gallery, _React$Component);
 
   function Gallery() {
@@ -436,7 +445,7 @@ var Gallery$1 = function (_React$Component) {
   return Gallery;
 }(React.Component);
 
-Gallery$1.propTypes = {
+Gallery.propTypes = {
   photos: PropTypes.arrayOf(photoPropType).isRequired,
   onClick: PropTypes.func,
   columns: PropTypes.number,
@@ -444,9 +453,9 @@ Gallery$1.propTypes = {
   ImageComponent: PropTypes.func
 };
 
-Gallery$1.defaultProps = {
+Gallery.defaultProps = {
   columns: 3,
   margin: 2
 };
 
-export default Gallery$1;
+export default Gallery;
