@@ -24,11 +24,11 @@ const SelectedImage = ({ index, onClick, photo, margin}) => {
   selectedImgStyle.transform = `translateZ(0px) scale3d(${sx}, ${sy}, 1)`;
 
 	return (
-    <div style={{margin, width:photo.width, ...cont}} className={(!photo.selected ? ' selected' : '')}>
+    <div style={{margin, width:photo.width, ...cont}} className={(!photo.selected ? 'not-selected' : '')}>
       <Checkmark selected={photo.selected ? true : false}/>
       <img style={photo.selected ? {...imgStyle, ...selectedImgStyle} : {...imgStyle}} {...photo} onClick={(e) => onClick(e, {index, photo})} />
       <style>
-      {`.selected:hover{outline:2px solid #06befa}`}
+      {`.not-selected:hover{outline:2px solid #06befa}`}
       </style>
     </div>
   )
