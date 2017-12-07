@@ -16,7 +16,6 @@ describe('the ratio function', () => {
 });
 
 describe('the computeSizes function called with 7 images and 3 columns', () => {
-
 	const width = 1138;
 	const columns = 3;
 	const margin = 2;
