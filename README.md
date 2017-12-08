@@ -17,15 +17,6 @@
 
 [http://neptunian.github.io/react-photo-gallery/](http://neptunian.github.io/react-photo-gallery/)
 
-To build the examples locally, run:
-
-```
-npm install
-npm start
-```
-
-Then open [`localhost:8000`](http://localhost:8000) in a browser.
-
 ## Direct CodeSandbox Links with Examples and Use Cases 
 
 * [Basic](https://codesandbox.io/s/9yx911wl9y)
@@ -33,6 +24,15 @@ Then open [`localhost:8000`](http://localhost:8000) in a browser.
 * [Dynamic Columns](https://codesandbox.io/s/ll7ym48027)
 * [Selection using custom ImageComponent](https://codesandbox.io/s/o7o241q09)
 * [Sortable with drag and drop](https://codesandbox.io/s/8y7n1r9y5j)
+
+To build some examples locally, run:
+
+```
+npm install
+npm start
+```
+
+Then open [`localhost:8000`](http://localhost:8000) in a browser.
 
 ## Installation
 
