@@ -26,6 +26,14 @@ npm start
 
 Then open [`localhost:8000`](http://localhost:8000) in a browser.
 
+## Direct CodeSandbox Links with Examples and Use Cases 
+
+[Basic](https://codesandbox.io/s/9yx911wl9y)
+[With Lightbox](https://codesandbox.io/s/5vn3lvz2n4)
+[Dynamic Columns](https://codesandbox.io/s/ll7ym48027)
+[Selection using custom ImageComponent](https://codesandbox.io/s/o7o241q09)
+[Sortable with drag and drop](https://codesandbox.io/s/8y7n1r9y5j)
+
 ## Installation
 
 To install:
