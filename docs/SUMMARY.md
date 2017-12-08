@@ -9,6 +9,7 @@
   * [Dynamic Columns](examples/dynamic-columns.md)
   * [Lightbox](examples/lightbox.md)
   * [Selection with custom ImageComponent](examples/selection.md)
+  * [Sortable using drag and drop](examples/sortable.md)
   * [Local app](examples/local-app.md)
 
 
