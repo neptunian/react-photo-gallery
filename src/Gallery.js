@@ -18,7 +18,8 @@ class Gallery extends React.Component {
     window.addEventListener('resize', this.handleResize);
   }
   componentDidUpdate() {
-    if (this._gallery.clientWidth !== this.state.containerWidth) {
+    const roomForScrollbar = this._gallery.clientWidth - this.state.containerWidth;
+    if (roomForScrollbar < 0 || roomForScrollbar >= 20) {
       this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
     }
   }
