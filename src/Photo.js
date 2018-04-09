@@ -36,7 +36,7 @@ export const photoPropType = PropTypes.shape({
   title: PropTypes.string,
   srcSet: PropTypes.array,
   sizes: PropTypes.array,
-  thumbnail: PropTypes.string
+  thumbnail: PropTypes.string,
 });
 
 Photo.propTypes = {
