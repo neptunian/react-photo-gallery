@@ -48,7 +48,6 @@ class Gallery extends React.Component {
       <div className="react-photo-gallery--gallery">
         <div ref={c => (this._gallery = c)}>
           {thumbs.map((photo, index) => {
-            const { width, height } = photo;
             return (
               <ImageComponent
                 key={photo.key || photo.src}

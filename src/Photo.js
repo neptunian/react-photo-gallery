@@ -21,6 +21,7 @@ class Photo extends PureComponent {
       <img
         style={onClick ? { ...imgStyle, ...imgWithClick } : imgStyle}
         {...photo}
+        src={photo.thumbnail ? photo.thumbnail : photo.src}
         onClick={onClick ? this.handleClick : null}
       />
     );
@@ -35,6 +36,7 @@ export const photoPropType = PropTypes.shape({
   title: PropTypes.string,
   srcSet: PropTypes.array,
   sizes: PropTypes.array,
+  thumbnail: PropTypes.string
 });
 
 Photo.propTypes = {
