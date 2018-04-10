@@ -1,6 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
+import { render, shallow } from 'enzyme';
 
 import Photo from '../src/Photo';
 
@@ -28,8 +27,22 @@ describe('Photo component', () => {
       height: 50,
     };
 
-    const component = renderer.create(<Photo photo={photo} />);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    const component = render(<Photo photo={photo} />);
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should display the thumbnail', () => {
+    const photo = {
+      src: 'http://example.com/photo.jpg',
+      thumbnail: 'http://example.com/thumbnail.jpg',
+      width: 50,
+      height: 50,
+    };
+
+    const component = shallow(<Photo photo={photo} />);
+    const img = component.find('img').filterWhere(item => {
+      return item.prop('src') === photo.thumbnail;
+    });
+    expect(img).toHaveLength(1);
   });
 });

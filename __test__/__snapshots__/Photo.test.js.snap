@@ -74,17 +74,55 @@ ShallowWrapper {
 `;
 
 exports[`Photo component renders correctly without onClick 1`] = `
-<img
-  height={50}
-  onClick={null}
-  src="http://example.com/photo.jpg"
-  style={
-    Object {
-      "display": "block",
-      "float": "left",
-      "margin": undefined,
-    }
-  }
-  width={50}
-/>
+initialize {
+  "0": Object {
+    "attribs": Object {
+      "height": "50",
+      "src": "http://example.com/photo.jpg",
+      "style": "display:block;float:left",
+      "width": "50",
+    },
+    "children": Array [],
+    "name": "img",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "root": Object {
+      "attribs": Object {},
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-attribsNamespace": Object {},
+      "x-attribsPrefix": Object {},
+    },
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "height": undefined,
+      "src": undefined,
+      "style": undefined,
+      "width": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "height": undefined,
+      "src": undefined,
+      "style": undefined,
+      "width": undefined,
+    },
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xml": false,
+  },
+}
 `;
