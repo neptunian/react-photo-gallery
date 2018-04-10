@@ -1,22 +1,83 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly with onClick 1`] = `
-<img
-  onClick={[Function]}
-  style={
-    Object {
-      "cursor": "pointer",
-      "display": "block",
-      "float": "left",
-      "margin": undefined,
+exports[`Photo component renders correctly with onClick 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Photo
+    onClick={[Function]}
+    photo={
+      Object {
+        "height": 50,
+        "src": "http://example.com/photo.jpg",
+        "width": 50,
+      }
     }
-  }
-/>
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "height": 50,
+      "onClick": [Function],
+      "src": "http://example.com/photo.jpg",
+      "style": Object {
+        "cursor": "pointer",
+        "display": "block",
+        "float": "left",
+        "margin": undefined,
+      },
+      "width": 50,
+    },
+    "ref": null,
+    "rendered": null,
+    "type": "img",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "height": 50,
+        "onClick": [Function],
+        "src": "http://example.com/photo.jpg",
+        "style": Object {
+          "cursor": "pointer",
+          "display": "block",
+          "float": "left",
+          "margin": undefined,
+        },
+        "width": 50,
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "img",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
 `;
 
-exports[`renders correctly without onClick 1`] = `
+exports[`Photo component renders correctly without onClick 1`] = `
 <img
+  height={50}
   onClick={null}
+  src="http://example.com/photo.jpg"
   style={
     Object {
       "display": "block",
@@ -24,5 +85,6 @@ exports[`renders correctly without onClick 1`] = `
       "margin": undefined,
     }
   }
+  width={50}
 />
 `;

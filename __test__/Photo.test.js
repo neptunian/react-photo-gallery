@@ -1,26 +1,35 @@
 import React from 'react';
-import Photo from '../src/Photo';
 import renderer from 'react-test-renderer';
-import photos from './test-photo-data';
+import { shallow } from 'enzyme';
 
-function handleClick(){
-  return true; 
-}
-it('renders correctly with onClick', () => {
-  const component = renderer.create(
-    <Photo src="http://example.com/photo.jpg" width={50} height={50} onClick={handleClick}/>
-  );
-  let tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-  tree.props.onClick();
+import Photo from '../src/Photo';
+
+describe('Photo component', () => {
+  it('renders correctly with onClick', () => {
+    const mockCallBack = jest.fn();
+
+    const photo = {
+      src: 'http://example.com/photo.jpg',
+      width: 50,
+      height: 50,
+    };
+
+    const component = shallow(<Photo photo={photo} onClick={mockCallBack} />);
+    component.find('img').simulate('click');
+
+    expect(component).toMatchSnapshot();
+    expect(mockCallBack.mock.calls.length).toEqual(1);
+  });
+
+  it('renders correctly without onClick', () => {
+    const photo = {
+      src: 'http://example.com/photo.jpg',
+      width: 50,
+      height: 50,
+    };
+
+    const component = renderer.create(<Photo photo={photo} />);
+    let tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
-
-it('renders correctly without onClick', () => {
-  const component = renderer.create(
-    <Photo src="http://example.com/photo.jpg" width={50} height={50} />
-  );
-  let tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
-
