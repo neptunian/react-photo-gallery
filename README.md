@@ -85,6 +85,7 @@ ImageComponent | function | default component | optional; use a different image 
 Property        |       Type            |       Default         |       Description
 :-----------------------|:--------------|:--------------|:--------------------------------
 src     |       string    |       undefined    |       required; the img src attribute value of the image
+thumbnail     |       string    |       undefined    |       optional; the img src attribute value of the thumbnail
 srcSet     |       array    |       undefined    |       optional; array of strings for the srcSet attribute of the image
 sizes     |       array    |       undefined    |       optional; array of strings for the sizes attribute of the image
 width | number  | undefined  | required; original width of the gallery image (only used for calculating aspect ratio)

@@ -262,6 +262,7 @@ var Photo = function (_PureComponent) {
       return React.createElement('img', _extends({
         style: onClick ? _extends({}, imgStyle, imgWithClick) : imgStyle
       }, photo, {
+        src: photo.thumbnail ? photo.thumbnail : photo.src,
         onClick: onClick ? this.handleClick : null
       }));
     }
@@ -276,7 +277,8 @@ var photoPropType = PropTypes.shape({
   alt: PropTypes.string,
   title: PropTypes.string,
   srcSet: PropTypes.array,
-  sizes: PropTypes.array
+  sizes: PropTypes.array,
+  thumbnail: PropTypes.string
 });
 
 Photo.propTypes = {
@@ -372,11 +374,6 @@ var Gallery = function (_React$Component) {
       if (this._gallery.clientWidth !== this.state.containerWidth) {
         this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
       }
-    }
-  }, {
-    key: 'shouldComponentUpdate',
-    value: function shouldComponentUpdate() {
-      return true;
     }
   }, {
     key: 'componentWillUnmount',
