@@ -65,6 +65,7 @@
     "start": "webpack-dev-server --progress",
     "lint": "eslint -c ./.eslintrc.js ./src",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
+    "snapshot": "jest -u",
     "test": "jest",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
