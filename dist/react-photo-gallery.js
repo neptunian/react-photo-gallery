@@ -373,18 +373,6 @@ var Gallery = function (_React$Component) {
       window.addEventListener('resize', this.handleResize);
     }
   }, {
-    key: 'componentDidUpdate',
-    value: function componentDidUpdate() {
-      if (this._gallery.clientWidth !== this.state.containerWidth) {
-        this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
-      }
-    }
-  }, {
-    key: 'shouldComponentUpdate',
-    value: function shouldComponentUpdate() {
-      return true;
-    }
-  }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       window.removeEventListener('resize', this.handleResize, false);
