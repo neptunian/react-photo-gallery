@@ -21,9 +21,9 @@ class Gallery extends React.Component {
     window.removeEventListener('resize', this.handleResize, false);
   }
   handleResize(e) {
-		if (this._gallery.clientWidth !== this.state.containerWidth) {
-			this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
-		}
+    if (this._gallery.clientWidth !== this.state.containerWidth) {
+      this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
+    }
   }
   handleClick(event, { index }) {
     const { photos, onClick } = this.props;
