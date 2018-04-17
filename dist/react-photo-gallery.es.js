@@ -374,7 +374,9 @@ var Gallery = function (_React$Component) {
   }, {
     key: 'handleResize',
     value: function handleResize(e) {
-      this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
+      if (this._gallery.clientWidth !== this.state.containerWidth) {
+        this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
+      }
     }
   }, {
     key: 'handleClick',
