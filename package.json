@@ -35,7 +35,6 @@
     "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-prettier": "^2.2.0",
     "eslint-plugin-react": "^7.3.0",
-    "gitbook-cli": "^2.3.0",
     "jest": "^21.2.1",
     "jest-cli": "^21.2.1",
     "jsonp": "^0.2.1",
