@@ -19,7 +19,7 @@ class Gallery extends React.Component {
     // avoids calling setState in componentDidUpdate causing maximum depth exceeded error
     window.requestAnimationFrame(function() {
       if (that._gallery.clientWidth !== that.state.containerWidth) {
-        that.setState({ containerWidth: Math.floor(that._gallery.clientWidth)  }); 
+        that.setState({ containerWidth: Math.floor(that._gallery.clientWidth) });
       }
     });
   }
