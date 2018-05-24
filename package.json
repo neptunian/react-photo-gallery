@@ -15,18 +15,17 @@
     "url": "https://github.com/neptunian/react-photo-gallery/issues"
   },
   "dependencies": {
-    "prop-types": "~15.6.0"
+    "prop-types": "~15.6.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-jest": "^21.2.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-external-helpers": "^6.22.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.10",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
+    "babel-preset-env": "1.7.0",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
     "coveralls": "^3.0.0",
     "cross-env": "^5.0.5",
     "enzyme": "^3.2.0",
