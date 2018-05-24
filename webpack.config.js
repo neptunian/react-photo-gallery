@@ -3,16 +3,19 @@ const path = require('path');
 
 module.exports = {
   context: path.resolve(__dirname, 'examples/src'),
+  mode: 'development',
   entry: {
     app: './app.js',
   },
   output: {
-    filename: 'app.js',
+    filename: 'bundle.js',
     publicPath: '/',
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'examples/src'),
+    disableHostCheck: true,
     port: 8000,
+    host: "0.0.0.0"
   },
   module: {
     rules: [
@@ -31,11 +34,4 @@ module.exports = {
       'react-photo-gallery': path.resolve(__dirname, 'src/Gallery'),
     }
   },
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'common',
-      filename: 'common.js',
-      minChunk: 2,
-    }),
-  ]
 };
