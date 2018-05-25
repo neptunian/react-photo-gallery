@@ -13,6 +13,14 @@
 ## Preview
 <img src="https://c1.staticflickr.com/5/4512/36861861853_4fcabda911_b.jpg" />
 
+## Installation
+
+To install:
+
+```
+npm install --save react-photo-gallery
+```
+
 ## Documentation and Examples
 
 [http://neptunian.github.io/react-photo-gallery/](http://neptunian.github.io/react-photo-gallery/)
@@ -28,19 +36,12 @@
 To build some examples locally, run:
 
 ```
-npm install
-npm start
+yarn install
+yarn start
 ```
 
 Then open [`localhost:8000`](http://localhost:8000) in a browser.
 
-## Installation
-
-To install:
-
-```
-npm install --save react-photo-gallery
-```
 
 ## Use
 
