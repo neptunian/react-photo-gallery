@@ -19,7 +19,7 @@
 To install:
 
 ```
-npm install --save react-photo-gallery
+yarn add react-photo-gallery
 ```
 
 ## Documentation and Examples
