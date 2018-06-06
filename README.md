@@ -87,9 +87,22 @@ ImageComponent | function | default component | optional; use a different image 
 Property        |       Type            |       Default         |       Description
 :-----------------------|:--------------|:--------------|:--------------------------------
 src     |       string    |       undefined    |       required; the img src attribute value of the image
-srcSet     |       array    |       undefined    |       optional; array of strings for the srcSet attribute of the image
-sizes     |       array    |       undefined    |       optional; array of strings for the sizes attribute of the image
+srcSet     |       array or string    |       undefined    |       optional; srcSet attribute of the image
+sizes     |       array or string    |       undefined    |       optional; sizes attribute of the image
 width | number  | undefined  | required; original width of the gallery image (only used for calculating aspect ratio)
 height  | number  | undefined | required; original height of the gallery image (only used for calculating aspect ratio)
 alt  | string  | undefined | optional; alt text of the gallery image
+key  | string  | src | optional; key to be used on component
 
+### ImageComponent props
+
+If you're passing a function component to ImageComponent you will receive back these props:
+
+
+Property        |       Type            |       Default         |       Description
+:-----------------------|:--------------|:--------------|:--------------------------------
+key  | string  | src | key to be used on component
+margin     |       string    |       2    |       margin optionally passed into Gallery by user
+index  | number  | undefined | the index of the photo within the Gallery
+photo  | object  | undefined | the individual object passed into Gallery's `photos` array prop, with all the same props except recalculated height and width
+onClick  | function  | undefined | the onClick function optionally passsed into Gallery by user
