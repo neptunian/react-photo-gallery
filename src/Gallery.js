@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Photo, { photoPropType  } from './Photo';
+import Photo, { photoPropType } from './Photo';
 import { computeSizes } from './utils';
 
 class Gallery extends React.Component {
@@ -56,13 +56,13 @@ class Gallery extends React.Component {
         <div ref={c => (this._gallery = c)}>
           {thumbs.map((photo, index) => {
             const { width, height } = photo;
-            return(ImageComponent({
+            return ImageComponent({
               key: photo.key || photo.src,
-              margin:margin,
-              index:index,
-              photo:photo,
-              onClick:onClick ? this.handleClick : null
-            }))
+              margin: margin,
+              index: index,
+              photo: photo,
+              onClick: onClick ? this.handleClick : null,
+            });
           })}
         </div>
         <div style={{ content: '', display: 'table', clear: 'both' }} />
