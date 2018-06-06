@@ -1,6 +1,7 @@
 {
   "gitbook": ">=3.2.2",
-  "title": "react-photo-gallery",
+  "title": "React Image Gallery",
+  "description": "An image gallery react component for your photos",
   "root": "./docs",
   "plugins": [ "theme-api"],
   "pluginsConfig": {
