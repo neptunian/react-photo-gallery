@@ -41,13 +41,14 @@ class App extends React.Component {
           height: parseInt(item.height_o),
           title: item.title,
           alt: item.title,
+          key: item.id,
           srcSet: [
             `${item.url_m} ${item.width_m}w`,
             `${item.url_c} ${item.width_c}w`,
             `${item.url_l} ${item.width_l}w`,
             `${item.url_h} ${item.width_h}w`,
           ],
-          sizes: ['(min-width: 480px) 50vw', '(min-width: 1024px) 33.3vw', '100vw'],
+          sizes: '(min-width: 480px) 50vw, (min-width: 1024px) 33.3vw, 100vw',
         };
       });
       this.setState({
