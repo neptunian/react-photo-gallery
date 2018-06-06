@@ -1,31 +1,24 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const imgWithClick = { cursor: 'pointer' };
 
-class Photo extends PureComponent {
-  constructor() {
-    super();
-    this.handleClick = this.handleClick.bind(this);
-  }
+const Photo = ({ index, onClick, photo, margin, key }) => {
+  const imgStyle = { display: 'block', float: 'left', margin: margin };
 
-  handleClick(event) {
-    const { onClick, index, photo } = this.props;
+  const handleClick = event => {
     onClick(event, { photo, index });
-  }
+  };
 
-  render() {
-    const { photo, onClick, margin } = this.props;
-    const imgStyle = { display: 'block', float: 'left', margin: margin };
-    return (
-      <img
-        style={onClick ? { ...imgStyle, ...imgWithClick } : imgStyle}
-        {...photo}
-        onClick={onClick ? this.handleClick : null}
-      />
-    );
-  }
-}
+  return (
+    <img
+      key={key}
+      style={onClick ? { ...imgStyle, ...imgWithClick } : imgStyle}
+      {...photo}
+      onClick={onClick ? handleClick : null}
+    />
+  );
+};
 
 export const photoPropType = PropTypes.shape({
   src: PropTypes.string.isRequired,
@@ -33,8 +26,8 @@ export const photoPropType = PropTypes.shape({
   height: PropTypes.number.isRequired,
   alt: PropTypes.string,
   title: PropTypes.string,
-  srcSet: PropTypes.array,
-  sizes: PropTypes.array,
+  srcSet: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  sizes: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 });
 
 Photo.propTypes = {
