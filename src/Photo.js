@@ -6,18 +6,18 @@ const imgWithClick = { cursor: 'pointer' };
 const Photo = ({ index, onClick, photo, margin }) => {
   const imgStyle = { display: 'block', float: 'left', margin: margin };
 
-  const handleClick = (event) => {
+  const handleClick = event => {
     onClick(event, { photo, index });
-  }
+  };
 
   return (
-    <img 
+    <img
       style={onClick ? { ...imgStyle, ...imgWithClick } : imgStyle}
       {...photo}
       onClick={onClick ? handleClick : null}
     />
   );
-}
+};
 
 export const photoPropType = PropTypes.shape({
   src: PropTypes.string.isRequired,
@@ -25,14 +25,8 @@ export const photoPropType = PropTypes.shape({
   height: PropTypes.number.isRequired,
   alt: PropTypes.string,
   title: PropTypes.string,
-  srcSet: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array
-  ]),
-  sizes: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array
-  ]),
+  srcSet: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  sizes: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 });
 
 Photo.propTypes = {
@@ -42,4 +36,3 @@ Photo.propTypes = {
 };
 
 export default Photo;
-
