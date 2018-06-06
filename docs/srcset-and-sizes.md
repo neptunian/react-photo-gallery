@@ -1,6 +1,6 @@
 # srcSet and sizes
 
-It's recommended that you always make use of native image attributes `srcSet` and `sizes`. Pass these as as an array of the same name to each object in the `photos` property. [See example](../examples/srcset-and-sizes.md). If used correctly, combined, they will ensure that no unnecessarily large and heavy images will be served to the user, hopefully saving the user time and your server bandwidth.
+It's recommended that you always make use of native image attributes `srcSet` and `sizes`. Pass these as as a string or array of the same name to each object in the `photos` property. [See example](../examples/srcset-and-sizes.md). If used correctly, combined, they will ensure that no unnecessarily large and heavy images will be served to the user, hopefully saving the user time and your server bandwidth.
 
 ```
 <img src="small.jpg"
