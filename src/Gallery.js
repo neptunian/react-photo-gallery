@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Photo from './Photo';
+import Photo, { photoPropType  } from './Photo';
 import { computeSizes } from './utils';
 
 class Gallery extends React.Component {
@@ -72,6 +72,7 @@ class Gallery extends React.Component {
 }
 
 Gallery.propTypes = {
+  photos: PropTypes.arrayOf(photoPropType).isRequired,
   onClick: PropTypes.func,
   columns: PropTypes.number,
   margin: PropTypes.number,
