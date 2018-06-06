@@ -101,7 +101,6 @@ If you're passing a function component to ImageComponent you will receive back t
 
 Property        |       Type            |       Default         |       Description
 :-----------------------|:--------------|:--------------|:--------------------------------
-key  | string  | src | key to be used on component
 margin     |       string    |       2    |       margin optionally passed into Gallery by user
 index  | number  | undefined | the index of the photo within the Gallery
 photo  | object  | undefined | the individual object passed into Gallery's `photos` array prop, with all the same props except recalculated height and width
