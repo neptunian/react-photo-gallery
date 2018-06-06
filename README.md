@@ -99,9 +99,9 @@ key  | string  | src | optional; key to be used on component
 If you're passing a function component to ImageComponent you will receive back these props:
 
 
-Property        |       Type            |       Default         |       Description
-:-----------------------|:--------------|:--------------|:--------------------------------
-margin     |       string    |       2    |       margin optionally passed into Gallery by user
-index  | number  | undefined | the index of the photo within the Gallery
-photo  | object  | undefined | the individual object passed into Gallery's `photos` array prop, with all the same props except recalculated height and width
-onClick  | function  | undefined | the onClick function optionally passsed into Gallery by user
+Property        |       Type            |       Value
+:-----------------------|:--------------|:--------------
+margin     |       string    | margin prop optionally passed into Gallery by user
+index  | number  | the index of the photo within the Gallery
+photo  | object  | the individual object passed into Gallery's `photos` array prop, with all the same props except recalculated height and width
+onClick  | function  | the onClick function optionally passsed into Gallery by user
