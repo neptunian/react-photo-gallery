@@ -1,30 +1,22 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const imgWithClick = { cursor: 'pointer' };
 
-class Photo extends PureComponent {
-  constructor() {
-    super();
-    this.handleClick = this.handleClick.bind(this);
-  }
+const Photo = ({ index, onClick, photo, margin }) => {
+  const imgStyle = { display: 'block', float: 'left', margin: margin };
 
-  handleClick(event) {
-    const { onClick, index, photo } = this.props;
+  const handleClick = (event) => {
     onClick(event, { photo, index });
   }
 
-  render() {
-    const { photo, onClick, margin } = this.props;
-    const imgStyle = { display: 'block', float: 'left', margin: margin };
-    return (
-      <img
-        style={onClick ? { ...imgStyle, ...imgWithClick } : imgStyle}
-        {...photo}
-        onClick={onClick ? this.handleClick : null}
-      />
-    );
-  }
+  return (
+    <img 
+      style={onClick ? { ...imgStyle, ...imgWithClick } : imgStyle}
+      {...photo}
+      onClick={onClick ? handleClick : null}
+    />
+  );
 }
 
 export const photoPropType = PropTypes.shape({
@@ -50,3 +42,4 @@ Photo.propTypes = {
 };
 
 export default Photo;
+
