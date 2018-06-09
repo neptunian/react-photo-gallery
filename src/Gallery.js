@@ -17,7 +17,7 @@ class Gallery extends React.Component {
     // this is to fix non-ios browsers where a scrollbar isnt present before
     // images load, then becomes present, and doesn't trigger an update.
     // avoids calling setState in componentDidUpdate causing maximum depth exceeded error
-    if (typeof(window) !== "undefined") {
+    if (typeof window !== 'undefined') {
       window.requestAnimationFrame(function() {
         if (that._gallery.clientWidth !== that.state.containerWidth) {
           that.setState({ containerWidth: Math.floor(that._gallery.clientWidth) });
