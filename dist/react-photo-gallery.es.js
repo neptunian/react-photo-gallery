@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 var asyncGenerator = function () {
@@ -228,46 +228,24 @@ var toConsumableArray = function (arr) {
 
 var imgWithClick = { cursor: 'pointer' };
 
-var Photo = function (_PureComponent) {
-  inherits(Photo, _PureComponent);
+var Photo = function Photo(_ref) {
+  var index = _ref.index,
+      onClick = _ref.onClick,
+      photo = _ref.photo,
+      margin = _ref.margin;
 
-  function Photo() {
-    classCallCheck(this, Photo);
+  var imgStyle = { display: 'block', float: 'left', margin: margin };
 
-    var _this = possibleConstructorReturn(this, (Photo.__proto__ || Object.getPrototypeOf(Photo)).call(this));
+  var handleClick = function handleClick(event) {
+    onClick(event, { photo: photo, index: index });
+  };
 
-    _this.handleClick = _this.handleClick.bind(_this);
-    return _this;
-  }
-
-  createClass(Photo, [{
-    key: 'handleClick',
-    value: function handleClick(event) {
-      var _props = this.props,
-          onClick = _props.onClick,
-          index = _props.index,
-          photo = _props.photo;
-
-      onClick(event, { photo: photo, index: index });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props2 = this.props,
-          photo = _props2.photo,
-          onClick = _props2.onClick,
-          margin = _props2.margin;
-
-      var imgStyle = { display: 'block', float: 'left', margin: margin };
-      return React.createElement('img', _extends({
-        style: onClick ? _extends({}, imgStyle, imgWithClick) : imgStyle
-      }, photo, {
-        onClick: onClick ? this.handleClick : null
-      }));
-    }
-  }]);
-  return Photo;
-}(PureComponent);
+  return React.createElement('img', _extends({
+    style: onClick ? _extends({}, imgStyle, imgWithClick) : imgStyle
+  }, photo, {
+    onClick: onClick ? handleClick : null
+  }));
+};
 
 var photoPropType = PropTypes.shape({
   src: PropTypes.string.isRequired,
@@ -275,8 +253,8 @@ var photoPropType = PropTypes.shape({
   height: PropTypes.number.isRequired,
   alt: PropTypes.string,
   title: PropTypes.string,
-  srcSet: PropTypes.array,
-  sizes: PropTypes.array
+  srcSet: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  sizes: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
 });
 
 Photo.propTypes = {
@@ -362,11 +340,13 @@ var Gallery = function (_React$Component) {
     // this is to fix non-ios browsers where a scrollbar isnt present before
     // images load, then becomes present, and doesn't trigger an update.
     // avoids calling setState in componentDidUpdate causing maximum depth exceeded error
-    window.requestAnimationFrame(function () {
-      if (that._gallery.clientWidth !== that.state.containerWidth) {
-        that.setState({ containerWidth: Math.floor(that._gallery.clientWidth) });
-      }
-    });
+    if (typeof window !== 'undefined') {
+      window.requestAnimationFrame(function () {
+        if (that._gallery.clientWidth !== that.state.containerWidth) {
+          that.setState({ containerWidth: Math.floor(that._gallery.clientWidth) });
+        }
+      });
+    }
     return _this;
   }
 
