@@ -5,13 +5,11 @@ import Photo, { photoPropType } from './Photo';
 import { computeSizes } from './utils';
 
 class Gallery extends React.Component {
+  state = {
+    containerWidth: 0,
+  };
   constructor() {
     super();
-    this.state = {
-      containerWidth: 0,
-    };
-    this.handleResize = this.handleResize.bind(this);
-    this.handleClick = this.handleClick.bind(this);
 
     let that = this;
     // this is to fix non-ios browsers where a scrollbar isnt present before
@@ -32,12 +30,12 @@ class Gallery extends React.Component {
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize, false);
   }
-  handleResize(e) {
+  handleResize = () => {
     if (this._gallery.clientWidth !== this.state.containerWidth) {
       this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
     }
   }
-  handleClick(event, { index }) {
+  handleClick = (event, { index }) => {
     const { photos, onClick } = this.props;
     onClick(event, {
       index,
