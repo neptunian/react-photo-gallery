@@ -34,7 +34,7 @@ class Gallery extends React.Component {
     if (this._gallery.clientWidth !== this.state.containerWidth) {
       this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
     }
-  }
+  };
   handleClick = (event, { index }) => {
     const { photos, onClick } = this.props;
     onClick(event, {
@@ -43,7 +43,7 @@ class Gallery extends React.Component {
       previous: photos[index - 1] || null,
       next: photos[index + 1] || null,
     });
-  }
+  };
 
   render() {
     const { ImageComponent = Photo } = this.props;

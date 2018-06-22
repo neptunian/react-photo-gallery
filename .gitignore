@@ -21,6 +21,7 @@ example/dist
 
 # Editor and other tmp files
 *.swp
+*.swo
 *.un~
 *.iml
 *.ipr

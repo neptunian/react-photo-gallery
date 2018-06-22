@@ -7,15 +7,7 @@ module.exports = {
     'react',
     'prettier'
   ],
-  parserOptions: {
-    ecmaVersion: 6,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
-      modules: true,
-      experimentalObjectRestSpread: true,
-    }
-  },
+  parser: 'babel-eslint',
   env: {
     es6: true,
     node: true,
