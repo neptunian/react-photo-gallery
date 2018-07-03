@@ -1,7 +1,3 @@
----
-description: A repsonsive image gallery component for React
----
-
 # React Photo Gallery
 
 [![Join the chat at https://gitter.im/react-photo-gallery/Lobby](https://badges.gitter.im/react-photo-gallery/Lobby.svg)](https://gitter.im/react-photo-gallery/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -51,16 +47,46 @@ Then open [`localhost:8000`](http://localhost:8000) in a browser.
 
 ## Use
 
+The easiest way to use this component is to use it with a component like react-measure to find dimensions and pass in the clientWidth of the Gallery and the number of desirable columns based on that width.  You have full control to when the Gallery adjusts the images based on programatically changing the clientWidth whether through a resize event as seen here or some other way.
 ```jsx
 
 import Gallery from 'react-photo-gallery';
+import Measure from 'react-measure';
 
 export default class Sample extends React.Component {
-    render() {
-	return (
-	    <Gallery photos={PHOTO_SET} />
-	);
-    }
+
+  state = { width: -1 };
+
+  render() {
+    const width = this.state.width;
+    return (
+        <Measure client onResize={(contentRect) => this.setState({ width: contentRect.client.width })}>
+        {
+          ({ measureRef }) => {
+            if (width < 1 ){
+              return <div ref={measureRef}></div>;
+            }
+					  let columns = 1;
+					  if (width >= 480){
+						  columns = 2;
+					  }
+					  if (width >= 1024){
+						  columns = 3;
+					  }
+					  if (width >= 1824){
+						  columns = 4;
+					  }
+
+            return (
+              <div ref={measureRef}>
+                <Gallery photos={PHOTO_SET} columns={columns} clientWidth={width}/>
+              </div>
+            )
+          }
+        }
+		    </Measure>
+    );
+  }
 }
 const PHOTO_SET = [
   {
@@ -81,6 +107,7 @@ const PHOTO_SET = [
 
 Property        |       Type            |       Default         |       Description
 :-----------------------|:--------------|:--------------|:--------------------------------
+clientWidth | number  | undefined  | required; the clientWidth of the Gallery component
 photos | array  | undefined  | required; array of objects
 columns | number  | 3  | optional; number of photos per row
 onClick | function  | undefined  | optional; do something when the user clicks a photo; receives arguments event and an object containing the index, photo obj originally sent and the next and previous photos in the gallery if they exist

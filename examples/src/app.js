@@ -8,16 +8,13 @@ import ExampleCustomComponentSelection from './ExampleCustomComponentSelection';
 import ExampleDynamicLoading from './ExampleDynamicLoading';
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = { width: -1 };
-    this.loadPhotos = this.loadPhotos.bind(this);
-  }
+  state = { width: -1 };
+
   componentDidMount() {
     this.loadPhotos();
   }
-  loadPhotos() {
 
+  loadPhotos() {
     const urlParams = {
       api_key: '372ef3a005d9b9df062b8240c326254d',
       photoset_id: '72157680705961676',
