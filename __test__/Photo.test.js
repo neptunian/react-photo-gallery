@@ -11,8 +11,8 @@ it('renders correctly with onClick', () => {
     <Photo src="http://example.com/photo.jpg" width={50} height={50} onClick={handleClick}/>
   );
   let tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
   tree.props.onClick();
+  expect(tree).toMatchSnapshot();
 });
 
 it('renders correctly without onClick', () => {
