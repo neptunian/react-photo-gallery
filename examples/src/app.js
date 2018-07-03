@@ -62,7 +62,7 @@ class App extends React.Component {
     if (this.state.photos) {
       const width = this.state.width;
       return (
-        <Measure bounds onResize={(contentRect) => this.setState({ width: contentRect.bounds.width })}>
+        <Measure client bounds onResize={(contentRect) => this.setState({ width: contentRect.bounds.width })}>
         {
           ({ measureRef }) => {
             if (width < 1 ){
@@ -79,10 +79,9 @@ class App extends React.Component {
 						  columns = 4;
 					  }
             return <div ref={measureRef} className="App">
-                <ExampleBasic columns={columns} photos={this.state.photos.slice(0,6)} />
-                <ExampleWithLightbox columns={columns} photos={this.state.photos.slice(6,12)} />
-                <ExampleCustomComponentSelection columns={columns} photos={this.state.photos.slice(12,18)} />
-                <ExampleDynamicLoading columns={columns} photos={this.state.photos} />
+                <ExampleBasic columns={columns} photos={this.state.photos.slice(0,6)} clientWidth={width}/>
+                <ExampleCustomComponentSelection columns={columns} photos={this.state.photos.slice(12,18)} clientWidth={width}/>
+                <ExampleDynamicLoading columns={columns} photos={this.state.photos} clientWidth={width}/>
               </div>
           }
         }
