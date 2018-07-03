@@ -65,16 +65,16 @@ class App extends React.Component {
             if (width < 1 ){
               return <div ref={measureRef}></div>;
             }
-					  let columns = 1;
-					  if (width >= 480){
-						  columns = 2;
-					  }
-					  if (width >= 1024){
-						  columns = 3;
-					  }
-					  if (width >= 1824){
-						  columns = 4;
-					  }
+            let columns = 1;
+            if (width >= 480){
+              columns = 2;
+            }
+            if (width >= 1024){
+              columns = 3;
+            }
+            if (width >= 1824){
+              columns = 4;
+            }
             return <div ref={measureRef} className="App">
                 <ExampleBasic columns={columns} photos={this.state.photos.slice(0,6)} clientWidth={width}/>
                 <ExampleWithLightbox columns={columns} photos={this.state.photos.slice(6,12)} clientWidth={width}/>
