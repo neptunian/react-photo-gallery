@@ -16,11 +16,11 @@ describe('the ratio function', () => {
 });
 
 describe('the computeSizes function called with 7 images and 3 columns', () => {
-	const width = 1138;
+	const clientWidth = 1138;
 	const columns = 3;
 	const margin = 2;
-	const newPhotos = computeSizes({width, margin, columns, photos});
-	const newPhotosNoWidth = computeSizes({width: 0, margin, columns, photos});
+	const newPhotos = computeSizes({clientWidth, margin, columns, photos});
+	const newPhotosNoWidth = computeSizes({clientWidth: 0, margin, columns, photos});
 
 	test('width of no length to return empty array', () => expect(newPhotosNoWidth.length).toBe(0));
 	test('photos array to be same length', () => expect(newPhotos.length).toBe(photos.length));
