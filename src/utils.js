@@ -11,8 +11,8 @@ export function ratio({ width, height }) {
 // takes the Gallery's photos prop object, width of the container,
 // margin between photos Gallery prop, and columns Gallery prop.
 // calculates, sizes based on columns and returns the photos object with new height/width props
-export function computeSizes({ photos, columns, width, margin }) {
-  if (!width) {
+export function computeSizes({ photos, columns, clientWidth, margin }) {
+  if (!clientWidth) {
     return [];
   }
   // divide photos over rows, max cells based on `columns`
@@ -28,7 +28,7 @@ export function computeSizes({ photos, columns, width, margin }) {
   const lastRowIndex = rows.length - 1;
   const rowsWithSizes = rows.map((row, rowIndex) => {
     const totalRatio = row.reduce((result, photo) => result + ratio(photo), 0);
-    const rowWidth = width - row.length * (margin * 2);
+    const rowWidth = clientWidth - row.length * (margin * 2);
 
     // assign height, but let height of a single photo in the last
     // row not expand across columns so divide by columns

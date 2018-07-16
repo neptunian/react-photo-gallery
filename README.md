@@ -107,7 +107,7 @@ const PHOTO_SET = [
 
 Property        |       Type            |       Default         |       Description
 :-----------------------|:--------------|:--------------|:--------------------------------
-clientWidth | number  | undefined  | required; the clientWidth of the Gallery component
+width | number  | undefined  | required; the width of the Gallery component
 photos | array  | undefined  | required; array of objects
 columns | number  | 3  | optional; number of photos per row
 onClick | function  | undefined  | optional; do something when the user clicks a photo; receives arguments event and an object containing the index, photo obj originally sent and the next and previous photos in the gallery if they exist
