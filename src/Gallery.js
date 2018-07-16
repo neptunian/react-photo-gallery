@@ -14,27 +14,27 @@ const Gallery = ({ clientWidth, photos, columns, margin, onClick, ImageComponent
     });
   };
 
-    ImageComponent = ImageComponent || Photo;
-    // subtract 1 pixel because the browser may round up a pixel
-    clientWidth = clientWidth - 1;
-    const thumbs = computeSizes({ clientWidth, columns, margin, photos });
-    return (
-      <div className="react-photo-gallery--gallery">
-          {thumbs.map((photo, index) => {
-            return (
-              <ImageComponent
-                key={photo.key || photo.src}
-                margin={margin}
-                index={index}
-                photo={photo}
-                onClick={onClick ? handleClick : null}
-              />
-            );
-          })}
-        <div style={{ content: '', display: 'table', clear: 'both' }} />
-      </div>
-    );
-}
+  ImageComponent = ImageComponent || Photo;
+  // subtract 1 pixel because the browser may round up a pixel
+  clientWidth = clientWidth - 1;
+  const thumbs = computeSizes({ clientWidth, columns, margin, photos });
+  return (
+    <div className="react-photo-gallery--gallery">
+      {thumbs.map((photo, index) => {
+        return (
+          <ImageComponent
+            key={photo.key || photo.src}
+            margin={margin}
+            index={index}
+            photo={photo}
+            onClick={onClick ? handleClick : null}
+          />
+        );
+      })}
+      <div style={{ content: '', display: 'table', clear: 'both' }} />
+    </div>
+  );
+};
 
 Gallery.propTypes = {
   clientWidth: PropTypes.number.isRequired,
