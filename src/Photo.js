@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const imgWithClick = { cursor: 'pointer' };
 
 const Photo = ({ index, onClick, photo, margin }) => {
-  const imgStyle = { display: 'block', float: 'left', margin: margin };
+  const imgStyle = { margin: margin };
 
   const handleClick = event => {
     onClick(event, { photo, index });

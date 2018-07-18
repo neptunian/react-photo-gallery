@@ -11,10 +11,9 @@ class Gallery extends React.Component {
   constructor() {
     super();
 
-    let that = this;
     // this is to fix non-ios browsers where a scrollbar isnt present before
     // images load, then becomes present, and doesn't trigger an update.
-    // avoids calling setState in componentDidUpdate causing maximum depth exceeded error
+    let that = this;
     if (typeof window !== 'undefined') {
       window.requestAnimationFrame(function() {
         if (that._gallery.clientWidth !== that.state.containerWidth) {
@@ -53,9 +52,8 @@ class Gallery extends React.Component {
     const thumbs = computeSizes({ width, columns, margin, photos });
     return (
       <div className="react-photo-gallery--gallery">
-        <div ref={c => (this._gallery = c)}>
+        <div ref={c => (this._gallery = c)} style={{ display: 'flex', flexWrap: 'wrap' }}>
           {thumbs.map((photo, index) => {
-            const { width, height } = photo;
             return (
               <ImageComponent
                 key={photo.key || photo.src}
@@ -67,7 +65,6 @@ class Gallery extends React.Component {
             );
           })}
         </div>
-        <div style={{ content: '', display: 'table', clear: 'both' }} />
       </div>
     );
   }

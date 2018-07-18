@@ -4,7 +4,14 @@ exports[`renders correctly with onClick 1`] = `
 <div
   className="react-photo-gallery--gallery"
 >
-  <div>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexWrap": "wrap",
+      }
+    }
+  >
     <img
       alt="DSC02427"
       height={246.9}
@@ -28,8 +35,6 @@ exports[`renders correctly with onClick 1`] = `
       style={
         Object {
           "cursor": "pointer",
-          "display": "block",
-          "float": "left",
           "margin": 2,
         }
       }
@@ -59,8 +64,6 @@ exports[`renders correctly with onClick 1`] = `
       style={
         Object {
           "cursor": "pointer",
-          "display": "block",
-          "float": "left",
           "margin": 2,
         }
       }
@@ -90,8 +93,6 @@ exports[`renders correctly with onClick 1`] = `
       style={
         Object {
           "cursor": "pointer",
-          "display": "block",
-          "float": "left",
           "margin": 2,
         }
       }
@@ -121,8 +122,6 @@ exports[`renders correctly with onClick 1`] = `
       style={
         Object {
           "cursor": "pointer",
-          "display": "block",
-          "float": "left",
           "margin": 2,
         }
       }
@@ -152,8 +151,6 @@ exports[`renders correctly with onClick 1`] = `
       style={
         Object {
           "cursor": "pointer",
-          "display": "block",
-          "float": "left",
           "margin": 2,
         }
       }
@@ -183,8 +180,6 @@ exports[`renders correctly with onClick 1`] = `
       style={
         Object {
           "cursor": "pointer",
-          "display": "block",
-          "float": "left",
           "margin": 2,
         }
       }
@@ -214,8 +209,6 @@ exports[`renders correctly with onClick 1`] = `
       style={
         Object {
           "cursor": "pointer",
-          "display": "block",
-          "float": "left",
           "margin": 2,
         }
       }
@@ -223,15 +216,6 @@ exports[`renders correctly with onClick 1`] = `
       width={378}
     />
   </div>
-  <div
-    style={
-      Object {
-        "clear": "both",
-        "content": "",
-        "display": "table",
-      }
-    }
-  />
 </div>
 `;
 
@@ -239,7 +223,14 @@ exports[`renders correctly with onClick 2`] = `
 <div
   className="react-photo-gallery--gallery"
 >
-  <div>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexWrap": "wrap",
+      }
+    }
+  >
     <img
       alt="DSC02427"
       height={246.9}
@@ -263,8 +254,6 @@ exports[`renders correctly with onClick 2`] = `
       style={
         Object {
           "cursor": "pointer",
-          "display": "block",
-          "float": "left",
           "margin": 2,
         }
       }
@@ -294,8 +283,6 @@ exports[`renders correctly with onClick 2`] = `
       style={
         Object {
           "cursor": "pointer",
-          "display": "block",
-          "float": "left",
           "margin": 2,
         }
       }
@@ -325,8 +312,6 @@ exports[`renders correctly with onClick 2`] = `
       style={
         Object {
           "cursor": "pointer",
-          "display": "block",
-          "float": "left",
           "margin": 2,
         }
       }
@@ -356,8 +341,6 @@ exports[`renders correctly with onClick 2`] = `
       style={
         Object {
           "cursor": "pointer",
-          "display": "block",
-          "float": "left",
           "margin": 2,
         }
       }
@@ -387,8 +370,6 @@ exports[`renders correctly with onClick 2`] = `
       style={
         Object {
           "cursor": "pointer",
-          "display": "block",
-          "float": "left",
           "margin": 2,
         }
       }
@@ -418,8 +399,6 @@ exports[`renders correctly with onClick 2`] = `
       style={
         Object {
           "cursor": "pointer",
-          "display": "block",
-          "float": "left",
           "margin": 2,
         }
       }
@@ -449,8 +428,6 @@ exports[`renders correctly with onClick 2`] = `
       style={
         Object {
           "cursor": "pointer",
-          "display": "block",
-          "float": "left",
           "margin": 2,
         }
       }
@@ -458,14 +435,5 @@ exports[`renders correctly with onClick 2`] = `
       width={378}
     />
   </div>
-  <div
-    style={
-      Object {
-        "clear": "both",
-        "content": "",
-        "display": "table",
-      }
-    }
-  />
 </div>
 `;

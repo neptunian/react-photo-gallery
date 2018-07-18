@@ -6,8 +6,6 @@ exports[`renders correctly with onClick 1`] = `
   style={
     Object {
       "cursor": "pointer",
-      "display": "block",
-      "float": "left",
       "margin": undefined,
     }
   }
@@ -19,8 +17,6 @@ exports[`renders correctly without onClick 1`] = `
   onClick={null}
   style={
     Object {
-      "display": "block",
-      "float": "left",
       "margin": undefined,
     }
   }

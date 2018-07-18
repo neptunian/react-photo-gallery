@@ -2,7 +2,6 @@ import React from 'react';
 import Checkmark from './icons/checkmark';
 
 const imgStyle = { 
-  display: 'block', 
   transition: 'transform .135s cubic-bezier(0.0,0.0,0.2,1),opacity linear .15s' 
 };
 const selectedImgStyle = { 
@@ -13,7 +12,6 @@ const cont = {
   backgroundColor: '#eee',
   cursor: 'pointer',
   overflow: 'hidden',
-  float: 'left',
   position: 'relative'
 }
 
