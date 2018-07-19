@@ -44,7 +44,7 @@
     "prettier": "^1.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-images": "^0.5.10",
+    "react-images": "^0.5.18",
     "react-measure": "^2.0.2",
     "react-test-renderer": "^16.1.1",
     "rollup": "^0.50.0",
