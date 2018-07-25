@@ -8,7 +8,8 @@ const path = 'dist/react-photo-gallery';
 const globals = {
 	'prop-types': 'PropTypes',
 	'react-dom': 'ReactDOM',
-	react: 'React',
+	'react': 'React',
+  'resize-observer-polyfill': 'ResizeObserver'
 };
 const external = Object.keys(globals);
 const babelOptions = (production) => {
