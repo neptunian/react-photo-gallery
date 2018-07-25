@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import ResizeObserver from 'resize-observer-polyfill';
 import Photo, { photoPropType } from './Photo';
 import { computeSizes } from './utils';
 
@@ -8,32 +8,15 @@ class Gallery extends React.Component {
   state = {
     containerWidth: 0,
   };
-  constructor() {
-    super();
-
-    // this is to fix non-ios browsers where a scrollbar isnt present before
-    // images load, then becomes present, and doesn't trigger an update.
-    let that = this;
-    if (typeof window !== 'undefined') {
-      window.requestAnimationFrame(function() {
-        if (that._gallery.clientWidth !== that.state.containerWidth) {
-          that.setState({ containerWidth: Math.floor(that._gallery.clientWidth) });
-        }
-      });
-    }
-  }
   componentDidMount() {
-    this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
-    window.addEventListener('resize', this.handleResize);
+   this.observer = new ResizeObserver(() => {
+      this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
+    });
+   this.observer.observe(this._gallery);
   }
   componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize, false);
+    this.observer.disconnect();
   }
-  handleResize = () => {
-    if (this._gallery.clientWidth !== this.state.containerWidth) {
-      this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
-    }
-  };
   handleClick = (event, { index }) => {
     const { photos, onClick } = this.props;
     onClick(event, {
@@ -51,7 +34,7 @@ class Gallery extends React.Component {
     const { photos, columns, margin, onClick } = this.props;
     const thumbs = computeSizes({ width, columns, margin, photos });
     return (
-      <div className="react-photo-gallery--gallery">
+      <div className="react-photo-gallery--gallery" id="gallery">
         <div ref={c => (this._gallery = c)} style={{ display: 'flex', flexWrap: 'wrap' }}>
           {thumbs.map((photo, index) => {
             return (
