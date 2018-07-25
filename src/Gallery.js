@@ -34,7 +34,7 @@ class Gallery extends React.Component {
     const { photos, columns, margin, onClick } = this.props;
     const thumbs = computeSizes({ width, columns, margin, photos });
     return (
-      <div className="react-photo-gallery--gallery" id="gallery">
+      <div className="react-photo-gallery--gallery">
         <div ref={c => (this._gallery = c)} style={{ display: 'flex', flexWrap: 'wrap' }}>
           {thumbs.map((photo, index) => {
             return (
