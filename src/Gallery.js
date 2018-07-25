@@ -9,10 +9,10 @@ class Gallery extends React.Component {
     containerWidth: 0,
   };
   componentDidMount() {
-   this.observer = new ResizeObserver(() => {
+    this.observer = new ResizeObserver(() => {
       this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
     });
-   this.observer.observe(this._gallery);
+    this.observer.observe(this._gallery);
   }
   componentWillUnmount() {
     this.observer.disconnect();

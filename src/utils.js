@@ -8,9 +8,10 @@ export function ratio({ width, height }) {
   return round(width / height, 2);
 }
 
-// takes the Gallery's photos prop object, width of the container,
+// takes the Gallery's photos array, width of the container,
 // margin between photos Gallery prop, and columns Gallery prop.
-// calculates, sizes based on columns and returns the photos object with new height/width props
+// calculates, sizes based on columns and returns the photos array
+// with new height/width props in each object
 export function computeSizes({ photos, columns, width, margin }) {
   if (!width) {
     return [];

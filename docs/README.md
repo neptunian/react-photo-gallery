@@ -10,7 +10,7 @@ description: A repsonsive image gallery component for React
 [![Coverage Status](https://coveralls.io/repos/github/neptunian/react-photo-gallery/badge.svg?branch=master)](https://coveralls.io/github/neptunian/react-photo-gallery?branch=master)
 [![Dependency Status](https://david-dm.org/neptunian/react-photo-gallery.svg)](https://david-dm.org/neptunian/react-photo-gallery)
 
-* Stateless, responsive, accessible, and highly customizable image gallery component 
+* Responsive, accessible, composable, and customizable image gallery component 
 * Maintains the original aspect ratio of your photos
 * Uses actual image elements, optionally pass in srcSet and sizes attributes
 * Supports passing in a custom image component for implementation of things like image selection, favorites, captions, or whatever your little heart desires!
