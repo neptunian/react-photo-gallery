@@ -1,27 +1,24 @@
 import React from 'react';
 import Gallery from '../src/Gallery';
-import renderer from 'react-test-renderer';
 import photos from './test-photo-data';
 import { shallow, mount, render  } from 'enzyme';
 
-function createNodeMock(element) {
-	return {
-		clientWidth: 1139
-	};
-}
 function handleClick(){
   return true; 
 }
-it('renders correctly with onClick', () => {
-	const options = {createNodeMock};
-  const component = renderer.create(
-    <Gallery photos={photos} onClick={handleClick}/>,
-		options
+it('renders correctly', () => {
+  const component = mount(
+    <Gallery photos={photos} onClick={handleClick}/>
   );
-  let tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-  tree.children[0].children[0].props.onClick();
-  expect(tree).toMatchSnapshot();
+  component.setState({containerWidth: '1139'})
+  expect(component).toMatchSnapshot();
+});
+it('renders correctly after click', () => {
+  const component = mount(
+    <Gallery photos={photos} onClick={handleClick} />
+  );
+  component.find('img').first().simulate('click');
+  expect(component).toMatchSnapshot();
 });
 
 it('unmounts', () => {

@@ -33,6 +33,7 @@
     "cross-env": "^5.0.5",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
+    "enzyme-to-json": "^3.3.4",
     "eslint": "^4.5.0",
     "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-prettier": "^2.2.0",
@@ -77,6 +78,12 @@
     "photo gallery",
     "responsive",
     "image gallery",
-    "images"
+    "images",
+    "react-image-gallery",
+    "react-photo-gallery",
+    "image-gallery",
+    "react-gallery",
+    "react image gallery",
+    "react gallery"
   ]
 }
