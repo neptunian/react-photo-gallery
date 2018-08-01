@@ -3,7 +3,6 @@
   "version": "6.0.29",
   "description": "Responsive React Photo Gallery Component",
   "main": "lib/Gallery.js",
-  "module": "dist/react-photo-gallery.es.js",
   "author": "Sandra Gonzales",
   "license": "MIT",
   "homepage": "https://github.com/neptunian/react-photo-gallery",
