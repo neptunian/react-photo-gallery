@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ResizeObserver from 'resize-observer-polyfill';
 import Photo, { photoPropType } from './Photo';
-import { computeSizes } from './utils';
+import { computeSizes, computeSizesColumns } from './utils';
 
 class Gallery extends React.Component {
   state = {
@@ -30,19 +30,34 @@ class Gallery extends React.Component {
   render() {
     const { ImageComponent = Photo } = this.props;
     // subtract 1 pixel because the browser may round up a pixel
+    const { columns, margin, onClick, direction } = this.props;
+    const photos = this.props.photos;
     const width = this.state.containerWidth - 1;
-    const { photos, columns, margin, onClick } = this.props;
-    const thumbs = computeSizes({ width, columns, margin, photos });
+    let galleryStyle, thumbs;
+
+    if (direction === 'row') {
+      galleryStyle = { display: 'flex', flexWrap: 'wrap', flexDirection: 'row' };
+      thumbs = computeSizes({ width, columns, margin, photos });
+    }
+    if (direction === 'column') {
+      galleryStyle = { position: 'relative' };
+      thumbs = computeSizesColumns({ width, columns, margin, photos });
+      galleryStyle.height = thumbs[thumbs.length - 1].containerHeight;
+    }
     return (
       <div className="react-photo-gallery--gallery">
-        <div ref={c => (this._gallery = c)} style={{ display: 'flex', flexWrap: 'wrap' }}>
+        <div ref={c => (this._gallery = c)} style={galleryStyle}>
           {thumbs.map((photo, index) => {
+            const { left, top, containerHeight, ...rest } = photo;
             return (
               <ImageComponent
                 key={photo.key || photo.src}
                 margin={margin}
                 index={index}
-                photo={photo}
+                photo={rest}
+                direction={direction}
+                left={left}
+                top={top}
                 onClick={onClick ? this.handleClick : null}
               />
             );
@@ -55,6 +70,7 @@ class Gallery extends React.Component {
 
 Gallery.propTypes = {
   photos: PropTypes.arrayOf(photoPropType).isRequired,
+  direction: PropTypes.string,
   onClick: PropTypes.func,
   columns: PropTypes.number,
   margin: PropTypes.number,
@@ -64,6 +80,7 @@ Gallery.propTypes = {
 Gallery.defaultProps = {
   columns: 3,
   margin: 2,
+  direction: 'row',
 };
 
 export default Gallery;
