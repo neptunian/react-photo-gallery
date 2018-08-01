@@ -1,11 +1,11 @@
 import React from 'react';
 import Gallery from 'react-photo-gallery';
 
-const ExampleBasic = ({photos, columns}) => {
+const ExampleBasic = ({photos, columns, title, direction}) => {
     return (
       <div>
-        <h2>Basic</h2>
-        <Gallery photos={photos} columns={columns} />
+        <h2>{title}</h2>
+        <Gallery photos={photos} columns={columns} direction={direction}/>
       </div>
     );
 }

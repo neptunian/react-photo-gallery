@@ -15,14 +15,19 @@ const cont = {
   position: 'relative'
 }
 
-const SelectedImage = ({ index, onClick, photo, margin}) => {
+const SelectedImage = ({ index, onClick, photo, margin, direction, top, left}) => {
   //calculate x,y scale
   const sx = (100 - ((30 / photo.width) * 100)) / 100;
   const sy = (100 - ((30 / photo.height) * 100)) / 100;
   selectedImgStyle.transform = `translateZ(0px) scale3d(${sx}, ${sy}, 1)`;
 
+  if (direction === 'column'){
+    cont.position = 'absolute';
+    cont.left = left;
+    cont.top = top;
+  }
 	return (
-    <div style={{margin, width:photo.width, ...cont}} className={(!photo.selected ? 'not-selected' : '')}>
+    <div style={{margin, height: photo.height, width:photo.width, ...cont}} className={(!photo.selected ? 'not-selected' : '')}>
       <Checkmark selected={photo.selected ? true : false}/>
       <img style={photo.selected ? {...imgStyle, ...selectedImgStyle} : {...imgStyle}} {...photo} onClick={(e) => onClick(e, {index, photo})} />
       <style>

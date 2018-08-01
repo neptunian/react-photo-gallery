@@ -79,9 +79,10 @@ class App extends React.Component {
 						  columns = 4;
 					  }
             return <div ref={measureRef} className="App">
-                <ExampleBasic columns={columns} photos={this.state.photos.slice(0,6)} />
-                <ExampleWithLightbox columns={columns} photos={this.state.photos.slice(6,12)} />
-                <ExampleCustomComponentSelection columns={columns} photos={this.state.photos.slice(12,18)} />
+                <ExampleBasic title={'Basic Row Layout'} columns={columns} photos={this.state.photos.slice(0,6)} />
+                <ExampleBasic title={'Basic Column Layout'} direction="column" columns={columns} photos={this.state.photos.slice(6, 12)} />
+                <ExampleWithLightbox columns={columns} photos={this.state.photos.slice(12, 18)} />
+                <ExampleCustomComponentSelection columns={columns} photos={this.state.photos.slice(18, 26)} />
                 <ExampleDynamicLoading columns={columns} photos={this.state.photos} />
               </div>
           }
