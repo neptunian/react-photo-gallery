@@ -21,6 +21,14 @@ it('renders correctly after click', () => {
   expect(component).toMatchSnapshot();
 });
 
+it('renders correctly with direction set to column', () => {
+  const component = mount(
+    <Gallery photos={photos} onClick={handleClick} direction={'column'}/>
+  );
+  component.setState({containerWidth: '1139'})
+  expect(component).toMatchSnapshot();
+});
+
 it('unmounts', () => {
   const wrapper = mount(<Gallery photos={photos} />);
   wrapper.setState({'containerWidth':500});
