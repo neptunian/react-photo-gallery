@@ -3,8 +3,8 @@ There is an example app that comes with the project. To build the examples local
 
 
 ```
-npm install
-npm start
+yarn install
+yarn start
 ```
 
 
