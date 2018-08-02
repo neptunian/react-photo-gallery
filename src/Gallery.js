@@ -80,7 +80,7 @@ Gallery.propTypes = {
 Gallery.defaultProps = {
   columns: 3,
   margin: 2,
-  direction: 'row'
+  direction: 'row',
 };
 
 export default Gallery;
