@@ -12,7 +12,7 @@ export function ratio({ width, height }) {
 // margin between photos Gallery prop, and columns Gallery prop.
 // calculates, sizes based on columns and returns the photos array
 // with new height/width props in each object
-export function computeSizes({ photos, columns, width, margin }) {
+export function computeSizes({ photos, columns, width, margin, minImagesToExtendLastRow }) {
   if (!width) {
     return [];
   }
@@ -30,11 +30,10 @@ export function computeSizes({ photos, columns, width, margin }) {
     const totalRatio = row.reduce((result, photo) => result + ratio(photo), 0);
     const rowWidth = width - row.length * (margin * 2);
 
-    // assign height, but let height of a single photo in the last
-    // row not expand across columns so divide by columns
-    const height = (rowIndex !== lastRowIndex || row.length > 1) // eslint-disable-line
+    // assign height and expand the last row if needed
+    const height = rowIndex !== lastRowIndex || row.length >= minImagesToExtendLastRow // eslint-disable-line
         ? rowWidth / totalRatio
-        : rowWidth / columns / totalRatio;
+        : rowWidth / totalRatio * (row.length / columns);
 
     return row.map(photo => ({
       ...photo,

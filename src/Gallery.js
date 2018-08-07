@@ -30,14 +30,14 @@ class Gallery extends React.Component {
   render() {
     const { ImageComponent = Photo } = this.props;
     // subtract 1 pixel because the browser may round up a pixel
-    const { columns, margin, onClick, direction } = this.props;
+    const { columns, margin, onClick, direction, minImagesToExtendLastRow } = this.props;
     const photos = this.props.photos;
     const width = this.state.containerWidth - 1;
     let galleryStyle, thumbs;
 
     if (direction === 'row') {
       galleryStyle = { display: 'flex', flexWrap: 'wrap', flexDirection: 'row' };
-      thumbs = computeSizes({ width, columns, margin, photos });
+      thumbs = computeSizes({ width, columns, margin, photos, minImagesToExtendLastRow });
     }
     if (direction === 'column') {
       galleryStyle = { position: 'relative' };
@@ -75,12 +75,14 @@ Gallery.propTypes = {
   columns: PropTypes.number,
   margin: PropTypes.number,
   ImageComponent: PropTypes.func,
+  minImagesToExtendLastRow: PropTypes.number,
 };
 
 Gallery.defaultProps = {
   columns: 3,
   margin: 2,
   direction: 'row',
+  minImagesToExtendLastRow: 2,
 };
 
 export default Gallery;
