@@ -17,7 +17,6 @@ class App extends React.Component {
     this.loadPhotos();
   }
   loadPhotos() {
-
     const urlParams = {
       api_key: '372ef3a005d9b9df062b8240c326254d',
       photoset_id: '72157680705961676',
@@ -55,39 +54,48 @@ class App extends React.Component {
         photos: this.state.photos ? this.state.photos.concat(photos) : photos,
       });
     });
-
   }
 
   render() {
     if (this.state.photos) {
       const width = this.state.width;
       return (
-        <Measure bounds onResize={(contentRect) => this.setState({ width: contentRect.bounds.width })}>
-        {
-          ({ measureRef }) => {
-            if (width < 1 ){
-              return <div ref={measureRef}></div>;
+        <Measure bounds onResize={contentRect => this.setState({ width: contentRect.bounds.width })}>
+          {({ measureRef }) => {
+            if (width < 1) {
+              return <div ref={measureRef} />;
             }
-					  let columns = 1;
-					  if (width >= 480){
-						  columns = 2;
-					  }
-					  if (width >= 1024){
-						  columns = 3;
-					  }
-					  if (width >= 1824){
-						  columns = 4;
-					  }
-            return <div ref={measureRef} className="App">
-                <ExampleBasic title={'Basic Row Layout'} columns={columns} photos={this.state.photos.slice(0,6)} />
-                <ExampleBasic title={'Basic Column Layout'} direction="column" columns={columns} photos={this.state.photos.slice(6, 12)} />
+            let columns = 1;
+            if (width >= 480) {
+              columns = 2;
+            }
+            if (width >= 1024) {
+              columns = 3;
+            }
+            if (width >= 1824) {
+              columns = 4;
+            }
+            return (
+              <div ref={measureRef} className="App">
+                <ExampleBasic
+                  title={'Basic Row Layout'}
+                  columns={columns}
+                  minImagesToExtendLastRow={3}
+                  photos={this.state.photos.slice(0, 8)}
+                />
+                <ExampleBasic
+                  title={'Basic Column Layout'}
+                  direction="column"
+                  columns={columns}
+                  photos={this.state.photos.slice(6, 12)}
+                />
                 <ExampleWithLightbox columns={columns} photos={this.state.photos.slice(12, 18)} />
                 <ExampleCustomComponentSelection columns={columns} photos={this.state.photos.slice(18, 26)} />
                 <ExampleDynamicLoading columns={columns} photos={this.state.photos} />
               </div>
-          }
-        }
-		    </Measure>
+            );
+          }}
+        </Measure>
       );
     } else {
       return (
