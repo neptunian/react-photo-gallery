@@ -25,16 +25,19 @@ export function computeSizes({ photos, columns, width, margin }) {
   }, []);
   // calculate total ratio of each row, and adjust each cell height and width
   // accordingly.
-  const lastRowIndex = rows.length - 1;
+  let ratios = [];
   const rowsWithSizes = rows.map((row, rowIndex) => {
     const totalRatio = row.reduce((result, photo) => result + ratio(photo), 0);
     const rowWidth = width - row.length * (margin * 2);
 
-    // assign height, but let height of a single photo in the last
-    // row not expand across columns so divide by columns
-    const height = (rowIndex !== lastRowIndex || row.length > 1) // eslint-disable-line
+    // save total ratio of each row
+    if (rowIndex !== rows.length - 1) ratios.push(totalRatio);
+
+    // assign height, if last row use average rows total ratio to keep images from being too large
+    const height =
+      rowIndex !== rows.length - 1 || row.length === columns
         ? rowWidth / totalRatio
-        : rowWidth / columns / totalRatio;
+        : rowWidth / (ratios.reduce((acc, item) => acc + item, 0) / (rows.length - 1));
 
     return row.map(photo => ({
       ...photo,
