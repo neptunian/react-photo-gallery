@@ -72,7 +72,11 @@ Gallery.propTypes = {
   photos: PropTypes.arrayOf(photoPropType).isRequired,
   direction: PropTypes.string,
   onClick: PropTypes.func,
-  columns: PropTypes.number,
+  columns: props => {
+    if (props.photos.length < props.columns && typeof props.column !== 'number') {
+      return new Error(`columns must be of type 'number' and must be less than photos.length`);
+    }
+  },
   margin: PropTypes.number,
   ImageComponent: PropTypes.func,
 };
