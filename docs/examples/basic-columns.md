@@ -1,4 +1,4 @@
-# Basic w/ Columns (Masonry)
+# Basic w/ Columns
 
 Example using the most basic required properties.  Pass `column` to Gallery's `direction` prop to achieve the masonry layout.
 

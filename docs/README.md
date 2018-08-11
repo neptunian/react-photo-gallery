@@ -12,6 +12,7 @@ description: A repsonsive image gallery component for React
 
 * Responsive, accessible, composable, and customizable image gallery component 
 * Maintains the original aspect ratio of your photos
+* Creates a 'masonry' style layout
 * Uses actual image elements, optionally pass in srcSet and sizes attributes
 * Supports row or column (masonry) direction layout
 * Supports passing in a custom image component for implementation of things like image selection, favorites, captions, or whatever your little heart desires!
@@ -35,7 +36,7 @@ yarn add react-photo-gallery
 ## Direct CodeSandbox Links with Examples and Use Cases
 
 * [Basic Row Layout](https://codesandbox.io/s/9yx911wl9y)
-* [Basic Column (Masonry) Layout](https://codesandbox.io/s/r09k1xj614)
+* [Basic Column Layout](https://codesandbox.io/s/r09k1xj614)
 * [With Lightbox](https://codesandbox.io/s/5vn3lvz2n4)
 * [Dynamic Columns](https://codesandbox.io/s/ll7ym48027)
 * [Selection using custom ImageComponent](https://codesandbox.io/s/o7o241q09)
