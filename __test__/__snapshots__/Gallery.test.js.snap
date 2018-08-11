@@ -500,7 +500,7 @@ exports[`renders correctly 1`] = `
         photo={
           Object {
             "alt": "DSC01566",
-            "height": 255.4,
+            "height": 212.4,
             "sizes": Array [
               "(min-width: 480px) 50vw",
               "(min-width: 1024px) 33.3vw",
@@ -514,13 +514,13 @@ exports[`renders correctly 1`] = `
               "https://farm4.staticflickr.com/3948/15421251759_0091d2645c_h.jpg 1600w",
             ],
             "title": "DSC01566",
-            "width": 378,
+            "width": 314.3,
           }
         }
       >
         <img
           alt="DSC01566"
-          height={255.4}
+          height={212.4}
           onClick={[Function]}
           sizes={
             Array [
@@ -545,7 +545,7 @@ exports[`renders correctly 1`] = `
             }
           }
           title="DSC01566"
-          width={378}
+          width={314.3}
         />
       </Photo>
     </div>
@@ -1053,7 +1053,7 @@ exports[`renders correctly after click 1`] = `
         photo={
           Object {
             "alt": "DSC01566",
-            "height": -1.1,
+            "height": -0.9,
             "sizes": Array [
               "(min-width: 480px) 50vw",
               "(min-width: 1024px) 33.3vw",
@@ -1067,13 +1067,13 @@ exports[`renders correctly after click 1`] = `
               "https://farm4.staticflickr.com/3948/15421251759_0091d2645c_h.jpg 1600w",
             ],
             "title": "DSC01566",
-            "width": -1.7,
+            "width": -1.4,
           }
         }
       >
         <img
           alt="DSC01566"
-          height={-1.1}
+          height={-0.9}
           onClick={[Function]}
           sizes={
             Array [
@@ -1098,7 +1098,7 @@ exports[`renders correctly after click 1`] = `
             }
           }
           title="DSC01566"
-          width={-1.7}
+          width={-1.4}
         />
       </Photo>
     </div>

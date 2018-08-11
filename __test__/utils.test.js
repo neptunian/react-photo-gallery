@@ -36,6 +36,6 @@ describe('the computeSizes function called with 7 images and 3 columns', () => {
 	test('5th image height', () => expect(newPhotos[4].height).toBe(184));
 	test('6th image width', () => expect(newPhotos[5].width).toBe(276));
 	test('6th image height', () => expect(newPhotos[5].height).toBe(184));
-	test('7th image width', () => expect(newPhotos[6].width).toBe(378));
-	test('7th image height', () => expect(newPhotos[6].height).toBe(255.4));
+	test('7th image width', () => expect(newPhotos[6].width).toBe(314.3));
+	test('7th image height', () => expect(newPhotos[6].height).toBe(212.4));
 });
