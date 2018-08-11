@@ -1,6 +1,6 @@
 {
   "name": "react-photo-gallery",
-  "version": "6.1.2",
+  "version": "6.1.3",
   "description": "Responsive React Photo Gallery Component",
   "main": "lib/Gallery.js",
   "module": "dist/react-photo-gallery.es.js",
@@ -88,6 +88,7 @@
     "masonry",
     "react masonry",
     "react-masonry",
+    "masonry layout",
     "grid",
     "layout"
   ]
