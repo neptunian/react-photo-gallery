@@ -37,7 +37,7 @@ export function computeSizes({ photos, columns, width, margin }) {
     const height =
       rowIndex !== rows.length - 1 || row.length === columns
         ? rowWidth / totalRatio
-        : rowWidth / (ratios.reduce((acc, item) => acc + item, 0) / (rows.length - 1));
+        : rowWidth / (ratios.length ? ratios.reduce((acc, item) => acc + item, 0) / (rows.length - 1) : totalRatio);
 
     return row.map(photo => ({
       ...photo,
