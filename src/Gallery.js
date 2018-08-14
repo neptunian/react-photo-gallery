@@ -28,11 +28,21 @@ class Gallery extends React.Component {
   };
 
   render() {
+    const containerWidth = this.state.containerWidth;
     const { ImageComponent = Photo } = this.props;
     // subtract 1 pixel because the browser may round up a pixel
-    const { columns, margin, onClick, direction } = this.props;
+    const { margin, onClick, direction } = this.props;
+    let { columns } = this.props;
+
+    // set default breakpoints if user doesn't specify columns prop
+    if (columns === undefined) {
+      columns = 1;
+      if (containerWidth >= 500) columns = 2;
+      if (containerWidth >= 900) columns = 3;
+      if (containerWidth >= 1500) columns = 4;
+    }
     const photos = this.props.photos;
-    const width = this.state.containerWidth - 1;
+    const width = containerWidth - 1;
     let galleryStyle, thumbs;
 
     if (direction === 'row') {
@@ -78,7 +88,6 @@ Gallery.propTypes = {
 };
 
 Gallery.defaultProps = {
-  columns: 3,
   margin: 2,
   direction: 'row',
 };

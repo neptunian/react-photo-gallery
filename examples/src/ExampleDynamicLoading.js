@@ -51,7 +51,7 @@ class ExampleDynamicLoading extends React.Component {
     return (
       <div>
         <h2>Loading Photos Dynamically in Column Layout</h2>
-        <Gallery photos={this.state.photos} columns={this.props.columns} direction={'column'} />
+        <Gallery photos={this.state.photos} direction={'column'} />
         {!this.state.loadedAll && <div className="loading-msg" id="msg-loading-more">Loading</div>}
       </div>
     );

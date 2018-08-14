@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import jsonp from 'jsonp';
-import Measure from 'react-measure';
 import ExampleBasic from './ExampleBasic';
 import ExampleWithLightbox from './ExampleWithLightbox';
 import ExampleCustomComponentSelection from './ExampleCustomComponentSelection';
@@ -62,32 +61,13 @@ class App extends React.Component {
     if (this.state.photos) {
       const width = this.state.width;
       return (
-        <Measure bounds onResize={(contentRect) => this.setState({ width: contentRect.bounds.width })}>
-        {
-          ({ measureRef }) => {
-            if (width < 1 ){
-              return <div ref={measureRef}></div>;
-            }
-					  let columns = 1;
-					  if (width >= 480){
-						  columns = 2;
-					  }
-					  if (width >= 1024){
-						  columns = 3;
-					  }
-					  if (width >= 1824){
-						  columns = 4;
-					  }
-            return <div ref={measureRef} className="App">
-                <ExampleBasic title={'Basic Row Layout'} columns={columns} photos={this.state.photos.slice(0,6)} />
-                <ExampleBasic title={'Basic Column Layout'} direction="column" columns={columns} photos={this.state.photos.slice(6, 12)} />
-                <ExampleWithLightbox columns={columns} photos={this.state.photos.slice(12, 18)} />
-                <ExampleCustomComponentSelection columns={columns} photos={this.state.photos.slice(18, 26)} />
-                <ExampleDynamicLoading columns={columns} photos={this.state.photos} />
-              </div>
-          }
-        }
-		    </Measure>
+        <div className="App">
+          <ExampleBasic title={'Basic Row Layout'} photos={this.state.photos.slice(0,6)} />
+          <ExampleBasic title={'Basic Column Layout'} direction="column" photos={this.state.photos.slice(6, 12)} />
+          <ExampleWithLightbox photos={this.state.photos.slice(12, 18)} />
+          <ExampleCustomComponentSelection photos={this.state.photos.slice(18, 26)} />
+          <ExampleDynamicLoading photos={this.state.photos} />
+        </div>
       );
     } else {
       return (

@@ -1,6 +1,6 @@
 {
   "name": "react-photo-gallery",
-  "version": "6.1.7",
+  "version": "6.2.0",
   "description": "Responsive React Photo Gallery Image Component for Masonry Layout",
   "main": "lib/Gallery.js",
   "module": "dist/react-photo-gallery.es.js",
@@ -47,7 +47,6 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-images": "^0.5.18",
-    "react-measure": "^2.0.2",
     "react-test-renderer": "^16.1.1",
     "rollup": "^0.50.0",
     "rollup-plugin-babel": "^3.0.2",

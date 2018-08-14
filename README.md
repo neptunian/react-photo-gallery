@@ -8,7 +8,7 @@
 
 * Responsive, accessible, composable, and customizable image gallery component 
 * Maintains the original aspect ratio of your photos
-* Creates a 'masonry' style layout
+* Creates a "masonry" style layout
 * Uses actual image elements, optionally pass in srcSet and sizes attributes
 * Supports row or column direction layout
 * Supports passing in a custom image component for implementation of things like image selection, favorites, captions, or whatever your little heart desires!
@@ -34,7 +34,7 @@ yarn add react-photo-gallery
 * [Basic Row Layout](https://codesandbox.io/s/9yx911wl9y)
 * [Basic Column Layout](https://codesandbox.io/s/r09k1xj614)
 * [With Lightbox](https://codesandbox.io/s/5vn3lvz2n4)
-* [Dynamic Columns](https://codesandbox.io/s/ll7ym48027)
+* [Custom Dynamic Columns](https://codesandbox.io/s/ll7ym48027)
 * [Selection using custom ImageComponent](https://codesandbox.io/s/o7o241q09)
 * [Sortable with drag and drop](https://codesandbox.io/s/8y7n1r9y5j)
 
@@ -81,7 +81,7 @@ const PHOTO_SET = [
 Property        |       Type            |       Default         |       Description
 :-----------------------|:--------------|:--------------|:--------------------------------
 photos | array  | undefined  | required; array of objects
-columns | number  | 3  | optional; number of photos per row
+columns | number  | undefined  | optional; number of photos per row; defaults to Gallery's breakpoint choosing
 onClick | function  | undefined  | optional; do something when the user clicks a photo; receives arguments event and an object containing the index, photo obj originally sent and the next and previous photos in the gallery if they exist
 margin | number  | 2  | optional; number of margin pixels around each entire image
 direction | string | 'row' | optional; `column` or `row` based layout
