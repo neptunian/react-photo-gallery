@@ -13,6 +13,13 @@ it('renders correctly', () => {
   component.setState({containerWidth: '1139'})
   expect(component).toMatchSnapshot();
 });
+it('renders correctly if there are more columns than photos', () => {
+  const component = mount(
+    <Gallery photos={photos} columns={10} onClick={handleClick}/>
+  );
+  component.setState({containerWidth: '1139'})
+  expect(component).toMatchSnapshot();
+});
 it('renders correctly after click', () => {
   const component = mount(
     <Gallery photos={photos} onClick={handleClick} />

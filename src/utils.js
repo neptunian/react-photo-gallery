@@ -33,11 +33,21 @@ export function computeSizes({ photos, columns, width, margin }) {
     // save total ratio of each row
     if (rowIndex !== rows.length - 1) ratios.push(totalRatio);
 
-    // assign height, if last row use average rows total ratio to keep images from being too large
+    // assign height
+    // 3 scenarios...
+    //  if its a regular row where row.length === columns
+    //    rowWidth / totalRatio
+    //  if columns > row.length
+    //    if !lastRow
+    //      use the average aspect ratio of previous rows
+    //    else (all photos are on a single row)
+    //      ...
     const height =
-      rowIndex !== rows.length - 1 || row.length === columns
+      row.length === columns
         ? rowWidth / totalRatio
-        : rowWidth / (ratios.length ? ratios.reduce((acc, item) => acc + item, 0) / (rows.length - 1) : totalRatio);
+        : photos.length < columns
+          ? rowWidth / totalRatio * (row.length / columns)
+          : rowWidth / (ratios.reduce((acc, item) => acc + item, 0) / (rows.length - 1));
 
     return row.map(photo => ({
       ...photo,
@@ -51,7 +61,7 @@ export function computeSizesColumns({ photos, columns, width, margin }) {
   // calculate each colWidth based on total width and column amount
   let colWidth = (width - margin * 2 * columns) / columns;
 
-  // loop through each photo to assign adjusted height and width based on colWidth
+  // map through each photo to assign adjusted height and width based on colWidth
   const photosWithSizes = photos.map(photo => {
     const newHeight = photo.height / photo.width * colWidth;
     return {
@@ -70,7 +80,7 @@ export function computeSizesColumns({ photos, columns, width, margin }) {
     colCurrTopPositions[i] = 0;
   }
 
-  // loop through each photo, then loop thru each "column"
+  // map through each photo, then reduce thru each "column"
   // find column with the smallest height and assign to photo's 'top'
   // update that column's height with this photo's height
   const photosPositioned = photosWithSizes.map(photo => {
