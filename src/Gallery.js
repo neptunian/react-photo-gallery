@@ -32,15 +32,11 @@ class Gallery extends React.Component {
     const { ImageComponent = Photo } = this.props;
     // subtract 1 pixel because the browser may round up a pixel
     const { margin, onClick, direction } = this.props;
-    let { columns } = this.props;
+    let { columns, breakpointsConfig } = this.props;
 
-    // set default breakpoints if user doesn't specify columns prop
-    if (columns === undefined) {
-      columns = 1;
-      if (containerWidth >= 500) columns = 2;
-      if (containerWidth >= 900) columns = 3;
-      if (containerWidth >= 1500) columns = 4;
-    }
+    // use breakpoints if user doesn't specify columns prop
+    columns = columns || breakpointsConfig.find(x => containerWidth <= x.maxWidth || !x.maxWidth).columns;
+
     const photos = this.props.photos;
     const width = containerWidth - 1;
     let galleryStyle, thumbs;
@@ -90,6 +86,12 @@ Gallery.propTypes = {
 Gallery.defaultProps = {
   margin: 2,
   direction: 'row',
+  breakpointsConfig: [
+    { maxWidth: 500, columns: 1 },
+    { maxWidth: 900, columns: 2 },
+    { maxWidth: 1500, columns: 3 },
+    { columns: 4 },
+  ],
 };
 
 export default Gallery;

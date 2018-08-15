@@ -2,6 +2,25 @@
 
 exports[`renders correctly 1`] = `
 <Gallery
+  breakpointsConfig={
+    Array [
+      Object {
+        "columns": 1,
+        "maxWidth": 500,
+      },
+      Object {
+        "columns": 2,
+        "maxWidth": 900,
+      },
+      Object {
+        "columns": 3,
+        "maxWidth": 1500,
+      },
+      Object {
+        "columns": 4,
+      },
+    ]
+  }
   direction="row"
   margin={2}
   onClick={[Function]}
@@ -554,6 +573,25 @@ exports[`renders correctly 1`] = `
 
 exports[`renders correctly after click 1`] = `
 <Gallery
+  breakpointsConfig={
+    Array [
+      Object {
+        "columns": 1,
+        "maxWidth": 500,
+      },
+      Object {
+        "columns": 2,
+        "maxWidth": 900,
+      },
+      Object {
+        "columns": 3,
+        "maxWidth": 1500,
+      },
+      Object {
+        "columns": 4,
+      },
+    ]
+  }
   direction="row"
   margin={2}
   onClick={[Function]}
@@ -1106,6 +1144,25 @@ exports[`renders correctly after click 1`] = `
 
 exports[`renders correctly if there are more columns than photos 1`] = `
 <Gallery
+  breakpointsConfig={
+    Array [
+      Object {
+        "columns": 1,
+        "maxWidth": 500,
+      },
+      Object {
+        "columns": 2,
+        "maxWidth": 900,
+      },
+      Object {
+        "columns": 3,
+        "maxWidth": 1500,
+      },
+      Object {
+        "columns": 4,
+      },
+    ]
+  }
   columns={10}
   direction="row"
   margin={2}
@@ -1659,6 +1716,25 @@ exports[`renders correctly if there are more columns than photos 1`] = `
 
 exports[`renders correctly with direction set to column 1`] = `
 <Gallery
+  breakpointsConfig={
+    Array [
+      Object {
+        "columns": 1,
+        "maxWidth": 500,
+      },
+      Object {
+        "columns": 2,
+        "maxWidth": 900,
+      },
+      Object {
+        "columns": 3,
+        "maxWidth": 1500,
+      },
+      Object {
+        "columns": 4,
+      },
+    ]
+  }
   direction="column"
   margin={2}
   onClick={[Function]}
