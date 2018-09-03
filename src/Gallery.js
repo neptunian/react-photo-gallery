@@ -9,8 +9,12 @@ class Gallery extends React.Component {
     containerWidth: 0,
   };
   componentDidMount() {
-    this.observer = new ResizeObserver(() => {
-      this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) });
+    this.observer = new ResizeObserver((entries) => {
+      // only do something if width changes
+      const newWidth = entries[0].contentRect.width;
+      if (this.state.containerWidth !== newWidth){
+        this.setState({ containerWidth: Math.floor(newWidth) });
+      }
     });
     this.observer.observe(this._gallery);
   }

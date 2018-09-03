@@ -8,7 +8,7 @@
 
 * Responsive, accessible, composable, and customizable image gallery component 
 * Maintains the original aspect ratio of your photos
-* Creates a "masonry" style layout
+* Creates a masonry style layout
 * Uses actual image elements, optionally pass in srcSet and sizes attributes
 * Supports row or column direction layout
 * Supports passing in a custom image component for implementation of things like image selection, favorites, captions, or whatever your little heart desires!
