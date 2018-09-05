@@ -24,6 +24,7 @@ it('renders correctly after click', () => {
   const component = mount(
     <Gallery photos={photos} onClick={handleClick} />
   );
+  component.setState({containerWidth: '1139'})
   component.find('img').first().simulate('click');
   expect(component).toMatchSnapshot();
 });
