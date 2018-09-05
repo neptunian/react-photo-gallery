@@ -9,10 +9,10 @@ class Gallery extends React.Component {
     containerWidth: 0,
   };
   componentDidMount() {
-    this.observer = new ResizeObserver((entries) => {
+    this.observer = new ResizeObserver(entries => {
       // only do something if width changes
       const newWidth = entries[0].contentRect.width;
-      if (this.state.containerWidth !== newWidth){
+      if (this.state.containerWidth !== newWidth) {
         this.setState({ containerWidth: Math.floor(newWidth) });
       }
     });
@@ -34,7 +34,7 @@ class Gallery extends React.Component {
   render() {
     const containerWidth = this.state.containerWidth;
     // no containerWidth until after first render with refs, skip calculations and render nothing
-    if (!containerWidth) return <div ref={c => (this._gallery = c)}></div>;
+    if (!containerWidth) return <div ref={c => (this._gallery = c)} />;
     const { ImageComponent = Photo } = this.props;
     // subtract 1 pixel because the browser may round up a pixel
     const { margin, onClick, direction } = this.props;
