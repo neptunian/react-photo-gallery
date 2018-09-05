@@ -1,7 +1,7 @@
 {
   "name": "react-photo-gallery",
-  "version": "6.2.0",
-  "description": "Responsive React Photo Gallery Image Component for Masonry Layout",
+  "version": "6.2.1",
+  "description": "Responsive React Masonry Photo Gallery Component",
   "main": "lib/Gallery.js",
   "module": "dist/react-photo-gallery.es.js",
   "author": "Sandra Gonzales",
@@ -79,6 +79,7 @@
     "image gallery",
     "images",
     "react-image-gallery",
+    "react-masonry-gallery",
     "react-photo-gallery",
     "image-gallery",
     "react-gallery",
