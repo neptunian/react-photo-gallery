@@ -9,17 +9,23 @@ class Gallery extends React.Component {
     containerWidth: 0,
   };
   componentDidMount() {
+    this.animationFrameID = null;
     this.observer = new ResizeObserver(entries => {
       // only do something if width changes
       const newWidth = entries[0].contentRect.width;
       if (this.state.containerWidth !== newWidth) {
-        this.setState({ containerWidth: Math.floor(newWidth) });
+        // put in an animation frame to stop "benign errors" from 
+        // ResizObserver https://stackoverflow.com/questions/49384120/resizeobserver-loop-limit-exceeded
+        this.animationFrameID = window.requestAnimationFrame(() => {
+          this.setState({ containerWidth: Math.floor(newWidth) });
+        });    
       }
     });
     this.observer.observe(this._gallery);
   }
   componentWillUnmount() {
     this.observer.disconnect();
+    window.cancelAnimationFrame(this.animationFrameID);
   }
   handleClick = (event, { index }) => {
     const { photos, onClick } = this.props;
