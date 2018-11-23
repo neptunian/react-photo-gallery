@@ -40,7 +40,7 @@ class Gallery extends React.Component {
   render() {
     const containerWidth = this.state.containerWidth;
     // no containerWidth until after first render with refs, skip calculations and render nothing
-    if (!containerWidth) return <div ref={c => (this._gallery = c)} />;
+    if (!containerWidth) return <div ref={c => (this._gallery = c)}>&nbsp;</div>;
     const { ImageComponent = Photo } = this.props;
     // subtract 1 pixel because the browser may round up a pixel
     const { margin, onClick, direction } = this.props;
