@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Gallery renders correctly 1`] = `
 <Gallery
   direction="row"
   margin={2}
@@ -552,7 +552,7 @@ exports[`renders correctly 1`] = `
 </Gallery>
 `;
 
-exports[`renders correctly after click 1`] = `
+exports[`Gallery renders correctly after click 1`] = `
 <Gallery
   direction="row"
   margin={2}
@@ -1104,7 +1104,7 @@ exports[`renders correctly after click 1`] = `
 </Gallery>
 `;
 
-exports[`renders correctly if there are more columns than photos 1`] = `
+exports[`Gallery renders correctly if there are more columns than photos 1`] = `
 <Gallery
   columns={10}
   direction="row"
@@ -1657,7 +1657,7 @@ exports[`renders correctly if there are more columns than photos 1`] = `
 </Gallery>
 `;
 
-exports[`renders correctly with direction set to column 1`] = `
+exports[`Gallery renders correctly with direction set to column 1`] = `
 <Gallery
   direction="column"
   margin={2}

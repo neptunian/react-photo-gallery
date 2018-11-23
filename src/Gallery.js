@@ -14,11 +14,11 @@ class Gallery extends React.Component {
       // only do something if width changes
       const newWidth = entries[0].contentRect.width;
       if (this.state.containerWidth !== newWidth) {
-        // put in an animation frame to stop "benign errors" from 
+        // put in an animation frame to stop "benign errors" from
         // ResizObserver https://stackoverflow.com/questions/49384120/resizeobserver-loop-limit-exceeded
         this.animationFrameID = window.requestAnimationFrame(() => {
           this.setState({ containerWidth: Math.floor(newWidth) });
-        });    
+        });
       }
     });
     this.observer.observe(this._gallery);
