@@ -46,6 +46,7 @@
     "prettier": "^1.6.1",
     "react": "16.6.3",
     "react-dom": "16.6.3",
+    "react-flip-move": "^3.0.3",
     "react-images": "^0.5.18",
     "react-test-renderer": "^16.1.1",
     "rollup": "^0.50.0",

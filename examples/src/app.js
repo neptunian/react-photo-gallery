@@ -5,6 +5,7 @@ import ExampleBasic from './ExampleBasic';
 import ExampleWithLightbox from './ExampleWithLightbox';
 import ExampleCustomComponentSelection from './ExampleCustomComponentSelection';
 import ExampleDynamicLoading from './ExampleDynamicLoading';
+import ExampleWithFlipMove from './ExampleWithFlipMove';
 
 class App extends React.Component {
   constructor() {
@@ -16,7 +17,6 @@ class App extends React.Component {
     this.loadPhotos();
   }
   loadPhotos() {
-
     const urlParams = {
       api_key: '372ef3a005d9b9df062b8240c326254d',
       photoset_id: '72157680705961676',
@@ -54,7 +54,6 @@ class App extends React.Component {
         photos: this.state.photos ? this.state.photos.concat(photos) : photos,
       });
     });
-
   }
 
   render() {
@@ -62,10 +61,11 @@ class App extends React.Component {
       const width = this.state.width;
       return (
         <div className="App">
-          <ExampleBasic title={'Basic Row Layout'} photos={this.state.photos.slice(0,6)} />
+          <ExampleBasic title={'Basic Row Layout'} photos={this.state.photos.slice(0, 6)} />
           <ExampleBasic title={'Basic Column Layout'} direction="column" photos={this.state.photos.slice(6, 12)} />
           <ExampleWithLightbox photos={this.state.photos.slice(12, 18)} />
           <ExampleCustomComponentSelection photos={this.state.photos.slice(18, 26)} />
+          <ExampleWithFlipMove photos={this.state.photos.slice(0, 9)} />
           <ExampleDynamicLoading photos={this.state.photos} />
         </div>
       );

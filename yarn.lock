@@ -6413,6 +6413,11 @@ react-dom@16.6.3:
     prop-types "^15.6.2"
     scheduler "^0.11.2"
 
+react-flip-move@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/react-flip-move/-/react-flip-move-3.0.3.tgz#3065b0b9e622ae73953aba725f8feed8e4643667"
+  integrity sha512-gR2jvjUgIXI7ceFWJkr8owX4vKhV0IJoXIf/Dt7gESFe5OKiSz2H6d10mKTW8fN134NDI16J4HgEgq9pKqJd5A==
+
 react-images@^0.5.18:
   version "0.5.18"
   resolved "https://registry.yarnpkg.com/react-images/-/react-images-0.5.18.tgz#e9482470d3d25e284405aa9b563cd6b9aab650c8"

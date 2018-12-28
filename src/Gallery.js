@@ -66,9 +66,12 @@ class Gallery extends React.Component {
       thumbs = computeSizesColumns({ width, columns, margin, photos });
       galleryStyle.height = thumbs[thumbs.length - 1].containerHeight;
     }
+
+    let ImageContainer = this.props.ContainerComponent || 'div';
+
     return (
       <div className="react-photo-gallery--gallery">
-        <div ref={c => (this._gallery = c)} style={galleryStyle}>
+        <ImageContainer ref={c => (this._gallery = c)} style={galleryStyle}>
           {thumbs.map((photo, index) => {
             const { left, top, containerHeight, ...rest } = photo;
             return (
@@ -84,7 +87,7 @@ class Gallery extends React.Component {
               />
             );
           })}
-        </div>
+        </ImageContainer>
       </div>
     );
   }
