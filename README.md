@@ -37,6 +37,7 @@ yarn add react-photo-gallery
 * [Custom Dynamic Columns](https://codesandbox.io/s/ll7ym48027)
 * [Selection using custom ImageComponent](https://codesandbox.io/s/o7o241q09)
 * [Sortable with drag and drop](https://codesandbox.io/s/8y7n1r9y5j)
+* [Dynamic Columns Function](https://codesandbox.io/s/o5mnq449)
 
 To build some examples locally, run:
 
@@ -81,7 +82,7 @@ const PHOTO_SET = [
 Property        |       Type            |       Default         |       Description
 :-----------------------|:--------------|:--------------|:--------------------------------
 photos | array  | undefined  | required; array of objects
-columns | number  | undefined  | optional; number of photos per row; defaults to Gallery's breakpoint choosing
+columns | number or function  | undefined  | optional; number of photos per row or a function which receives the container width and should return the desired number of photos per row; defaults to Gallery's breakpoint choosing
 onClick | function  | undefined  | optional; do something when the user clicks a photo; receives arguments event and an object containing the index, photo obj originally sent and the next and previous photos in the gallery if they exist
 margin | number  | 2  | optional; number of margin pixels around each entire image
 direction | string | 'row' | optional; `column` or `row` based layout
