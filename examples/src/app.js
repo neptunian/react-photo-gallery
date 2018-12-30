@@ -5,6 +5,7 @@ import ExampleBasic from './ExampleBasic';
 import ExampleWithLightbox from './ExampleWithLightbox';
 import ExampleCustomComponentSelection from './ExampleCustomComponentSelection';
 import ExampleDynamicLoading from './ExampleDynamicLoading';
+import ExampleDynamicColumns from './ExampleDynamicColumns';
 
 class App extends React.Component {
   constructor() {
@@ -67,6 +68,7 @@ class App extends React.Component {
           <ExampleWithLightbox photos={this.state.photos.slice(12, 18)} />
           <ExampleCustomComponentSelection photos={this.state.photos.slice(18, 26)} />
           <ExampleDynamicLoading photos={this.state.photos} />
+          <ExampleDynamicColumns title={'Dynamic Columns'} photos={this.state.photos.slice(0,6)} />
         </div>
       );
     } else {

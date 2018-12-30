@@ -37,7 +37,6 @@ yarn add react-photo-gallery
 * [Custom Dynamic Columns](https://codesandbox.io/s/ll7ym48027)
 * [Selection using custom ImageComponent](https://codesandbox.io/s/o7o241q09)
 * [Sortable with drag and drop](https://codesandbox.io/s/8y7n1r9y5j)
-* [Dynamic Columns Function](https://codesandbox.io/s/o5mnq449)
 
 To build some examples locally, run:
 
