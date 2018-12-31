@@ -23,7 +23,7 @@ class App extends React.Component {
       photoset_id: '72157680705961676',
       user_id: '57933175@N08',
       format: 'json',
-      per_page: '24',
+      per_page: '40',
       extras: 'url_m,url_c,url_l,url_h,url_o',
     };
 
@@ -64,11 +64,11 @@ class App extends React.Component {
       return (
         <div className="App">
           <ExampleBasic title={'Basic Row Layout'} photos={this.state.photos.slice(0,6)} />
-          <ExampleBasic title={'Basic Column Layout'} direction="column" photos={this.state.photos.slice(6, 12)} />
-          <ExampleWithLightbox photos={this.state.photos.slice(12, 18)} />
-          <ExampleCustomComponentSelection photos={this.state.photos.slice(18, 26)} />
+          <ExampleBasic title={'Basic Column Layout'} direction="column" photos={this.state.photos.slice(6, 16)} />
+          <ExampleWithLightbox photos={this.state.photos.slice(16, 22)} />
+          <ExampleCustomComponentSelection photos={this.state.photos.slice(22, 28)} />
+          <ExampleDynamicColumns title={'Custom Dynamic Columns'} photos={this.state.photos.slice(28,32)} />
           <ExampleDynamicLoading photos={this.state.photos} />
-          <ExampleDynamicColumns title={'Dynamic Columns'} photos={this.state.photos.slice(0,6)} />
         </div>
       );
     } else {
