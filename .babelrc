@@ -1,5 +1,13 @@
 {
-  "ignore": ["node-modules/**"],
-  "presets": [ "env", "react"],
-  "plugins": [ "transform-object-rest-spread", "transform-class-properties"]
+  "ignore": [
+    "node-modules/**"
+  ],
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-proposal-class-properties"
+  ]
 }

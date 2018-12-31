@@ -15,11 +15,10 @@ const external = Object.keys(globals);
 const babelOptions = (production) => {
 	let result = {
 		babelrc: false,
-		presets: [['env', { modules: false  }], 'react'],
+		presets: [['@babel/preset-env', { modules: false  }], '@babel/preset-react'],
     plugins: [
-      'transform-class-properties',
-      'transform-object-rest-spread',
-      'external-helpers',
+      '@babel/plugin-proposal-class-properties',
+      '@babel/plugin-proposal-object-rest-spread',
     ],
 	};
 	if (production) {
@@ -32,7 +31,7 @@ export default [
 	{
 		input: 'src/Gallery.js',
 		output: {
-			file: path + '.es.js',
+			file: path + '.esm.js',
 			format: 'es',
 		},
 		external: external,
@@ -42,7 +41,7 @@ export default [
 		input: 'src/Gallery.js',
 		output: {
 			name: name,
-			file: path + '.js',
+			file: path + '.umd.js',
 			format: 'umd',
 		},
 		globals: globals,
@@ -53,7 +52,7 @@ export default [
 		input: 'src/Gallery.js',
 		output: {
 			name: name,
-			file: path + '.min.js',
+			file: path + '.umd.min.js',
 			format: 'umd',
 		},
 		globals: globals,
