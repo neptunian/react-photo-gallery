@@ -1659,7 +1659,21 @@ exports[`Gallery renders correctly if there are more columns than photos 1`] = `
 
 exports[`Gallery renders correctly with a column function 1`] = `
 <Gallery
-  columns={[Function]}
+  columns={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          1139,
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": 3,
+        },
+      ],
+    }
+  }
   direction="row"
   margin={2}
   onClick={[Function]}
