@@ -2,7 +2,7 @@
   "name": "react-photo-gallery",
   "version": "6.3.0",
   "description": "Responsive Justified React Image Gallery Component",
-  "main": "lib/Gallery.js",
+  "main": "dist/react-photo-gallery.umd.js",
   "module": "dist/react-photo-gallery.esm.js",
   "author": "Sandra Gonzales",
   "license": "MIT",

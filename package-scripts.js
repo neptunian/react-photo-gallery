@@ -10,11 +10,9 @@ module.exports = {
 			description: 'clean dist directory and run all builds',
 			default: series(
 				rimraf('dist'),
-				rimraf('lib'),
-				concurrent.nps('build.rollup', 'build.babel')
+				concurrent.nps('build.rollup')
 			),
 			rollup: 'rollup --config',
-			babel: 'babel src -d lib',
 		},
     'build:docs': {
 			default: series(
