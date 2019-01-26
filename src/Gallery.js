@@ -46,6 +46,11 @@ class Gallery extends React.Component {
     const { margin, onClick, direction } = this.props;
     let { columns } = this.props;
 
+    // allow parent to calculate columns from containerWidth
+    if (typeof columns === 'function') {
+      columns = columns(containerWidth);
+    }
+
     // set default breakpoints if user doesn't specify columns prop
     if (columns === undefined) {
       columns = 1;
@@ -94,7 +99,7 @@ Gallery.propTypes = {
   photos: PropTypes.arrayOf(photoPropType).isRequired,
   direction: PropTypes.string,
   onClick: PropTypes.func,
-  columns: PropTypes.number,
+  columns: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
   margin: PropTypes.number,
   ImageComponent: PropTypes.func,
 };
