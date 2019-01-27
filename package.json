@@ -5,6 +5,7 @@
   "main": "dist/react-photo-gallery.umd.js",
   "module": "dist/react-photo-gallery.esm.js",
   "types": "types/react-photo-gallery.d.ts",
+  "files": ["/dist"],
   "author": "Sandra Gonzales",
   "license": "MIT",
   "homepage": "https://github.com/neptunian/react-photo-gallery",
