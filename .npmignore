@@ -1,7 +1,0 @@
-# Editor and other tmp files
-*.swo
-*.swm
-*.swn
-
-#gitbook
-_book
