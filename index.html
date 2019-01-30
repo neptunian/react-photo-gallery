@@ -299,7 +299,7 @@
 <li>SSR app compatible</li>
 </ul>
 <h2 id="preview">Preview</h2>
-<p><img src="https://c1.staticflickr.com/5/4512/36861861853_4fcabda911_b.jpg"></p>
+<p><img src="https://c1.staticflickr.com/5/4914/46923523161_f14460529a_c.jpg"></p>
 <h2 id="installation">Installation</h2>
 <p>To install:</p>
 <pre><code>yarn add react-photo-gallery
@@ -320,27 +320,20 @@ yarn start
 </code></pre><p>Then open <a href="http://localhost:8000" target="_blank"><code>localhost:8000</code></a> in a browser.</p>
 <h2 id="use">Use</h2>
 <pre><code class="lang-jsx">
-<span class="hljs-keyword">import</span> Gallery <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react-photo-gallery&apos;</span>;
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
-    render() {
-    <span class="hljs-keyword">return</span> (
-        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Gallery</span> <span class="hljs-attr">photos</span>=<span class="hljs-string">{PHOTO_SET}</span> /&gt;</span>
-    );
-    }
-}
-const PHOTO_SET = [
+<span class="hljs-keyword">const</span> photos = [
   {
-    src: &apos;http://example.com/example/img1.jpg&apos;,
-    width: 4,
-    height: 3
+    src: <span class="hljs-string">&apos;http://example.com/example/img1.jpg&apos;</span>,
+    width: <span class="hljs-number">4</span>,
+    height: <span class="hljs-number">3</span>
   },
   {
-    src: &apos;http://example.com/example/img2.jpg&apos;,
-    width: 1,
-    height: 1
+    src: <span class="hljs-string">&apos;http://example.com/example/img2.jpg&apos;</span>,
+    width: <span class="hljs-number">1</span>,
+    height: <span class="hljs-number">1</span>
   }
 ];
+
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Gallery</span> <span class="hljs-attr">photos</span>=<span class="hljs-string">{photos}</span> /&gt;</span>;
 </span></code></pre>
 <h3 id="gallery-properties">Gallery properties</h3>
 <table>
@@ -527,7 +520,7 @@ const PHOTO_SET = [
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"A repsonsive image gallery component for React","title":"Read Me","level":"1.1","depth":1,"next":{"title":"Examples","level":"1.2","depth":1,"ref":"","articles":[{"title":"Basic (Rows)","level":"1.2.1","depth":2,"path":"examples/basic-rows.md","ref":"examples/basic-rows.md","articles":[]},{"title":"Basic (Columns)","level":"1.2.2","depth":2,"path":"examples/basic-columns.md","ref":"examples/basic-columns.md","articles":[]},{"title":"srcSet and sizes","level":"1.2.3","depth":2,"path":"examples/srcset-and-sizes.md","ref":"examples/srcset-and-sizes.md","articles":[]},{"title":"Custom Dynamic Columns","level":"1.2.4","depth":2,"path":"examples/custom-dynamic-columns.md","ref":"examples/custom-dynamic-columns.md","articles":[]},{"title":"Lightbox","level":"1.2.5","depth":2,"path":"examples/lightbox.md","ref":"examples/lightbox.md","articles":[]},{"title":"Selection with custom ImageComponent","level":"1.2.6","depth":2,"path":"examples/selection.md","ref":"examples/selection.md","articles":[]},{"title":"Sortable using drag and drop","level":"1.2.7","depth":2,"path":"examples/sortable.md","ref":"examples/sortable.md","articles":[]},{"title":"Local app","level":"1.2.8","depth":2,"path":"examples/local-app.md","ref":"examples/local-app.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-api"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true}],"split":true,"theme":"light"},"codepen":{"height":1000,"theme":"light","defaultTab":"js"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"React Image Gallery","gitbook":">=3.2.2"},"file":{"path":"README.md","mtime":"2018-12-31T17:19:30.647Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-31T23:30:23.289Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"A repsonsive image gallery component for React","title":"Read Me","level":"1.1","depth":1,"next":{"title":"Examples","level":"1.2","depth":1,"ref":"","articles":[{"title":"Basic (Rows)","level":"1.2.1","depth":2,"path":"examples/basic-rows.md","ref":"examples/basic-rows.md","articles":[]},{"title":"Basic (Columns)","level":"1.2.2","depth":2,"path":"examples/basic-columns.md","ref":"examples/basic-columns.md","articles":[]},{"title":"srcSet and sizes","level":"1.2.3","depth":2,"path":"examples/srcset-and-sizes.md","ref":"examples/srcset-and-sizes.md","articles":[]},{"title":"Custom Dynamic Columns","level":"1.2.4","depth":2,"path":"examples/custom-dynamic-columns.md","ref":"examples/custom-dynamic-columns.md","articles":[]},{"title":"Lightbox","level":"1.2.5","depth":2,"path":"examples/lightbox.md","ref":"examples/lightbox.md","articles":[]},{"title":"Selection with custom ImageComponent","level":"1.2.6","depth":2,"path":"examples/selection.md","ref":"examples/selection.md","articles":[]},{"title":"Sortable using drag and drop","level":"1.2.7","depth":2,"path":"examples/sortable.md","ref":"examples/sortable.md","articles":[]},{"title":"Local app","level":"1.2.8","depth":2,"path":"examples/local-app.md","ref":"examples/local-app.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-api"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true}],"split":true,"theme":"light"},"codepen":{"height":1000,"theme":"light","defaultTab":"js"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"React Image Gallery","gitbook":">=3.2.2"},"file":{"path":"README.md","mtime":"2019-01-30T03:21:20.870Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-30T03:24:59.700Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
