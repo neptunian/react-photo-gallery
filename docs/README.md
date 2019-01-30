@@ -19,7 +19,7 @@ description: A repsonsive image gallery component for React
 * SSR app compatible
 
 ## Preview
-<img src="https://c1.staticflickr.com/5/4914/46923523161_f14460529a_c.jpg" />
+<img src="https://c1.staticflickr.com/5/4914/46923523161_5e729d8313_h.jpg" />
 
 ## Installation
 
