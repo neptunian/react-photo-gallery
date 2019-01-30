@@ -15,7 +15,7 @@
 * SSR app compatible
 
 ## Preview
-<img src="https://c1.staticflickr.com/5/4512/36861861853_4fcabda911_b.jpg" />
+<img src="https://c1.staticflickr.com/5/4914/46923523161_f14460529a_c.jpg" />
 
 ## Installation
 
@@ -52,16 +52,7 @@ Then open [`localhost:8000`](http://localhost:8000) in a browser.
 
 ```jsx
 
-import Gallery from 'react-photo-gallery';
-
-export default class Sample extends React.Component {
-    render() {
-	return (
-	    <Gallery photos={PHOTO_SET} />
-	);
-    }
-}
-const PHOTO_SET = [
+const photos = [
   {
     src: 'http://example.com/example/img1.jpg',
     width: 4,
@@ -73,6 +64,8 @@ const PHOTO_SET = [
     height: 1
   }
 ];
+
+<Gallery photos={photos} />;
 
 ```
 
