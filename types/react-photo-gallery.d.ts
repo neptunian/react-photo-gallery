@@ -1,9 +1,9 @@
-import React from 'react'
+import * as React from 'react'
 
 /**
  * Photos array item properties (passed into Gallery's photos property)
  */
-export interface PhotoProps {
+export type PhotoProps<CustomPhotoProps extends object = {}> = {
   /**
    * the img src attribute value of the image
    */
@@ -30,16 +30,21 @@ export interface PhotoProps {
   alt?: string
   /**
    * key to be used on component
-   * @default
-   * src
    */
   key?: string
-}
+} & CustomPhotoProps
+
+export type ImageComponentClickHandler = (
+  event: React.MouseEvent,
+  photo: object & {
+    index: number
+  },
+) => void
 
 /**
  * If you're passing a function component to ImageComponent you will receive back these props:
  */
-export interface ImageComponentProps {
+export interface ImageComponentProps<CustomPhotoProps extends object = {}> {
   /**
    * margin prop optionally passed into Gallery by user
    */
@@ -52,11 +57,26 @@ export interface ImageComponentProps {
    * the individual object passed into Gallery's
    * photos array prop, with all the same props except recalculated height and width
    */
-  photo: PhotoProps
+  photo: PhotoProps<CustomPhotoProps>
+
+  onClick: ImageComponentClickHandler | null
+  direction: 'row' | 'column'
+  top?: number
+  left?: number
 }
 
-export interface GalleryProps {
-  photos: PhotoProps[]
+export type PhotoClickHandler<CustomPhotoProps extends object = {}> = (
+  event: React.MouseEvent,
+  photos: {
+    index: number
+    next: PhotoProps<CustomPhotoProps> | null
+    photo: PhotoProps<CustomPhotoProps>
+    previous: PhotoProps<CustomPhotoProps> | null
+  },
+) => void
+
+export interface GalleryProps<CustomPhotoProps extends object = {}> {
+  photos: Array<PhotoProps<CustomPhotoProps>>
   /**
    * number of photos per row or a function which receives the container width
    * and should return the desired number of photos per row; defaults to Gallery's breakpoint choosing
@@ -67,31 +87,25 @@ export interface GalleryProps {
    * receives arguments event and an object containing the index,
    * photo obj originally sent and the next and previous photos in the gallery if they exist
    */
-  onClick?: (
-    event: React.MouseEvent,
-    photos: {
-      index: number
-      next: PhotoProps | null
-      photo: PhotoProps
-      previous: PhotoProps | null
-    }
-  ) => void
+  onClick?: PhotoClickHandler<CustomPhotoProps>
 
   /**
    * number of margin pixels around each entire image
-   * @default 2
    */
   margin?: number
   /**
    * column or row based layout
-   * @default'row'
    */
   direction?: string
 
-  ImageComponent?: React.ComponentType<ImageComponentProps>
+  ImageComponent?: React.ComponentType<ImageComponentProps<CustomPhotoProps>>
 }
 
-declare const Gallery: React.ComponentClass<GalleryProps>
+export type GalleryI<
+  CustomPhotoProps extends object = {}
+> = React.ComponentClass<GalleryProps<CustomPhotoProps>>
+
+declare const Gallery: GalleryI
 
 export default Gallery
 
