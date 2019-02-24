@@ -4,6 +4,7 @@
   "description": "Responsive Justified React Image Gallery Component",
   "main": "dist/react-photo-gallery.umd.js",
   "module": "dist/react-photo-gallery.esm.js",
+  "types": "types/react-photo-gallery.d.ts",
   "files": ["/dist"],
   "author": "Sandra Gonzales",
   "license": "MIT",
