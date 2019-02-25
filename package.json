@@ -4,8 +4,9 @@
   "description": "Responsive Justified React Image Gallery Component",
   "main": "dist/react-photo-gallery.umd.js",
   "module": "dist/react-photo-gallery.esm.js",
-  "types": "types/react-photo-gallery.d.ts",
-  "files": ["/dist"],
+  "files": [
+    "/dist", "index.d.ts"
+  ],
   "author": "Sandra Gonzales",
   "license": "MIT",
   "homepage": "https://github.com/neptunian/react-photo-gallery",
@@ -17,7 +18,7 @@
     "url": "https://github.com/neptunian/react-photo-gallery/issues"
   },
   "dependencies": {
-    "prop-types": "~15.6.2",
+    "prop-types": "~15.7.2",
     "resize-observer-polyfill": "^1.5.0"
   },
   "devDependencies": {
@@ -44,8 +45,8 @@
     "nps": "^5.7.1",
     "nps-utils": "^1.4.0",
     "prettier": "^1.6.1",
-    "react": "16.7.0",
-    "react-dom": "16.7.0",
+    "react": "16.8.3",
+    "react-dom": "16.8.3",
     "react-images": "^0.5.18",
     "react-test-renderer": "^16.1.1",
     "rollup": "^1.0.0",
