@@ -1,6 +1,6 @@
 {
   "name": "react-photo-gallery",
-  "version": "6.3.1",
+  "version": "6.3.2",
   "description": "Responsive Justified React Image Gallery Component",
   "main": "dist/react-photo-gallery.umd.js",
   "module": "dist/react-photo-gallery.esm.js",
