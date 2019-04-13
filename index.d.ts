@@ -78,10 +78,24 @@ export type PhotoClickHandler<CustomPhotoProps extends object = {}> = (
 export interface GalleryProps<CustomPhotoProps extends object = {}> {
   photos: Array<PhotoProps<CustomPhotoProps>>
   /**
-   * number of photos per row or a function which receives the container width
-   * and should return the desired number of photos per row; defaults to Gallery's breakpoint choosing
+   * applies to column layouts only (direction=column)
+   * number of columns or a function which receives the container width
+   * and should return the desired number of columns; defaults to Gallery's breakpoint choosing
    */
   columns?: number | ((containerWidth: number) => number)
+  /**
+   * applies to row layouts only (direction=row)
+   * the ideal height of each row or a function which receives the container width
+   * and should return the desired ideal height for each row; defaults to 300px
+   */
+  targetRowHeight?: number | ((containerWidth: number) => number)
+  /**
+   * applies to row layouts only (direction=row)
+   * the maximum amount of neighboring nodes to measure per current node visiting
+   * don't change unless you understand the algorithm, see docs
+   * defaults to a couple breakpoints
+   */
+  maxNodeSearch?: number | ((containerWidth: number) => number)
   /**
    * do something when the user clicks a photo;
    * receives arguments event and an object containing the index,

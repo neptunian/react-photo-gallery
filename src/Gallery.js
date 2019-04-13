@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ResizeObserver from 'resize-observer-polyfill';
 import Photo, { photoPropType } from './Photo';
-import { computeSizes, computeSizesColumns } from './utils';
+import { computeColumnLayout } from './layouts/columns';
+import { computeRowLayout } from './layouts/justified';
 
 class Gallery extends React.Component {
   state = {
@@ -44,11 +45,15 @@ class Gallery extends React.Component {
     const { ImageComponent = Photo } = this.props;
     // subtract 1 pixel because the browser may round up a pixel
     const { margin, onClick, direction } = this.props;
-    let { columns } = this.props;
+    let { columns, maxNodeSearch, targetRowHeight } = this.props;
 
     // allow parent to calculate columns from containerWidth
     if (typeof columns === 'function') {
       columns = columns(containerWidth);
+    }
+    // allow parent to calculate maxNodeSearch from containerWidth
+    if (typeof maxNodeSearch === 'function') {
+      maxNodeSearch = maxNodeSearch(containerWidth);
     }
 
     // set default breakpoints if user doesn't specify columns prop
@@ -58,19 +63,29 @@ class Gallery extends React.Component {
       if (containerWidth >= 900) columns = 3;
       if (containerWidth >= 1500) columns = 4;
     }
+
+    // set how many neighboring nodes the graph will visit
+    if (maxNodeSearch === undefined) {
+      maxNodeSearch = 2;
+      if (containerWidth >= 500) maxNodeSearch = 8;
+    }
+
+    if (typeof targetRowHeight === 'function'){
+      targetRowHeight = targetRowHeight(containerWidth);
+    }
+
     const photos = this.props.photos;
     const width = containerWidth - 1;
     let galleryStyle, thumbs;
-
     if (direction === 'row') {
       galleryStyle = { display: 'flex', flexWrap: 'wrap', flexDirection: 'row' };
-      thumbs = computeSizes({ width, columns, margin, photos });
+      thumbs = computeRowLayout({ containerWidth: width, maxNodeSearch, targetRowHeight, margin, photos });
     }
     if (direction === 'column') {
       galleryStyle = { position: 'relative' };
-      thumbs = computeSizesColumns({ width, columns, margin, photos });
+      thumbs = computeColumnLayout({ containerWidth: width, columns, margin, photos });
       galleryStyle.height = thumbs[thumbs.length - 1].containerHeight;
-    }
+    };
     return (
       <div className="react-photo-gallery--gallery">
         <div ref={c => (this._gallery = c)} style={galleryStyle}>
@@ -100,6 +115,8 @@ Gallery.propTypes = {
   direction: PropTypes.string,
   onClick: PropTypes.func,
   columns: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
+  targetRowHeight: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
+  maxNodeSearch: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
   margin: PropTypes.number,
   ImageComponent: PropTypes.func,
 };
@@ -107,6 +124,7 @@ Gallery.propTypes = {
 Gallery.defaultProps = {
   margin: 2,
   direction: 'row',
+  targetRowHeight: 300,
 };
 
 export default Gallery;
