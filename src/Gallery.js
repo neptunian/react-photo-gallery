@@ -43,7 +43,6 @@ class Gallery extends React.Component {
     const { containerWidth } = this.state;
     // no containerWidth until after first render with refs, skip calculations and render nothing
     if (!containerWidth) return <div ref={c => (this._gallery = c)}>&nbsp;</div>;
-    const { ImageComponent = Photo } = this.props;
     // subtract 1 pixel because the browser may round up a pixel
     const { margin, onClick, direction, photos } = this.props;
     const width = containerWidth - 1;
@@ -62,7 +61,7 @@ class Gallery extends React.Component {
       if (maxNodeSearch === undefined) {
         maxNodeSearch = 1;
         if (containerWidth >= 450) {
-          maxNodeSearch = findIdealNodeSearch({containerWidth, targetRowHeight});
+          maxNodeSearch = findIdealNodeSearch({ containerWidth, targetRowHeight });
         }
       }
 
@@ -86,22 +85,17 @@ class Gallery extends React.Component {
       thumbs = computeColumnLayout({ containerWidth: width, columns, margin, photos });
       galleryStyle.height = thumbs[thumbs.length - 1].containerHeight;
     };
+
+    const { renderImage = Photo } = this.props;
     return (
       <div className="react-photo-gallery--gallery">
         <div ref={c => (this._gallery = c)} style={galleryStyle}>
           {thumbs.map((photo, index) => {
-            const { left, top, containerHeight, ...rest } = photo;
+            const { left, top, key, containerHeight, ...rest } = photo;
             return (
-              <ImageComponent
-                key={photo.key || photo.src}
-                margin={margin}
-                index={index}
-                photo={rest}
-                direction={direction}
-                left={left}
-                top={top}
-                onClick={onClick ? this.handleClick : null}
-              />
+              <div key={photo.key || photo.src}>
+                {renderImage({ index, onClick, photo: rest, margin, direction, top, left })}
+              </div>
             );
           })}
         </div>
@@ -118,13 +112,13 @@ Gallery.propTypes = {
   targetRowHeight: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
   maxNodeSearch: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
   margin: PropTypes.number,
-  ImageComponent: PropTypes.func,
+  renderImage: PropTypes.func,
 };
 
 Gallery.defaultProps = {
   margin: 2,
   direction: 'row',
-  targetRowHeight: 200,
+  targetRowHeight: 300,
 };
 
 export default Gallery;

@@ -5,6 +5,5 @@ import { round } from './round';
 // as the minimum amount of photos per row, plus some nodes
 export const findIdealNodeSearch = ({ targetRowHeight, containerWidth}) => {
   const rowAR = containerWidth / targetRowHeight;
-  console.log(round(rowAR / 1.5) + 8)
   return round(rowAR / 1.5) + 8;
 }

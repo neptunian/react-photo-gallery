@@ -112,7 +112,7 @@ export interface GalleryProps<CustomPhotoProps extends object = {}> {
    */
   direction?: string
 
-  ImageComponent?: React.ComponentType<ImageComponentProps<CustomPhotoProps>>
+  renderImage?: React.ComponentType<ImageComponentProps<CustomPhotoProps>>
 }
 
 export type GalleryI<
