@@ -4,6 +4,7 @@ import ResizeObserver from 'resize-observer-polyfill';
 import Photo, { photoPropType } from './Photo';
 import { computeColumnLayout } from './layouts/columns';
 import { computeRowLayout } from './layouts/justified';
+import { findIdealNodeSearch } from './utils/findIdealNodeSearch';
 
 class Gallery extends React.Component {
   state = {
@@ -39,49 +40,48 @@ class Gallery extends React.Component {
   };
 
   render() {
-    const containerWidth = this.state.containerWidth;
+    const { containerWidth } = this.state;
     // no containerWidth until after first render with refs, skip calculations and render nothing
     if (!containerWidth) return <div ref={c => (this._gallery = c)}>&nbsp;</div>;
     const { ImageComponent = Photo } = this.props;
     // subtract 1 pixel because the browser may round up a pixel
-    const { margin, onClick, direction } = this.props;
-    let { columns, maxNodeSearch, targetRowHeight } = this.props;
-
-    // allow parent to calculate columns from containerWidth
-    if (typeof columns === 'function') {
-      columns = columns(containerWidth);
-    }
-    // allow parent to calculate maxNodeSearch from containerWidth
-    if (typeof maxNodeSearch === 'function') {
-      maxNodeSearch = maxNodeSearch(containerWidth);
-    }
-
-    // set default breakpoints if user doesn't specify columns prop
-    if (columns === undefined) {
-      columns = 1;
-      if (containerWidth >= 500) columns = 2;
-      if (containerWidth >= 900) columns = 3;
-      if (containerWidth >= 1500) columns = 4;
-    }
-
-    // set how many neighboring nodes the graph will visit
-    if (maxNodeSearch === undefined) {
-      maxNodeSearch = 2;
-      if (containerWidth >= 500) maxNodeSearch = 8;
-    }
-
-    if (typeof targetRowHeight === 'function'){
-      targetRowHeight = targetRowHeight(containerWidth);
-    }
-
-    const photos = this.props.photos;
+    const { margin, onClick, direction, photos } = this.props;
     const width = containerWidth - 1;
     let galleryStyle, thumbs;
+
     if (direction === 'row') {
+      let { maxNodeSearch, targetRowHeight } = this.props;
+      // allow user to calculate maxNodeSearch from containerWidth
+      if (typeof maxNodeSearch === 'function') {
+        maxNodeSearch = maxNodeSearch(containerWidth);
+      }
+      if (typeof targetRowHeight === 'function') {
+        targetRowHeight = targetRowHeight(containerWidth);
+      }
+      // set how many neighboring nodes the graph will visit
+      if (maxNodeSearch === undefined) {
+        maxNodeSearch = 1;
+        if (containerWidth >= 450) {
+          maxNodeSearch = findIdealNodeSearch({containerWidth, targetRowHeight});
+        }
+      }
+
       galleryStyle = { display: 'flex', flexWrap: 'wrap', flexDirection: 'row' };
       thumbs = computeRowLayout({ containerWidth: width, maxNodeSearch, targetRowHeight, margin, photos });
     }
     if (direction === 'column') {
+      let { columns } = this.props;
+      // allow user to calculate columns from containerWidth
+      if (typeof columns === 'function') {
+        columns = columns(containerWidth);
+      }
+      // set default breakpoints if user doesn't specify columns prop
+      if (columns === undefined) {
+        columns = 1;
+        if (containerWidth >= 500) columns = 2;
+        if (containerWidth >= 900) columns = 3;
+        if (containerWidth >= 1500) columns = 4;
+      }
       galleryStyle = { position: 'relative' };
       thumbs = computeColumnLayout({ containerWidth: width, columns, margin, photos });
       galleryStyle.height = thumbs[thumbs.length - 1].containerHeight;
@@ -124,7 +124,7 @@ Gallery.propTypes = {
 Gallery.defaultProps = {
   margin: 2,
   direction: 'row',
-  targetRowHeight: 300,
+  targetRowHeight: 200,
 };
 
 export default Gallery;
