@@ -44,7 +44,7 @@ export type renderImageClickHandler = (
 /**
  * If you're passing a function component to renderImage you will receive back these props:
  */
-export interface IRenderImageProps<CustomPhotoProps extends object = {}> {
+export interface RenderImageProps<CustomPhotoProps extends object = {}> {
   /**
    * margin prop optionally passed into Gallery by user
    */
@@ -112,7 +112,7 @@ export interface GalleryProps<CustomPhotoProps extends object = {}> {
    */
   direction?: string
 
-  renderImage?: React.ComponentType<IRenderImageProps<CustomPhotoProps>>
+  renderImage?: React.ComponentType<RenderImageProps<CustomPhotoProps>>
 }
 
 export type GalleryI<
