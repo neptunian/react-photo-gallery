@@ -20,21 +20,21 @@ const cost = (photos, i, j, width, targetHeight, margin) => {
 }
 
 // return function that gets the neighboring nodes of node and returns costs
-const makeGetNeighbors = (targetHeight, containerWidth, photos, maxNodeSearch, margin) =>
+const makeGetNeighbors = (targetHeight, containerWidth, photos, maxNodesSearch, margin) =>
   (start) => {
     const results = {};
     start = +start;
     results[+start] = 0;
     for (let i = start + 1; i < photos.length + 1; ++i) {
-      if ((i - start) > maxNodeSearch) break;
+      if ((i - start) > maxNodesSearch) break;
       results[i.toString()] = cost(photos, start, i, containerWidth, targetHeight, margin);
     }
     return results;
   }
 
-export const computeRowLayout = ({ containerWidth, maxNodeSearch, targetRowHeight, margin, photos }) => {
+export const computeRowLayout = ({ containerWidth, maxNodesSearch, targetRowHeight, margin, photos }) => {
   // const t = +new Date();
-  const getNeighbors = makeGetNeighbors(targetRowHeight, containerWidth, photos, maxNodeSearch, margin);
+  const getNeighbors = makeGetNeighbors(targetRowHeight, containerWidth, photos, maxNodesSearch, margin);
   let path = findShortestPath(getNeighbors, '0', photos.length);
   path = path.map(node => +node);
   // console.log(`time to find the shortest path: ${(+new Date() - t)} ms`);

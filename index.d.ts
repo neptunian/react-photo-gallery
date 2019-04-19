@@ -95,7 +95,7 @@ export interface GalleryProps<CustomPhotoProps extends object = {}> {
    * don't change unless you understand the algorithm, see docs
    * defaults to a couple breakpoints
    */
-  maxNodeSearch?: number | ((containerWidth: number) => number)
+  maxNodesSearch?: number | ((containerWidth: number) => number)
   /**
    * do something when the user clicks a photo;
    * receives arguments event and an object containing the index,
