@@ -1,6 +1,6 @@
 import React from 'react';
 import Gallery from 'react-photo-gallery';
-import SelectedImage from './SelectedImage';
+import renderSelectImage from './SelectedImage';
 
 class ExampleCustomComponentSelection extends React.Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class ExampleCustomComponentSelection extends React.Component {
         <h2>Using the ImageComponent prop</h2>
         <h3>Pass in a custom image component to create any visual representation such as selection</h3>
         <p><button className="toggle-select" onClick={this.toggleSelect}>toggle select all</button></p>
-        <Gallery photos={this.state.photos} onClick={this.selectPhoto} ImageComponent={SelectedImage}/>
+        <Gallery photos={this.state.photos} onClick={this.selectPhoto} renderImage={renderSelectImage}/>
       </div>
     );
   }

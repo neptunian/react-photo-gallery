@@ -21,6 +21,10 @@ description: A repsonsive image gallery component for React
 ## Preview
 <img src="https://c1.staticflickr.com/5/4914/46923523161_5e729d8313_h.jpg" />
 
+## How It Works
+
+This gallery utilizes a graph to calculate the best single layout where each possible photo to break on is a node and each row is an edge with a weight of the cost it would be to break at that photo and the shortest path is the final layout.  Inspired by [this blog article](http://blog.vjeux.com/2014/image/google-plus-layout-find-best-breaks.html) and this [Google Photos blog article](https://medium.com/google-design/google-photos-45b714dfbed).
+
 ## Installation
 
 To install:
@@ -33,7 +37,7 @@ yarn add react-photo-gallery
 
 [http://neptunian.github.io/react-photo-gallery/](http://neptunian.github.io/react-photo-gallery/)
 
-## Direct CodeSandbox Links with Examples and Use Cases
+## CodeSandbox Demos with Example Use Cases
 
 * [Basic Row Layout](https://codesandbox.io/s/9yx911wl9y)
 * [Basic Column Layout](https://codesandbox.io/s/r09k1xj614)
@@ -73,40 +77,3 @@ const photos = [
 
 ```
 
-### Gallery properties
-
-Property        |       Type            |       Default         |       Description
-:-----------------------|:--------------|:--------------|:--------------------------------
-photos | array  | undefined  | required; array of objects
-columns | number or function  | undefined  | optional; number of photos per row or a function which receives the container width and should return the desired number of photos per row; defaults to Gallery's breakpoint choosing
-onClick | function  | undefined  | optional; do something when the user clicks a photo; receives arguments event and an object containing the index, photo obj originally sent and the next and previous photos in the gallery if they exist
-margin | number  | 2  | optional; number of margin pixels around each entire image
-direction | string | 'row' | optional; `column` or `row` based layout
-ImageComponent | function | default component | optional; use a different image component than the default provided to display your photo
-
-### Photos array item properties (passed into Gallery's photos property)
-
-Property        |       Type            |       Default         |       Description
-:-----------------------|:--------------|:--------------|:--------------------------------
-src     |       string    |       undefined    |       required; the img src attribute value of the image
-srcSet     |       array or string    |       undefined    |       optional; srcSet attribute of the image
-sizes     |       array or string    |       undefined    |       optional; sizes attribute of the image
-width | number  | undefined  | required; original width of the gallery image (only used for calculating aspect ratio)
-height  | number  | undefined | required; original height of the gallery image (only used for calculating aspect ratio)
-alt  | string  | undefined | optional; alt text of the gallery image
-key  | string  | src | optional; key to be used on component
-
-### ImageComponent props
-
-If you're passing a function component to ImageComponent you will receive back these props:
-
-
-Property        |       Type            |       Value
-:-----------------------|:--------------|:--------------
-margin     |       string    | optional; margin prop optionally passed into Gallery by user
-index  | number  | required; the index of the photo within the Gallery
-photo  | object  | required; the individual object passed into Gallery's `photos` array prop, with all the same props except recalculated height and width
-direction  | string  | optional; direction passed into Gallery
-top  | number  | required if direction is 'column'; top position of this image, only passed if direction prop was 'column'
-left  | number  | required if direction is 'column'; left position of this image, only passed if direction prop was 'column'
-onClick  | function  | optional; the onClick function optionally passsed into Gallery by user
