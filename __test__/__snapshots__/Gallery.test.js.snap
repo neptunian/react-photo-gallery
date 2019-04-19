@@ -9,7 +9,7 @@ exports[`Gallery renders correctly 1`] = `
     Array [
       Object {
         "alt": "DSC02427",
-        "height": 1065,
+        "height": 246.92982456140348,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -23,11 +23,11 @@ exports[`Gallery renders correctly 1`] = `
           "https://farm6.staticflickr.com/5638/20770219315_0443da777d_h.jpg 1600w",
         ],
         "title": "DSC02427",
-        "width": 1600,
+        "width": 370.4,
       },
       Object {
         "alt": "bleik sólsetur",
-        "height": 1065,
+        "height": 246.92982456140348,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -41,11 +41,11 @@ exports[`Gallery renders correctly 1`] = `
           "https://farm6.staticflickr.com/5825/20149281203_16cdbb86d5_h.jpg 1600w",
         ],
         "title": "bleik sólsetur",
-        "width": 1600,
+        "width": 370.4,
       },
       Object {
         "alt": "DSC02393",
-        "height": 1023,
+        "height": 246.92982456140348,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -59,11 +59,11 @@ exports[`Gallery renders correctly 1`] = `
           "https://farm1.staticflickr.com/760/20147663824_bb6ffff6e6_h.jpg 1600w",
         ],
         "title": "DSC02393",
-        "width": 1600,
+        "width": 385.2,
       },
       Object {
         "alt": "DSC01594",
-        "height": 1065,
+        "height": 244.5887445887446,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -77,11 +77,11 @@ exports[`Gallery renders correctly 1`] = `
           "https://farm6.staticflickr.com/5609/15605220721_af9706fda6_h.jpg 1600w",
         ],
         "title": "DSC01594",
-        "width": 1600,
+        "width": 366.9,
       },
       Object {
         "alt": "DSC01590",
-        "height": 513,
+        "height": 244.5887445887446,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -95,11 +95,11 @@ exports[`Gallery renders correctly 1`] = `
           "https://farm4.staticflickr.com/3944/14987740533_559154cfd8_h.jpg 1600w",
         ],
         "title": "DSC01590",
-        "width": 1600,
+        "width": 763.1,
       },
       Object {
         "alt": "DSC01570",
-        "height": 1065,
+        "height": 379.19463087248323,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -113,11 +113,11 @@ exports[`Gallery renders correctly 1`] = `
           "https://farm6.staticflickr.com/5612/15584207196_51d672b3e2_h.jpg 1600w",
         ],
         "title": "DSC01570",
-        "width": 1600,
+        "width": 568.8,
       },
       Object {
         "alt": "DSC01566",
-        "height": 1083,
+        "height": 379.19463087248323,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -131,10 +131,11 @@ exports[`Gallery renders correctly 1`] = `
           "https://farm4.staticflickr.com/3948/15421251759_0091d2645c_h.jpg 1600w",
         ],
         "title": "DSC01566",
-        "width": 1600,
+        "width": 561.2,
       },
     ]
   }
+  targetRowHeight={300}
 >
   <div
     className="react-photo-gallery--gallery"
@@ -148,36 +149,12 @@ exports[`Gallery renders correctly 1`] = `
         }
       }
     >
-      <Photo
-        direction="row"
-        index={0}
+      <div
         key="https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC02427",
-            "height": 246.9,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg",
-            "srcSet": Array [
-              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg 500w",
-              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae_c.jpg 800w",
-              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5638/20770219315_0443da777d_h.jpg 1600w",
-            ],
-            "title": "DSC02427",
-            "width": 370.4,
-          }
-        }
       >
         <img
           alt="DSC02427"
-          height={246.9}
+          height={246.92982456140348}
           onClick={[Function]}
           sizes={
             Array [
@@ -198,43 +175,20 @@ exports[`Gallery renders correctly 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="DSC02427"
           width={370.4}
         />
-      </Photo>
-      <Photo
-        direction="row"
-        index={1}
+      </div>
+      <div
         key="https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "bleik sólsetur",
-            "height": 246.9,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg",
-            "srcSet": Array [
-              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg 500w",
-              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19_c.jpg 800w",
-              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5825/20149281203_16cdbb86d5_h.jpg 1600w",
-            ],
-            "title": "bleik sólsetur",
-            "width": 370.4,
-          }
-        }
       >
         <img
           alt="bleik sólsetur"
-          height={246.9}
+          height={246.92982456140348}
           onClick={[Function]}
           sizes={
             Array [
@@ -255,43 +209,20 @@ exports[`Gallery renders correctly 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="bleik sólsetur"
           width={370.4}
         />
-      </Photo>
-      <Photo
-        direction="row"
-        index={2}
+      </div>
+      <div
         key="https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC02393",
-            "height": 246.9,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg",
-            "srcSet": Array [
-              "https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg 500w",
-              "https://farm1.staticflickr.com/760/20147663824_3767d70a45_c.jpg 800w",
-              "https://farm1.staticflickr.com/760/20147663824_3767d70a45_b.jpg 1024w",
-              "https://farm1.staticflickr.com/760/20147663824_bb6ffff6e6_h.jpg 1600w",
-            ],
-            "title": "DSC02393",
-            "width": 385.2,
-          }
-        }
       >
         <img
           alt="DSC02393"
-          height={246.9}
+          height={246.92982456140348}
           onClick={[Function]}
           sizes={
             Array [
@@ -312,43 +243,20 @@ exports[`Gallery renders correctly 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="DSC02393"
           width={385.2}
         />
-      </Photo>
-      <Photo
-        direction="row"
-        index={3}
+      </div>
+      <div
         key="https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC01594",
-            "height": 184,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg",
-            "srcSet": Array [
-              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg 500w",
-              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781_c.jpg 800w",
-              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5609/15605220721_af9706fda6_h.jpg 1600w",
-            ],
-            "title": "DSC01594",
-            "width": 276,
-          }
-        }
       >
         <img
           alt="DSC01594"
-          height={184}
+          height={244.5887445887446}
           onClick={[Function]}
           sizes={
             Array [
@@ -369,43 +277,20 @@ exports[`Gallery renders correctly 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="DSC01594"
-          width={276}
+          width={366.9}
         />
-      </Photo>
-      <Photo
-        direction="row"
-        index={4}
+      </div>
+      <div
         key="https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC01590",
-            "height": 184,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg",
-            "srcSet": Array [
-              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81.jpg 500w",
-              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg 800w",
-              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_b.jpg 1024w",
-              "https://farm4.staticflickr.com/3944/14987740533_559154cfd8_h.jpg 1600w",
-            ],
-            "title": "DSC01590",
-            "width": 574,
-          }
-        }
       >
         <img
           alt="DSC01590"
-          height={184}
+          height={244.5887445887446}
           onClick={[Function]}
           sizes={
             Array [
@@ -426,43 +311,20 @@ exports[`Gallery renders correctly 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="DSC01590"
-          width={574}
+          width={763.1}
         />
-      </Photo>
-      <Photo
-        direction="row"
-        index={5}
+      </div>
+      <div
         key="https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC01570",
-            "height": 184,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg",
-            "srcSet": Array [
-              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg 500w",
-              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573_c.jpg 800w",
-              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5612/15584207196_51d672b3e2_h.jpg 1600w",
-            ],
-            "title": "DSC01570",
-            "width": 276,
-          }
-        }
       >
         <img
           alt="DSC01570"
-          height={184}
+          height={379.19463087248323}
           onClick={[Function]}
           sizes={
             Array [
@@ -483,43 +345,20 @@ exports[`Gallery renders correctly 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="DSC01570"
-          width={276}
+          width={568.8}
         />
-      </Photo>
-      <Photo
-        direction="row"
-        index={6}
+      </div>
+      <div
         key="https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC01566",
-            "height": 212.4,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg",
-            "srcSet": Array [
-              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg 500w",
-              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68_c.jpg 800w",
-              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68_b.jpg 1024w",
-              "https://farm4.staticflickr.com/3948/15421251759_0091d2645c_h.jpg 1600w",
-            ],
-            "title": "DSC01566",
-            "width": 314.3,
-          }
-        }
       >
         <img
           alt="DSC01566"
-          height={212.4}
+          height={379.19463087248323}
           onClick={[Function]}
           sizes={
             Array [
@@ -540,13 +379,14 @@ exports[`Gallery renders correctly 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="DSC01566"
-          width={314.3}
+          width={561.2}
         />
-      </Photo>
+      </div>
     </div>
   </div>
 </Gallery>
@@ -561,7 +401,7 @@ exports[`Gallery renders correctly after click 1`] = `
     Array [
       Object {
         "alt": "DSC02427",
-        "height": 1065,
+        "height": 246.92982456140348,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -575,11 +415,11 @@ exports[`Gallery renders correctly after click 1`] = `
           "https://farm6.staticflickr.com/5638/20770219315_0443da777d_h.jpg 1600w",
         ],
         "title": "DSC02427",
-        "width": 1600,
+        "width": 370.4,
       },
       Object {
         "alt": "bleik sólsetur",
-        "height": 1065,
+        "height": 246.92982456140348,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -593,11 +433,11 @@ exports[`Gallery renders correctly after click 1`] = `
           "https://farm6.staticflickr.com/5825/20149281203_16cdbb86d5_h.jpg 1600w",
         ],
         "title": "bleik sólsetur",
-        "width": 1600,
+        "width": 370.4,
       },
       Object {
         "alt": "DSC02393",
-        "height": 1023,
+        "height": 246.92982456140348,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -611,11 +451,11 @@ exports[`Gallery renders correctly after click 1`] = `
           "https://farm1.staticflickr.com/760/20147663824_bb6ffff6e6_h.jpg 1600w",
         ],
         "title": "DSC02393",
-        "width": 1600,
+        "width": 385.2,
       },
       Object {
         "alt": "DSC01594",
-        "height": 1065,
+        "height": 244.5887445887446,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -629,11 +469,11 @@ exports[`Gallery renders correctly after click 1`] = `
           "https://farm6.staticflickr.com/5609/15605220721_af9706fda6_h.jpg 1600w",
         ],
         "title": "DSC01594",
-        "width": 1600,
+        "width": 366.9,
       },
       Object {
         "alt": "DSC01590",
-        "height": 513,
+        "height": 244.5887445887446,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -647,11 +487,11 @@ exports[`Gallery renders correctly after click 1`] = `
           "https://farm4.staticflickr.com/3944/14987740533_559154cfd8_h.jpg 1600w",
         ],
         "title": "DSC01590",
-        "width": 1600,
+        "width": 763.1,
       },
       Object {
         "alt": "DSC01570",
-        "height": 1065,
+        "height": 379.19463087248323,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -665,11 +505,11 @@ exports[`Gallery renders correctly after click 1`] = `
           "https://farm6.staticflickr.com/5612/15584207196_51d672b3e2_h.jpg 1600w",
         ],
         "title": "DSC01570",
-        "width": 1600,
+        "width": 568.8,
       },
       Object {
         "alt": "DSC01566",
-        "height": 1083,
+        "height": 379.19463087248323,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -683,10 +523,11 @@ exports[`Gallery renders correctly after click 1`] = `
           "https://farm4.staticflickr.com/3948/15421251759_0091d2645c_h.jpg 1600w",
         ],
         "title": "DSC01566",
-        "width": 1600,
+        "width": 561.2,
       },
     ]
   }
+  targetRowHeight={300}
 >
   <div
     className="react-photo-gallery--gallery"
@@ -700,36 +541,12 @@ exports[`Gallery renders correctly after click 1`] = `
         }
       }
     >
-      <Photo
-        direction="row"
-        index={0}
+      <div
         key="https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC02427",
-            "height": 246.9,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg",
-            "srcSet": Array [
-              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg 500w",
-              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae_c.jpg 800w",
-              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5638/20770219315_0443da777d_h.jpg 1600w",
-            ],
-            "title": "DSC02427",
-            "width": 370.4,
-          }
-        }
       >
         <img
           alt="DSC02427"
-          height={246.9}
+          height={246.92982456140348}
           onClick={[Function]}
           sizes={
             Array [
@@ -750,43 +567,20 @@ exports[`Gallery renders correctly after click 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="DSC02427"
           width={370.4}
         />
-      </Photo>
-      <Photo
-        direction="row"
-        index={1}
+      </div>
+      <div
         key="https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "bleik sólsetur",
-            "height": 246.9,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg",
-            "srcSet": Array [
-              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg 500w",
-              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19_c.jpg 800w",
-              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5825/20149281203_16cdbb86d5_h.jpg 1600w",
-            ],
-            "title": "bleik sólsetur",
-            "width": 370.4,
-          }
-        }
       >
         <img
           alt="bleik sólsetur"
-          height={246.9}
+          height={246.92982456140348}
           onClick={[Function]}
           sizes={
             Array [
@@ -807,43 +601,20 @@ exports[`Gallery renders correctly after click 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="bleik sólsetur"
           width={370.4}
         />
-      </Photo>
-      <Photo
-        direction="row"
-        index={2}
+      </div>
+      <div
         key="https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC02393",
-            "height": 246.9,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg",
-            "srcSet": Array [
-              "https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg 500w",
-              "https://farm1.staticflickr.com/760/20147663824_3767d70a45_c.jpg 800w",
-              "https://farm1.staticflickr.com/760/20147663824_3767d70a45_b.jpg 1024w",
-              "https://farm1.staticflickr.com/760/20147663824_bb6ffff6e6_h.jpg 1600w",
-            ],
-            "title": "DSC02393",
-            "width": 385.2,
-          }
-        }
       >
         <img
           alt="DSC02393"
-          height={246.9}
+          height={246.92982456140348}
           onClick={[Function]}
           sizes={
             Array [
@@ -864,43 +635,20 @@ exports[`Gallery renders correctly after click 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="DSC02393"
           width={385.2}
         />
-      </Photo>
-      <Photo
-        direction="row"
-        index={3}
+      </div>
+      <div
         key="https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC01594",
-            "height": 184,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg",
-            "srcSet": Array [
-              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg 500w",
-              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781_c.jpg 800w",
-              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5609/15605220721_af9706fda6_h.jpg 1600w",
-            ],
-            "title": "DSC01594",
-            "width": 276,
-          }
-        }
       >
         <img
           alt="DSC01594"
-          height={184}
+          height={244.5887445887446}
           onClick={[Function]}
           sizes={
             Array [
@@ -921,43 +669,20 @@ exports[`Gallery renders correctly after click 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="DSC01594"
-          width={276}
+          width={366.9}
         />
-      </Photo>
-      <Photo
-        direction="row"
-        index={4}
+      </div>
+      <div
         key="https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC01590",
-            "height": 184,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg",
-            "srcSet": Array [
-              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81.jpg 500w",
-              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg 800w",
-              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_b.jpg 1024w",
-              "https://farm4.staticflickr.com/3944/14987740533_559154cfd8_h.jpg 1600w",
-            ],
-            "title": "DSC01590",
-            "width": 574,
-          }
-        }
       >
         <img
           alt="DSC01590"
-          height={184}
+          height={244.5887445887446}
           onClick={[Function]}
           sizes={
             Array [
@@ -978,43 +703,20 @@ exports[`Gallery renders correctly after click 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="DSC01590"
-          width={574}
+          width={763.1}
         />
-      </Photo>
-      <Photo
-        direction="row"
-        index={5}
+      </div>
+      <div
         key="https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC01570",
-            "height": 184,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg",
-            "srcSet": Array [
-              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg 500w",
-              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573_c.jpg 800w",
-              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5612/15584207196_51d672b3e2_h.jpg 1600w",
-            ],
-            "title": "DSC01570",
-            "width": 276,
-          }
-        }
       >
         <img
           alt="DSC01570"
-          height={184}
+          height={379.19463087248323}
           onClick={[Function]}
           sizes={
             Array [
@@ -1035,43 +737,20 @@ exports[`Gallery renders correctly after click 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="DSC01570"
-          width={276}
+          width={568.8}
         />
-      </Photo>
-      <Photo
-        direction="row"
-        index={6}
+      </div>
+      <div
         key="https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC01566",
-            "height": 212.4,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg",
-            "srcSet": Array [
-              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg 500w",
-              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68_c.jpg 800w",
-              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68_b.jpg 1024w",
-              "https://farm4.staticflickr.com/3948/15421251759_0091d2645c_h.jpg 1600w",
-            ],
-            "title": "DSC01566",
-            "width": 314.3,
-          }
-        }
       >
         <img
           alt="DSC01566"
-          height={212.4}
+          height={379.19463087248323}
           onClick={[Function]}
           sizes={
             Array [
@@ -1092,13 +771,14 @@ exports[`Gallery renders correctly after click 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="DSC01566"
-          width={314.3}
+          width={561.2}
         />
-      </Photo>
+      </div>
     </div>
   </div>
 </Gallery>
@@ -1114,7 +794,7 @@ exports[`Gallery renders correctly if there are more columns than photos 1`] = `
     Array [
       Object {
         "alt": "DSC02427",
-        "height": 1065,
+        "height": 246.92982456140348,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -1128,11 +808,11 @@ exports[`Gallery renders correctly if there are more columns than photos 1`] = `
           "https://farm6.staticflickr.com/5638/20770219315_0443da777d_h.jpg 1600w",
         ],
         "title": "DSC02427",
-        "width": 1600,
+        "width": 370.4,
       },
       Object {
         "alt": "bleik sólsetur",
-        "height": 1065,
+        "height": 246.92982456140348,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -1146,11 +826,11 @@ exports[`Gallery renders correctly if there are more columns than photos 1`] = `
           "https://farm6.staticflickr.com/5825/20149281203_16cdbb86d5_h.jpg 1600w",
         ],
         "title": "bleik sólsetur",
-        "width": 1600,
+        "width": 370.4,
       },
       Object {
         "alt": "DSC02393",
-        "height": 1023,
+        "height": 246.92982456140348,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -1164,11 +844,11 @@ exports[`Gallery renders correctly if there are more columns than photos 1`] = `
           "https://farm1.staticflickr.com/760/20147663824_bb6ffff6e6_h.jpg 1600w",
         ],
         "title": "DSC02393",
-        "width": 1600,
+        "width": 385.2,
       },
       Object {
         "alt": "DSC01594",
-        "height": 1065,
+        "height": 244.5887445887446,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -1182,11 +862,11 @@ exports[`Gallery renders correctly if there are more columns than photos 1`] = `
           "https://farm6.staticflickr.com/5609/15605220721_af9706fda6_h.jpg 1600w",
         ],
         "title": "DSC01594",
-        "width": 1600,
+        "width": 366.9,
       },
       Object {
         "alt": "DSC01590",
-        "height": 513,
+        "height": 244.5887445887446,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -1200,11 +880,11 @@ exports[`Gallery renders correctly if there are more columns than photos 1`] = `
           "https://farm4.staticflickr.com/3944/14987740533_559154cfd8_h.jpg 1600w",
         ],
         "title": "DSC01590",
-        "width": 1600,
+        "width": 763.1,
       },
       Object {
         "alt": "DSC01570",
-        "height": 1065,
+        "height": 379.19463087248323,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -1218,11 +898,11 @@ exports[`Gallery renders correctly if there are more columns than photos 1`] = `
           "https://farm6.staticflickr.com/5612/15584207196_51d672b3e2_h.jpg 1600w",
         ],
         "title": "DSC01570",
-        "width": 1600,
+        "width": 568.8,
       },
       Object {
         "alt": "DSC01566",
-        "height": 1083,
+        "height": 379.19463087248323,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -1236,10 +916,11 @@ exports[`Gallery renders correctly if there are more columns than photos 1`] = `
           "https://farm4.staticflickr.com/3948/15421251759_0091d2645c_h.jpg 1600w",
         ],
         "title": "DSC01566",
-        "width": 1600,
+        "width": 561.2,
       },
     ]
   }
+  targetRowHeight={300}
 >
   <div
     className="react-photo-gallery--gallery"
@@ -1253,36 +934,12 @@ exports[`Gallery renders correctly if there are more columns than photos 1`] = `
         }
       }
     >
-      <Photo
-        direction="row"
-        index={0}
+      <div
         key="https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC02427",
-            "height": 63.9,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg",
-            "srcSet": Array [
-              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg 500w",
-              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae_c.jpg 800w",
-              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5638/20770219315_0443da777d_h.jpg 1600w",
-            ],
-            "title": "DSC02427",
-            "width": 95.8,
-          }
-        }
       >
         <img
           alt="DSC02427"
-          height={63.9}
+          height={246.92982456140348}
           onClick={[Function]}
           sizes={
             Array [
@@ -1303,43 +960,20 @@ exports[`Gallery renders correctly if there are more columns than photos 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="DSC02427"
-          width={95.8}
+          width={370.4}
         />
-      </Photo>
-      <Photo
-        direction="row"
-        index={1}
+      </div>
+      <div
         key="https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "bleik sólsetur",
-            "height": 63.9,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg",
-            "srcSet": Array [
-              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg 500w",
-              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19_c.jpg 800w",
-              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5825/20149281203_16cdbb86d5_h.jpg 1600w",
-            ],
-            "title": "bleik sólsetur",
-            "width": 95.8,
-          }
-        }
       >
         <img
           alt="bleik sólsetur"
-          height={63.9}
+          height={246.92982456140348}
           onClick={[Function]}
           sizes={
             Array [
@@ -1360,43 +994,20 @@ exports[`Gallery renders correctly if there are more columns than photos 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="bleik sólsetur"
-          width={95.8}
+          width={370.4}
         />
-      </Photo>
-      <Photo
-        direction="row"
-        index={2}
+      </div>
+      <div
         key="https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC02393",
-            "height": 63.9,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg",
-            "srcSet": Array [
-              "https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg 500w",
-              "https://farm1.staticflickr.com/760/20147663824_3767d70a45_c.jpg 800w",
-              "https://farm1.staticflickr.com/760/20147663824_3767d70a45_b.jpg 1024w",
-              "https://farm1.staticflickr.com/760/20147663824_bb6ffff6e6_h.jpg 1600w",
-            ],
-            "title": "DSC02393",
-            "width": 99.7,
-          }
-        }
       >
         <img
           alt="DSC02393"
-          height={63.9}
+          height={246.92982456140348}
           onClick={[Function]}
           sizes={
             Array [
@@ -1417,43 +1028,20 @@ exports[`Gallery renders correctly if there are more columns than photos 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="DSC02393"
-          width={99.7}
+          width={385.2}
         />
-      </Photo>
-      <Photo
-        direction="row"
-        index={3}
+      </div>
+      <div
         key="https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC01594",
-            "height": 63.9,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg",
-            "srcSet": Array [
-              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg 500w",
-              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781_c.jpg 800w",
-              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5609/15605220721_af9706fda6_h.jpg 1600w",
-            ],
-            "title": "DSC01594",
-            "width": 95.8,
-          }
-        }
       >
         <img
           alt="DSC01594"
-          height={63.9}
+          height={244.5887445887446}
           onClick={[Function]}
           sizes={
             Array [
@@ -1474,43 +1062,20 @@ exports[`Gallery renders correctly if there are more columns than photos 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="DSC01594"
-          width={95.8}
+          width={366.9}
         />
-      </Photo>
-      <Photo
-        direction="row"
-        index={4}
+      </div>
+      <div
         key="https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC01590",
-            "height": 63.9,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg",
-            "srcSet": Array [
-              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81.jpg 500w",
-              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg 800w",
-              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_b.jpg 1024w",
-              "https://farm4.staticflickr.com/3944/14987740533_559154cfd8_h.jpg 1600w",
-            ],
-            "title": "DSC01590",
-            "width": 199.4,
-          }
-        }
       >
         <img
           alt="DSC01590"
-          height={63.9}
+          height={244.5887445887446}
           onClick={[Function]}
           sizes={
             Array [
@@ -1531,43 +1096,20 @@ exports[`Gallery renders correctly if there are more columns than photos 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="DSC01590"
-          width={199.4}
+          width={763.1}
         />
-      </Photo>
-      <Photo
-        direction="row"
-        index={5}
+      </div>
+      <div
         key="https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC01570",
-            "height": 63.9,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg",
-            "srcSet": Array [
-              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg 500w",
-              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573_c.jpg 800w",
-              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5612/15584207196_51d672b3e2_h.jpg 1600w",
-            ],
-            "title": "DSC01570",
-            "width": 95.8,
-          }
-        }
       >
         <img
           alt="DSC01570"
-          height={63.9}
+          height={379.19463087248323}
           onClick={[Function]}
           sizes={
             Array [
@@ -1588,43 +1130,20 @@ exports[`Gallery renders correctly if there are more columns than photos 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="DSC01570"
-          width={95.8}
+          width={568.8}
         />
-      </Photo>
-      <Photo
-        direction="row"
-        index={6}
+      </div>
+      <div
         key="https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC01566",
-            "height": 63.9,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg",
-            "srcSet": Array [
-              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg 500w",
-              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68_c.jpg 800w",
-              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68_b.jpg 1024w",
-              "https://farm4.staticflickr.com/3948/15421251759_0091d2645c_h.jpg 1600w",
-            ],
-            "title": "DSC01566",
-            "width": 94.6,
-          }
-        }
       >
         <img
           alt="DSC01566"
-          height={63.9}
+          height={379.19463087248323}
           onClick={[Function]}
           sizes={
             Array [
@@ -1645,13 +1164,14 @@ exports[`Gallery renders correctly if there are more columns than photos 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "margin": 2,
             }
           }
           title="DSC01566"
-          width={94.6}
+          width={561.2}
         />
-      </Photo>
+      </div>
     </div>
   </div>
 </Gallery>
@@ -1674,558 +1194,6 @@ exports[`Gallery renders correctly with a column function 1`] = `
       ],
     }
   }
-  direction="row"
-  margin={2}
-  onClick={[Function]}
-  photos={
-    Array [
-      Object {
-        "alt": "DSC02427",
-        "height": 1065,
-        "sizes": Array [
-          "(min-width: 480px) 50vw",
-          "(min-width: 1024px) 33.3vw",
-          "100vw",
-        ],
-        "src": "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg",
-        "srcSet": Array [
-          "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg 500w",
-          "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae_c.jpg 800w",
-          "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae_b.jpg 1024w",
-          "https://farm6.staticflickr.com/5638/20770219315_0443da777d_h.jpg 1600w",
-        ],
-        "title": "DSC02427",
-        "width": 1600,
-      },
-      Object {
-        "alt": "bleik sólsetur",
-        "height": 1065,
-        "sizes": Array [
-          "(min-width: 480px) 50vw",
-          "(min-width: 1024px) 33.3vw",
-          "100vw",
-        ],
-        "src": "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg",
-        "srcSet": Array [
-          "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg 500w",
-          "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19_c.jpg 800w",
-          "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19_b.jpg 1024w",
-          "https://farm6.staticflickr.com/5825/20149281203_16cdbb86d5_h.jpg 1600w",
-        ],
-        "title": "bleik sólsetur",
-        "width": 1600,
-      },
-      Object {
-        "alt": "DSC02393",
-        "height": 1023,
-        "sizes": Array [
-          "(min-width: 480px) 50vw",
-          "(min-width: 1024px) 33.3vw",
-          "100vw",
-        ],
-        "src": "https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg",
-        "srcSet": Array [
-          "https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg 500w",
-          "https://farm1.staticflickr.com/760/20147663824_3767d70a45_c.jpg 800w",
-          "https://farm1.staticflickr.com/760/20147663824_3767d70a45_b.jpg 1024w",
-          "https://farm1.staticflickr.com/760/20147663824_bb6ffff6e6_h.jpg 1600w",
-        ],
-        "title": "DSC02393",
-        "width": 1600,
-      },
-      Object {
-        "alt": "DSC01594",
-        "height": 1065,
-        "sizes": Array [
-          "(min-width: 480px) 50vw",
-          "(min-width: 1024px) 33.3vw",
-          "100vw",
-        ],
-        "src": "https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg",
-        "srcSet": Array [
-          "https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg 500w",
-          "https://farm6.staticflickr.com/5609/15605220721_1049ac2781_c.jpg 800w",
-          "https://farm6.staticflickr.com/5609/15605220721_1049ac2781_b.jpg 1024w",
-          "https://farm6.staticflickr.com/5609/15605220721_af9706fda6_h.jpg 1600w",
-        ],
-        "title": "DSC01594",
-        "width": 1600,
-      },
-      Object {
-        "alt": "DSC01590",
-        "height": 513,
-        "sizes": Array [
-          "(min-width: 480px) 50vw",
-          "(min-width: 1024px) 33.3vw",
-          "100vw",
-        ],
-        "src": "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg",
-        "srcSet": Array [
-          "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81.jpg 500w",
-          "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg 800w",
-          "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_b.jpg 1024w",
-          "https://farm4.staticflickr.com/3944/14987740533_559154cfd8_h.jpg 1600w",
-        ],
-        "title": "DSC01590",
-        "width": 1600,
-      },
-      Object {
-        "alt": "DSC01570",
-        "height": 1065,
-        "sizes": Array [
-          "(min-width: 480px) 50vw",
-          "(min-width: 1024px) 33.3vw",
-          "100vw",
-        ],
-        "src": "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg",
-        "srcSet": Array [
-          "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg 500w",
-          "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573_c.jpg 800w",
-          "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573_b.jpg 1024w",
-          "https://farm6.staticflickr.com/5612/15584207196_51d672b3e2_h.jpg 1600w",
-        ],
-        "title": "DSC01570",
-        "width": 1600,
-      },
-      Object {
-        "alt": "DSC01566",
-        "height": 1083,
-        "sizes": Array [
-          "(min-width: 480px) 50vw",
-          "(min-width: 1024px) 33.3vw",
-          "100vw",
-        ],
-        "src": "https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg",
-        "srcSet": Array [
-          "https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg 500w",
-          "https://farm4.staticflickr.com/3948/15421251759_79587a5f68_c.jpg 800w",
-          "https://farm4.staticflickr.com/3948/15421251759_79587a5f68_b.jpg 1024w",
-          "https://farm4.staticflickr.com/3948/15421251759_0091d2645c_h.jpg 1600w",
-        ],
-        "title": "DSC01566",
-        "width": 1600,
-      },
-    ]
-  }
->
-  <div
-    className="react-photo-gallery--gallery"
-  >
-    <div
-      style={
-        Object {
-          "display": "flex",
-          "flexDirection": "row",
-          "flexWrap": "wrap",
-        }
-      }
-    >
-      <Photo
-        direction="row"
-        index={0}
-        key="https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC02427",
-            "height": 246.9,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg",
-            "srcSet": Array [
-              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg 500w",
-              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae_c.jpg 800w",
-              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5638/20770219315_0443da777d_h.jpg 1600w",
-            ],
-            "title": "DSC02427",
-            "width": 370.4,
-          }
-        }
-      >
-        <img
-          alt="DSC02427"
-          height={246.9}
-          onClick={[Function]}
-          sizes={
-            Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ]
-          }
-          src="https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg"
-          srcSet={
-            Array [
-              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg 500w",
-              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae_c.jpg 800w",
-              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5638/20770219315_0443da777d_h.jpg 1600w",
-            ]
-          }
-          style={
-            Object {
-              "cursor": "pointer",
-              "margin": 2,
-            }
-          }
-          title="DSC02427"
-          width={370.4}
-        />
-      </Photo>
-      <Photo
-        direction="row"
-        index={1}
-        key="https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "bleik sólsetur",
-            "height": 246.9,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg",
-            "srcSet": Array [
-              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg 500w",
-              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19_c.jpg 800w",
-              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5825/20149281203_16cdbb86d5_h.jpg 1600w",
-            ],
-            "title": "bleik sólsetur",
-            "width": 370.4,
-          }
-        }
-      >
-        <img
-          alt="bleik sólsetur"
-          height={246.9}
-          onClick={[Function]}
-          sizes={
-            Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ]
-          }
-          src="https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg"
-          srcSet={
-            Array [
-              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg 500w",
-              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19_c.jpg 800w",
-              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5825/20149281203_16cdbb86d5_h.jpg 1600w",
-            ]
-          }
-          style={
-            Object {
-              "cursor": "pointer",
-              "margin": 2,
-            }
-          }
-          title="bleik sólsetur"
-          width={370.4}
-        />
-      </Photo>
-      <Photo
-        direction="row"
-        index={2}
-        key="https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC02393",
-            "height": 246.9,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg",
-            "srcSet": Array [
-              "https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg 500w",
-              "https://farm1.staticflickr.com/760/20147663824_3767d70a45_c.jpg 800w",
-              "https://farm1.staticflickr.com/760/20147663824_3767d70a45_b.jpg 1024w",
-              "https://farm1.staticflickr.com/760/20147663824_bb6ffff6e6_h.jpg 1600w",
-            ],
-            "title": "DSC02393",
-            "width": 385.2,
-          }
-        }
-      >
-        <img
-          alt="DSC02393"
-          height={246.9}
-          onClick={[Function]}
-          sizes={
-            Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ]
-          }
-          src="https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg"
-          srcSet={
-            Array [
-              "https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg 500w",
-              "https://farm1.staticflickr.com/760/20147663824_3767d70a45_c.jpg 800w",
-              "https://farm1.staticflickr.com/760/20147663824_3767d70a45_b.jpg 1024w",
-              "https://farm1.staticflickr.com/760/20147663824_bb6ffff6e6_h.jpg 1600w",
-            ]
-          }
-          style={
-            Object {
-              "cursor": "pointer",
-              "margin": 2,
-            }
-          }
-          title="DSC02393"
-          width={385.2}
-        />
-      </Photo>
-      <Photo
-        direction="row"
-        index={3}
-        key="https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC01594",
-            "height": 184,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg",
-            "srcSet": Array [
-              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg 500w",
-              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781_c.jpg 800w",
-              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5609/15605220721_af9706fda6_h.jpg 1600w",
-            ],
-            "title": "DSC01594",
-            "width": 276,
-          }
-        }
-      >
-        <img
-          alt="DSC01594"
-          height={184}
-          onClick={[Function]}
-          sizes={
-            Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ]
-          }
-          src="https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg"
-          srcSet={
-            Array [
-              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg 500w",
-              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781_c.jpg 800w",
-              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5609/15605220721_af9706fda6_h.jpg 1600w",
-            ]
-          }
-          style={
-            Object {
-              "cursor": "pointer",
-              "margin": 2,
-            }
-          }
-          title="DSC01594"
-          width={276}
-        />
-      </Photo>
-      <Photo
-        direction="row"
-        index={4}
-        key="https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC01590",
-            "height": 184,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg",
-            "srcSet": Array [
-              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81.jpg 500w",
-              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg 800w",
-              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_b.jpg 1024w",
-              "https://farm4.staticflickr.com/3944/14987740533_559154cfd8_h.jpg 1600w",
-            ],
-            "title": "DSC01590",
-            "width": 574,
-          }
-        }
-      >
-        <img
-          alt="DSC01590"
-          height={184}
-          onClick={[Function]}
-          sizes={
-            Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ]
-          }
-          src="https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg"
-          srcSet={
-            Array [
-              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81.jpg 500w",
-              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg 800w",
-              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_b.jpg 1024w",
-              "https://farm4.staticflickr.com/3944/14987740533_559154cfd8_h.jpg 1600w",
-            ]
-          }
-          style={
-            Object {
-              "cursor": "pointer",
-              "margin": 2,
-            }
-          }
-          title="DSC01590"
-          width={574}
-        />
-      </Photo>
-      <Photo
-        direction="row"
-        index={5}
-        key="https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC01570",
-            "height": 184,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg",
-            "srcSet": Array [
-              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg 500w",
-              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573_c.jpg 800w",
-              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5612/15584207196_51d672b3e2_h.jpg 1600w",
-            ],
-            "title": "DSC01570",
-            "width": 276,
-          }
-        }
-      >
-        <img
-          alt="DSC01570"
-          height={184}
-          onClick={[Function]}
-          sizes={
-            Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ]
-          }
-          src="https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg"
-          srcSet={
-            Array [
-              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg 500w",
-              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573_c.jpg 800w",
-              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5612/15584207196_51d672b3e2_h.jpg 1600w",
-            ]
-          }
-          style={
-            Object {
-              "cursor": "pointer",
-              "margin": 2,
-            }
-          }
-          title="DSC01570"
-          width={276}
-        />
-      </Photo>
-      <Photo
-        direction="row"
-        index={6}
-        key="https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg"
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC01566",
-            "height": 212.4,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg",
-            "srcSet": Array [
-              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg 500w",
-              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68_c.jpg 800w",
-              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68_b.jpg 1024w",
-              "https://farm4.staticflickr.com/3948/15421251759_0091d2645c_h.jpg 1600w",
-            ],
-            "title": "DSC01566",
-            "width": 314.3,
-          }
-        }
-      >
-        <img
-          alt="DSC01566"
-          height={212.4}
-          onClick={[Function]}
-          sizes={
-            Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ]
-          }
-          src="https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg"
-          srcSet={
-            Array [
-              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg 500w",
-              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68_c.jpg 800w",
-              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68_b.jpg 1024w",
-              "https://farm4.staticflickr.com/3948/15421251759_0091d2645c_h.jpg 1600w",
-            ]
-          }
-          style={
-            Object {
-              "cursor": "pointer",
-              "margin": 2,
-            }
-          }
-          title="DSC01566"
-          width={314.3}
-        />
-      </Photo>
-    </div>
-  </div>
-</Gallery>
-`;
-
-exports[`Gallery renders correctly with direction set to column 1`] = `
-<Gallery
   direction="column"
   margin={2}
   onClick={[Function]}
@@ -2233,7 +1201,7 @@ exports[`Gallery renders correctly with direction set to column 1`] = `
     Array [
       Object {
         "alt": "DSC02427",
-        "height": 1065,
+        "height": 246.92982456140348,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -2247,11 +1215,11 @@ exports[`Gallery renders correctly with direction set to column 1`] = `
           "https://farm6.staticflickr.com/5638/20770219315_0443da777d_h.jpg 1600w",
         ],
         "title": "DSC02427",
-        "width": 1600,
+        "width": 370.4,
       },
       Object {
         "alt": "bleik sólsetur",
-        "height": 1065,
+        "height": 246.92982456140348,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -2265,11 +1233,11 @@ exports[`Gallery renders correctly with direction set to column 1`] = `
           "https://farm6.staticflickr.com/5825/20149281203_16cdbb86d5_h.jpg 1600w",
         ],
         "title": "bleik sólsetur",
-        "width": 1600,
+        "width": 370.4,
       },
       Object {
         "alt": "DSC02393",
-        "height": 1023,
+        "height": 246.92982456140348,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -2283,11 +1251,11 @@ exports[`Gallery renders correctly with direction set to column 1`] = `
           "https://farm1.staticflickr.com/760/20147663824_bb6ffff6e6_h.jpg 1600w",
         ],
         "title": "DSC02393",
-        "width": 1600,
+        "width": 385.2,
       },
       Object {
         "alt": "DSC01594",
-        "height": 1065,
+        "height": 244.5887445887446,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -2301,11 +1269,11 @@ exports[`Gallery renders correctly with direction set to column 1`] = `
           "https://farm6.staticflickr.com/5609/15605220721_af9706fda6_h.jpg 1600w",
         ],
         "title": "DSC01594",
-        "width": 1600,
+        "width": 366.9,
       },
       Object {
         "alt": "DSC01590",
-        "height": 513,
+        "height": 244.5887445887446,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -2319,11 +1287,11 @@ exports[`Gallery renders correctly with direction set to column 1`] = `
           "https://farm4.staticflickr.com/3944/14987740533_559154cfd8_h.jpg 1600w",
         ],
         "title": "DSC01590",
-        "width": 1600,
+        "width": 763.1,
       },
       Object {
         "alt": "DSC01570",
-        "height": 1065,
+        "height": 379.19463087248323,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -2337,11 +1305,11 @@ exports[`Gallery renders correctly with direction set to column 1`] = `
           "https://farm6.staticflickr.com/5612/15584207196_51d672b3e2_h.jpg 1600w",
         ],
         "title": "DSC01570",
-        "width": 1600,
+        "width": 568.8,
       },
       Object {
         "alt": "DSC01566",
-        "height": 1083,
+        "height": 379.19463087248323,
         "sizes": Array [
           "(min-width: 480px) 50vw",
           "(min-width: 1024px) 33.3vw",
@@ -2355,10 +1323,11 @@ exports[`Gallery renders correctly with direction set to column 1`] = `
           "https://farm4.staticflickr.com/3948/15421251759_0091d2645c_h.jpg 1600w",
         ],
         "title": "DSC01566",
-        "width": 1600,
+        "width": 561.2,
       },
     ]
   }
+  targetRowHeight={300}
 >
   <div
     className="react-photo-gallery--gallery"
@@ -2366,43 +1335,17 @@ exports[`Gallery renders correctly with direction set to column 1`] = `
     <div
       style={
         Object {
-          "height": 636.2,
+          "height": 636.1,
           "position": "relative",
         }
       }
     >
-      <Photo
-        direction="column"
-        index={0}
+      <div
         key="https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg"
-        left={0}
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC02427",
-            "height": 249.8,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg",
-            "srcSet": Array [
-              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg 500w",
-              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae_c.jpg 800w",
-              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5638/20770219315_0443da777d_h.jpg 1600w",
-            ],
-            "title": "DSC02427",
-            "width": 375.3,
-          }
-        }
-        top={0}
       >
         <img
           alt="DSC02427"
-          height={249.8}
+          height={250.2}
           onClick={[Function]}
           sizes={
             Array [
@@ -2423,6 +1366,7 @@ exports[`Gallery renders correctly with direction set to column 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "left": 0,
               "margin": 2,
               "position": "absolute",
@@ -2432,39 +1376,13 @@ exports[`Gallery renders correctly with direction set to column 1`] = `
           title="DSC02427"
           width={375.3}
         />
-      </Photo>
-      <Photo
-        direction="column"
-        index={1}
+      </div>
+      <div
         key="https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg"
-        left={379.3}
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "bleik sólsetur",
-            "height": 249.8,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg",
-            "srcSet": Array [
-              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg 500w",
-              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19_c.jpg 800w",
-              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5825/20149281203_16cdbb86d5_h.jpg 1600w",
-            ],
-            "title": "bleik sólsetur",
-            "width": 375.3,
-          }
-        }
-        top={0}
       >
         <img
           alt="bleik sólsetur"
-          height={249.8}
+          height={250.2}
           onClick={[Function]}
           sizes={
             Array [
@@ -2485,6 +1403,7 @@ exports[`Gallery renders correctly with direction set to column 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "left": 379.3,
               "margin": 2,
               "position": "absolute",
@@ -2494,39 +1413,13 @@ exports[`Gallery renders correctly with direction set to column 1`] = `
           title="bleik sólsetur"
           width={375.3}
         />
-      </Photo>
-      <Photo
-        direction="column"
-        index={2}
+      </div>
+      <div
         key="https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg"
-        left={758.7}
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC02393",
-            "height": 240,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg",
-            "srcSet": Array [
-              "https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg 500w",
-              "https://farm1.staticflickr.com/760/20147663824_3767d70a45_c.jpg 800w",
-              "https://farm1.staticflickr.com/760/20147663824_3767d70a45_b.jpg 1024w",
-              "https://farm1.staticflickr.com/760/20147663824_bb6ffff6e6_h.jpg 1600w",
-            ],
-            "title": "DSC02393",
-            "width": 375.3,
-          }
-        }
-        top={0}
       >
         <img
           alt="DSC02393"
-          height={240}
+          height={240.6}
           onClick={[Function]}
           sizes={
             Array [
@@ -2547,6 +1440,7 @@ exports[`Gallery renders correctly with direction set to column 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "left": 758.7,
               "margin": 2,
               "position": "absolute",
@@ -2556,39 +1450,13 @@ exports[`Gallery renders correctly with direction set to column 1`] = `
           title="DSC02393"
           width={375.3}
         />
-      </Photo>
-      <Photo
-        direction="column"
-        index={3}
+      </div>
+      <div
         key="https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg"
-        left={758.7}
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC01594",
-            "height": 249.8,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg",
-            "srcSet": Array [
-              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg 500w",
-              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781_c.jpg 800w",
-              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5609/15605220721_af9706fda6_h.jpg 1600w",
-            ],
-            "title": "DSC01594",
-            "width": 375.3,
-          }
-        }
-        top={244}
       >
         <img
           alt="DSC01594"
-          height={249.8}
+          height={250.2}
           onClick={[Function]}
           sizes={
             Array [
@@ -2609,44 +1477,19 @@ exports[`Gallery renders correctly with direction set to column 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "left": 758.7,
               "margin": 2,
               "position": "absolute",
-              "top": 244,
+              "top": 244.6,
             }
           }
           title="DSC01594"
           width={375.3}
         />
-      </Photo>
-      <Photo
-        direction="column"
-        index={4}
+      </div>
+      <div
         key="https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg"
-        left={0}
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC01590",
-            "height": 120.3,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg",
-            "srcSet": Array [
-              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81.jpg 500w",
-              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg 800w",
-              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_b.jpg 1024w",
-              "https://farm4.staticflickr.com/3944/14987740533_559154cfd8_h.jpg 1600w",
-            ],
-            "title": "DSC01590",
-            "width": 375.3,
-          }
-        }
-        top={253.8}
       >
         <img
           alt="DSC01590"
@@ -2671,48 +1514,23 @@ exports[`Gallery renders correctly with direction set to column 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "left": 0,
               "margin": 2,
               "position": "absolute",
-              "top": 253.8,
+              "top": 254.2,
             }
           }
           title="DSC01590"
           width={375.3}
         />
-      </Photo>
-      <Photo
-        direction="column"
-        index={5}
+      </div>
+      <div
         key="https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg"
-        left={379.3}
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC01570",
-            "height": 249.8,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg",
-            "srcSet": Array [
-              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg 500w",
-              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573_c.jpg 800w",
-              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573_b.jpg 1024w",
-              "https://farm6.staticflickr.com/5612/15584207196_51d672b3e2_h.jpg 1600w",
-            ],
-            "title": "DSC01570",
-            "width": 375.3,
-          }
-        }
-        top={253.8}
       >
         <img
           alt="DSC01570"
-          height={249.8}
+          height={250.2}
           onClick={[Function]}
           sizes={
             Array [
@@ -2733,48 +1551,23 @@ exports[`Gallery renders correctly with direction set to column 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "left": 379.3,
               "margin": 2,
               "position": "absolute",
-              "top": 253.8,
+              "top": 254.2,
             }
           }
           title="DSC01570"
           width={375.3}
         />
-      </Photo>
-      <Photo
-        direction="column"
-        index={6}
+      </div>
+      <div
         key="https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg"
-        left={0}
-        margin={2}
-        onClick={[Function]}
-        photo={
-          Object {
-            "alt": "DSC01566",
-            "height": 254.1,
-            "sizes": Array [
-              "(min-width: 480px) 50vw",
-              "(min-width: 1024px) 33.3vw",
-              "100vw",
-            ],
-            "src": "https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg",
-            "srcSet": Array [
-              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg 500w",
-              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68_c.jpg 800w",
-              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68_b.jpg 1024w",
-              "https://farm4.staticflickr.com/3948/15421251759_0091d2645c_h.jpg 1600w",
-            ],
-            "title": "DSC01566",
-            "width": 375.3,
-          }
-        }
-        top={378.1}
       >
         <img
           alt="DSC01566"
-          height={254.1}
+          height={253.6}
           onClick={[Function]}
           sizes={
             Array [
@@ -2795,16 +1588,429 @@ exports[`Gallery renders correctly with direction set to column 1`] = `
           style={
             Object {
               "cursor": "pointer",
+              "display": "block",
               "left": 0,
               "margin": 2,
               "position": "absolute",
-              "top": 378.1,
+              "top": 378.5,
             }
           }
           title="DSC01566"
           width={375.3}
         />
-      </Photo>
+      </div>
+    </div>
+  </div>
+</Gallery>
+`;
+
+exports[`Gallery renders correctly with direction set to column 1`] = `
+<Gallery
+  direction="column"
+  margin={2}
+  onClick={[Function]}
+  photos={
+    Array [
+      Object {
+        "alt": "DSC02427",
+        "height": 246.92982456140348,
+        "sizes": Array [
+          "(min-width: 480px) 50vw",
+          "(min-width: 1024px) 33.3vw",
+          "100vw",
+        ],
+        "src": "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg",
+        "srcSet": Array [
+          "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg 500w",
+          "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae_c.jpg 800w",
+          "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae_b.jpg 1024w",
+          "https://farm6.staticflickr.com/5638/20770219315_0443da777d_h.jpg 1600w",
+        ],
+        "title": "DSC02427",
+        "width": 370.4,
+      },
+      Object {
+        "alt": "bleik sólsetur",
+        "height": 246.92982456140348,
+        "sizes": Array [
+          "(min-width: 480px) 50vw",
+          "(min-width: 1024px) 33.3vw",
+          "100vw",
+        ],
+        "src": "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg",
+        "srcSet": Array [
+          "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg 500w",
+          "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19_c.jpg 800w",
+          "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19_b.jpg 1024w",
+          "https://farm6.staticflickr.com/5825/20149281203_16cdbb86d5_h.jpg 1600w",
+        ],
+        "title": "bleik sólsetur",
+        "width": 370.4,
+      },
+      Object {
+        "alt": "DSC02393",
+        "height": 246.92982456140348,
+        "sizes": Array [
+          "(min-width: 480px) 50vw",
+          "(min-width: 1024px) 33.3vw",
+          "100vw",
+        ],
+        "src": "https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg",
+        "srcSet": Array [
+          "https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg 500w",
+          "https://farm1.staticflickr.com/760/20147663824_3767d70a45_c.jpg 800w",
+          "https://farm1.staticflickr.com/760/20147663824_3767d70a45_b.jpg 1024w",
+          "https://farm1.staticflickr.com/760/20147663824_bb6ffff6e6_h.jpg 1600w",
+        ],
+        "title": "DSC02393",
+        "width": 385.2,
+      },
+      Object {
+        "alt": "DSC01594",
+        "height": 244.5887445887446,
+        "sizes": Array [
+          "(min-width: 480px) 50vw",
+          "(min-width: 1024px) 33.3vw",
+          "100vw",
+        ],
+        "src": "https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg",
+        "srcSet": Array [
+          "https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg 500w",
+          "https://farm6.staticflickr.com/5609/15605220721_1049ac2781_c.jpg 800w",
+          "https://farm6.staticflickr.com/5609/15605220721_1049ac2781_b.jpg 1024w",
+          "https://farm6.staticflickr.com/5609/15605220721_af9706fda6_h.jpg 1600w",
+        ],
+        "title": "DSC01594",
+        "width": 366.9,
+      },
+      Object {
+        "alt": "DSC01590",
+        "height": 244.5887445887446,
+        "sizes": Array [
+          "(min-width: 480px) 50vw",
+          "(min-width: 1024px) 33.3vw",
+          "100vw",
+        ],
+        "src": "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg",
+        "srcSet": Array [
+          "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81.jpg 500w",
+          "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg 800w",
+          "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_b.jpg 1024w",
+          "https://farm4.staticflickr.com/3944/14987740533_559154cfd8_h.jpg 1600w",
+        ],
+        "title": "DSC01590",
+        "width": 763.1,
+      },
+      Object {
+        "alt": "DSC01570",
+        "height": 379.19463087248323,
+        "sizes": Array [
+          "(min-width: 480px) 50vw",
+          "(min-width: 1024px) 33.3vw",
+          "100vw",
+        ],
+        "src": "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg",
+        "srcSet": Array [
+          "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg 500w",
+          "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573_c.jpg 800w",
+          "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573_b.jpg 1024w",
+          "https://farm6.staticflickr.com/5612/15584207196_51d672b3e2_h.jpg 1600w",
+        ],
+        "title": "DSC01570",
+        "width": 568.8,
+      },
+      Object {
+        "alt": "DSC01566",
+        "height": 379.19463087248323,
+        "sizes": Array [
+          "(min-width: 480px) 50vw",
+          "(min-width: 1024px) 33.3vw",
+          "100vw",
+        ],
+        "src": "https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg",
+        "srcSet": Array [
+          "https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg 500w",
+          "https://farm4.staticflickr.com/3948/15421251759_79587a5f68_c.jpg 800w",
+          "https://farm4.staticflickr.com/3948/15421251759_79587a5f68_b.jpg 1024w",
+          "https://farm4.staticflickr.com/3948/15421251759_0091d2645c_h.jpg 1600w",
+        ],
+        "title": "DSC01566",
+        "width": 561.2,
+      },
+    ]
+  }
+  targetRowHeight={300}
+>
+  <div
+    className="react-photo-gallery--gallery"
+  >
+    <div
+      style={
+        Object {
+          "height": 636.1,
+          "position": "relative",
+        }
+      }
+    >
+      <div
+        key="https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg"
+      >
+        <img
+          alt="DSC02427"
+          height={250.2}
+          onClick={[Function]}
+          sizes={
+            Array [
+              "(min-width: 480px) 50vw",
+              "(min-width: 1024px) 33.3vw",
+              "100vw",
+            ]
+          }
+          src="https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg"
+          srcSet={
+            Array [
+              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae.jpg 500w",
+              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae_c.jpg 800w",
+              "https://farm6.staticflickr.com/5638/20770219315_50e1c69aae_b.jpg 1024w",
+              "https://farm6.staticflickr.com/5638/20770219315_0443da777d_h.jpg 1600w",
+            ]
+          }
+          style={
+            Object {
+              "cursor": "pointer",
+              "display": "block",
+              "left": 0,
+              "margin": 2,
+              "position": "absolute",
+              "top": 0,
+            }
+          }
+          title="DSC02427"
+          width={375.3}
+        />
+      </div>
+      <div
+        key="https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg"
+      >
+        <img
+          alt="bleik sólsetur"
+          height={250.2}
+          onClick={[Function]}
+          sizes={
+            Array [
+              "(min-width: 480px) 50vw",
+              "(min-width: 1024px) 33.3vw",
+              "100vw",
+            ]
+          }
+          src="https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg"
+          srcSet={
+            Array [
+              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19.jpg 500w",
+              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19_c.jpg 800w",
+              "https://farm6.staticflickr.com/5825/20149281203_0335e3ed19_b.jpg 1024w",
+              "https://farm6.staticflickr.com/5825/20149281203_16cdbb86d5_h.jpg 1600w",
+            ]
+          }
+          style={
+            Object {
+              "cursor": "pointer",
+              "display": "block",
+              "left": 379.3,
+              "margin": 2,
+              "position": "absolute",
+              "top": 0,
+            }
+          }
+          title="bleik sólsetur"
+          width={375.3}
+        />
+      </div>
+      <div
+        key="https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg"
+      >
+        <img
+          alt="DSC02393"
+          height={240.6}
+          onClick={[Function]}
+          sizes={
+            Array [
+              "(min-width: 480px) 50vw",
+              "(min-width: 1024px) 33.3vw",
+              "100vw",
+            ]
+          }
+          src="https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg"
+          srcSet={
+            Array [
+              "https://farm1.staticflickr.com/760/20147663824_3767d70a45.jpg 500w",
+              "https://farm1.staticflickr.com/760/20147663824_3767d70a45_c.jpg 800w",
+              "https://farm1.staticflickr.com/760/20147663824_3767d70a45_b.jpg 1024w",
+              "https://farm1.staticflickr.com/760/20147663824_bb6ffff6e6_h.jpg 1600w",
+            ]
+          }
+          style={
+            Object {
+              "cursor": "pointer",
+              "display": "block",
+              "left": 758.7,
+              "margin": 2,
+              "position": "absolute",
+              "top": 0,
+            }
+          }
+          title="DSC02393"
+          width={375.3}
+        />
+      </div>
+      <div
+        key="https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg"
+      >
+        <img
+          alt="DSC01594"
+          height={250.2}
+          onClick={[Function]}
+          sizes={
+            Array [
+              "(min-width: 480px) 50vw",
+              "(min-width: 1024px) 33.3vw",
+              "100vw",
+            ]
+          }
+          src="https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg"
+          srcSet={
+            Array [
+              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781.jpg 500w",
+              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781_c.jpg 800w",
+              "https://farm6.staticflickr.com/5609/15605220721_1049ac2781_b.jpg 1024w",
+              "https://farm6.staticflickr.com/5609/15605220721_af9706fda6_h.jpg 1600w",
+            ]
+          }
+          style={
+            Object {
+              "cursor": "pointer",
+              "display": "block",
+              "left": 758.7,
+              "margin": 2,
+              "position": "absolute",
+              "top": 244.6,
+            }
+          }
+          title="DSC01594"
+          width={375.3}
+        />
+      </div>
+      <div
+        key="https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg"
+      >
+        <img
+          alt="DSC01590"
+          height={120.3}
+          onClick={[Function]}
+          sizes={
+            Array [
+              "(min-width: 480px) 50vw",
+              "(min-width: 1024px) 33.3vw",
+              "100vw",
+            ]
+          }
+          src="https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg"
+          srcSet={
+            Array [
+              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81.jpg 500w",
+              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_c.jpg 800w",
+              "https://farm4.staticflickr.com/3944/14987740533_b8432e4c81_b.jpg 1024w",
+              "https://farm4.staticflickr.com/3944/14987740533_559154cfd8_h.jpg 1600w",
+            ]
+          }
+          style={
+            Object {
+              "cursor": "pointer",
+              "display": "block",
+              "left": 0,
+              "margin": 2,
+              "position": "absolute",
+              "top": 254.2,
+            }
+          }
+          title="DSC01590"
+          width={375.3}
+        />
+      </div>
+      <div
+        key="https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg"
+      >
+        <img
+          alt="DSC01570"
+          height={250.2}
+          onClick={[Function]}
+          sizes={
+            Array [
+              "(min-width: 480px) 50vw",
+              "(min-width: 1024px) 33.3vw",
+              "100vw",
+            ]
+          }
+          src="https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg"
+          srcSet={
+            Array [
+              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573.jpg 500w",
+              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573_c.jpg 800w",
+              "https://farm6.staticflickr.com/5612/15584207196_cc5a59a573_b.jpg 1024w",
+              "https://farm6.staticflickr.com/5612/15584207196_51d672b3e2_h.jpg 1600w",
+            ]
+          }
+          style={
+            Object {
+              "cursor": "pointer",
+              "display": "block",
+              "left": 379.3,
+              "margin": 2,
+              "position": "absolute",
+              "top": 254.2,
+            }
+          }
+          title="DSC01570"
+          width={375.3}
+        />
+      </div>
+      <div
+        key="https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg"
+      >
+        <img
+          alt="DSC01566"
+          height={253.6}
+          onClick={[Function]}
+          sizes={
+            Array [
+              "(min-width: 480px) 50vw",
+              "(min-width: 1024px) 33.3vw",
+              "100vw",
+            ]
+          }
+          src="https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg"
+          srcSet={
+            Array [
+              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68.jpg 500w",
+              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68_c.jpg 800w",
+              "https://farm4.staticflickr.com/3948/15421251759_79587a5f68_b.jpg 1024w",
+              "https://farm4.staticflickr.com/3948/15421251759_0091d2645c_h.jpg 1600w",
+            ]
+          }
+          style={
+            Object {
+              "cursor": "pointer",
+              "display": "block",
+              "left": 0,
+              "margin": 2,
+              "position": "absolute",
+              "top": 378.5,
+            }
+          }
+          title="DSC01566"
+          width={375.3}
+        />
+      </div>
     </div>
   </div>
 </Gallery>
