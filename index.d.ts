@@ -34,7 +34,7 @@ export type PhotoProps<CustomPhotoProps extends object = {}> = {
   key?: string
 } & CustomPhotoProps
 
-export type ImageComponentClickHandler = (
+export type renderImageClickHandler = (
   event: React.MouseEvent,
   photo: object & {
     index: number
@@ -42,9 +42,9 @@ export type ImageComponentClickHandler = (
 ) => void
 
 /**
- * If you're passing a function component to ImageComponent you will receive back these props:
+ * If you're passing a function component to renderImage you will receive back these props:
  */
-export interface ImageComponentProps<CustomPhotoProps extends object = {}> {
+export interface IRenderImageProps<CustomPhotoProps extends object = {}> {
   /**
    * margin prop optionally passed into Gallery by user
    */
@@ -59,7 +59,7 @@ export interface ImageComponentProps<CustomPhotoProps extends object = {}> {
    */
   photo: PhotoProps<CustomPhotoProps>
 
-  onClick: ImageComponentClickHandler | null
+  onClick: renderImageClickHandler | null
   direction: 'row' | 'column'
   top?: number
   left?: number
@@ -112,7 +112,7 @@ export interface GalleryProps<CustomPhotoProps extends object = {}> {
    */
   direction?: string
 
-  renderImage?: React.ComponentType<ImageComponentProps<CustomPhotoProps>>
+  renderImage?: React.ComponentType<IRenderImageProps<CustomPhotoProps>>
 }
 
 export type GalleryI<
