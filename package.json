@@ -1,6 +1,6 @@
 {
   "name": "react-photo-gallery",
-  "version": "7.0.0-test",
+  "version": "7.0.0",
   "description": "Responsive Justified React Image Gallery Component",
   "main": "dist/react-photo-gallery.umd.js",
   "module": "dist/react-photo-gallery.esm.js",
@@ -46,8 +46,8 @@
     "nps": "^5.7.1",
     "nps-utils": "^1.4.0",
     "prettier": "^1.6.1",
-    "react": "16.8.3",
-    "react-dom": "16.8.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-images": "^0.5.18",
     "react-test-renderer": "^16.1.1",
     "rollup": "^1.0.0",
@@ -58,8 +58,8 @@
     "webpack-dev-server": "^3.1.14"
   },
   "peerDependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "scripts": {
     "build": "nps build",
