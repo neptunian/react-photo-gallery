@@ -84,7 +84,7 @@ class Gallery extends React.Component {
       galleryStyle = { position: 'relative' };
       thumbs = computeColumnLayout({ containerWidth: width, columns, margin, photos });
       galleryStyle.height = thumbs[thumbs.length - 1].containerHeight;
-    };
+    }
 
     const { renderImage = Photo } = this.props;
     return (
@@ -120,7 +120,5 @@ Gallery.defaultProps = {
   direction: 'row',
   targetRowHeight: 300,
 };
-export{
-  Photo
-}
+export { Photo };
 export default Gallery;

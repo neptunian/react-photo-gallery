@@ -10,27 +10,26 @@ const getCommonHeight = (row, containerWidth, margin) => {
   const rowWidth = containerWidth - row.length * (margin * 2);
   const totalAspectRatio = row.reduce((acc, photo) => acc + ratio(photo), 0);
   return rowWidth / totalAspectRatio;
-}
+};
 
 // calculate the cost of breaking at this node (edge weight)
 const cost = (photos, i, j, width, targetHeight, margin) => {
   const row = photos.slice(i, j);
   const commonHeight = getCommonHeight(row, width, margin);
   return Math.pow(Math.abs(commonHeight - targetHeight), 2);
-}
+};
 
 // return function that gets the neighboring nodes of node and returns costs
-const makeGetNeighbors = (targetHeight, containerWidth, photos, maxNodesSearch, margin) =>
-  (start) => {
-    const results = {};
-    start = +start;
-    results[+start] = 0;
-    for (let i = start + 1; i < photos.length + 1; ++i) {
-      if ((i - start) > maxNodesSearch) break;
-      results[i.toString()] = cost(photos, start, i, containerWidth, targetHeight, margin);
-    }
-    return results;
+const makeGetNeighbors = (targetHeight, containerWidth, photos, maxNodesSearch, margin) => start => {
+  const results = {};
+  start = +start;
+  results[+start] = 0;
+  for (let i = start + 1; i < photos.length + 1; ++i) {
+    if (i - start > maxNodesSearch) break;
+    results[i.toString()] = cost(photos, start, i, containerWidth, targetHeight, margin);
   }
+  return results;
+};
 
 export const computeRowLayout = ({ containerWidth, maxNodesSearch, targetRowHeight, margin, photos }) => {
   // const t = +new Date();
@@ -42,9 +41,9 @@ export const computeRowLayout = ({ containerWidth, maxNodesSearch, targetRowHeig
     const row = photos.slice(path[i - 1], path[i]);
     const height = getCommonHeight(row, containerWidth, margin);
     for (let j = path[i - 1]; j < path[i]; ++j) {
-      photos[j].width = round(height * ratio(photos[j]), 1)
+      photos[j].width = round(height * ratio(photos[j]), 1);
       photos[j].height = height;
     }
   }
   return photos;
-}
+};
