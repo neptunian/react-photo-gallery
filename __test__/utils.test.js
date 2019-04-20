@@ -1,7 +1,10 @@
-import { ratio } from '../src/utils';
-import { round } from '../src/utils';
+import { ratio } from '../src/utils/ratio';
+import { round } from '../src/utils/round';
+
+/*
 import { computeSizes } from '../src/utils';
 import photos from './test-photo-data';
+*/
 
 describe('the round function', () => {
   it('100.12345 to two places', () => expect(round(100.12345,2)).toBe(100.12));  
@@ -15,6 +18,7 @@ describe('the ratio function', () => {
   it('width of 1 and height of 1', () => expect(ratio({width:1,height:1})).toBe(1));
 });
 
+/*
 describe('the computeSizes function called with 7 images and 3 columns', () => {
 	const width = 1138;
 	const columns = 3;
@@ -39,3 +43,4 @@ describe('the computeSizes function called with 7 images and 3 columns', () => {
 	it('7th image width', () => expect(newPhotos[6].width).toBe(314.3));
 	it('7th image height', () => expect(newPhotos[6].height).toBe(212.4));
 });
+*/

@@ -1,6 +1,7 @@
 # Summary
 
 * [Read Me](README.md)
+* [API](api.md)
 * Examples
   * [Basic (Rows)](examples/basic-rows.md)
   * [Basic (Columns)](examples/basic-columns.md)

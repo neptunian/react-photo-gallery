@@ -9,11 +9,11 @@ function columns(containerWidth) {
   return columns;
 }
 
-const ExampleDynamicColumns = ({photos, title, direction}) => {
+const ExampleDynamicColumns = ({photos, title}) => {
     return (
       <div>
         <h2>{title}</h2>
-        <Gallery photos={photos} direction={direction} columns={columns} />
+        <Gallery photos={photos} direction={'column'} columns={columns} />
       </div>
     );
 }
