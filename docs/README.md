@@ -12,10 +12,9 @@ description: A repsonsive image gallery component for React
 
 * Responsive, accessible, composable, and customizable image gallery component 
 * Maintains the original aspect ratio of your photos
-* Creates a "masonry" style layout
-* Uses actual image elements, optionally pass in srcSet and sizes attributes
+* Creates a masonry or justified grid 
 * Supports row or column direction layout
-* Supports passing in a custom image component for implementation of things like image selection, favorites, captions, or whatever your little heart desires!
+* Provides an image renderer for custom implementation of things like image selection, favorites, captions, etc.
 * SSR app compatible
 
 ## Preview
@@ -27,13 +26,11 @@ description: A repsonsive image gallery component for React
 
 ## Installation
 
-To install:
-
 ```
 yarn add react-photo-gallery
 ```
 
-## Documentation and Examples
+## API Documentation
 
 [http://neptunian.github.io/react-photo-gallery/](http://neptunian.github.io/react-photo-gallery/)
 
@@ -42,11 +39,11 @@ yarn add react-photo-gallery
 * [Basic Row Layout](https://codesandbox.io/s/9yx911wl9y)
 * [Basic Column Layout](https://codesandbox.io/s/r09k1xj614)
 * [With Lightbox](https://codesandbox.io/s/5vn3lvz2n4)
-* [Custom Dynamic Columns](https://codesandbox.io/s/ll7ym48027)
-* [Selection using custom ImageComponent](https://codesandbox.io/s/o7o241q09)
+* [Dynamic Columns Using columns prop](https://codesandbox.io/s/ll7ym48027)
+* [Selection using custom renderImage](https://codesandbox.io/s/o7o241q09)
 * [Sortable with drag and drop](https://codesandbox.io/s/8y7n1r9y5j)
 
-To build some examples locally, run:
+To build some examples locally, git clone and run:
 
 ```
 yarn install
@@ -56,7 +53,7 @@ yarn start
 Then open [`localhost:8000`](http://localhost:8000) in a browser.
 
 
-## Use
+## Minimal Setup Example
 
 ```jsx
 
@@ -85,4 +82,4 @@ This layout uses an algorithm adapted from the Knuth and Plass line breaking alg
 Inspired by [this blog article](http://blog.vjeux.com/2014/image/google-plus-layout-find-best-breaks.html) and this [Google Photos blog article](https://medium.com/google-design/google-photos-45b714dfbed1) (under 2. Justified Gallery).
 
 ### Column Layout
-Goes through each column looking for the best place to insert the next photo, by finding the shortest column. Not recommended for panorama aspect ratios.
+Goes through each column looking for the best place to insert the next photo by finding the shortest column. Not recommended for panorama aspect ratios.

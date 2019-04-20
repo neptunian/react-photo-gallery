@@ -9,9 +9,9 @@
 
 * Responsive, accessible, composable, and customizable image gallery component 
 * Maintains the original aspect ratio of your photos
-* Creates a masonry or justified style layout
+* Creates a masonry or justified grid 
 * Supports row or column direction layout
-* Supports image renderer for custom implementation of things like image selection, favorites, captions, etc.
+* Provides an image renderer for custom implementation of things like image selection, favorites, captions, etc.
 * SSR app compatible
 
 ## Preview
@@ -23,13 +23,11 @@
 
 ## Installation
 
-To install:
-
 ```
 yarn add react-photo-gallery
 ```
 
-## Documentation and Examples
+## API Documentation
 
 [http://neptunian.github.io/react-photo-gallery/](http://neptunian.github.io/react-photo-gallery/)
 
@@ -42,7 +40,7 @@ yarn add react-photo-gallery
 * [Selection using custom renderImage](https://codesandbox.io/s/o7o241q09)
 * [Sortable with drag and drop](https://codesandbox.io/s/8y7n1r9y5j)
 
-To build some examples locally, run:
+To build some examples locally, git clone and run:
 
 ```
 yarn install
@@ -52,7 +50,7 @@ yarn start
 Then open [`localhost:8000`](http://localhost:8000) in a browser.
 
 
-## Getting Started
+## Minimal Setup Example
 
 ```jsx
 
