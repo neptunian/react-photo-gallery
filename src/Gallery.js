@@ -93,16 +93,17 @@ class Gallery extends React.Component {
           {thumbs.map((photo, index) => {
             const { left, top, key, containerHeight, ...rest } = photo;
             return (
-                            <PhotoComponent
-                              key={photo.key || photo.src}
-                              margin={margin}
-                              index={index}
-                              photo={rest}
-                              direction={direction}
-                              left={left}
-                              top={top}
-                              onClick={onClick ? this.handleClick : null}
-                            />)
+              <PhotoComponent
+                key={photo.key || photo.src}
+                margin={margin}
+                index={index}
+                photo={rest}
+                direction={direction}
+                left={left}
+                top={top}
+                onClick={onClick ? this.handleClick : null}
+              />
+            );
           })}
         </div>
       </div>
