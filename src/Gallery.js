@@ -49,24 +49,24 @@ class Gallery extends React.Component {
     let galleryStyle, thumbs;
 
     if (direction === 'row') {
-      let { maxNodesSearch, targetRowHeight } = this.props;
-      // allow user to calculate maxNodesSearch from containerWidth
-      if (typeof maxNodesSearch === 'function') {
-        maxNodesSearch = maxNodesSearch(containerWidth);
+      let { limitNodeSearch, targetRowHeight } = this.props;
+      // allow user to calculate limitNodeSearch from containerWidth
+      if (typeof limitNodeSearch === 'function') {
+        limitNodeSearch = limitNodeSearch(containerWidth);
       }
       if (typeof targetRowHeight === 'function') {
         targetRowHeight = targetRowHeight(containerWidth);
       }
       // set how many neighboring nodes the graph will visit
-      if (maxNodesSearch === undefined) {
-        maxNodesSearch = 1;
+      if (limitNodeSearch === undefined) {
+        limitNodeSearch = 1;
         if (containerWidth >= 450) {
-          maxNodesSearch = findIdealNodeSearch({ containerWidth, targetRowHeight });
+          limitNodeSearch = findIdealNodeSearch({ containerWidth, targetRowHeight });
         }
       }
 
       galleryStyle = { display: 'flex', flexWrap: 'wrap', flexDirection: 'row' };
-      thumbs = computeRowLayout({ containerWidth: width, maxNodesSearch, targetRowHeight, margin, photos });
+      thumbs = computeRowLayout({ containerWidth: width, limitNodeSearch, targetRowHeight, margin, photos });
     }
     if (direction === 'column') {
       let { columns } = this.props;
@@ -110,7 +110,7 @@ Gallery.propTypes = {
   onClick: PropTypes.func,
   columns: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
   targetRowHeight: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
-  maxNodesSearch: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
+  limitNodeSearch: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
   margin: PropTypes.number,
   renderImage: PropTypes.func,
 };
