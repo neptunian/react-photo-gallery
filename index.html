@@ -61,6 +61,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="api.html" />
+    
     
 
     </head>
@@ -102,7 +104,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" >
+        <li class="chapter " data-level="1.2" data-path="api.html">
+            
+                <a href="api.html">
+            
+                    
+                    API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
             
                 <span>
             
@@ -116,7 +131,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="examples/basic-rows.html">
+        <li class="chapter " data-level="1.3.1" data-path="examples/basic-rows.html">
             
                 <a href="examples/basic-rows.html">
             
@@ -129,7 +144,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="examples/basic-columns.html">
+        <li class="chapter " data-level="1.3.2" data-path="examples/basic-columns.html">
             
                 <a href="examples/basic-columns.html">
             
@@ -142,7 +157,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="examples/srcset-and-sizes.html">
+        <li class="chapter " data-level="1.3.3" data-path="examples/srcset-and-sizes.html">
             
                 <a href="examples/srcset-and-sizes.html">
             
@@ -155,7 +170,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="examples/custom-dynamic-columns.html">
+        <li class="chapter " data-level="1.3.4" data-path="examples/custom-dynamic-columns.html">
             
                 <a href="examples/custom-dynamic-columns.html">
             
@@ -168,7 +183,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="examples/lightbox.html">
+        <li class="chapter " data-level="1.3.5" data-path="examples/lightbox.html">
             
                 <a href="examples/lightbox.html">
             
@@ -181,7 +196,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.6" data-path="examples/selection.html">
+        <li class="chapter " data-level="1.3.6" data-path="examples/selection.html">
             
                 <a href="examples/selection.html">
             
@@ -194,7 +209,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.7" data-path="examples/sortable.html">
+        <li class="chapter " data-level="1.3.7" data-path="examples/sortable.html">
             
                 <a href="examples/sortable.html">
             
@@ -207,7 +222,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.8" data-path="examples/local-app.html">
+        <li class="chapter " data-level="1.3.8" data-path="examples/local-app.html">
             
                 <a href="examples/local-app.html">
             
@@ -225,7 +240,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="srcset-and-sizes.html">
+        <li class="chapter " data-level="1.4" data-path="srcset-and-sizes.html">
             
                 <a href="srcset-and-sizes.html">
             
@@ -292,208 +307,66 @@
 <ul>
 <li>Responsive, accessible, composable, and customizable image gallery component </li>
 <li>Maintains the original aspect ratio of your photos</li>
-<li>Creates a &quot;masonry&quot; style layout</li>
-<li>Uses actual image elements, optionally pass in srcSet and sizes attributes</li>
+<li>Creates a masonry or justified grid </li>
 <li>Supports row or column direction layout</li>
-<li>Supports passing in a custom image component for implementation of things like image selection, favorites, captions, or whatever your little heart desires!</li>
+<li>Provides an image renderer for custom implementation of things like image selection, favorites, captions, etc.</li>
 <li>SSR app compatible</li>
 </ul>
 <h2 id="preview">Preview</h2>
-<p><img src="https://c1.staticflickr.com/5/4512/36861861853_4fcabda911_b.jpg"></p>
+<table>
+<thead>
+<tr>
+<th>Row</th>
+<th style="text-align:center">Column</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://live.staticflickr.com/65535/40680327133_6f6218bfa3.jpg"></td>
+<td style="text-align:center"><img src="https://live.staticflickr.com/65535/47594180212_0dc2694eda.jpg"></td>
+</tr>
+</tbody>
+</table>
 <h2 id="installation">Installation</h2>
-<p>To install:</p>
 <pre><code>yarn add react-photo-gallery
-</code></pre><h2 id="documentation-and-examples">Documentation and Examples</h2>
+</code></pre><h2 id="api-documentation">API Documentation</h2>
 <p><a href="http://neptunian.github.io/react-photo-gallery/" target="_blank">http://neptunian.github.io/react-photo-gallery/</a></p>
-<h2 id="direct-codesandbox-links-with-examples-and-use-cases">Direct CodeSandbox Links with Examples and Use Cases</h2>
+<h2 id="codesandbox-demos-with-example-use-cases">CodeSandbox Demos with Example Use Cases</h2>
 <ul>
 <li><a href="https://codesandbox.io/s/9yx911wl9y" target="_blank">Basic Row Layout</a></li>
 <li><a href="https://codesandbox.io/s/r09k1xj614" target="_blank">Basic Column Layout</a></li>
 <li><a href="https://codesandbox.io/s/5vn3lvz2n4" target="_blank">With Lightbox</a></li>
-<li><a href="https://codesandbox.io/s/ll7ym48027" target="_blank">Custom Dynamic Columns</a></li>
-<li><a href="https://codesandbox.io/s/o7o241q09" target="_blank">Selection using custom ImageComponent</a></li>
+<li><a href="https://codesandbox.io/s/ll7ym48027" target="_blank">Dynamic Columns Using columns prop</a></li>
+<li><a href="https://codesandbox.io/s/o7o241q09" target="_blank">Selection using custom renderImage</a></li>
 <li><a href="https://codesandbox.io/s/8y7n1r9y5j" target="_blank">Sortable with drag and drop</a></li>
 </ul>
-<p>To build some examples locally, run:</p>
+<p>To build some examples locally, git clone and run:</p>
 <pre><code>yarn install
 yarn start
 </code></pre><p>Then open <a href="http://localhost:8000" target="_blank"><code>localhost:8000</code></a> in a browser.</p>
-<h2 id="use">Use</h2>
+<h2 id="minimal-setup-example">Minimal Setup Example</h2>
 <pre><code class="lang-jsx">
-<span class="hljs-keyword">import</span> Gallery <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react-photo-gallery&apos;</span>;
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
-    render() {
-    <span class="hljs-keyword">return</span> (
-        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Gallery</span> <span class="hljs-attr">photos</span>=<span class="hljs-string">{PHOTO_SET}</span> /&gt;</span>
-    );
-    }
-}
-const PHOTO_SET = [
+<span class="hljs-keyword">const</span> photos = [
   {
-    src: &apos;http://example.com/example/img1.jpg&apos;,
-    width: 4,
-    height: 3
+    src: <span class="hljs-string">&apos;http://example.com/example/img1.jpg&apos;</span>,
+    width: <span class="hljs-number">4</span>,
+    height: <span class="hljs-number">3</span>
   },
   {
-    src: &apos;http://example.com/example/img2.jpg&apos;,
-    width: 1,
-    height: 1
+    src: <span class="hljs-string">&apos;http://example.com/example/img2.jpg&apos;</span>,
+    width: <span class="hljs-number">1</span>,
+    height: <span class="hljs-number">1</span>
   }
 ];
+
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Gallery</span> <span class="hljs-attr">photos</span>=<span class="hljs-string">{photos}</span> /&gt;</span>;
 </span></code></pre>
-<h3 id="gallery-properties">Gallery properties</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Property</th>
-<th style="text-align:left">Type</th>
-<th style="text-align:left">Default</th>
-<th style="text-align:left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">photos</td>
-<td style="text-align:left">array</td>
-<td style="text-align:left">undefined</td>
-<td style="text-align:left">required; array of objects</td>
-</tr>
-<tr>
-<td style="text-align:left">columns</td>
-<td style="text-align:left">number or function</td>
-<td style="text-align:left">undefined</td>
-<td style="text-align:left">optional; number of photos per row or a function which receives the container width and should return the desired number of photos per row; defaults to Gallery&apos;s breakpoint choosing</td>
-</tr>
-<tr>
-<td style="text-align:left">onClick</td>
-<td style="text-align:left">function</td>
-<td style="text-align:left">undefined</td>
-<td style="text-align:left">optional; do something when the user clicks a photo; receives arguments event and an object containing the index, photo obj originally sent and the next and previous photos in the gallery if they exist</td>
-</tr>
-<tr>
-<td style="text-align:left">margin</td>
-<td style="text-align:left">number</td>
-<td style="text-align:left">2</td>
-<td style="text-align:left">optional; number of margin pixels around each entire image</td>
-</tr>
-<tr>
-<td style="text-align:left">direction</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">&apos;row&apos;</td>
-<td style="text-align:left">optional; <code>column</code> or <code>row</code> based layout</td>
-</tr>
-<tr>
-<td style="text-align:left">ImageComponent</td>
-<td style="text-align:left">function</td>
-<td style="text-align:left">default component</td>
-<td style="text-align:left">optional; use a different image component than the default provided to display your photo</td>
-</tr>
-</tbody>
-</table>
-<h3 id="photos-array-item-properties-passed-into-gallerys-photos-property">Photos array item properties (passed into Gallery&apos;s photos property)</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Property</th>
-<th style="text-align:left">Type</th>
-<th style="text-align:left">Default</th>
-<th style="text-align:left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">src</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">undefined</td>
-<td style="text-align:left">required; the img src attribute value of the image</td>
-</tr>
-<tr>
-<td style="text-align:left">srcSet</td>
-<td style="text-align:left">array or string</td>
-<td style="text-align:left">undefined</td>
-<td style="text-align:left">optional; srcSet attribute of the image</td>
-</tr>
-<tr>
-<td style="text-align:left">sizes</td>
-<td style="text-align:left">array or string</td>
-<td style="text-align:left">undefined</td>
-<td style="text-align:left">optional; sizes attribute of the image</td>
-</tr>
-<tr>
-<td style="text-align:left">width</td>
-<td style="text-align:left">number</td>
-<td style="text-align:left">undefined</td>
-<td style="text-align:left">required; original width of the gallery image (only used for calculating aspect ratio)</td>
-</tr>
-<tr>
-<td style="text-align:left">height</td>
-<td style="text-align:left">number</td>
-<td style="text-align:left">undefined</td>
-<td style="text-align:left">required; original height of the gallery image (only used for calculating aspect ratio)</td>
-</tr>
-<tr>
-<td style="text-align:left">alt</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">undefined</td>
-<td style="text-align:left">optional; alt text of the gallery image</td>
-</tr>
-<tr>
-<td style="text-align:left">key</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">src</td>
-<td style="text-align:left">optional; key to be used on component</td>
-</tr>
-</tbody>
-</table>
-<h3 id="imagecomponent-props">ImageComponent props</h3>
-<p>If you&apos;re passing a function component to ImageComponent you will receive back these props:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Property</th>
-<th style="text-align:left">Type</th>
-<th style="text-align:left">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">margin</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">optional; margin prop optionally passed into Gallery by user</td>
-</tr>
-<tr>
-<td style="text-align:left">index</td>
-<td style="text-align:left">number</td>
-<td style="text-align:left">required; the index of the photo within the Gallery</td>
-</tr>
-<tr>
-<td style="text-align:left">photo</td>
-<td style="text-align:left">object</td>
-<td style="text-align:left">required; the individual object passed into Gallery&apos;s <code>photos</code> array prop, with all the same props except recalculated height and width</td>
-</tr>
-<tr>
-<td style="text-align:left">direction</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">optional; direction passed into Gallery</td>
-</tr>
-<tr>
-<td style="text-align:left">top</td>
-<td style="text-align:left">number</td>
-<td style="text-align:left">required if direction is &apos;column&apos;; top position of this image, only passed if direction prop was &apos;column&apos;</td>
-</tr>
-<tr>
-<td style="text-align:left">left</td>
-<td style="text-align:left">number</td>
-<td style="text-align:left">required if direction is &apos;column&apos;; left position of this image, only passed if direction prop was &apos;column&apos;</td>
-</tr>
-<tr>
-<td style="text-align:left">onClick</td>
-<td style="text-align:left">function</td>
-<td style="text-align:left">optional; the onClick function optionally passsed into Gallery by user</td>
-</tr>
-</tbody>
-</table>
+<h2 id="how-it-works">How It Works</h2>
+<h3 id="row-layout">Row Layout</h3>
+<p>This layout uses an algorithm adapted from the Knuth and Plass line breaking algorithm.  It uses a graph to calculate the single best layout where each photo to break on is represented by a node and each edge is represented by a row. The cost of the edge is determined by the user provided <code>targetRowHeight</code> vs the row height calculated if it were to break on this node/photo. What you end up with is a layout with rows that are similar in height and photos that are not being stretched or shrunken abnormally as is what happens in a naive implementation. This solves the issue of panoramas shrinking rows or having stragglers or stretched images at the last row, instead creating a justified grid.  To make sure it&apos;s speedy the graph is being built as the shortest path is being calculated so the entire adjacency list is not calculated ahead of time. You can control how many neighboring nodes that Dijkistra&apos;s algorithm will search when it&apos;s visiting a node by adjusting the <code>limitNodeSearch</code> property, but it&apos;s recommended you use the default algorithm. See documentation for recommendations.</p>
+<p>Inspired by <a href="http://blog.vjeux.com/2014/image/google-plus-layout-find-best-breaks.html" target="_blank">this blog article</a> and this <a href="https://medium.com/google-design/google-photos-45b714dfbed1" target="_blank">Google Photos blog article</a> (under 2. Justified Gallery).</p>
+<h3 id="column-layout">Column Layout</h3>
+<p>Goes through each column looking for the best place to insert the next photo by finding the shortest column. Not recommended for panorama aspect ratios.</p>
 
                                 
                                 </section>
@@ -527,7 +400,7 @@ const PHOTO_SET = [
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"A repsonsive image gallery component for React","title":"Read Me","level":"1.1","depth":1,"next":{"title":"Examples","level":"1.2","depth":1,"ref":"","articles":[{"title":"Basic (Rows)","level":"1.2.1","depth":2,"path":"examples/basic-rows.md","ref":"examples/basic-rows.md","articles":[]},{"title":"Basic (Columns)","level":"1.2.2","depth":2,"path":"examples/basic-columns.md","ref":"examples/basic-columns.md","articles":[]},{"title":"srcSet and sizes","level":"1.2.3","depth":2,"path":"examples/srcset-and-sizes.md","ref":"examples/srcset-and-sizes.md","articles":[]},{"title":"Custom Dynamic Columns","level":"1.2.4","depth":2,"path":"examples/custom-dynamic-columns.md","ref":"examples/custom-dynamic-columns.md","articles":[]},{"title":"Lightbox","level":"1.2.5","depth":2,"path":"examples/lightbox.md","ref":"examples/lightbox.md","articles":[]},{"title":"Selection with custom ImageComponent","level":"1.2.6","depth":2,"path":"examples/selection.md","ref":"examples/selection.md","articles":[]},{"title":"Sortable using drag and drop","level":"1.2.7","depth":2,"path":"examples/sortable.md","ref":"examples/sortable.md","articles":[]},{"title":"Local app","level":"1.2.8","depth":2,"path":"examples/local-app.md","ref":"examples/local-app.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-api"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true}],"split":true,"theme":"light"},"codepen":{"height":1000,"theme":"light","defaultTab":"js"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"React Image Gallery","gitbook":">=3.2.2"},"file":{"path":"README.md","mtime":"2018-12-31T17:19:30.647Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-31T23:30:23.289Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"A repsonsive image gallery component for React","title":"Read Me","level":"1.1","depth":1,"next":{"title":"API","level":"1.2","depth":1,"path":"api.md","ref":"api.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true}],"split":true,"theme":"light"},"codepen":{"height":1000,"theme":"light","defaultTab":"js"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"React Image Gallery","gitbook":">=3.2.2"},"file":{"path":"README.md","mtime":"2019-04-20T15:43:52.446Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-20T15:48:34.100Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
