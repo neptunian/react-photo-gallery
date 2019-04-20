@@ -27,7 +27,13 @@ description: A repsonsive image gallery component for React
 
 ## How It Works
 
-This gallery uses an algorithm adapted from the Knuth and Plass line breaking algorithm.  It uses a graph to calculate the best single layout where each possible photo to break on is a node and each row is an edge with a weight of the cost it would be to break at that photo and the shortest path is the final layout. Inspired by [this blog article](http://blog.vjeux.com/2014/image/google-plus-layout-find-best-breaks.html) and this [Google Photos blog article](https://medium.com/google-design/google-photos-45b714dfbed1) (under 2. Justified Gallery).
+### Row Layout
+This layout uses an algorithm adapted from the Knuth and Plass line breaking algorithm.  It uses a graph to calculate the best single layout where each possible photo to break on is a node and each row is an edge with a weight of the cost it would be to break at that photo and the shortest path is the final layout. The cost of each edge is determined by a demerit, which is the user provided `targetRowHeight` vs the row height if it were to break on this particular photo.  The further the number is from the `targetRowHeight` the higher the cost. What you end up with is a layout with rows that are similar in height and photos that are not being stretched or shrunken abnormally as is what happens in a naive implementation. This solves the issue of panoramas shrinking rows or having stragglers at the last row.  To make sure it's speedy the graph is being built as the shortest path is being calculated so the entire adjacency list is not calculated ahead of time. You can control how many nodes that Dijkistra will search when it's visiting a node by adjusting the `maxNodesSearch` property. The higher the `maxNodeSearch` the more nodes it will search for the best break but longer it will take.  See documentation for recommendations.
+
+Inspired by [this blog article](http://blog.vjeux.com/2014/image/google-plus-layout-find-best-breaks.html) and this [Google Photos blog article](https://medium.com/google-design/google-photos-45b714dfbed1) (under 2. Justified Gallery).
+
+### Column Layout
+Goes through each column looking for the best place to insert the next photo. Not recommended for panorama aspect ratios.
 
 ## Installation
 
