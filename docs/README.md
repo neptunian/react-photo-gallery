@@ -19,11 +19,15 @@ description: A repsonsive image gallery component for React
 * SSR app compatible
 
 ## Preview
-<img src="https://c1.staticflickr.com/5/4914/46923523161_5e729d8313_h.jpg" />
+
+| Row       | Column           |
+| ------------- |:-------------:|
+| <img src="https://live.staticflickr.com/65535/40680327133_6f6218bfa3.jpg" /> | <img src="https://live.staticflickr.com/65535/47594180212_0dc2694eda.jpg"> |
+
 
 ## How It Works
 
-This gallery utilizes a graph to calculate the best single layout where each possible photo to break on is a node and each row is an edge with a weight of the cost it would be to break at that photo and the shortest path is the final layout.  Inspired by [this blog article](http://blog.vjeux.com/2014/image/google-plus-layout-find-best-breaks.html) and this [Google Photos blog article](https://medium.com/google-design/google-photos-45b714dfbed).
+This gallery utilizes a graph to calculate the best single layout where each possible photo to break on is a node and each row is an edge with a weight of the cost it would be to break at that photo and the shortest path is the final layout.  Inspired by [this blog article](http://blog.vjeux.com/2014/image/google-plus-layout-find-best-breaks.html) and this [Google Photos blog article](https://medium.com/google-design/google-photos-45b714dfbed1) (under 2. Justified Gallery).
 
 ## Installation
 
