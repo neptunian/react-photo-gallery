@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ResizeObserver from 'resize-observer-polyfill';
 import Photo, { photoPropType } from './Photo';
-import { computeSizes, computeSizesColumns } from './utils';
+import { computeColumnLayout } from './layouts/columns';
+import { computeRowLayout } from './layouts/justified';
+import { findIdealNodeSearch } from './utils/findIdealNodeSearch';
 
 class Gallery extends React.Component {
   state = {
@@ -38,55 +40,62 @@ class Gallery extends React.Component {
   };
 
   render() {
-    const containerWidth = this.state.containerWidth;
+    const { containerWidth } = this.state;
     // no containerWidth until after first render with refs, skip calculations and render nothing
     if (!containerWidth) return <div ref={c => (this._gallery = c)}>&nbsp;</div>;
-    const { ImageComponent = Photo } = this.props;
     // subtract 1 pixel because the browser may round up a pixel
-    const { margin, onClick, direction } = this.props;
-    let { columns } = this.props;
-
-    // allow parent to calculate columns from containerWidth
-    if (typeof columns === 'function') {
-      columns = columns(containerWidth);
-    }
-
-    // set default breakpoints if user doesn't specify columns prop
-    if (columns === undefined) {
-      columns = 1;
-      if (containerWidth >= 500) columns = 2;
-      if (containerWidth >= 900) columns = 3;
-      if (containerWidth >= 1500) columns = 4;
-    }
-    const photos = this.props.photos;
+    const { margin, onClick, direction, photos } = this.props;
     const width = containerWidth - 1;
     let galleryStyle, thumbs;
 
     if (direction === 'row') {
+      let { limitNodeSearch, targetRowHeight } = this.props;
+      // allow user to calculate limitNodeSearch from containerWidth
+      if (typeof limitNodeSearch === 'function') {
+        limitNodeSearch = limitNodeSearch(containerWidth);
+      }
+      if (typeof targetRowHeight === 'function') {
+        targetRowHeight = targetRowHeight(containerWidth);
+      }
+      // set how many neighboring nodes the graph will visit
+      if (limitNodeSearch === undefined) {
+        limitNodeSearch = 1;
+        if (containerWidth >= 450) {
+          limitNodeSearch = findIdealNodeSearch({ containerWidth, targetRowHeight });
+        }
+      }
+
       galleryStyle = { display: 'flex', flexWrap: 'wrap', flexDirection: 'row' };
-      thumbs = computeSizes({ width, columns, margin, photos });
+      thumbs = computeRowLayout({ containerWidth: width, limitNodeSearch, targetRowHeight, margin, photos });
     }
     if (direction === 'column') {
+      let { columns } = this.props;
+      // allow user to calculate columns from containerWidth
+      if (typeof columns === 'function') {
+        columns = columns(containerWidth);
+      }
+      // set default breakpoints if user doesn't specify columns prop
+      if (columns === undefined) {
+        columns = 1;
+        if (containerWidth >= 500) columns = 2;
+        if (containerWidth >= 900) columns = 3;
+        if (containerWidth >= 1500) columns = 4;
+      }
       galleryStyle = { position: 'relative' };
-      thumbs = computeSizesColumns({ width, columns, margin, photos });
+      thumbs = computeColumnLayout({ containerWidth: width, columns, margin, photos });
       galleryStyle.height = thumbs[thumbs.length - 1].containerHeight;
     }
+
+    const { renderImage = Photo } = this.props;
     return (
       <div className="react-photo-gallery--gallery">
         <div ref={c => (this._gallery = c)} style={galleryStyle}>
           {thumbs.map((photo, index) => {
-            const { left, top, containerHeight, ...rest } = photo;
+            const { left, top, key, containerHeight, ...rest } = photo;
             return (
-              <ImageComponent
-                key={photo.key || photo.src}
-                margin={margin}
-                index={index}
-                photo={rest}
-                direction={direction}
-                left={left}
-                top={top}
-                onClick={onClick ? this.handleClick : null}
-              />
+              <div key={photo.key || photo.src}>
+                {renderImage({ index, onClick, photo: rest, margin, direction, top, left })}
+              </div>
             );
           })}
         </div>
@@ -100,13 +109,16 @@ Gallery.propTypes = {
   direction: PropTypes.string,
   onClick: PropTypes.func,
   columns: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
+  targetRowHeight: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
+  limitNodeSearch: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
   margin: PropTypes.number,
-  ImageComponent: PropTypes.func,
+  renderImage: PropTypes.func,
 };
 
 Gallery.defaultProps = {
   margin: 2,
   direction: 'row',
+  targetRowHeight: 300,
 };
-
+export { Photo };
 export default Gallery;

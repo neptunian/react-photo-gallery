@@ -52,7 +52,7 @@ describe('Gallery', () => {
   it('renders correctly with a column function', () => {
     const columns = jest.fn(_ => 3);
     wrapper = mount(
-      <Gallery photos={photos} onClick={handleClick} columns={columns}/>
+      <Gallery photos={photos} onClick={handleClick} columns={columns} direction="column" />
     );
     wrapper.setState({containerWidth: 1139})
     expect(columns).toBeCalledWith(1139);
