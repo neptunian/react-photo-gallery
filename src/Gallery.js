@@ -86,17 +86,23 @@ class Gallery extends React.Component {
       galleryStyle.height = thumbs[thumbs.length - 1].containerHeight;
     }
 
-    const { renderImage = Photo } = this.props;
+    const { renderImage: PhotoComponent = Photo } = this.props;
     return (
       <div className="react-photo-gallery--gallery">
         <div ref={c => (this._gallery = c)} style={galleryStyle}>
           {thumbs.map((photo, index) => {
             const { left, top, key, containerHeight, ...rest } = photo;
             return (
-              <div key={photo.key || photo.src}>
-                {renderImage({ index, onClick, photo: rest, margin, direction, top, left })}
-              </div>
-            );
+                            <PhotoComponent
+                              key={photo.key || photo.src}
+                              margin={margin}
+                              index={index}
+                              photo={rest}
+                              direction={direction}
+                              left={left}
+                              top={top}
+                              onClick={onClick ? this.handleClick : null}
+                            />)
           })}
         </div>
       </div>
