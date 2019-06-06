@@ -15,7 +15,7 @@ const cont = {
   position: 'relative'
 }
 
-const SelectedImage = ({ index, onClick, photo, margin, direction, top, left}) => {
+const renderSelectImage = ({ index, onClick, photo, margin, direction, top, left}) => {
   //calculate x,y scale
   const sx = (100 - ((30 / photo.width) * 100)) / 100;
   const sy = (100 - ((30 / photo.height) * 100)) / 100;
@@ -37,4 +37,4 @@ const SelectedImage = ({ index, onClick, photo, margin, direction, top, left}) =
   )
 };
 
-export default SelectedImage;
+export default renderSelectImage;

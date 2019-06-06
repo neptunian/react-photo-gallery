@@ -1,11 +1,12 @@
 {
   "name": "react-photo-gallery",
-  "version": "6.3.2",
+  "version": "7.0.2",
   "description": "Responsive Justified React Image Gallery Component",
   "main": "dist/react-photo-gallery.umd.js",
   "module": "dist/react-photo-gallery.esm.js",
   "files": [
-    "/dist", "index.d.ts"
+    "/dist",
+    "index.d.ts"
   ],
   "author": "Sandra Gonzales",
   "license": "MIT",
@@ -28,9 +29,9 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^9.0.0",
-    "babel-jest": "^23.6.0",
+    "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.0",
-    "coveralls": "^3.0.0",
+    "coveralls": "^3.0.3",
     "cross-env": "^5.0.5",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.1.0",
@@ -39,14 +40,14 @@
     "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-prettier": "^2.2.0",
     "eslint-plugin-react": "^7.3.0",
-    "jest": "24.0.0-alpha.9",
-    "jest-cli": "24.0.0-alpha.9",
+    "jest": "^24.7.1",
+    "jest-cli": "^24.7.1",
     "jsonp": "^0.2.1",
     "nps": "^5.7.1",
     "nps-utils": "^1.4.0",
     "prettier": "^1.6.1",
-    "react": "16.8.3",
-    "react-dom": "16.8.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-images": "^0.5.18",
     "react-test-renderer": "^16.1.1",
     "rollup": "^1.0.0",
@@ -57,8 +58,8 @@
     "webpack-dev-server": "^3.1.14"
   },
   "peerDependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "scripts": {
     "build": "nps build",

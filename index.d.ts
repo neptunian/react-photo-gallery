@@ -34,7 +34,7 @@ export type PhotoProps<CustomPhotoProps extends object = {}> = {
   key?: string
 } & CustomPhotoProps
 
-export type ImageComponentClickHandler = (
+export type renderImageClickHandler = (
   event: React.MouseEvent,
   photo: object & {
     index: number
@@ -42,9 +42,9 @@ export type ImageComponentClickHandler = (
 ) => void
 
 /**
- * If you're passing a function component to ImageComponent you will receive back these props:
+ * If you're passing a function component to renderImage you will receive back these props:
  */
-export interface ImageComponentProps<CustomPhotoProps extends object = {}> {
+export interface RenderImageProps<CustomPhotoProps extends object = {}> {
   /**
    * margin prop optionally passed into Gallery by user
    */
@@ -59,7 +59,7 @@ export interface ImageComponentProps<CustomPhotoProps extends object = {}> {
    */
   photo: PhotoProps<CustomPhotoProps>
 
-  onClick: ImageComponentClickHandler | null
+  onClick: renderImageClickHandler | null
   direction: 'row' | 'column'
   top?: number
   left?: number
@@ -78,10 +78,24 @@ export type PhotoClickHandler<CustomPhotoProps extends object = {}> = (
 export interface GalleryProps<CustomPhotoProps extends object = {}> {
   photos: Array<PhotoProps<CustomPhotoProps>>
   /**
-   * number of photos per row or a function which receives the container width
-   * and should return the desired number of photos per row; defaults to Gallery's breakpoint choosing
+   * applies to column layouts only (direction=column)
+   * number of columns or a function which receives the container width
+   * and should return the desired number of columns; defaults to Gallery's breakpoint choosing
    */
   columns?: number | ((containerWidth: number) => number)
+  /**
+   * applies to row layouts only (direction=row)
+   * the ideal height of each row or a function which receives the container width
+   * and should return the desired ideal height for each row; defaults to 300px
+   */
+  targetRowHeight?: number | ((containerWidth: number) => number)
+  /**
+   * applies to row layouts only (direction=row)
+   * the maximum amount of neighboring nodes to measure per current node visiting
+   * don't change unless you understand the algorithm, see docs
+   * defaults to a couple breakpoints
+   */
+  limitNodeSearch?: number | ((containerWidth: number) => number)
   /**
    * do something when the user clicks a photo;
    * receives arguments event and an object containing the index,
@@ -98,7 +112,7 @@ export interface GalleryProps<CustomPhotoProps extends object = {}> {
    */
   direction?: string
 
-  ImageComponent?: React.ComponentType<ImageComponentProps<CustomPhotoProps>>
+  renderImage?: React.ComponentType<RenderImageProps<CustomPhotoProps>>
 }
 
 export type GalleryI<

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const imgWithClick = { cursor: 'pointer' };
 
 const Photo = ({ index, onClick, photo, margin, direction, top, left }) => {
-  const imgStyle = { margin: margin };
+  const imgStyle = { margin: margin, display: 'block' };
   if (direction === 'column') {
     imgStyle.position = 'absolute';
     imgStyle.left = left;
@@ -25,6 +25,7 @@ const Photo = ({ index, onClick, photo, margin, direction, top, left }) => {
 };
 
 export const photoPropType = PropTypes.shape({
+  key: PropTypes.string,
   src: PropTypes.string.isRequired,
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
