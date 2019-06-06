@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Gallery from 'react-photo-gallery';
-import Lightbox from 'react-images';
+import React from "react";
+import ReactDOM from "react-dom";
+import Gallery from "react-photo-gallery";
+import Carousel, { Modal, ModalGateway } from "react-images";
 
 class ExampleWithLightbox extends React.Component {
   constructor() {
@@ -15,41 +15,44 @@ class ExampleWithLightbox extends React.Component {
   openLightbox(event, obj) {
     this.setState({
       currentImage: obj.index,
-      lightboxIsOpen: true,
+      lightboxIsOpen: true
     });
   }
   closeLightbox() {
     this.setState({
       currentImage: 0,
-      lightboxIsOpen: false,
+      lightboxIsOpen: false
     });
   }
   gotoPrevious() {
     this.setState({
-      currentImage: this.state.currentImage - 1,
+      currentImage: this.state.currentImage - 1
     });
   }
   gotoNext() {
     this.setState({
-      currentImage: this.state.currentImage + 1,
+      currentImage: this.state.currentImage + 1
     });
   }
   render() {
     return (
       <div>
         <h2>Using with a Lightbox component</h2>
-        <Gallery photos={this.props.photos} onClick={this.openLightbox}/>
-        <Lightbox
-          theme={{ container: { background: 'rgba(0, 0, 0, 0.85)' } }}
-          images={this.props.photos.map(x => ({ ...x, srcset: x.srcSet, caption: x.title }))}
-          backdropClosesModal={true}
-          onClose={this.closeLightbox}
-          onClickPrev={this.gotoPrevious}
-          onClickNext={this.gotoNext}
-          currentImage={this.state.currentImage}
-          isOpen={this.state.lightboxIsOpen}
-          width={1600}
-          />
+        <Gallery photos={this.props.photos} onClick={this.openLightbox} />
+        <ModalGateway>
+          {this.state.lightboxIsOpen ? (
+            <Modal onClose={this.closeLightbox}>
+              <Carousel
+                currentIndex={this.state.currentImage}
+                views={this.props.photos.map(x => ({
+                  ...x,
+                  srcset: x.srcSet,
+                  caption: x.title
+                }))}
+              />
+            </Modal>
+          ) : null}
+        </ModalGateway>
       </div>
     );
   }
