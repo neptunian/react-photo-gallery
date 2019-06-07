@@ -36,7 +36,7 @@ class App extends React.Component {
       let photos = data.photoset.photo.map(item => {
         let aspectRatio = parseFloat(item.width_o / item.height_o);
         return {
-          src: aspectRatio >= 3 ? item.url_c : item.url_m,
+          src: item.url_l,
           width: parseInt(item.width_o),
           height: parseInt(item.height_o),
           title: item.title,
@@ -63,11 +63,11 @@ class App extends React.Component {
       const width = this.state.width;
       return (
         <div className="App">
-          <ExampleBasic title={'Basic Row Layout'} photos={this.state.photos.slice(0,40)} />
+          <ExampleBasic title={'Basic Row Layout'} photos={this.state.photos.slice(0,20)} />
           <ExampleBasic title={'Basic Column Layout'} layout="column" photos={this.state.photos.slice(40, 60)} />
           <ExampleWithLightbox photos={this.state.photos.slice(60, 75)} />
           <ExampleCustomComponentSelection photos={this.state.photos.slice(75, 90)} />
-          <ExampleDynamicColumns title={'Custom Dynamic Columns'} photos={this.state.photos.slice(90,120)} />
+          <ExampleDynamicColumns title={'Custom Dynamic Columns'} photos={this.state.photos.slice(90,110)} />
           <ExampleDynamicLoading photos={this.state.photos} />
         </div>
       );
