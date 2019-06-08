@@ -20,7 +20,7 @@ describe('Gallery', () => {
     wrapper = mount(
       <Gallery photos={photos} onClick={handleClick}/>
     );
-    wrapper.setState({containerWidth: 1139})
+    wrapper.setState({containerWidth: 1280})
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -28,7 +28,7 @@ describe('Gallery', () => {
     wrapper = mount(
       <Gallery photos={photos} columns={10} onClick={handleClick}/>
     );
-    wrapper.setState({containerWidth: 1139})
+    wrapper.setState({containerWidth: 1280})
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -36,7 +36,7 @@ describe('Gallery', () => {
     wrapper = mount(
       <Gallery photos={photos} onClick={handleClick} />
     );
-    wrapper.setState({containerWidth: 1139})
+    wrapper.setState({containerWidth: 1280})
     wrapper.find('img').first().simulate('click');
     expect(wrapper).toMatchSnapshot();
   });
@@ -45,7 +45,7 @@ describe('Gallery', () => {
     wrapper = mount(
       <Gallery photos={photos} onClick={handleClick} direction={'column'}/>
     );
-    wrapper.setState({containerWidth: 1139})
+    wrapper.setState({containerWidth: 1280})
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -54,8 +54,8 @@ describe('Gallery', () => {
     wrapper = mount(
       <Gallery photos={photos} onClick={handleClick} columns={columns} direction="column" />
     );
-    wrapper.setState({containerWidth: 1139})
-    expect(columns).toBeCalledWith(1139);
+    wrapper.setState({containerWidth: 1280})
+    expect(columns).toBeCalledWith(1280);
     expect(wrapper).toMatchSnapshot();
   });
 

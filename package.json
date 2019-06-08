@@ -31,7 +31,7 @@
     "babel-eslint": "^9.0.0",
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.0",
-    "coveralls": "^3.0.3",
+    "coveralls": "^3.0.4",
     "cross-env": "^5.0.5",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.1.0",
@@ -68,7 +68,7 @@
     "lint": "eslint -c ./.eslintrc.js ./src",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "test": "jest",
-    "coveralls": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "keywords": [
     "react",
