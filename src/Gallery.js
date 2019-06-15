@@ -55,7 +55,7 @@ function Gallery({ photos, onClick, direction, margin, limitNodeSearch, targetRo
         }
         // set how many neighboring nodes the graph will visit
         if (limitNodeSearch === undefined) {
-          limitNodeSearch = 1;
+          limitNodeSearch = 2;
           if (containerWidth >= 450) {
             limitNodeSearch = findIdealNodeSearch({
               containerWidth,
