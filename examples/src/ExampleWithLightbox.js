@@ -1,16 +1,17 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import Gallery from "react-photo-gallery";
-import Carousel, { Modal, ModalGateway } from "react-images";
+import React, { useState, useCallback } from 'react';
+import ReactDOM from 'react-dom';
+import Gallery from 'react-photo-gallery';
+import Carousel, { Modal, ModalGateway } from 'react-images';
 
 function ExampleWithLightbox({ photos }) {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
-  const openLightbox = (event, obj) => {
+  const openLightbox = useCallback((event, obj) => {
     setCurrentImage(obj.index);
     setViewerIsOpen(true);
-  };
+  }, []);
+
   const closeLightbox = () => {
     setCurrentImage(0);
     setViewerIsOpen(false);
@@ -28,7 +29,7 @@ function ExampleWithLightbox({ photos }) {
               views={photos.map(x => ({
                 ...x,
                 srcset: x.srcSet,
-                caption: x.title
+                caption: x.title,
               }))}
             />
           </Modal>
