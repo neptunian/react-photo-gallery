@@ -6,10 +6,17 @@ import { computeColumnLayout } from './layouts/columns';
 import { computeRowLayout } from './layouts/justified';
 import { findIdealNodeSearch } from './utils/findIdealNodeSearch';
 
-function Gallery({ photos, onClick, direction, margin, limitNodeSearch, targetRowHeight, columns, renderImage }) {
+const Gallery = React.memo(function Gallery({
+  photos,
+  onClick,
+  direction,
+  margin,
+  limitNodeSearch,
+  targetRowHeight,
+  columns,
+  renderImage,
+}) {
   const [containerWidth, setContainerWidth] = useState(0);
-  const [sizedPhotos, setSizedPhotos] = useState([]);
-
   const galleryEl = useRef(null);
 
   useLayoutEffect(() => {
@@ -41,83 +48,54 @@ function Gallery({ photos, onClick, direction, margin, limitNodeSearch, targetRo
     });
   };
 
-  // memoize layout calculations
-  useMemo(
-    () => {
-      if (!containerWidth) return;
-      if (direction === 'row') {
-        // allow user to calculate limitNodeSearch from containerWidth
-        if (typeof limitNodeSearch === 'function') {
-          limitNodeSearch = limitNodeSearch(containerWidth);
-        }
-        if (typeof targetRowHeight === 'function') {
-          targetRowHeight = targetRowHeight(containerWidth);
-        }
-        // set how many neighboring nodes the graph will visit
-        if (limitNodeSearch === undefined) {
-          limitNodeSearch = 2;
-          if (containerWidth >= 450) {
-            limitNodeSearch = findIdealNodeSearch({
-              containerWidth,
-              targetRowHeight,
-            });
-          }
-        }
-        setSizedPhotos(
-          computeRowLayout({
-            containerWidth: containerWidth - 1,
-            limitNodeSearch,
-            targetRowHeight,
-            margin,
-            photos,
-          })
-        );
-      }
-      if (direction === 'column') {
-        // allow user to calculate columns from containerWidth
-        if (typeof columns === 'function') {
-          columns = columns(containerWidth);
-        }
-        // set default breakpoints if user doesn't specify columns prop
-        if (columns === undefined) {
-          columns = 1;
-          if (containerWidth >= 500) columns = 2;
-          if (containerWidth >= 900) columns = 3;
-          if (containerWidth >= 1500) columns = 4;
-        }
-        setSizedPhotos(
-          computeColumnLayout({
-            containerWidth: containerWidth - 1,
-            columns,
-            margin,
-            photos,
-          })
-        );
-      }
-    },
-    [photos, direction, margin, limitNodeSearch, targetRowHeight, columns, renderImage, containerWidth]
-  );
+  // no containerWidth until after first render with refs, skip calculations and render nothing
+  if (!containerWidth) return <div ref={galleryEl}>&nbsp;</div>;
+  // subtract 1 pixel because the browser may round up a pixel
+  const width = containerWidth - 1;
+  let galleryStyle, thumbs;
 
-  // conditionally assign styles
-  let galleryStyle = {};
-  if (sizedPhotos.length) {
-    if (direction === 'row') {
-      galleryStyle = {
-        display: 'flex',
-        flexWrap: 'wrap',
-        flexDirection: 'row',
-      };
-    } else {
-      galleryStyle = { position: 'relative' };
-      galleryStyle.height = sizedPhotos[sizedPhotos.length - 1].containerHeight;
+  if (direction === 'row') {
+    // allow user to calculate limitNodeSearch from containerWidth
+    if (typeof limitNodeSearch === 'function') {
+      limitNodeSearch = limitNodeSearch(containerWidth);
     }
+    if (typeof targetRowHeight === 'function') {
+      targetRowHeight = targetRowHeight(containerWidth);
+    }
+    // set how many neighboring nodes the graph will visit
+    if (limitNodeSearch === undefined) {
+      limitNodeSearch = 2;
+      if (containerWidth >= 450) {
+        limitNodeSearch = findIdealNodeSearch({ containerWidth, targetRowHeight });
+      }
+    }
+
+    galleryStyle = { display: 'flex', flexWrap: 'wrap', flexDirection: 'row' };
+    thumbs = computeRowLayout({ containerWidth: width, limitNodeSearch, targetRowHeight, margin, photos });
   }
-  // get default or custom component
+  if (direction === 'column') {
+    // allow user to calculate columns from containerWidth
+    if (typeof columns === 'function') {
+      columns = columns(containerWidth);
+    }
+    // set default breakpoints if user doesn't specify columns prop
+    if (columns === undefined) {
+      columns = 1;
+      if (containerWidth >= 500) columns = 2;
+      if (containerWidth >= 900) columns = 3;
+      if (containerWidth >= 1500) columns = 4;
+    }
+    galleryStyle = { position: 'relative' };
+    thumbs = computeColumnLayout({ containerWidth: width, columns, margin, photos });
+    galleryStyle.height = thumbs[thumbs.length - 1].containerHeight;
+  }
+
   const PhotoComponent = renderImage || Photo;
+  console.log('render');
   return (
     <div className="react-photo-gallery--gallery">
       <div ref={galleryEl} style={galleryStyle}>
-        {sizedPhotos.map((photo, index) => {
+        {thumbs.map((photo, index) => {
           const { left, top, key, containerHeight, ...rest } = photo;
           return (
             <PhotoComponent
@@ -135,7 +113,7 @@ function Gallery({ photos, onClick, direction, margin, limitNodeSearch, targetRo
       </div>
     </div>
   );
-}
+});
 
 Gallery.propTypes = {
   photos: PropTypes.arrayOf(photoPropType).isRequired,
