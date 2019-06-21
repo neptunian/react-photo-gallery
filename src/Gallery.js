@@ -91,7 +91,6 @@ const Gallery = React.memo(function Gallery({
   }
 
   const PhotoComponent = renderImage || Photo;
-  console.log('render');
   return (
     <div className="react-photo-gallery--gallery">
       <div ref={galleryEl} style={galleryStyle}>
