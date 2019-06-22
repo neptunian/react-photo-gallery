@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const imgWithClick = { cursor: 'pointer' };
 
-const Photo = ({ index, onClick, photo, margin, direction, top, left }) => {
+const Photo = ({ index, onClick, photo, margin, direction, top, left, key }) => {
   const imgStyle = { margin: margin, display: 'block' };
   if (direction === 'column') {
     imgStyle.position = 'absolute';
@@ -17,6 +17,7 @@ const Photo = ({ index, onClick, photo, margin, direction, top, left }) => {
 
   return (
     <img
+      key={key}
       style={onClick ? { ...imgStyle, ...imgWithClick } : imgStyle}
       {...photo}
       onClick={onClick ? handleClick : null}

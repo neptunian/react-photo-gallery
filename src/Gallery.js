@@ -90,24 +90,23 @@ const Gallery = React.memo(function Gallery({
     galleryStyle.height = thumbs[thumbs.length - 1].containerHeight;
   }
 
-  const PhotoComponent = renderImage || Photo;
+  const renderComponent = renderImage || Photo;
   return (
     <div className="react-photo-gallery--gallery">
       <div ref={galleryEl} style={galleryStyle}>
-        {thumbs.map((photo, index) => {
-          const { left, top, key, containerHeight, ...rest } = photo;
-          return (
-            <PhotoComponent
-              key={photo.key || photo.src}
-              margin={margin}
-              index={index}
-              photo={rest}
-              direction={direction}
-              left={left}
-              top={top}
-              onClick={onClick ? handleClick : null}
-            />
-          );
+        {thumbs.map((thumb, index) => {
+          const { left, top, containerHeight, ...photo } = thumb;
+          return renderComponent({
+            left,
+            top,
+            key: thumb.key || thumb.src,
+            containerHeight,
+            index,
+            margin,
+            direction,
+            onClick: onClick ? handleClick : null,
+            photo,
+          });
         })}
       </div>
     </div>
