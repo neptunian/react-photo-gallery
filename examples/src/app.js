@@ -4,6 +4,7 @@ import jsonp from 'jsonp';
 import ExampleBasic from './ExampleBasic';
 import ExampleWithLightbox from './ExampleWithLightbox';
 import ExampleCustomComponentSelection from './ExampleCustomComponentSelection';
+import ExampleSortable from './ExampleSortable';
 import ExampleDynamicLoading from './ExampleDynamicLoading';
 import ExampleDynamicColumns from './ExampleDynamicColumns';
 
@@ -17,7 +18,6 @@ class App extends React.Component {
     this.loadPhotos();
   }
   loadPhotos() {
-
     const urlParams = {
       api_key: '455b5e2fa6b951f9b9ab58a86d5e1f8a',
       photoset_id: '72157708141247864',
@@ -55,7 +55,6 @@ class App extends React.Component {
         photos: this.state.photos ? this.state.photos.concat(photos) : photos,
       });
     });
-
   }
 
   render() {
@@ -63,11 +62,12 @@ class App extends React.Component {
       const width = this.state.width;
       return (
         <div className="App">
-          <ExampleBasic title={'Basic Row Layout'} photos={this.state.photos.slice(0,20)} />
-          <ExampleBasic title={'Basic Column Layout'} layout="column" photos={this.state.photos.slice(40, 60)} />
+          <ExampleBasic title={'Basic Row Layout'} photos={this.state.photos.slice(0, 20)} />
+          <ExampleBasic title={'Basic Column Layout'} direction="column" photos={this.state.photos.slice(40, 60)} />
           <ExampleWithLightbox photos={this.state.photos.slice(60, 75)} />
           <ExampleCustomComponentSelection photos={this.state.photos.slice(75, 90)} />
-          <ExampleDynamicColumns title={'Custom Dynamic Columns'} photos={this.state.photos.slice(90,110)} />
+          <ExampleSortable photos={this.state.photos.slice(90, 100)} />
+          <ExampleDynamicColumns title={'Custom Dynamic Columns'} photos={this.state.photos.slice(100, 120)} />
           <ExampleDynamicLoading photos={this.state.photos} />
         </div>
       );
