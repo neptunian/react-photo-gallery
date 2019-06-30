@@ -1,67 +1,40 @@
 import React from 'react';
 import Gallery from '../src/Gallery';
-import photos from './test-photo-data';
+import { photos } from './test-photo-data';
 import { mount } from 'enzyme';
 
-function handleClick(){
-  return true; 
-}
+const handleClick = jest.fn();
 
 describe('Gallery', () => {
   let wrapper;
-
   afterEach(() => {
     if (wrapper && wrapper.length > 0) {
       wrapper.unmount();
-    } 
+    }
   });
 
-  it('renders correctly', () => {
-    wrapper = mount(
-      <Gallery photos={photos} onClick={handleClick}/>
-    );
-    wrapper.setState({containerWidth: 1280})
+  it('it matches correct snapshot', () => {
+    wrapper = mount(<Gallery photos={photos} onClick={handleClick} />);
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('renders correctly if there are more columns than photos', () => {
-    wrapper = mount(
-      <Gallery photos={photos} columns={10} onClick={handleClick}/>
-    );
-    wrapper.setState({containerWidth: 1280})
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('renders correctly after click', () => {
-    wrapper = mount(
-      <Gallery photos={photos} onClick={handleClick} />
-    );
-    wrapper.setState({containerWidth: 1280})
-    wrapper.find('img').first().simulate('click');
-    expect(wrapper).toMatchSnapshot();
+  it('calls onClick handler', () => {
+    wrapper = mount(<Gallery photos={photos} onClick={handleClick} />);
+    wrapper
+      .find('img')
+      .first()
+      .simulate('click');
+    expect(handleClick).toHaveBeenCalled();
   });
 
   it('renders correctly with direction set to column', () => {
-    wrapper = mount(
-      <Gallery photos={photos} onClick={handleClick} direction={'column'}/>
-    );
-    wrapper.setState({containerWidth: 1280})
+    wrapper = mount(<Gallery photos={photos} direction={'column'} />);
     expect(wrapper).toMatchSnapshot();
   });
 
   it('renders correctly with a column function', () => {
     const columns = jest.fn(_ => 3);
-    wrapper = mount(
-      <Gallery photos={photos} onClick={handleClick} columns={columns} direction="column" />
-    );
-    wrapper.setState({containerWidth: 1280})
-    expect(columns).toBeCalledWith(1280);
-    expect(wrapper).toMatchSnapshot();
+    wrapper = mount(<Gallery photos={photos} onClick={handleClick} columns={columns} direction="column" />);
+    expect(columns).toBeCalledWith(1140);
   });
-
-  it('unmounts', () => {
-    wrapper = mount(<Gallery photos={photos} />);
-    wrapper.setState({containerWidth: 500});
-    wrapper.unmount();
-  });
-})
+});
