@@ -3,6 +3,7 @@
 exports[`Gallery it matches correct snapshot 1`] = `
 <Gallery
   direction="row"
+  justifyLastRow={true}
   margin={2}
   onClick={[MockFunction]}
   photos={
@@ -831,6 +832,7 @@ exports[`Gallery it matches correct snapshot 1`] = `
 exports[`Gallery renders correctly with direction set to column 1`] = `
 <Gallery
   direction="column"
+  justifyLastRow={true}
   margin={2}
   photos={
     Array [

@@ -31,15 +31,24 @@ const makeGetNeighbors = (targetHeight, containerWidth, photos, limitNodeSearch,
   return results;
 };
 
-export const computeRowLayout = ({ containerWidth, limitNodeSearch, targetRowHeight, margin, photos }) => {
+export const computeRowLayout = ({ containerWidth, limitNodeSearch, targetRowHeight, margin, photos, justifyLastRow }) => {
   // const t = +new Date();
   const getNeighbors = makeGetNeighbors(targetRowHeight, containerWidth, photos, limitNodeSearch, margin);
   let path = findShortestPath(getNeighbors, '0', photos.length);
   path = path.map(node => +node);
+
+  const totalRows = path.length - 1;
+
   // console.log(`time to find the shortest path: ${(+new Date() - t)} ms`);
   for (let i = 1; i < path.length; ++i) {
     const row = photos.slice(path[i - 1], path[i]);
     const height = getCommonHeight(row, containerWidth, margin);
+    const isLastRow = i === totalRows;
+
+    if (!justifyLastRow && isLastRow && height > targetRowHeight) {
+      height = targetRowHeight;
+    }
+
     for (let j = path[i - 1]; j < path[i]; ++j) {
       photos[j].width = round(height * ratio(photos[j]), 1);
       photos[j].height = height;
