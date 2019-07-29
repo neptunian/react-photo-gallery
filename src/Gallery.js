@@ -15,6 +15,7 @@ const Gallery = React.memo(function Gallery({
   targetRowHeight,
   columns,
   renderImage,
+  stateReducer,
 }) {
   const [containerWidth, setContainerWidth] = useState(0);
   const galleryEl = useRef(null);
@@ -71,7 +72,9 @@ const Gallery = React.memo(function Gallery({
     }
 
     galleryStyle = { display: 'flex', flexWrap: 'wrap', flexDirection: 'row' };
-    thumbs = computeRowLayout({ containerWidth: width, limitNodeSearch, targetRowHeight, margin, photos });
+    thumbs = stateReducer(
+      computeRowLayout({ containerWidth: width, limitNodeSearch, targetRowHeight, margin, photos })
+    );
   }
   if (direction === 'column') {
     // allow user to calculate columns from containerWidth
@@ -86,7 +89,7 @@ const Gallery = React.memo(function Gallery({
       if (containerWidth >= 1500) columns = 4;
     }
     galleryStyle = { position: 'relative' };
-    thumbs = computeColumnLayout({ containerWidth: width, columns, margin, photos });
+    thumbs = stateReducer(computeColumnLayout({ containerWidth: width, columns, margin, photos }));
     galleryStyle.height = thumbs[thumbs.length - 1].containerHeight;
   }
 
@@ -122,12 +125,14 @@ Gallery.propTypes = {
   limitNodeSearch: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
   margin: PropTypes.number,
   renderImage: PropTypes.func,
+  stateReducer: PropTypes.func,
 };
 
 Gallery.defaultProps = {
   margin: 2,
   direction: 'row',
   targetRowHeight: 300,
+  stateReducer: thumbs => thumbs,
 };
 export { Photo };
 export default Gallery;
