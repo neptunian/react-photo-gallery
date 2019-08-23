@@ -1,10 +1,13 @@
-import React, { useState, useLayoutEffect, useRef, useMemo } from 'react';
+import React, { useState, useLayoutEffect, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import ResizeObserver from 'resize-observer-polyfill';
 import Photo, { photoPropType } from './Photo';
 import { computeColumnLayout } from './layouts/columns';
 import { computeRowLayout } from './layouts/justified';
 import { findIdealNodeSearch } from './utils/findIdealNodeSearch';
+
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 const Gallery = React.memo(function Gallery({
   photos,
@@ -19,7 +22,7 @@ const Gallery = React.memo(function Gallery({
   const [containerWidth, setContainerWidth] = useState(0);
   const galleryEl = useRef(null);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     let animationFrameID = null;
     const observer = new ResizeObserver(entries => {
       // only do something if width changes
