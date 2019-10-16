@@ -37,4 +37,15 @@ describe('Gallery', () => {
     wrapper = mount(<Gallery photos={photos} onClick={handleClick} columns={columns} direction="column" />);
     expect(columns).toBeCalledWith(1140);
   });
+
+  it('calls the callback when all images finish loading', () => {
+    const callback = jest.fn();
+    wrapper = mount(<Gallery photos={photos} onClick={handleClick} direction="column" onLoadCallback={callback} />);
+    let images = wrapper.find('img');
+    images.forEach(node => {
+      node.simulate('load');
+    });
+
+    expect(callback).toHaveBeenCalled();
+  });
 });
