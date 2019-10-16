@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const imgWithClick = { cursor: 'pointer' };
 
-const Photo = ({ index, onClick, photo, margin, direction, top, left, key }) => {
+const Photo = ({ index, onClick, photo, margin, direction, top, left, key, onImageLoaded }) => {
   const imgStyle = { margin: margin, display: 'block' };
   if (direction === 'column') {
     imgStyle.position = 'absolute';
@@ -21,6 +21,7 @@ const Photo = ({ index, onClick, photo, margin, direction, top, left, key }) => 
       style={onClick ? { ...imgStyle, ...imgWithClick } : imgStyle}
       {...photo}
       onClick={onClick ? handleClick : null}
+      onLoad={onImageLoaded ? onImageLoaded : null}
     />
   );
 };
@@ -52,6 +53,7 @@ Photo.propTypes = {
     }
   },
   direction: PropTypes.string,
+  onImageLoaded: PropTypes.func,
 };
 
 export default Photo;

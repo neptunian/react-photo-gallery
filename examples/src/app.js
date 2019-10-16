@@ -60,9 +60,12 @@ class App extends React.Component {
   render() {
     if (this.state.photos) {
       const width = this.state.width;
+      const onLoad = () => {
+        console.log('Finished Loading Images');
+      }
       return (
         <div className="App">
-          <ExampleBasic title={'Basic Row Layout'} photos={this.state.photos.slice(0, 20)} />
+          <ExampleBasic title={'Basic Row Layout'} photos={this.state.photos.slice(0, 20)} onLoadCallback={onLoad} />
           <ExampleBasic title={'Basic Column Layout'} direction="column" photos={this.state.photos.slice(40, 60)} />
           <ExampleWithLightbox photos={this.state.photos.slice(60, 75)} />
           <ExampleCustomComponentSelection photos={this.state.photos.slice(75, 90)} />
