@@ -11,7 +11,7 @@ function ExampleCustomComponentSelection({ photos }) {
   };
 
   const imageRenderer = useCallback(
-    ({ index, left, top, key, containerHeight, photo }) => (
+    ({ index, left, top, key, containerHeight, photo, direction }) => (
       <SelectedImage
         selected={selectAll ? true : false}
         key={key}
@@ -20,6 +20,7 @@ function ExampleCustomComponentSelection({ photos }) {
         photo={photo}
         left={left}
         top={top}
+        direction={direction}
       />
     ),
     [selectAll]
