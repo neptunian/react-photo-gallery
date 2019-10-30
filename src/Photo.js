@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 const imgWithClick = { cursor: 'pointer' };
 
-const Photo = ({ index, onClick, photo, margin, direction, top, left, key }) => {
-  const imgStyle = { margin: margin, display: 'block' };
+const Photo = ({ index, onClick, photo, margin, direction, top, left, key, style }) => {
+  const imgStyle = { margin: margin, display: 'block', ...style };
   if (direction === 'column') {
     imgStyle.position = 'absolute';
     imgStyle.left = left;
@@ -34,6 +34,7 @@ export const photoPropType = PropTypes.shape({
   title: PropTypes.string,
   srcSet: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   sizes: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  style: PropTypes.object,
 });
 
 Photo.propTypes = {
