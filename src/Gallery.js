@@ -6,8 +6,7 @@ import { computeColumnLayout } from './layouts/columns';
 import { computeRowLayout } from './layouts/justified';
 import { findIdealNodeSearch } from './utils/findIdealNodeSearch';
 
-const useIsomorphicLayoutEffect =
-  typeof window !== "undefined" ? useLayoutEffect : useEffect;
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 const Gallery = React.memo(function Gallery({
   photos,
