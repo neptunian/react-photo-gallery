@@ -63,6 +63,29 @@ export interface RenderImageProps<CustomPhotoProps extends object = {}> {
   direction: 'row' | 'column'
   top?: number
   left?: number
+  key: string
+}
+
+export interface ImageProps<CustomPhotoProps extends object = {}> {
+  /**
+   * margin prop optionally passed into Gallery by user
+   */
+  margin?: string
+  /**
+   * the index of the photo within the Gallery
+   */
+  index: number
+  /**
+   * the individual object passed into Gallery's
+   * photos array prop, with all the same props except recalculated height and width
+   */
+  photo: PhotoProps<CustomPhotoProps>
+
+  onClick: renderImageClickHandler | null
+  direction: 'row' | 'column'
+  top?: number
+  left?: number
+  style?: object
 }
 
 export type PhotoClickHandler<CustomPhotoProps extends object = {}> = (
@@ -123,3 +146,8 @@ declare const Gallery: GalleryI
 
 export default Gallery
 
+export type ImageI<CustomPhotoProps extends object = {}> = React.ComponentClass<ImageProps<CustomPhotoProps>>
+
+declare const Photo: ImageI
+
+export { Photo }
