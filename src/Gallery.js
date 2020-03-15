@@ -15,6 +15,7 @@ const Gallery = React.memo(function Gallery({
   targetRowHeight,
   columns,
   renderImage,
+  className,
 }) {
   const [containerWidth, setContainerWidth] = useState(0);
   const galleryEl = useRef(null);
@@ -92,7 +93,7 @@ const Gallery = React.memo(function Gallery({
 
   const renderComponent = renderImage || Photo;
   return (
-    <div className="react-photo-gallery--gallery">
+    <div className={className || "react-photo-gallery--gallery"}>
       <div ref={galleryEl} style={galleryStyle}>
         {thumbs.map((thumb, index) => {
           const { left, top, containerHeight, ...photo } = thumb;
