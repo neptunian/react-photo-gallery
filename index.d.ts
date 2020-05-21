@@ -34,6 +34,15 @@ export type PhotoProps<CustomPhotoProps extends object = {}> = {
   key?: string
 } & CustomPhotoProps
 
+declare enum ImgLoading {
+  Lazy = 'lazy',
+  Eager = 'eager'
+}
+
+export type ImgProps = {
+  loading: ImgLoading
+}
+
 export type renderImageClickHandler = (
   event: React.MouseEvent,
   photo: object & {
@@ -63,6 +72,8 @@ export interface RenderImageProps<CustomPhotoProps extends object = {}> {
   direction: 'row' | 'column'
   top?: number
   left?: number
+
+  imgProps: ImgProps
 }
 
 export type PhotoClickHandler<CustomPhotoProps extends object = {}> = (
@@ -113,6 +124,8 @@ export interface GalleryProps<CustomPhotoProps extends object = {}> {
   direction?: string
 
   renderImage?: React.ComponentType<RenderImageProps<CustomPhotoProps>>
+
+  imgProps: ImgProps
 }
 
 export type GalleryI<

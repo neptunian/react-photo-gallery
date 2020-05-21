@@ -15,6 +15,7 @@ const Gallery = React.memo(function Gallery({
   targetRowHeight,
   columns,
   renderImage,
+  imgProps,
 }) {
   const [containerWidth, setContainerWidth] = useState(0);
   const galleryEl = useRef(null);
@@ -106,6 +107,7 @@ const Gallery = React.memo(function Gallery({
             direction,
             onClick: onClick ? handleClick : null,
             photo,
+            imgProps,
           });
         })}
       </div>
@@ -122,6 +124,9 @@ Gallery.propTypes = {
   limitNodeSearch: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
   margin: PropTypes.number,
   renderImage: PropTypes.func,
+  imgProps: PropTypes.shape({
+    loading: PropTypes.oneOf("eager", "lazy"),
+  }),
 };
 
 Gallery.defaultProps = {
