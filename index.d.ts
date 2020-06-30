@@ -113,6 +113,12 @@ export interface GalleryProps<CustomPhotoProps extends object = {}> {
   direction?: string
 
   renderImage?: React.ComponentType<RenderImageProps<CustomPhotoProps>>
+
+  /**
+   * set the component container element width - either
+   * to its default value, an explicit value, or to not set an element width
+   */
+  setComponentWidth?: string | boolean
 }
 
 export type GalleryI<
