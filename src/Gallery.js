@@ -6,6 +6,8 @@ import { computeColumnLayout } from './layouts/columns';
 import { computeRowLayout } from './layouts/justified';
 import { findIdealNodeSearch } from './utils/findIdealNodeSearch';
 
+const GALLERY_DEFAULT_COMPONENT_WIDTH = '100%';
+
 const Gallery = React.memo(function Gallery({
   photos,
   onClick,
@@ -15,6 +17,7 @@ const Gallery = React.memo(function Gallery({
   targetRowHeight,
   columns,
   renderImage,
+  setComponentWidth,
 }) {
   const [containerWidth, setContainerWidth] = useState(0);
   const galleryEl = useRef(null);
@@ -77,7 +80,7 @@ const Gallery = React.memo(function Gallery({
       limitNodeSearch,
       targetRowHeight,
       margin,
-      photos
+      photos,
     });
   }
   if (direction === 'column') {
@@ -97,14 +100,25 @@ const Gallery = React.memo(function Gallery({
       containerWidth: width,
       columns,
       margin,
-      photos
+      photos,
     });
     galleryStyle.height = thumbs[thumbs.length - 1].containerHeight;
   }
 
+  // determine if we should explicitly set the width of the container element
+  const containerStyle = {};
+
+  if (typeof setComponentWidth === 'boolean' && setComponentWidth === true) {
+    // if setComponentWidth is set to true, set the container width to be the component default
+    containerStyle.width = GALLERY_DEFAULT_COMPONENT_WIDTH;
+  } else if (typeof setComponentWidth === 'string') {
+    // if setComponentWidth is set to string value, set the container width as specified
+    containerStyle.width = setComponentWidth;
+  }
+
   const renderComponent = renderImage || Photo;
   return (
-    <div className="react-photo-gallery--gallery" style={{ width: '100%' }}>
+    <div className="react-photo-gallery--gallery" style={containerStyle}>
       <div ref={galleryEl} style={galleryStyle}>
         {thumbs.map((thumb, index) => {
           const { left, top, containerHeight, ...photo } = thumb;
@@ -134,12 +148,15 @@ Gallery.propTypes = {
   limitNodeSearch: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
   margin: PropTypes.number,
   renderImage: PropTypes.func,
+  setComponentWidth: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 };
 
 Gallery.defaultProps = {
   margin: 2,
   direction: 'row',
   targetRowHeight: 300,
+  setComponentWidth: GALLERY_DEFAULT_COMPONENT_WIDTH,
 };
+
 export { Photo };
 export default Gallery;

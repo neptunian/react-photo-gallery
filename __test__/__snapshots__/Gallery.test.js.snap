@@ -309,10 +309,16 @@ exports[`Gallery it matches correct snapshot 1`] = `
       },
     ]
   }
+  setComponentWidth="100%"
   targetRowHeight={300}
 >
   <div
     className="react-photo-gallery--gallery"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
       style={
@@ -1136,10 +1142,16 @@ exports[`Gallery renders correctly with direction set to column 1`] = `
       },
     ]
   }
+  setComponentWidth="100%"
   targetRowHeight={300}
 >
   <div
     className="react-photo-gallery--gallery"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
       style={
