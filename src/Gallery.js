@@ -24,7 +24,7 @@ const Gallery = React.memo(function Gallery({
     const observer = new ResizeObserver(entries => {
       // only do something if width changes
       const newWidth = entries[0].contentRect.width;
-      if (containerWidth !== newWidth) {
+      if (newWidth !== 0 && containerWidth !== newWidth) {
         // put in an animation frame to stop "benign errors" from
         // ResizObserver https://stackoverflow.com/questions/49384120/resizeobserver-loop-limit-exceeded
         animationFrameID = window.requestAnimationFrame(() => {
