@@ -15,8 +15,9 @@ const Gallery = React.memo(function Gallery({
   targetRowHeight,
   columns,
   renderImage,
+  initialContainerWidth,
 }) {
-  const [containerWidth, setContainerWidth] = useState(0);
+  const [containerWidth, setContainerWidth] = useState(initialContainerWidth || 0);
   const galleryEl = useRef(null);
 
   useLayoutEffect(() => {
@@ -122,6 +123,7 @@ Gallery.propTypes = {
   limitNodeSearch: PropTypes.oneOfType([PropTypes.func, PropTypes.number]),
   margin: PropTypes.number,
   renderImage: PropTypes.func,
+  initialContainerWidth: PropTypes.number,
 };
 
 Gallery.defaultProps = {
