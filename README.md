@@ -83,4 +83,4 @@ Goes through each column looking for the best place to insert the next photo by 
 
 ## Thanks
 
-Special thanks to [Christopher Chedeau](https://blog.vjeux.com/) for [writing about this interesting algorithm](http://blog.vjeux.com/2014/image/google-plus-layout-find-best-breaks.html) and whos code served as a starting off point.
+Special thanks to [Christopher Chedeau](https://blog.vjeux.com/) for [writing about this interesting algorithm](http://blog.vjeux.com/2014/image/google-plus-layout-find-best-breaks.html) and whose code served as a starting off point.
