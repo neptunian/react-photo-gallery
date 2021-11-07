@@ -1,34 +1,34 @@
-const webpack = require('webpack');
-const path = require('path');
+const webpack = require("webpack");
+const path = require("path");
 
 module.exports = {
-  context: path.resolve(__dirname, 'examples/src'),
-  mode: 'development',
+  context: path.resolve(__dirname, "examples/src"),
+  mode: "development",
   entry: {
-    app: './app.js',
+    app: "./app.js",
   },
   output: {
-    filename: 'bundle.js',
-    publicPath: '/',
+    filename: "bundle.js",
+    publicPath: "/",
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'examples/src'),
-    disableHostCheck: true,
+    static: path.resolve(__dirname, "examples/src"),
+    allowedHosts: "all",
     port: 8000,
-    host: "0.0.0.0"
+    host: "0.0.0.0",
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: [/node_modules/],
-        loader: 'babel-loader',
+        loader: "babel-loader",
       },
     ],
   },
   resolve: {
     alias: {
-      'react-photo-gallery': path.resolve(__dirname, 'src/Gallery'),
-    }
+      "react-photo-gallery": path.resolve(__dirname, "src/Gallery"),
+    },
   },
 };
