@@ -63,6 +63,10 @@ export interface RenderImageProps<CustomPhotoProps extends object = {}> {
   direction: 'row' | 'column'
   top?: number
   left?: number
+  /**
+   * key to be used on component
+   */
+  key?: string
 }
 
 export type PhotoClickHandler<CustomPhotoProps extends object = {}> = (
