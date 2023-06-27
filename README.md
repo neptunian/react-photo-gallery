@@ -82,5 +82,3 @@ Inspired by [this blog article](http://blog.vjeux.com/2014/image/google-plus-lay
 Goes through each column looking for the best place to insert the next photo by finding the shortest column. Not recommended for panorama aspect ratios.
 
 ## Thanks
-
-Special thanks to [Christopher Chedeau](https://blog.vjeux.com/) for [writing about this interesting algorithm](http://blog.vjeux.com/2014/image/google-plus-layout-find-best-breaks.html) and whos code served as a starting off point.
